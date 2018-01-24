@@ -24,10 +24,8 @@ class ContentsView: UIView {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet var tabButtons: [UIButton]!
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var segmentedControlHeight: NSLayoutConstraint!
-    let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
 
@@ -39,8 +37,7 @@ class ContentsView: UIView {
 
         sharedInit()
     }
-    
-    
+
     private func sharedInit() {
         Bundle.main.loadNibNamed("ContentsView", owner: self, options: nil)
         addSubview(contentView)
@@ -90,7 +87,8 @@ extension ContentsView {
      - parameter animated: アニメーションするかのBOOL
      */
     func updateCurrentIndex(index: Int, animated: Bool) {
-        segmentedControl.selectedSegmentIndex = index
+        tabButtons[currentIndex].backgroundColor = UIColor.white
+        tabButtons[index].backgroundColor = UIColor(red: 0.88, green: 1.0, blue: 0.87, alpha: 1.0)
         currentIndex = index
     }
 }
@@ -101,17 +99,11 @@ extension ContentsView {
 extension ContentsView: UIScrollViewDelegate {
 
     /**
-     contentsViewでのスクロールを検知
+     contentsViewへのスクロールを検知
      - parameter scrollView: scrollView
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > statusBarHeight {
-            scrollDidChangedBlock?(scrollView.contentOffset.y, true)
-            scrollView.contentOffset.y = statusBarHeight
-        } else if scrollView.contentOffset.y > 0.0 {
-            scrollDidChangedBlock?(scrollView.contentOffset.y, true)
-            scrollView.contentOffset.y = 0.0
-        } else if frame.minY < 0.0 {
+        if scrollView.contentOffset.y > 0.0 || frame.minY < 0.0 {
             scrollDidChangedBlock?(scrollView.contentOffset.y, true)
             scrollView.contentOffset.y = 0.0
         } else {
@@ -129,8 +121,9 @@ extension ContentsView {
     @IBAction private func touchButtonTouchUpInside(_ sender: UIButton) {
         containerView.backgroundColor = randomColor()
     }
-    @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
-        tabButtonPressedBlock?(sender.selectedSegmentIndex)
-        updateCurrentIndex(index: sender.selectedSegmentIndex, animated: true)
+    
+    @IBAction func tabButtonTouchUpInside(_ sender: UIButton) {
+        tabButtonPressedBlock?(sender.tag)
+        updateCurrentIndex(index: sender.tag, animated: true)
     }
 }
