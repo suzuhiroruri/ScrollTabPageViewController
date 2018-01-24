@@ -14,7 +14,6 @@ class ContentsView: UIView {
     var currentIndex: Int = 0
     
     
-    
     var tabButtonPressedBlock: ((_ index: Int) -> Void)?
     var scrollDidChangedBlock: ((_ scroll: CGFloat, _ shouldScroll: Bool) -> Void)?
 
@@ -32,13 +31,11 @@ class ContentsView: UIView {
         sharedInit()
     }
 
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         sharedInit()
     }
-    
 
     private func sharedInit() {
         Bundle.main.loadNibNamed("ContentsView", owner: self, options: nil)
@@ -49,7 +46,6 @@ class ContentsView: UIView {
         scrollView.delegate = self
         scrollView.scrollsToTop = false
     }
-    
 }
 
 
