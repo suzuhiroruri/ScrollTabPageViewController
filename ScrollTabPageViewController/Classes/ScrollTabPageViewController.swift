@@ -97,7 +97,6 @@ extension ScrollTabPageViewController {
             guard let uself = self else {
                 return
             }
-            
 
             uself.shouldUpdateLayout = true
             uself.updateIndex = index
