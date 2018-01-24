@@ -32,11 +32,13 @@ class ContentsView: UIView {
         sharedInit()
     }
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         sharedInit()
     }
+    
 
     private func sharedInit() {
         Bundle.main.loadNibNamed("ContentsView", owner: self, options: nil)
@@ -47,6 +49,7 @@ class ContentsView: UIView {
         scrollView.delegate = self
         scrollView.scrollsToTop = false
     }
+    
 }
 
 
@@ -56,7 +59,7 @@ extension ContentsView {
 
     // 制約を更新
     func setupConstraints() {
-        let topConstraint = NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 20.0)
+        let topConstraint = NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 64.0)
 
         let bottomConstraint = NSLayoutConstraint(item: contentView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0.0)
 
@@ -103,7 +106,13 @@ extension ContentsView: UIScrollViewDelegate {
      - parameter scrollView: scrollView
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 0.0 || frame.minY < 0.0 {
+        if scrollView.contentOffset.y > 64 {
+            scrollDidChangedBlock?(scrollView.contentOffset.y, true)
+            scrollView.contentOffset.y = 64
+        } else if scrollView.contentOffset.y > 0.0 {
+            scrollDidChangedBlock?(scrollView.contentOffset.y, true)
+            scrollView.contentOffset.y = 0.0
+        } else if frame.minY < 0.0 {
             scrollDidChangedBlock?(scrollView.contentOffset.y, true)
             scrollView.contentOffset.y = 0.0
         } else {
