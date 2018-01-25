@@ -103,7 +103,7 @@ extension ScrollTabPageViewController {
             let direction: UIPageViewControllerNavigationDirection = (uself.currentIndex! < index) ? .forward : .reverse
             uself.setViewControllers([uself.pageViewControllers[index]],
                 direction: direction,
-                animated: true,
+                animated: false,
                 completion: { [weak self] (completed: Bool) in
                     guard let uself = self else {
                         return
