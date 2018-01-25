@@ -139,6 +139,16 @@ extension ScrollTabPageViewController {
         vc.scrollView.contentInset = inset
         vc.scrollView.scrollIndicatorInsets = inset
     }
+    
+    func setupNextContentInset(updateIndex:Int) {
+        guard let vc = pageViewControllers[updateIndex] as? ScrollTabPageViewControllerProtocol else {
+            return
+        }
+        
+        let inset = UIEdgeInsetsMake(contentViewHeihgt, 0.0, 0.0, 0.0)
+        vc.scrollView.contentInset = inset
+        vc.scrollView.scrollIndicatorInsets = inset
+    }
 
     /**
      Y座標をセット(初期表示やページングがされた時)
@@ -259,7 +269,7 @@ extension ScrollTabPageViewController: UIPageViewControllerDataSource {
 extension ScrollTabPageViewController: UIPageViewControllerDelegate {
 
     /**
-     pageViewControllerで別のviewControllerに遷移する時の処理
+     スワイプでpageViewControllerで別のviewControllerに遷移する時の処理
      - parameter pageViewController: pageViewController
      - parameter pagingViewControllers: これから遷移しようとしているviewController
      */
@@ -267,6 +277,7 @@ extension ScrollTabPageViewController: UIPageViewControllerDelegate {
         if let vc = pendingViewControllers.first, let index = pageViewControllers.index(of: vc) {
             shouldUpdateLayout = true
             updateIndex = index
+            setupNextContentInset(updateIndex: updateIndex)
         }
     }
 
