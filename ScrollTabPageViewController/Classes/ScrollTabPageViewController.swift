@@ -128,26 +128,27 @@ extension ScrollTabPageViewController {
 extension ScrollTabPageViewController {
 
     /**
-     contentInsetをセット(初期表示やページングがされた時)
+     現在のscrollViewのcontentInsetをセット
      */
     func setupCurrentContentInset() {
         guard let currentIndex = currentIndex, let vc = pageViewControllers[currentIndex] as? ScrollTabPageViewControllerProtocol else {
             return
         }
 
-        let inset = UIEdgeInsetsMake(contentViewHeihgt, 0.0, 0.0, 0.0)
-        vc.scrollView.contentInset = inset
-        vc.scrollView.scrollIndicatorInsets = inset
+        vc.scrollView.contentInset.top = contentViewHeihgt
+        vc.scrollView.scrollIndicatorInsets.top = contentViewHeihgt
     }
     
+    /**
+     次のscrollViewのcontentInsetをセット
+     */
     func setupNextContentInset(nextIndex:Int) {
         guard let vc = pageViewControllers[nextIndex] as? ScrollTabPageViewControllerProtocol else {
             return
         }
         
-        let inset = UIEdgeInsetsMake(contentViewHeihgt, 0.0, 0.0, 0.0)
-        vc.scrollView.contentInset = inset
-        vc.scrollView.scrollIndicatorInsets = inset
+        vc.scrollView.contentInset.top = contentViewHeihgt
+        vc.scrollView.scrollIndicatorInsets.top = contentViewHeihgt
     }
 
     /**
@@ -194,11 +195,15 @@ extension ScrollTabPageViewController {
             return
         }
 
+        // 予めスクロールのcontentOffsetはcontentsViewの分だけ差し引かれている。
+        // スクロールの長さがsegmentedControlの高さより大きいかどうか判定
         if vc.scrollView.contentOffset.y >= -contentsView.segmentedControlHeight.constant {
+            // tableViewのスクロール更新
             let scroll = contentViewHeihgt - contentsView.segmentedControlHeight.constant
             updateContentView(scroll: -scroll)
             vc.scrollView.scrollIndicatorInsets.top = contentsView.segmentedControlHeight.constant
         } else {
+            // contentsViewとtableViewのスクロール更新
             let scroll = contentViewHeihgt + vc.scrollView.contentOffset.y
             updateContentView(scroll: -scroll)
             vc.scrollView.scrollIndicatorInsets.top = -vc.scrollView.contentOffset.y
