@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BAScoutDetailJobViewController.swift
 //  ScrollTabPageViewController
 //
 //  Created by EndouMari on 2015/12/06.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BAScoutDetailJobViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -19,17 +19,15 @@ class ViewController: UIViewController {
         tableView.delegate = self
     }
 
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        scrollTabPageViewController.updateLayoutIfNeeded()
+        scoutDetailBaseViewController.updateJobDetailLayoutIfNeeded()
     }
 }
 
-
 // MARK: - UITableVIewDataSource
 
-extension ViewController: UITableViewDataSource {
+extension BAScoutDetailJobViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
@@ -42,27 +40,29 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-
 // MARK: - UIScrollViewDelegate
 
-extension ViewController: UITableViewDelegate {
+extension BAScoutDetailJobViewController: UITableViewDelegate {
+
     /**
      viewControllerへのスクロールを検知
      - parameter scrollView: scrollView
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        // contentsViewのスクロールを同期
-        scrollTabPageViewController.updateContentViewFrame()
+            // scoutDetailMailViewのスクロールを同期
+        scoutDetailBaseViewController.updateContentViewFrame()
     }
 }
 
-
 // MARK: - ScrollTabPageViewControllerProtocol
 
-extension ViewController: ScrollTabPageViewControllerProtocol {
+extension BAScoutDetailJobViewController: BAScoutDetailBaseViewControllerProtocol {
 
-    var scrollTabPageViewController: ScrollTabPageViewController {
-        return parent as! ScrollTabPageViewController
+    var scoutDetailBaseViewController: BAScoutDetailBaseViewController {
+        guard let baseController = parent as? BAScoutDetailBaseViewController else {
+            return BAScoutDetailBaseViewController()
+        }
+        return baseController
     }
 
     var scrollView: UIScrollView {

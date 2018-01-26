@@ -1,33 +1,27 @@
-# Xcode
-#
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
+#メタファイル
+.DS_Store
 
-# CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
-#
-# Pods/
+#各個人の生成ログ
+DerivedData/
 
-# Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
+#プロジェクトの構成情報を格納するファイル
+!*.xcodeproj/project.pbxproj
 
-Carthage/Build
+#プロジェクトのワークスペースのデータを格納するXMLファイル
+!*.xcworkspace/contents.xcworkspacedata
+
+#cocoaPod経由のライブラリはPodsファイルは各自でinstallすること
+Pods/*
+Podfile
+Podfile.lock
+
+
+#プロジェクトを開くたびに編集されるファイル
+UserInterfaceState.xcuserstate
+
+#各個人で生成されるファイル
+*.xcodeproj/xcuserdata/*
+*.xcworkspace/xcuserdata/*
+!*.plist
+.dat.*
+lifeLog/Support/R.generated.swift
