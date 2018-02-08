@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BAScoutDetailAboutBenefitViewController" customModule="ScrollTabPageViewController" customModuleProvider="target">
             <connections>
                 <outlet property="aboutScoutBenefit" destination="S1z-mD-Uks" id="Ngl-Cz-bbl"/>
+                <outlet property="containerView" destination="g7c-Oz-fhl" id="fZM-qw-jUc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,13 +22,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxA-t5-YSH">
-                    <rect key="frame" x="127" y="192" width="42" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7U-Ba-aVZ">
                     <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                     <items>
@@ -44,14 +38,26 @@
                     <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                     <items>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="c4s-L3-xA3"/>
-                        <barButtonItem systemItem="refresh" id="h4I-L7-ZVx"/>
+                        <barButtonItem systemItem="refresh" id="h4I-L7-ZVx">
+                            <connections>
+                                <action selector="tapReloadButton:" destination="-1" id="xmr-xs-3aM"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7c-Oz-fhl">
+                    <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g7c-Oz-fhl" secondAttribute="trailing" id="0z8-zy-A9m"/>
+                <constraint firstItem="g7c-Oz-fhl" firstAttribute="top" secondItem="c7U-Ba-aVZ" secondAttribute="bottom" id="7jO-Z9-evG"/>
                 <constraint firstItem="c7U-Ba-aVZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BKI-qZ-Aoo"/>
+                <constraint firstItem="g7c-Oz-fhl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BSW-2s-6Gl"/>
                 <constraint firstItem="c7U-Ba-aVZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="PW8-wb-ort"/>
+                <constraint firstItem="8Fd-6e-IWW" firstAttribute="top" secondItem="g7c-Oz-fhl" secondAttribute="bottom" id="iQv-v9-A9T"/>
                 <constraint firstItem="8Fd-6e-IWW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="j7q-CE-vaB"/>
                 <constraint firstAttribute="trailing" secondItem="8Fd-6e-IWW" secondAttribute="trailing" id="jb7-Oy-njD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c7U-Ba-aVZ" secondAttribute="trailing" id="lTK-un-l7i"/>
