@@ -105,8 +105,16 @@ class BAScoutDetailMailView: UIView {
            interViewBenefitBaseView.isHidden = true
         }
 
-        benefitRemarksLabel.text = scoutDetailMailViewModel?.benefitRemarks
-        benefitRemarksLabel.sizeToFit()
+        guard let benefitRemarksLabelCount = scoutDetailMailViewModel?.benefitRemarks?.count else {
+            return
+        }
+        if benefitRemarksLabelCount > 0 {
+            benefitRemarksLabel.text = scoutDetailMailViewModel?.benefitRemarks
+            benefitRemarksLabel.sizeToFit()
+        }else{
+            benefitRemarksBaseView.isHidden = true
+        }
+        
 
         mailBodyLabel.text = scoutDetailMailViewModel?.mailBody
         mailBodyLabel.sizeToFit()
