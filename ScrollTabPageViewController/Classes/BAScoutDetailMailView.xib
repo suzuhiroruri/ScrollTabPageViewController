@@ -325,6 +325,7 @@
                 <outlet property="benefitRemarksBaseView" destination="2J3-Gq-7ap" id="wn0-lo-vFu"/>
                 <outlet property="benefitRemarksLabel" destination="kd4-wl-qMK" id="ahO-57-Yvp"/>
                 <outlet property="collectionHeight" destination="geZ-xO-sa3" id="8zY-fe-O3q"/>
+                <outlet property="interViewBenefitBaseView" destination="WcH-e0-Hdj" id="J5j-9T-btQ"/>
                 <outlet property="mailBodyLabel" destination="aeS-Lx-hSI" id="hyz-Fq-6Z4"/>
                 <outlet property="mailHeaderLabel" destination="zII-7a-K6R" id="utM-wX-avl"/>
                 <outlet property="promisedInterviewBenefitSubTitleLabel" destination="V7e-d0-IfZ" id="5bE-eP-lYC"/>

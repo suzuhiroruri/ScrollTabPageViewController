@@ -41,7 +41,7 @@ class BAScoutDetailMailViewModel: NSObject {
         receivedDate?.append(f.string(from: now))
         
         promisedInterviewBenefitSubTitle = "書類なしでスグ面接♪"
-        switch promisedInterviewBenefit(rawValue: 1) {
+        switch promisedInterviewBenefit(rawValue: 2) {
         case .promisedInterview?:
             promisedInterviewBenefitTitle = "面接確約"
         case .exemptionFirstInterview?:
@@ -51,12 +51,19 @@ class BAScoutDetailMailViewModel: NSObject {
         case .presidentInterview?:
             promisedInterviewBenefitTitle = "いきなり社長面接"
         case .none:
-            promisedInterviewBenefitTitle = "面接確約"
+            promisedInterviewBenefitTitle = ""
         }
         guard let promisedInterviewBenefitTitle = promisedInterviewBenefitTitle else {
             return
         }
-        mailHeader = "【" + promisedInterviewBenefitTitle + "】" + "あ"
+        
+        if promisedInterviewBenefitTitle.count > 0 {
+            mailHeader = "【" + promisedInterviewBenefitTitle + "】" + "あ"
+        } else {
+            mailHeader = "あ"
+        }
+        
+        
 
         benefitRemarks = "※面接交通費支給"
         benefitRemarks?.append("\n")

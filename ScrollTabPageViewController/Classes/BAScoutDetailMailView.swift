@@ -30,6 +30,7 @@ class BAScoutDetailMailView: UIView {
     // スカウトメールヘッダータイトルのラベル
     @IBOutlet weak var mailHeaderLabel: UILabel!
 
+    @IBOutlet weak var interViewBenefitBaseView: UIView!
     // 面接確約特典のサブタイトル
     @IBOutlet weak var promisedInterviewBenefitSubTitleLabel: UILabel!
     // 面接確約特典のタイトル
@@ -94,8 +95,15 @@ class BAScoutDetailMailView: UIView {
         mailHeaderLabel.text = scoutDetailMailViewModel?.mailHeader
         mailHeaderLabel.sizeToFit()
 
-        promisedInterviewBenefitSubTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitSubTitle
-        promisedInterviewBenefitTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitTitle
+        guard let promisedInterviewBenefitTitleCount:Int = scoutDetailMailViewModel?.promisedInterviewBenefitTitle?.count else {
+            return
+        }
+        if promisedInterviewBenefitTitleCount > 0 {
+            promisedInterviewBenefitSubTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitSubTitle
+            promisedInterviewBenefitTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitTitle
+        }else{
+           interViewBenefitBaseView.isHidden = true
+        }
 
         benefitRemarksLabel.text = scoutDetailMailViewModel?.benefitRemarks
         benefitRemarksLabel.sizeToFit()
