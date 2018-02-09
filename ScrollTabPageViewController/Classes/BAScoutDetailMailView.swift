@@ -31,9 +31,9 @@ class BAScoutDetailMailView: UIView {
     @IBOutlet weak var mailHeaderLabel: UILabel!
 
     // 面接確約特典のサブタイトル
-    @IBOutlet weak var interviewFixBenefitSubTitleLabel: UILabel!
+    @IBOutlet weak var promisedInterviewBenefitSubTitleLabel: UILabel!
     // 面接確約特典のタイトル
-    @IBOutlet weak var interviewFixBenefitTitleLabel: UILabel!
+    @IBOutlet weak var promisedInterviewBenefitTitleLabel: UILabel!
     // 特典アイコンのcollectionView
     @IBOutlet weak var benefitCollectionView: UICollectionView! {
         didSet {
@@ -94,8 +94,8 @@ class BAScoutDetailMailView: UIView {
         mailHeaderLabel.text = scoutDetailMailViewModel?.mailHeader
         mailHeaderLabel.sizeToFit()
 
-        interviewFixBenefitSubTitleLabel.text = scoutDetailMailViewModel?.interviewFixBenefitSubTitle
-        interviewFixBenefitTitleLabel.text = scoutDetailMailViewModel?.interviewFixBenefitTitle
+        promisedInterviewBenefitSubTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitSubTitle
+        promisedInterviewBenefitTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitTitle
 
         benefitRemarksLabel.text = scoutDetailMailViewModel?.benefitRemarks
         benefitRemarksLabel.sizeToFit()

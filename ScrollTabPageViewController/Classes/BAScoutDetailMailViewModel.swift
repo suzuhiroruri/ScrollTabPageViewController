@@ -13,8 +13,8 @@ class BAScoutDetailMailViewModel: NSObject {
     var isFromSubscribeList:Bool? = false
     var receivedDate: String?
     var mailHeader: String?
-    var interviewFixBenefitSubTitle: String?
-    var interviewFixBenefitTitle: String?
+    var promisedInterviewBenefitSubTitle: String?
+    var promisedInterviewBenefitTitle: String?
     var benefitRemarks: String?
     var mailBody: String?
 
@@ -35,8 +35,8 @@ class BAScoutDetailMailViewModel: NSObject {
 
         mailHeader = "赤（あか、紅、朱、丹）は色のひとつで、熟したイチゴや血液のような色の総称。"
 
-        interviewFixBenefitSubTitle = "書類なしでスグ面接♪"
-        interviewFixBenefitTitle = "面接確約"
+        promisedInterviewBenefitSubTitle = "書類なしでスグ面接♪"
+        promisedInterviewBenefitTitle = "面接確約"
 
         benefitRemarks = "※面接交通費支給"
         benefitRemarks?.append("\n")
