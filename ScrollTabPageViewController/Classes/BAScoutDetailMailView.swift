@@ -35,6 +35,7 @@ class BAScoutDetailMailView: UIView {
     @IBOutlet weak var promisedInterviewBenefitSubTitleLabel: UILabel!
     // 面接確約特典のタイトル
     @IBOutlet weak var promisedInterviewBenefitTitleLabel: UILabel!
+    @IBOutlet weak var benefitCollectionBaseView: UIView!
     // 特典アイコンのcollectionView
     @IBOutlet weak var benefitCollectionView: UICollectionView! {
         didSet {
@@ -200,6 +201,9 @@ extension BAScoutDetailMailView: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let scoutDetailMailViewModel = scoutDetailMailViewModel else {
             return 0
+        }
+        if !(scoutDetailMailViewModel.numberOfCollectionCellAtSection() > 0) {
+            benefitCollectionBaseView.isHidden = true
         }
         return scoutDetailMailViewModel.numberOfCollectionCellAtSection()
     }

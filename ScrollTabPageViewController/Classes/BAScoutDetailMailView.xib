@@ -321,6 +321,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="benefitCollectionBaseView" destination="nIp-Zq-BlU" id="oNe-ra-faM"/>
                 <outlet property="benefitCollectionView" destination="UoS-dD-RCO" id="lzp-2N-JEb"/>
                 <outlet property="benefitRemarksBaseView" destination="2J3-Gq-7ap" id="wn0-lo-vFu"/>
                 <outlet property="benefitRemarksLabel" destination="kd4-wl-qMK" id="ahO-57-Yvp"/>
