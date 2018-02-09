@@ -85,6 +85,10 @@ class BAScoutDetailMailView: UIView {
         benefitCollectionView.delegate = self
         benefitCollectionView.dataSource = self
 
+        guard let isFromSubscribeList = scoutDetailMailViewModel?.isFromSubscribeList else {
+            return
+        }
+        receivedDateLabel.textColor = isFromSubscribeList ? UIColor.red : UIColor.black
         receivedDateLabel.text = scoutDetailMailViewModel?.receivedDate
 
         mailHeaderLabel.text = scoutDetailMailViewModel?.mailHeader

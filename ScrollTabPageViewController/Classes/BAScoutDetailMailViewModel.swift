@@ -9,7 +9,8 @@
 import UIKit
 
 class BAScoutDetailMailViewModel: NSObject {
-
+    
+    var isFromSubscribeList:Bool? = false
     var receivedDate: String?
     var mailHeader: String?
     var interviewFixBenefitSubTitle: String?
@@ -20,7 +21,11 @@ class BAScoutDetailMailViewModel: NSObject {
     override init() {
         super.init()
         let f = DateFormatter()
-        f.timeStyle = .none
+        
+        guard let isFromSubscribeList = isFromSubscribeList else {
+            return
+        }
+        f.timeStyle = isFromSubscribeList ? .medium:.none
         f.dateStyle = .medium
         f.locale = Locale(identifier: "ja_JP")
         let now = Date()
