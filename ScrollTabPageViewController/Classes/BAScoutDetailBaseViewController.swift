@@ -45,9 +45,12 @@ class BAScoutDetailBaseViewController: UIPageViewController {
         return index
     }
     override func viewWillAppear(_ animated: Bool) {
-        if !isMailViewScrollAdjusted {
+        let screenHeight = UIScreen.main.bounds.size.height
+        if !isMailViewScrollAdjusted, screenHeight <= scoutDetailMailView.frame.height {
+            scoutDetailMailView.scrollView.bounces = false
             // スカウトメールのビューの高さによっては初期表示の時点でスクロールがずれてしまう可能性があるので救済のため、トップで表示するためのコードを入れる
             scoutDetailMailView.scrollView.setContentOffset(CGPoint(x: 0, y: -scoutDetailMailView.frame.height), animated: false)
+            scoutDetailMailView.scrollView.bounces = true
             isMailViewScrollAdjusted = true
         }
     }

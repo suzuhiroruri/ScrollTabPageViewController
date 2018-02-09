@@ -17,6 +17,13 @@ class BAScoutDetailMailViewModel: NSObject {
     var promisedInterviewBenefitTitle: String?
     var benefitRemarks: String?
     var mailBody: String?
+    
+    enum promisedInterviewBenefit: Int {
+        case promisedInterview      = 0
+        case exemptionFirstInterview
+        case officerInterview
+        case presidentInterview
+    }
 
     override init() {
         super.init()
@@ -32,17 +39,30 @@ class BAScoutDetailMailViewModel: NSObject {
 
         receivedDate = "受信日 :"
         receivedDate?.append(f.string(from: now))
-
-        mailHeader = "赤（あか、紅、朱、丹）は色のひとつで、熟したイチゴや血液のような色の総称。"
-
+        
         promisedInterviewBenefitSubTitle = "書類なしでスグ面接♪"
-        promisedInterviewBenefitTitle = "面接確約"
+        switch promisedInterviewBenefit(rawValue: 1) {
+        case .promisedInterview?:
+            promisedInterviewBenefitTitle = "面接確約"
+        case .exemptionFirstInterview?:
+            promisedInterviewBenefitTitle = "一次面接免除"
+        case .officerInterview?:
+            promisedInterviewBenefitTitle = "いきなり役員面接"
+        case .presidentInterview?:
+            promisedInterviewBenefitTitle = "いきなり社長面接"
+        case .none:
+            promisedInterviewBenefitTitle = "面接確約"
+        }
+        guard let promisedInterviewBenefitTitle = promisedInterviewBenefitTitle else {
+            return
+        }
+        mailHeader = "【" + promisedInterviewBenefitTitle + "】" + "あ"
 
         benefitRemarks = "※面接交通費支給"
         benefitRemarks?.append("\n")
         benefitRemarks?.append("※来社特典あり")
 
-        mailBody = "あ"
+        mailBody = "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
     }
 
     func numberOfCollectionCellAtSection() -> Int {
