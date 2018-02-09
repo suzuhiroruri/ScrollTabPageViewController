@@ -278,8 +278,8 @@
                                         <constraint firstAttribute="height" constant="44" id="QxU-SZ-Pnb"/>
                                     </constraints>
                                     <segments>
-                                        <segment title="First"/>
-                                        <segment title="Second"/>
+                                        <segment title="募集内容"/>
+                                        <segment title="選考・会社概要"/>
                                     </segments>
                                     <connections>
                                         <action selector="changeSegmentValue:" destination="iN0-l3-epB" eventType="valueChanged" id="Lwq-HR-kmo"/>
