@@ -9,8 +9,8 @@
 import UIKit
 
 class BAScoutDetailMailViewModel: NSObject {
-    
-    var isFromSubscribeList:Bool? = false
+
+    var isFromSubscribeList: Bool? = false
     var receivedDate: String?
     var mailHeader: String?
     var promisedInterviewBenefitSubTitle: String?
@@ -18,7 +18,7 @@ class BAScoutDetailMailViewModel: NSObject {
     var benefitRemarks: String? = ""
     var benefitRemarksArray: Array<String>?
     var mailBody: String?
-    
+
     enum promisedInterviewBenefit: Int {
         case promisedInterview      = 0
         case exemptionFirstInterview
@@ -29,7 +29,7 @@ class BAScoutDetailMailViewModel: NSObject {
     override init() {
         super.init()
         let f = DateFormatter()
-        
+
         guard let isFromSubscribeList = isFromSubscribeList else {
             return
         }
@@ -40,7 +40,7 @@ class BAScoutDetailMailViewModel: NSObject {
 
         receivedDate = "受信日 :"
         receivedDate?.append(f.string(from: now))
-        
+
         promisedInterviewBenefitSubTitle = "書類なしでスグ面接♪"
         switch promisedInterviewBenefit(rawValue: 2) {
         case .promisedInterview?:
@@ -57,27 +57,23 @@ class BAScoutDetailMailViewModel: NSObject {
         guard let promisedInterviewBenefitTitle = promisedInterviewBenefitTitle else {
             return
         }
-        
-        if promisedInterviewBenefitTitle.count > 0 {
-            mailHeader = "【" + promisedInterviewBenefitTitle + "】" + "あ"
-        } else {
-            mailHeader = "あ"
-        }
 
-        benefitRemarksArray = ["※面接交通費支給","※来社特典あり"]
+        mailHeader = promisedInterviewBenefitTitle.isEmpty ? "あ" : "【" + promisedInterviewBenefitTitle + "】" + "あ"
+
+        benefitRemarksArray = ["※面接交通費支給", "※来社特典あり"]
         guard let benefitRemarksArray = benefitRemarksArray else {
             return
         }
         for remark in benefitRemarksArray {
-            guard let benefitRemarksCount:Int = benefitRemarks?.count else {
+            guard let benefitRemarksIsEmpty: Bool = benefitRemarks?.isEmpty else {
                 return
             }
-            if benefitRemarksCount > 0 {
+            if !benefitRemarksIsEmpty {
                 benefitRemarks?.append("\n")
             }
             benefitRemarks?.append(remark)
         }
-        
+
         mailBody = "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
     }
 

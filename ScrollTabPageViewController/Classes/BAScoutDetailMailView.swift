@@ -96,26 +96,25 @@ class BAScoutDetailMailView: UIView {
         mailHeaderLabel.text = scoutDetailMailViewModel?.mailHeader
         mailHeaderLabel.sizeToFit()
 
-        guard let promisedInterviewBenefitTitleCount:Int = scoutDetailMailViewModel?.promisedInterviewBenefitTitle?.count else {
+        guard let promisedInterviewBenefitTitleIsEmpty: Bool = scoutDetailMailViewModel?.promisedInterviewBenefitTitle?.isEmpty else {
             return
         }
-        if promisedInterviewBenefitTitleCount > 0 {
+        if promisedInterviewBenefitTitleIsEmpty {
+            interViewBenefitBaseView.isHidden = true
+        } else {
             promisedInterviewBenefitSubTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitSubTitle
             promisedInterviewBenefitTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitTitle
-        }else{
-           interViewBenefitBaseView.isHidden = true
         }
 
-        guard let benefitRemarksLabelCount = scoutDetailMailViewModel?.benefitRemarks?.count else {
+        guard let benefitRemarksIsEmpty = scoutDetailMailViewModel?.benefitRemarks?.isEmpty else {
             return
         }
-        if benefitRemarksLabelCount > 0 {
+        if benefitRemarksIsEmpty {
+            benefitRemarksBaseView.isHidden = true
+        } else {
             benefitRemarksLabel.text = scoutDetailMailViewModel?.benefitRemarks
             benefitRemarksLabel.sizeToFit()
-        }else{
-            benefitRemarksBaseView.isHidden = true
         }
-        
 
         mailBodyLabel.text = scoutDetailMailViewModel?.mailBody
         mailBodyLabel.sizeToFit()
