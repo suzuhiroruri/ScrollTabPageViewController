@@ -15,7 +15,8 @@ class BAScoutDetailMailViewModel: NSObject {
     var mailHeader: String?
     var promisedInterviewBenefitSubTitle: String?
     var promisedInterviewBenefitTitle: String?
-    var benefitRemarks: String?
+    var benefitRemarks: String? = ""
+    var benefitRemarksArray: Array<String>?
     var mailBody: String?
     
     enum promisedInterviewBenefit: Int {
@@ -62,13 +63,21 @@ class BAScoutDetailMailViewModel: NSObject {
         } else {
             mailHeader = "あ"
         }
-        
-        
 
-        benefitRemarks = "※面接交通費支給"
-        benefitRemarks?.append("\n")
-        benefitRemarks?.append("※来社特典あり")
-
+        benefitRemarksArray = ["※面接交通費支給","※来社特典あり"]
+        guard let benefitRemarksArray = benefitRemarksArray else {
+            return
+        }
+        for remark in benefitRemarksArray {
+            guard let benefitRemarksCount:Int = benefitRemarks?.count else {
+                return
+            }
+            if benefitRemarksCount > 0 {
+                benefitRemarks?.append("\n")
+            }
+            benefitRemarks?.append(remark)
+        }
+        
         mailBody = "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
     }
 
