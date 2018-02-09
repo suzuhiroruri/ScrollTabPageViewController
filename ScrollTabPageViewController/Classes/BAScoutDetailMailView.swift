@@ -18,6 +18,7 @@ class BAScoutDetailMailView: UIView {
 
     // スクロールビュー
     @IBOutlet weak var scrollView: UIScrollView!
+
     // スクロール開始時点の初期値
     var scrollStart: CGFloat = 0.0
     // スクロール検知のブロック
@@ -30,11 +31,14 @@ class BAScoutDetailMailView: UIView {
     // スカウトメールヘッダータイトルのラベル
     @IBOutlet weak var mailHeaderLabel: UILabel!
 
-    @IBOutlet weak var interViewBenefitBaseView: UIView!
+    // 面接確約特典タイトルの土台ビュー
+    @IBOutlet weak var promisedInterViewBenefitBaseView: UIView!
     // 面接確約特典のサブタイトル
     @IBOutlet weak var promisedInterviewBenefitSubTitleLabel: UILabel!
     // 面接確約特典のタイトル
     @IBOutlet weak var promisedInterviewBenefitTitleLabel: UILabel!
+
+    // 特典アイコンの土台ビュー
     @IBOutlet weak var benefitCollectionBaseView: UIView!
     // 特典アイコンのcollectionView
     @IBOutlet weak var benefitCollectionView: UICollectionView! {
@@ -100,7 +104,7 @@ class BAScoutDetailMailView: UIView {
             return
         }
         if promisedInterviewBenefitTitleIsEmpty {
-            interViewBenefitBaseView.isHidden = true
+            promisedInterViewBenefitBaseView.isHidden = true
         } else {
             promisedInterviewBenefitSubTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitSubTitle
             promisedInterviewBenefitTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitTitle

@@ -44,16 +44,7 @@ class BAScoutDetailBaseViewController: UIPageViewController {
         }
         return index
     }
-    override func viewWillAppear(_ animated: Bool) {
-        let screenHeight = UIScreen.main.bounds.size.height
-        if !isMailViewScrollAdjusted, screenHeight <= scoutDetailMailView.frame.height {
-            scoutDetailMailView.scrollView.bounces = false
-            // スカウトメールのビューの高さによっては初期表示の時点でスクロールがずれてしまう可能性があるので救済のため、トップで表示するためのコードを入れる
-            scoutDetailMailView.scrollView.setContentOffset(CGPoint(x: 0, y: -scoutDetailMailView.frame.height), animated: false)
-            scoutDetailMailView.scrollView.bounces = true
-            isMailViewScrollAdjusted = true
-        }
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "スカウト詳細"
@@ -61,6 +52,17 @@ class BAScoutDetailBaseViewController: UIPageViewController {
         // 各ビューを設定
         self.setupViews()
         scoutDetailMailView.bAScoutDetailMailViewProtocol = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        let screenHeight = UIScreen.main.bounds.size.height
+        if !isMailViewScrollAdjusted, screenHeight <= scoutDetailMailView.frame.height {
+            scoutDetailMailView.scrollView.bounces = false
+            // 初期表示の時点でスクロールがずれてしまう可能性があるので救済のため、トップで表示するためのコードを入れる
+            scoutDetailMailView.scrollView.setContentOffset(CGPoint(x: 0, y: -scoutDetailMailView.frame.height), animated: false)
+            scoutDetailMailView.scrollView.bounces = true
+            isMailViewScrollAdjusted = true
+        }
     }
 }
 
@@ -244,6 +246,7 @@ extension BAScoutDetailBaseViewController {
         }
     }
 
+    // jobDetailTableのスクロールがずれたときの補正を行う
     func updateJobDetailViewFrame() {
         guard let currentIndex = currentIndex, let jobDetailViewController = pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
             return

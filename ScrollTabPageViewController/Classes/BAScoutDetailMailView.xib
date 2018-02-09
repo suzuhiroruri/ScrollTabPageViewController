@@ -131,7 +131,7 @@
                                                                 <constraint firstItem="z4k-21-Hh1" firstAttribute="leading" secondItem="p6Z-P1-EtK" secondAttribute="leading" id="s2h-da-LJ6"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcH-e0-Hdj" userLabel="interViewBenefitBaseView">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcH-e0-Hdj" userLabel="promisedInterViewBenefitBaseView">
                                                             <rect key="frame" x="0.0" y="35" width="390" height="60.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZ7-BE-QOk" userLabel="interViewBenefitView">
@@ -326,9 +326,9 @@
                 <outlet property="benefitRemarksBaseView" destination="2J3-Gq-7ap" id="wn0-lo-vFu"/>
                 <outlet property="benefitRemarksLabel" destination="kd4-wl-qMK" id="ahO-57-Yvp"/>
                 <outlet property="collectionHeight" destination="geZ-xO-sa3" id="8zY-fe-O3q"/>
-                <outlet property="interViewBenefitBaseView" destination="WcH-e0-Hdj" id="J5j-9T-btQ"/>
                 <outlet property="mailBodyLabel" destination="aeS-Lx-hSI" id="hyz-Fq-6Z4"/>
                 <outlet property="mailHeaderLabel" destination="zII-7a-K6R" id="utM-wX-avl"/>
+                <outlet property="promisedInterViewBenefitBaseView" destination="WcH-e0-Hdj" id="86p-E7-331"/>
                 <outlet property="promisedInterviewBenefitSubTitleLabel" destination="V7e-d0-IfZ" id="5bE-eP-lYC"/>
                 <outlet property="promisedInterviewBenefitTitleLabel" destination="3sv-oN-p7K" id="XbU-JP-QGS"/>
                 <outlet property="receivedDateLabel" destination="chK-OD-Iik" id="yfe-Mh-RJh"/>
