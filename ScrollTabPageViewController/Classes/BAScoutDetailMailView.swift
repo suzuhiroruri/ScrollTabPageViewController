@@ -39,7 +39,7 @@ class BAScoutDetailMailView: UIView {
     // 特典アイコンのcollectionView
     @IBOutlet weak var benefitCollectionView: UICollectionView! {
         didSet {
-            let nib = UINib(nibName: "BAScoutDetailBenefitCollectionCell", bundle: nil)
+            let nib = UINib(nibName: R.nib.bAScoutDetailBenefitCollectionCell.name, bundle: nil)
             benefitCollectionView.register(nib, forCellWithReuseIdentifier: "bAScoutDetailBenefitCollectionCell")
         }
     }
@@ -70,7 +70,7 @@ class BAScoutDetailMailView: UIView {
      - returns: BAScoutDetailMailView
      */
     static func instantiate() -> BAScoutDetailMailView {
-        let nib = UINib(nibName: "BAScoutDetailMailView", bundle: nil)
+        let nib = UINib(nibName: R.nib.bAScoutDetailMailView.name, bundle: nil)
 
         guard let view = nib.instantiate(withOwner: nil, options: nil)[0] as? BAScoutDetailMailView else {
             return BAScoutDetailMailView()

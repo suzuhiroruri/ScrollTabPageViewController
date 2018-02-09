@@ -88,11 +88,11 @@ extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
     // 別々のviewControllerを設定する場合はvc1&2の読み込み内容を変更する
     func setupJobDetailViewControllers() {
         // viewContrroller
-        let sb1 = UIStoryboard(name: "BAScoutDetailJobViewController", bundle: nil)
+        let sb1 = UIStoryboard(name: R.storyboard.bAScoutDetailJobViewController.name, bundle: nil)
         let vc1 = sb1.instantiateViewController(withIdentifier: "BAScoutDetailJobViewController")
 
         // viewContrroller
-        let sb2 = UIStoryboard(name: "BAScoutDetailJobViewController", bundle: nil)
+        let sb2 = UIStoryboard(name: R.storyboard.bAScoutDetailJobViewController.name, bundle: nil)
         let vc2 = sb2.instantiateViewController(withIdentifier: "BAScoutDetailJobViewController")
 
         pageViewControllers = [vc1, vc2]
