@@ -28,9 +28,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lng-gb-gUg" firstAttribute="top" secondItem="Uh7-E9-TQb" secondAttribute="top" constant="20" id="JgX-Qt-CEo"/>
                             <constraint firstAttribute="bottom" secondItem="lng-gb-gUg" secondAttribute="bottom" id="dda-gL-HK9"/>
                             <constraint firstItem="lng-gb-gUg" firstAttribute="leading" secondItem="Uh7-E9-TQb" secondAttribute="leading" id="idq-I8-tiY"/>
+                            <constraint firstItem="lng-gb-gUg" firstAttribute="top" secondItem="z9P-RP-Og5" secondAttribute="bottom" id="jBo-kP-uzL"/>
                             <constraint firstAttribute="trailing" secondItem="lng-gb-gUg" secondAttribute="trailing" id="tyQ-bn-gsZ"/>
                         </constraints>
                     </view>

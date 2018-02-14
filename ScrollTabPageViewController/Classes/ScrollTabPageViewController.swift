@@ -89,7 +89,7 @@ extension ScrollTabPageViewController {
 
     // contentsViewのセットアップ
     func setupContentsView() {
-        contentsView = ContentsView(frame: CGRect(x:0.0, y:0.0, width:view.frame.width, height:contentViewHeihgt))
+        contentsView = ContentsView(frame: CGRect(x:0.0, y:64.0, width:view.frame.width, height:contentViewHeihgt))
         // タブボタンがタップされた時のブロック
         contentsView.tabButtonPressedBlock = { [weak self] (index: Int) in
             guard let uself = self else {
