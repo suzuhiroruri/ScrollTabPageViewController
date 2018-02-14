@@ -138,14 +138,14 @@ extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
 
         // scoutDetailMailViewのDidScrollの時のブロック
         scoutDetailMailView.mailScrollDidChangedBlock = { [weak self] (scroll: CGFloat, shouldScrollMailView: Bool) in
-            guard let currentIndex = self?.currentIndex, let vc = self?.pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
+            guard let currentIndex = self?.currentIndex, let jobDetailViewController = self?.pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
                 return
             }
-            vc.scrollView.isUserInteractionEnabled = false
+            jobDetailViewController.scrollView.isUserInteractionEnabled = false
             self?.shouldScrollMailView = shouldScrollMailView
             // 仕事詳細のテーブルのスクロールのY座標を更新する
             self?.updateJobDetailTableContentOffsetY(scroll: scroll)
-            vc.scrollView.isUserInteractionEnabled = true
+            jobDetailViewController.scrollView.isUserInteractionEnabled = true
         }
 
         // scoutDetailMailViewのDidEndDeceleratingの時のブロック
