@@ -1,0 +1,696 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10AC0960562FE8BA9D3CD8998314B5DC /* ColorResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C08D66CF2BAC7627AAF9681639D6F3 /* ColorResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		12DB4413CC55E45CC88389705ABFEC7A /* StoryboardSegueIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C44CC05974DE32D7DC0131EE5FFFAB /* StoryboardSegueIdentifierProtocol.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		17EB1E4A6ADAA0C3CE9B3D99062F855C /* ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF54D2799A9457A4143FAC996ECEB2F /* ReuseIdentifierProtocol.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1D2E3825305FDBE8792140BBE6A10875 /* UICollectionView+ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31D4DE957C9D400969B68485FE7423 /* UICollectionView+ReuseIdentifierProtocol.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1DB9DE883161C5888B7C95BC15D15F27 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E465450221DC040A1DC028D60B80177C /* Validatable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		274F666D4D2AA249303C154703AA43B9 /* NibResource+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68807497FF36547431D1A87A39F61EF0 /* NibResource+UIKit.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3B4417F5958C933EF0722EA0743E2DF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		3FA5A1D7F54AFE7C0380150260D3EFA8 /* Data+FileResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8CDA407A0A8B6DAE5D616961C4FF20 /* Data+FileResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4477ABB7713EE406BE510224F0D8B1F0 /* ImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6580FEB7921FCA99A2AD11FDB78A3D7 /* ImageResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4E80A9A9A4AC83CBDF1ADAC912E846EE /* Pods-ScrollTabPageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AB3D958CE2197DD0B5ACC194DABDA4 /* Pods-ScrollTabPageViewController-dummy.m */; };
+		4F06AF957AFFFABA53ADE2967B603ACF /* UIKit+Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6F296BF7C966B77A386EE749731CC6 /* UIKit+Migration.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4FC931E35FD2EA63E5E457EEFD3BCFA4 /* ColorResource+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A965B1FBCCC7A15C6B7106BDDC544A99 /* ColorResource+UIKit.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		548B0946A2D1BB8727D42455FC9ABDD0 /* StringResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8551F15A4AE5F29CE6B80200EC1319AB /* StringResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		590CD70731230028CE0C84BF58227D14 /* StoryboardResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8666228D7883640D48198512EA3F19 /* StoryboardResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5E89AE449B82E3A639DC1BCF4E365BA3 /* Foundation+Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86281355893209F2625FEC90DC308ECA /* Foundation+Migration.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		669DABAC8FB881F15C64850A234B8C9E /* UITableView+ReuseIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE69F6DE82A17DE6BF24391F4ACD253 /* UITableView+ReuseIdentifierProtocol.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6865702BB2BB9B1C11FC32BE13177FEF /* StoryboardResourceWithInitialController+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5D1392F88C0957961F8D7F8A7A49D /* StoryboardResourceWithInitialController+UIKit.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		74A17BE5ED577535B6C440F78709A4C4 /* UIStoryboard+StoryboardViewControllerResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6353B4DBC62E9ADFDDC8CA859E3264C2 /* UIStoryboard+StoryboardViewControllerResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7D9BFEB9A9C0DAE2584D797B76DDF236 /* Bundle+FileResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE6BE83A2DE80E0CC8EE2E070D66F902 /* Bundle+FileResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		83517409284F786A51DAC6E92655C886 /* UIStoryboard+StoryboardResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EAC9CA88DA8F55278D08D1E52E251D /* UIStoryboard+StoryboardResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		86544517FE8F04F07E0CC57D696A4554 /* R.swift.Library-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 005D477064800EE331AABB5030EE9772 /* R.swift.Library-dummy.m */; };
+		8895CE67428458C9D6492A5A098A743D /* Pods-ScrollTabPageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D8500870D3DA94D24AE544E66B0E523 /* Pods-ScrollTabPageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9067CB15FFC1F7B7FBF806DAF70C912C /* UIFont+FontResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5712FE42E3314132E3873D733C1A56F /* UIFont+FontResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		91701C5AECC7E3699544FE41FDBEFDB0 /* FontResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9141B363E128E620D7634626DD8DB49A /* FontResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9439346B0CF19EE537B291405568C875 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		96199426259479AEDE8703A5110A6373 /* UINib+NibResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C875AD63C7D632212F2CC1C44E1298EA /* UINib+NibResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		98E51F5673D4A28A278FEA617CC3EC04 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DA01B8A3B59D2D4EE16C962F4D623D /* Identifier.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9ABCC9481F2F026BC04AA4A83671D09E /* UIViewController+NibResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CF7258BA7ED8CBE1699AC313561B01 /* UIViewController+NibResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A5121E66443A7A3F812194455F652E2C /* TypedStoryboardSegueInfo+UIStoryboardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F528B07AB48DF4F2D7FD621091AEF1C2 /* TypedStoryboardSegueInfo+UIStoryboardSegue.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A8FAB7809F7C2F6C7DECA1C78A7CCB39 /* StoryboardViewControllerResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E0A6E4BC5FD06EDD302731E0553A93 /* StoryboardViewControllerResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B6CAB089E6E9F9F46CE0419C1276F4D0 /* UIViewController+StoryboardSegueIdentifierProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C3EF38061A1F2BEE8ECC7CC0AC5BC0 /* UIViewController+StoryboardSegueIdentifierProtocol.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B8D7CFB7BE70D5BE72A6FA01677EC4FC /* Core+Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1E7072C2A8A66B1748D992A7DA0CD7 /* Core+Migration.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C1B5C9855D6DA6BF989CFDCAADB64F14 /* UIImage+ImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B23824411080454A24A1115984B9E5 /* UIImage+ImageResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C8837A4FE22F731FC20101DA66E9160C /* FileResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0178CAF40B8C3D64519FE648CB48854 /* FileResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F2D2839A54000BE4CB1CEBD0CEFC18F3 /* NibResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4799315288FC43F5175B0E342FC6F47F /* NibResource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F963D3250D891A4E421A6BB87103D520 /* R.swift.Library-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8548B4AE07C489A5474EFD20CFF9473D /* R.swift.Library-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F63DC7FD1CD36C3AAE00D8FE32EC6382 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66C5A1EAD44C009BDF48BB76C5C3492E;
+			remoteInfo = R.swift.Library;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		005D477064800EE331AABB5030EE9772 /* R.swift.Library-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "R.swift.Library-dummy.m"; sourceTree = "<group>"; };
+		0E51B622DD1D9BC7F74543D450E76B0B /* Pods-ScrollTabPageViewController-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScrollTabPageViewController-acknowledgements.plist"; sourceTree = "<group>"; };
+		0F8666228D7883640D48198512EA3F19 /* StoryboardResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoryboardResource.swift; path = Library/Core/StoryboardResource.swift; sourceTree = "<group>"; };
+		11DA075741265CA4E5B55762BADCB8F1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2078E44F40230E6389FE1107D93D5641 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20AB3D958CE2197DD0B5ACC194DABDA4 /* Pods-ScrollTabPageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ScrollTabPageViewController-dummy.m"; sourceTree = "<group>"; };
+		2D6F296BF7C966B77A386EE749731CC6 /* UIKit+Migration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIKit+Migration.swift"; path = "Library/UIKit/UIKit+Migration.swift"; sourceTree = "<group>"; };
+		2D8500870D3DA94D24AE544E66B0E523 /* Pods-ScrollTabPageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ScrollTabPageViewController-umbrella.h"; sourceTree = "<group>"; };
+		44CF7258BA7ED8CBE1699AC313561B01 /* UIViewController+NibResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+NibResource.swift"; path = "Library/UIKit/UIViewController+NibResource.swift"; sourceTree = "<group>"; };
+		4799315288FC43F5175B0E342FC6F47F /* NibResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NibResource.swift; path = Library/Core/NibResource.swift; sourceTree = "<group>"; };
+		5617527101343FB599F47C620888D921 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = "RevealServer-13/iOS/RevealServer.framework"; sourceTree = "<group>"; };
+		56C08D66CF2BAC7627AAF9681639D6F3 /* ColorResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorResource.swift; path = Library/Core/ColorResource.swift; sourceTree = "<group>"; };
+		5C5E1BE90BE93527EBA7945688C97C64 /* R.swift.Library.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = R.swift.Library.xcconfig; sourceTree = "<group>"; };
+		5E8CDA407A0A8B6DAE5D616961C4FF20 /* Data+FileResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+FileResource.swift"; path = "Library/Foundation/Data+FileResource.swift"; sourceTree = "<group>"; };
+		6353B4DBC62E9ADFDDC8CA859E3264C2 /* UIStoryboard+StoryboardViewControllerResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+StoryboardViewControllerResource.swift"; path = "Library/UIKit/UIStoryboard+StoryboardViewControllerResource.swift"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		68807497FF36547431D1A87A39F61EF0 /* NibResource+UIKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NibResource+UIKit.swift"; path = "Library/UIKit/NibResource+UIKit.swift"; sourceTree = "<group>"; };
+		6A9FF08525C6F79415EDB38947D19753 /* R.swift.Library-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "R.swift.Library-prefix.pch"; sourceTree = "<group>"; };
+		81302FA5B141CD2D27C71F264FADBDAA /* Pods-ScrollTabPageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ScrollTabPageViewController.modulemap"; sourceTree = "<group>"; };
+		8548B4AE07C489A5474EFD20CFF9473D /* R.swift.Library-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "R.swift.Library-umbrella.h"; sourceTree = "<group>"; };
+		8551F15A4AE5F29CE6B80200EC1319AB /* StringResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringResource.swift; path = Library/Core/StringResource.swift; sourceTree = "<group>"; };
+		86281355893209F2625FEC90DC308ECA /* Foundation+Migration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Foundation+Migration.swift"; path = "Library/Foundation/Foundation+Migration.swift"; sourceTree = "<group>"; };
+		8B3B1F9A2B22E9D20BC8987366BB4690 /* Pods-ScrollTabPageViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScrollTabPageViewController.release.xcconfig"; sourceTree = "<group>"; };
+		8DF54D2799A9457A4143FAC996ECEB2F /* ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReuseIdentifierProtocol.swift; path = Library/Core/ReuseIdentifierProtocol.swift; sourceTree = "<group>"; };
+		9141B363E128E620D7634626DD8DB49A /* FontResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontResource.swift; path = Library/Core/FontResource.swift; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93EAC9CA88DA8F55278D08D1E52E251D /* UIStoryboard+StoryboardResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIStoryboard+StoryboardResource.swift"; path = "Library/UIKit/UIStoryboard+StoryboardResource.swift"; sourceTree = "<group>"; };
+		96E0A6E4BC5FD06EDD302731E0553A93 /* StoryboardViewControllerResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoryboardViewControllerResource.swift; path = Library/Core/StoryboardViewControllerResource.swift; sourceTree = "<group>"; };
+		99B23824411080454A24A1115984B9E5 /* UIImage+ImageResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+ImageResource.swift"; path = "Library/UIKit/UIImage+ImageResource.swift"; sourceTree = "<group>"; };
+		9BE69F6DE82A17DE6BF24391F4ACD253 /* UITableView+ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UITableView+ReuseIdentifierProtocol.swift"; path = "Library/UIKit/UITableView+ReuseIdentifierProtocol.swift"; sourceTree = "<group>"; };
+		A1C44CC05974DE32D7DC0131EE5FFFAB /* StoryboardSegueIdentifierProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoryboardSegueIdentifierProtocol.swift; path = Library/Core/StoryboardSegueIdentifierProtocol.swift; sourceTree = "<group>"; };
+		A965B1FBCCC7A15C6B7106BDDC544A99 /* ColorResource+UIKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ColorResource+UIKit.swift"; path = "Library/UIKit/ColorResource+UIKit.swift"; sourceTree = "<group>"; };
+		AA3596473ECCAD4B5C8E0BBF6D9E9AB6 /* Pods-ScrollTabPageViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ScrollTabPageViewController.debug.xcconfig"; sourceTree = "<group>"; };
+		AE6BE83A2DE80E0CC8EE2E070D66F902 /* Bundle+FileResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Bundle+FileResource.swift"; path = "Library/Foundation/Bundle+FileResource.swift"; sourceTree = "<group>"; };
+		B923B73FB3847B83295388EA5953A405 /* Rswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Rswift.framework; path = R.swift.Library.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5712FE42E3314132E3873D733C1A56F /* UIFont+FontResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIFont+FontResource.swift"; path = "Library/UIKit/UIFont+FontResource.swift"; sourceTree = "<group>"; };
+		C875AD63C7D632212F2CC1C44E1298EA /* UINib+NibResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINib+NibResource.swift"; path = "Library/UIKit/UINib+NibResource.swift"; sourceTree = "<group>"; };
+		CBF5D1392F88C0957961F8D7F8A7A49D /* StoryboardResourceWithInitialController+UIKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "StoryboardResourceWithInitialController+UIKit.swift"; path = "Library/UIKit/StoryboardResourceWithInitialController+UIKit.swift"; sourceTree = "<group>"; };
+		D482DCACDC67446831C00C396159DA5A /* Pods-ScrollTabPageViewController-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScrollTabPageViewController-resources.sh"; sourceTree = "<group>"; };
+		D5A02E7F6E30F90C8506297F1D9F8CB7 /* Pods_ScrollTabPageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ScrollTabPageViewController.framework; path = "Pods-ScrollTabPageViewController.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6DA01B8A3B59D2D4EE16C962F4D623D /* Identifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Identifier.swift; path = Library/Core/Identifier.swift; sourceTree = "<group>"; };
+		E0178CAF40B8C3D64519FE648CB48854 /* FileResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileResource.swift; path = Library/Core/FileResource.swift; sourceTree = "<group>"; };
+		E465450221DC040A1DC028D60B80177C /* Validatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validatable.swift; path = Library/Core/Validatable.swift; sourceTree = "<group>"; };
+		E6580FEB7921FCA99A2AD11FDB78A3D7 /* ImageResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageResource.swift; path = Library/Core/ImageResource.swift; sourceTree = "<group>"; };
+		E7C3EF38061A1F2BEE8ECC7CC0AC5BC0 /* UIViewController+StoryboardSegueIdentifierProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+StoryboardSegueIdentifierProtocol.swift"; path = "Library/UIKit/UIViewController+StoryboardSegueIdentifierProtocol.swift"; sourceTree = "<group>"; };
+		EB31D4DE957C9D400969B68485FE7423 /* UICollectionView+ReuseIdentifierProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UICollectionView+ReuseIdentifierProtocol.swift"; path = "Library/UIKit/UICollectionView+ReuseIdentifierProtocol.swift"; sourceTree = "<group>"; };
+		EF1E7072C2A8A66B1748D992A7DA0CD7 /* Core+Migration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Core+Migration.swift"; path = "Library/Core/Core+Migration.swift"; sourceTree = "<group>"; };
+		F2C67C91FF14D15BC068C5FA31E806B0 /* Pods-ScrollTabPageViewController-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ScrollTabPageViewController-frameworks.sh"; sourceTree = "<group>"; };
+		F528B07AB48DF4F2D7FD621091AEF1C2 /* TypedStoryboardSegueInfo+UIStoryboardSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "TypedStoryboardSegueInfo+UIStoryboardSegue.swift"; path = "Library/UIKit/TypedStoryboardSegueInfo+UIStoryboardSegue.swift"; sourceTree = "<group>"; };
+		F58C0435E708E882981CD2A256A417DF /* R.swift.Library.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = R.swift.Library.modulemap; sourceTree = "<group>"; };
+		FA869839575E21FF7B9A8F7F66879F20 /* Pods-ScrollTabPageViewController-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ScrollTabPageViewController-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58BA0C0CC8335229E9ED933E2F145503 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9439346B0CF19EE537B291405568C875 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA6836D7B87BD55076F1F63A8EA7562A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B4417F5958C933EF0722EA0743E2DF4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F7FBA53F2EB6682EE7BAD8EF75D80AF /* R.swift.Library */ = {
+			isa = PBXGroup;
+			children = (
+				AE6BE83A2DE80E0CC8EE2E070D66F902 /* Bundle+FileResource.swift */,
+				56C08D66CF2BAC7627AAF9681639D6F3 /* ColorResource.swift */,
+				A965B1FBCCC7A15C6B7106BDDC544A99 /* ColorResource+UIKit.swift */,
+				EF1E7072C2A8A66B1748D992A7DA0CD7 /* Core+Migration.swift */,
+				5E8CDA407A0A8B6DAE5D616961C4FF20 /* Data+FileResource.swift */,
+				E0178CAF40B8C3D64519FE648CB48854 /* FileResource.swift */,
+				9141B363E128E620D7634626DD8DB49A /* FontResource.swift */,
+				86281355893209F2625FEC90DC308ECA /* Foundation+Migration.swift */,
+				D6DA01B8A3B59D2D4EE16C962F4D623D /* Identifier.swift */,
+				E6580FEB7921FCA99A2AD11FDB78A3D7 /* ImageResource.swift */,
+				4799315288FC43F5175B0E342FC6F47F /* NibResource.swift */,
+				68807497FF36547431D1A87A39F61EF0 /* NibResource+UIKit.swift */,
+				8DF54D2799A9457A4143FAC996ECEB2F /* ReuseIdentifierProtocol.swift */,
+				0F8666228D7883640D48198512EA3F19 /* StoryboardResource.swift */,
+				CBF5D1392F88C0957961F8D7F8A7A49D /* StoryboardResourceWithInitialController+UIKit.swift */,
+				A1C44CC05974DE32D7DC0131EE5FFFAB /* StoryboardSegueIdentifierProtocol.swift */,
+				96E0A6E4BC5FD06EDD302731E0553A93 /* StoryboardViewControllerResource.swift */,
+				8551F15A4AE5F29CE6B80200EC1319AB /* StringResource.swift */,
+				F528B07AB48DF4F2D7FD621091AEF1C2 /* TypedStoryboardSegueInfo+UIStoryboardSegue.swift */,
+				EB31D4DE957C9D400969B68485FE7423 /* UICollectionView+ReuseIdentifierProtocol.swift */,
+				C5712FE42E3314132E3873D733C1A56F /* UIFont+FontResource.swift */,
+				99B23824411080454A24A1115984B9E5 /* UIImage+ImageResource.swift */,
+				2D6F296BF7C966B77A386EE749731CC6 /* UIKit+Migration.swift */,
+				C875AD63C7D632212F2CC1C44E1298EA /* UINib+NibResource.swift */,
+				93EAC9CA88DA8F55278D08D1E52E251D /* UIStoryboard+StoryboardResource.swift */,
+				6353B4DBC62E9ADFDDC8CA859E3264C2 /* UIStoryboard+StoryboardViewControllerResource.swift */,
+				9BE69F6DE82A17DE6BF24391F4ACD253 /* UITableView+ReuseIdentifierProtocol.swift */,
+				44CF7258BA7ED8CBE1699AC313561B01 /* UIViewController+NibResource.swift */,
+				E7C3EF38061A1F2BEE8ECC7CC0AC5BC0 /* UIViewController+StoryboardSegueIdentifierProtocol.swift */,
+				E465450221DC040A1DC028D60B80177C /* Validatable.swift */,
+				A20BF60099285E780B1EBE96171E4886 /* Support Files */,
+			);
+			name = R.swift.Library;
+			path = R.swift.Library;
+			sourceTree = "<group>";
+		};
+		54906820FF844597BE2455057F12471C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0799F1A9EF84BA36EC7F3A0A734E375 /* R.swift */,
+				2F7FBA53F2EB6682EE7BAD8EF75D80AF /* R.swift.Library */,
+				7043CE695FEF8BD7AAF763DE45A592CB /* Reveal-SDK */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		54BA35D12270E36ACBDC13D984D6DFB0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D5A02E7F6E30F90C8506297F1D9F8CB7 /* Pods_ScrollTabPageViewController.framework */,
+				B923B73FB3847B83295388EA5953A405 /* Rswift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7043CE695FEF8BD7AAF763DE45A592CB /* Reveal-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				C6128CF0D6623A7E620C2262829846B0 /* Frameworks */,
+			);
+			name = "Reveal-SDK";
+			path = "Reveal-SDK";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				54906820FF844597BE2455057F12471C /* Pods */,
+				54BA35D12270E36ACBDC13D984D6DFB0 /* Products */,
+				7F3FAA12D89668DF5124B66270338DA6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		7F3FAA12D89668DF5124B66270338DA6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C3A8AD7F590F79BCA9E2F33127394172 /* Pods-ScrollTabPageViewController */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A20BF60099285E780B1EBE96171E4886 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				11DA075741265CA4E5B55762BADCB8F1 /* Info.plist */,
+				F58C0435E708E882981CD2A256A417DF /* R.swift.Library.modulemap */,
+				5C5E1BE90BE93527EBA7945688C97C64 /* R.swift.Library.xcconfig */,
+				005D477064800EE331AABB5030EE9772 /* R.swift.Library-dummy.m */,
+				6A9FF08525C6F79415EDB38947D19753 /* R.swift.Library-prefix.pch */,
+				8548B4AE07C489A5474EFD20CFF9473D /* R.swift.Library-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/R.swift.Library";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C3A8AD7F590F79BCA9E2F33127394172 /* Pods-ScrollTabPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2078E44F40230E6389FE1107D93D5641 /* Info.plist */,
+				81302FA5B141CD2D27C71F264FADBDAA /* Pods-ScrollTabPageViewController.modulemap */,
+				FA869839575E21FF7B9A8F7F66879F20 /* Pods-ScrollTabPageViewController-acknowledgements.markdown */,
+				0E51B622DD1D9BC7F74543D450E76B0B /* Pods-ScrollTabPageViewController-acknowledgements.plist */,
+				20AB3D958CE2197DD0B5ACC194DABDA4 /* Pods-ScrollTabPageViewController-dummy.m */,
+				F2C67C91FF14D15BC068C5FA31E806B0 /* Pods-ScrollTabPageViewController-frameworks.sh */,
+				D482DCACDC67446831C00C396159DA5A /* Pods-ScrollTabPageViewController-resources.sh */,
+				2D8500870D3DA94D24AE544E66B0E523 /* Pods-ScrollTabPageViewController-umbrella.h */,
+				AA3596473ECCAD4B5C8E0BBF6D9E9AB6 /* Pods-ScrollTabPageViewController.debug.xcconfig */,
+				8B3B1F9A2B22E9D20BC8987366BB4690 /* Pods-ScrollTabPageViewController.release.xcconfig */,
+			);
+			name = "Pods-ScrollTabPageViewController";
+			path = "Target Support Files/Pods-ScrollTabPageViewController";
+			sourceTree = "<group>";
+		};
+		C6128CF0D6623A7E620C2262829846B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5617527101343FB599F47C620888D921 /* RevealServer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E0799F1A9EF84BA36EC7F3A0A734E375 /* R.swift */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = R.swift;
+			path = R.swift;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		11868E98EE6AA37E6D516112DC9139B7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F963D3250D891A4E421A6BB87103D520 /* R.swift.Library-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72A508A007A52CCA7393121F3C0DD3B2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8895CE67428458C9D6492A5A098A743D /* Pods-ScrollTabPageViewController-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3DBBB8380119BF019E2F06F0E5439DEE /* Pods-ScrollTabPageViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44EA50E8DA1E6939D0F79BEEE36FD54 /* Build configuration list for PBXNativeTarget "Pods-ScrollTabPageViewController" */;
+			buildPhases = (
+				A1A31D86452C4034DBB1730176230B97 /* Sources */,
+				DA6836D7B87BD55076F1F63A8EA7562A /* Frameworks */,
+				72A508A007A52CCA7393121F3C0DD3B2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BB3BA13F88D6C562814EC0B0D2538BC /* PBXTargetDependency */,
+			);
+			name = "Pods-ScrollTabPageViewController";
+			productName = "Pods-ScrollTabPageViewController";
+			productReference = D5A02E7F6E30F90C8506297F1D9F8CB7 /* Pods_ScrollTabPageViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		66C5A1EAD44C009BDF48BB76C5C3492E /* R.swift.Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F3E21588F63BAFCA813409C6E4B7B72 /* Build configuration list for PBXNativeTarget "R.swift.Library" */;
+			buildPhases = (
+				D43EB398D1F99ABCC4B54E6CBD125946 /* Sources */,
+				58BA0C0CC8335229E9ED933E2F145503 /* Frameworks */,
+				11868E98EE6AA37E6D516112DC9139B7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = R.swift.Library;
+			productName = R.swift.Library;
+			productReference = B923B73FB3847B83295388EA5953A405 /* Rswift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 54BA35D12270E36ACBDC13D984D6DFB0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DBBB8380119BF019E2F06F0E5439DEE /* Pods-ScrollTabPageViewController */,
+				66C5A1EAD44C009BDF48BB76C5C3492E /* R.swift.Library */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1A31D86452C4034DBB1730176230B97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E80A9A9A4AC83CBDF1ADAC912E846EE /* Pods-ScrollTabPageViewController-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D43EB398D1F99ABCC4B54E6CBD125946 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D9BFEB9A9C0DAE2584D797B76DDF236 /* Bundle+FileResource.swift in Sources */,
+				4FC931E35FD2EA63E5E457EEFD3BCFA4 /* ColorResource+UIKit.swift in Sources */,
+				10AC0960562FE8BA9D3CD8998314B5DC /* ColorResource.swift in Sources */,
+				B8D7CFB7BE70D5BE72A6FA01677EC4FC /* Core+Migration.swift in Sources */,
+				3FA5A1D7F54AFE7C0380150260D3EFA8 /* Data+FileResource.swift in Sources */,
+				C8837A4FE22F731FC20101DA66E9160C /* FileResource.swift in Sources */,
+				91701C5AECC7E3699544FE41FDBEFDB0 /* FontResource.swift in Sources */,
+				5E89AE449B82E3A639DC1BCF4E365BA3 /* Foundation+Migration.swift in Sources */,
+				98E51F5673D4A28A278FEA617CC3EC04 /* Identifier.swift in Sources */,
+				4477ABB7713EE406BE510224F0D8B1F0 /* ImageResource.swift in Sources */,
+				274F666D4D2AA249303C154703AA43B9 /* NibResource+UIKit.swift in Sources */,
+				F2D2839A54000BE4CB1CEBD0CEFC18F3 /* NibResource.swift in Sources */,
+				86544517FE8F04F07E0CC57D696A4554 /* R.swift.Library-dummy.m in Sources */,
+				17EB1E4A6ADAA0C3CE9B3D99062F855C /* ReuseIdentifierProtocol.swift in Sources */,
+				590CD70731230028CE0C84BF58227D14 /* StoryboardResource.swift in Sources */,
+				6865702BB2BB9B1C11FC32BE13177FEF /* StoryboardResourceWithInitialController+UIKit.swift in Sources */,
+				12DB4413CC55E45CC88389705ABFEC7A /* StoryboardSegueIdentifierProtocol.swift in Sources */,
+				A8FAB7809F7C2F6C7DECA1C78A7CCB39 /* StoryboardViewControllerResource.swift in Sources */,
+				548B0946A2D1BB8727D42455FC9ABDD0 /* StringResource.swift in Sources */,
+				A5121E66443A7A3F812194455F652E2C /* TypedStoryboardSegueInfo+UIStoryboardSegue.swift in Sources */,
+				1D2E3825305FDBE8792140BBE6A10875 /* UICollectionView+ReuseIdentifierProtocol.swift in Sources */,
+				9067CB15FFC1F7B7FBF806DAF70C912C /* UIFont+FontResource.swift in Sources */,
+				C1B5C9855D6DA6BF989CFDCAADB64F14 /* UIImage+ImageResource.swift in Sources */,
+				4F06AF957AFFFABA53ADE2967B603ACF /* UIKit+Migration.swift in Sources */,
+				96199426259479AEDE8703A5110A6373 /* UINib+NibResource.swift in Sources */,
+				83517409284F786A51DAC6E92655C886 /* UIStoryboard+StoryboardResource.swift in Sources */,
+				74A17BE5ED577535B6C440F78709A4C4 /* UIStoryboard+StoryboardViewControllerResource.swift in Sources */,
+				669DABAC8FB881F15C64850A234B8C9E /* UITableView+ReuseIdentifierProtocol.swift in Sources */,
+				9ABCC9481F2F026BC04AA4A83671D09E /* UIViewController+NibResource.swift in Sources */,
+				B6CAB089E6E9F9F46CE0419C1276F4D0 /* UIViewController+StoryboardSegueIdentifierProtocol.swift in Sources */,
+				1DB9DE883161C5888B7C95BC15D15F27 /* Validatable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4BB3BA13F88D6C562814EC0B0D2538BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = R.swift.Library;
+			target = 66C5A1EAD44C009BDF48BB76C5C3492E /* R.swift.Library */;
+			targetProxy = F63DC7FD1CD36C3AAE00D8FE32EC6382 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07E925C481DDD32B742C8B0D765D951D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3E241209E9D276B582EB57BC4BEFB3DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C5E1BE90BE93527EBA7945688C97C64 /* R.swift.Library.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/R.swift.Library/R.swift.Library-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/R.swift.Library/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/R.swift.Library/R.swift.Library.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Rswift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5648198C657CD19F698AB2A37493E58C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C5E1BE90BE93527EBA7945688C97C64 /* R.swift.Library.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/R.swift.Library/R.swift.Library-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/R.swift.Library/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/R.swift.Library/R.swift.Library.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Rswift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9C87000CC0C4EF57399E25BCD65D1C1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA3596473ECCAD4B5C8E0BBF6D9E9AB6 /* Pods-ScrollTabPageViewController.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ScrollTabPageViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ScrollTabPageViewController/Pods-ScrollTabPageViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ScrollTabPageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9D577C7D3CDC7A8599F691635BD36C8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B3B1F9A2B22E9D20BC8987366BB4690 /* Pods-ScrollTabPageViewController.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ScrollTabPageViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ScrollTabPageViewController/Pods-ScrollTabPageViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ScrollTabPageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EF2D8301FF834DFF974266BAE40AE54F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF2D8301FF834DFF974266BAE40AE54F /* Debug */,
+				07E925C481DDD32B742C8B0D765D951D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F3E21588F63BAFCA813409C6E4B7B72 /* Build configuration list for PBXNativeTarget "R.swift.Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5648198C657CD19F698AB2A37493E58C /* Debug */,
+				3E241209E9D276B582EB57BC4BEFB3DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44EA50E8DA1E6939D0F79BEEE36FD54 /* Build configuration list for PBXNativeTarget "Pods-ScrollTabPageViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C87000CC0C4EF57399E25BCD65D1C1B /* Debug */,
+				9D577C7D3CDC7A8599F691635BD36C8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

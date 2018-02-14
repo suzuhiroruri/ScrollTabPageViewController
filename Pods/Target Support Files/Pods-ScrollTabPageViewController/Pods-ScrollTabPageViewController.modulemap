@@ -1,0 +1,6 @@
+framework module Pods_ScrollTabPageViewController {
+  umbrella header "Pods-ScrollTabPageViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}
