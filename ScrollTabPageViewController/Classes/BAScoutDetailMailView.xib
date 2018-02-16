@@ -56,13 +56,13 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Se-f6-dGF" userLabel="Body View">
-                                            <rect key="frame" x="0.0" y="57.5" width="420" height="332"/>
+                                            <rect key="frame" x="0.0" y="57.5" width="420" height="339"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uM-nA-d26" userLabel="Benefit Base View">
-                                                    <rect key="frame" x="5" y="5" width="410" height="302"/>
+                                                    <rect key="frame" x="5" y="5" width="410" height="210"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i3E-0g-zty" userLabel="Benefit Stack View">
-                                                            <rect key="frame" x="5" y="0.0" width="400" height="302"/>
+                                                            <rect key="frame" x="5" y="0.0" width="400" height="210"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyb-gH-PQl" userLabel="Title Base View">
                                                                     <rect key="frame" x="0.0" y="0.0" width="400" height="15"/>
@@ -77,7 +77,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLd-4v-p7Z" userLabel="aboutScoutBenefitButtonBaseView">
-                                                                            <rect key="frame" x="257.5" y="0.0" width="137.5" height="15"/>
+                                                                            <rect key="frame" x="262.5" y="0.0" width="137.5" height="15"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gp-Wp-0px">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="112.5" height="15"/>
@@ -96,6 +96,7 @@
                                                                                 </label>
                                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1zA-Re-iLw">
                                                                                     <rect key="frame" x="117.5" y="0.0" width="15" height="15"/>
+                                                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="1zA-Re-iLw" secondAttribute="height" multiplier="1:1" id="Npy-Rc-SIC"/>
                                                                                     </constraints>
@@ -124,7 +125,7 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="trailing" secondItem="iLd-4v-p7Z" secondAttribute="trailing" constant="5" id="4ow-mY-PeX"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="iLd-4v-p7Z" secondAttribute="trailing" id="4ow-mY-PeX"/>
                                                                         <constraint firstItem="8At-i1-IBB" firstAttribute="centerY" secondItem="uyb-gH-PQl" secondAttribute="centerY" id="Aym-9G-sr5"/>
                                                                         <constraint firstAttribute="bottom" secondItem="8At-i1-IBB" secondAttribute="bottom" id="Eeg-xS-UIi"/>
                                                                         <constraint firstItem="8At-i1-IBB" firstAttribute="top" secondItem="uyb-gH-PQl" secondAttribute="top" id="ODu-6w-Jsa"/>
@@ -179,10 +180,10 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kvk-L7-zZ1" userLabel="benefitCollectionBaseView">
-                                                                    <rect key="frame" x="0.0" y="65" width="400" height="199"/>
+                                                                    <rect key="frame" x="0.0" y="65" width="400" height="95"/>
                                                                     <subviews>
                                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="avE-GL-HQR">
-                                                                            <rect key="frame" x="0.0" y="5" width="400" height="189"/>
+                                                                            <rect key="frame" x="0.0" y="5" width="400" height="85"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="I6z-7I-2tF"/>
@@ -204,10 +205,10 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRY-u0-Zxl" userLabel="benefitRemarksBaseView">
-                                                                    <rect key="frame" x="0.0" y="264" width="400" height="38"/>
+                                                                    <rect key="frame" x="0.0" y="160" width="400" height="50"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKG-g8-vGH" userLabel="benefitRemarksLabel">
-                                                                            <rect key="frame" x="0.0" y="5" width="400" height="33"/>
+                                                                            <rect key="frame" x="0.0" y="5" width="400" height="45"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -233,28 +234,50 @@
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qKt-4m-yak" userLabel="mailBodyStackView">
-                                                    <rect key="frame" x="5" y="312" width="410" height="15"/>
+                                                    <rect key="frame" x="5" y="220" width="410" height="114"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メール本文" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqk-0N-2QK" userLabel="メール本文">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gsh-i5-k7B" userLabel="mailBodyTitleBaseView">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="15"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メール本文" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqk-0N-2QK" userLabel="メール本文">
+                                                                    <rect key="frame" x="3" y="0.0" width="407" height="15"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="15" id="oCf-SR-SjN"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="15" id="oCf-SR-SjN"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Qqk-0N-2QK" secondAttribute="bottom" id="03q-fg-NB0"/>
+                                                                <constraint firstItem="Qqk-0N-2QK" firstAttribute="top" secondItem="Gsh-i5-k7B" secondAttribute="top" id="MV4-m4-mxo"/>
+                                                                <constraint firstItem="Qqk-0N-2QK" firstAttribute="leading" secondItem="Gsh-i5-k7B" secondAttribute="leading" constant="3" id="wZJ-es-wpi"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Qqk-0N-2QK" secondAttribute="trailing" id="wpb-xc-lDR"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-ZB-nGT" userLabel="Mail Body Label">
-                                                            <rect key="frame" x="0.0" y="15" width="410" height="0.0"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dr7-81-87f" userLabel="mailBodyBaseView">
+                                                            <rect key="frame" x="0.0" y="15" width="410" height="99"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw3-ZB-nGT" userLabel="Mail Body Label">
+                                                                    <rect key="frame" x="3" y="0.0" width="407" height="99"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Kce-YN-rLZ"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="Kce-YN-rLZ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="jw3-ZB-nGT" secondAttribute="trailing" id="0z4-q5-yCu"/>
+                                                                <constraint firstItem="jw3-ZB-nGT" firstAttribute="top" secondItem="dr7-81-87f" secondAttribute="top" id="CCD-Zq-msj"/>
+                                                                <constraint firstAttribute="bottom" secondItem="jw3-ZB-nGT" secondAttribute="bottom" id="NDc-8g-wrw"/>
+                                                                <constraint firstItem="jw3-ZB-nGT" firstAttribute="leading" secondItem="dr7-81-87f" secondAttribute="leading" constant="3" id="bAw-oM-cX0"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        </view>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -270,10 +293,10 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoU-SG-tVN" userLabel="Appear Days Left Base View">
-                                            <rect key="frame" x="0.0" y="389.5" width="420" height="32.5"/>
+                                            <rect key="frame" x="0.0" y="396.5" width="420" height="25.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="掲載終了日まで残り1日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hq7-81-rCs">
-                                                    <rect key="frame" x="5" y="5" width="410" height="27.5"/>
+                                                    <rect key="frame" x="5" y="5" width="410" height="20.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
