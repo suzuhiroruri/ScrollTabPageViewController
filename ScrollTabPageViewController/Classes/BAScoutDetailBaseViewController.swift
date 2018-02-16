@@ -48,6 +48,7 @@ class BAScoutDetailBaseViewController: UIPageViewController {
 
         // 各ビューを設定
         self.setupViews()
+        scoutDetailMailView.bAScoutDetailMailViewProtocol = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +64,13 @@ class BAScoutDetailBaseViewController: UIPageViewController {
 
 // MARK: - View
 
-extension BAScoutDetailBaseViewController {
+extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
+
+    // スカウト特典についてのWebView表示
+    func showAboutBenefitView() {
+        let modal = BAScoutDetailAboutBenefitViewController()
+        self.present(modal, animated: true, completion: nil)
+    }
 
     // 各Viewを設定
     func setupViews() {
