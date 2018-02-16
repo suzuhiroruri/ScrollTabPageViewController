@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		29391AE320369D2F00D469F1 /* BAScoutDetailMailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29391AE220369D2F00D469F1 /* BAScoutDetailMailViewModel.swift */; };
+		29391AE62036A05800D469F1 /* BAScoutDetailAboutBenefitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29391AE42036A05800D469F1 /* BAScoutDetailAboutBenefitViewController.swift */; };
+		29391AE72036A05800D469F1 /* BAScoutDetailAboutBenefitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29391AE52036A05800D469F1 /* BAScoutDetailAboutBenefitViewController.xib */; };
+		29391AEA2036A06100D469F1 /* BAScoutDetailBenefitCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29391AE82036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.xib */; };
+		29391AEB2036A06100D469F1 /* BAScoutDetailBenefitCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29391AE92036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.swift */; };
 		2979E3442035112B0075D321 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979E3432035112B0075D321 /* R.generated.swift */; };
 		29FADB9F20342E9D00F78190 /* BAScoutDetailMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FADB9D20342E9C00F78190 /* BAScoutDetailMailView.swift */; };
 		29FADBA020342E9D00F78190 /* BAScoutDetailMailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FADB9E20342E9D00F78190 /* BAScoutDetailMailView.xib */; };
@@ -23,6 +27,10 @@
 
 /* Begin PBXFileReference section */
 		29391AE220369D2F00D469F1 /* BAScoutDetailMailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAScoutDetailMailViewModel.swift; sourceTree = "<group>"; };
+		29391AE42036A05800D469F1 /* BAScoutDetailAboutBenefitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAScoutDetailAboutBenefitViewController.swift; sourceTree = "<group>"; };
+		29391AE52036A05800D469F1 /* BAScoutDetailAboutBenefitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAScoutDetailAboutBenefitViewController.xib; sourceTree = "<group>"; };
+		29391AE82036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAScoutDetailBenefitCollectionCell.xib; sourceTree = "<group>"; };
+		29391AE92036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAScoutDetailBenefitCollectionCell.swift; sourceTree = "<group>"; };
 		2979E3432035112B0075D321 /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ScrollTabPageViewController/Resources/R.generated.swift; sourceTree = "<group>"; };
 		29FADB9D20342E9C00F78190 /* BAScoutDetailMailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAScoutDetailMailView.swift; sourceTree = "<group>"; };
 		29FADB9E20342E9D00F78190 /* BAScoutDetailMailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAScoutDetailMailView.xib; sourceTree = "<group>"; };
@@ -83,6 +91,10 @@
 			children = (
 				29391AE020369CCD00D469F1 /* View */,
 				29391AE120369CD800D469F1 /* ViewModel */,
+				29391AE92036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.swift */,
+				29391AE82036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.xib */,
+				29391AE42036A05800D469F1 /* BAScoutDetailAboutBenefitViewController.swift */,
+				29391AE52036A05800D469F1 /* BAScoutDetailAboutBenefitViewController.xib */,
 			);
 			name = Mail;
 			sourceTree = "<group>";
@@ -220,8 +232,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C8C50D71C11B617008A69C9 /* LaunchScreen.storyboard in Resources */,
+				29391AEA2036A06100D469F1 /* BAScoutDetailBenefitCollectionCell.xib in Resources */,
 				4C8C50E21C11C5DF008A69C9 /* BAScoutDetailBase.storyboard in Resources */,
 				29FADBA020342E9D00F78190 /* BAScoutDetailMailView.xib in Resources */,
+				29391AE72036A05800D469F1 /* BAScoutDetailAboutBenefitViewController.xib in Resources */,
 				4C8C50EF1C13CB27008A69C9 /* BAScoutDetailJobViewController.storyboard in Resources */,
 				4C8C50D41C11B617008A69C9 /* Assets.xcassets in Resources */,
 			);
@@ -310,6 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29391AEB2036A06100D469F1 /* BAScoutDetailBenefitCollectionCell.swift in Sources */,
+				29391AE62036A05800D469F1 /* BAScoutDetailAboutBenefitViewController.swift in Sources */,
 				2979E3442035112B0075D321 /* R.generated.swift in Sources */,
 				4C8C50CD1C11B617008A69C9 /* AppDelegate.swift in Sources */,
 				29391AE320369D2F00D469F1 /* BAScoutDetailMailViewModel.swift in Sources */,
