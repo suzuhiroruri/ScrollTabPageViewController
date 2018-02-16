@@ -20,6 +20,9 @@ class BAScoutDetailMailView: UIView {
     // スクロール慣性終了検知のブロック
     var mailScrollDidEndDeceleratingBlock: ((_ mailScrollContentOffset: CGFloat, _ frameMinY: CGFloat) -> Void)?
 
+    // スカウトメール受信日のラベル
+    @IBOutlet weak var receivedDateLabel: UILabel!
+    // スカウトメールヘッダータイトルのラベル
     @IBOutlet weak var mailHeaderLabel: UILabel!
 
     // セグメントビュー
