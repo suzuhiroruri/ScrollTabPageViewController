@@ -85,6 +85,14 @@ class BAScoutDetailMailView: UIView {
         segmentChangedBlock?(sender.selectedSegmentIndex)
         updateCurrentIndex(index: sender.selectedSegmentIndex, animated: true)
     }
+
+    /**
+     スカウト特典についてのボタンをタップしたときの処理
+     - parameter sender: UIButton
+     */
+    @IBAction func tapAboutScoutbenefitLink(_ sender: UIButton) {
+        //bAScoutDetailMailViewProtocol?.showAboutBenefitView()
+    }
 }
 
 extension BAScoutDetailMailView: UIScrollViewDelegate {
