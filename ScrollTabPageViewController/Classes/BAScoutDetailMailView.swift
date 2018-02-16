@@ -47,10 +47,16 @@ class BAScoutDetailMailView: UIView {
             benefitCollectionView.register(nib, forCellWithReuseIdentifier: "bAScoutDetailBenefitCollectionCell")
         }
     }
+    // 特典アイコンのcollectionViewの高さ
+    @IBOutlet weak var collectionHeight: NSLayoutConstraint!
+
     // スカウト特典備考の土台ビュー
     @IBOutlet weak var benefitRemarksBaseView: UIView!
     // スカウト特典備考ラベル
     @IBOutlet weak var benefitRemarksLabel: UILabel!
+
+    // スカウトメール本文
+    @IBOutlet weak var mailBodyLabel: UILabel!
 
     // セグメントビュー
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -113,6 +119,9 @@ class BAScoutDetailMailView: UIView {
             benefitRemarksLabel.text = scoutDetailMailViewModel?.benefitRemarks
             benefitRemarksLabel.sizeToFit()
         }
+
+        mailBodyLabel.text = scoutDetailMailViewModel?.mailBody
+        mailBodyLabel.sizeToFit()
     }
 
     private func sizeFitting() {
