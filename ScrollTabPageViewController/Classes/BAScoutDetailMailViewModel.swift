@@ -11,14 +11,19 @@ import UIKit
 class BAScoutDetailMailViewModel: NSObject {
 
     var isFromSubscribeList: Bool? = false
+    // スカウトメール受信日
     var receivedDate: String?
+    // スカウトメールヘッダー
     var mailHeader: String?
+    // 面接確約特典サブタイトル
     var promisedInterviewBenefitSubTitle: String?
+    // 面接確約特典タイトル
     var promisedInterviewBenefitTitle: String?
+    // スカウト特典備考
     var benefitRemarks: String? = ""
-    var benefitRemarksArray: Array<String>?
+    // スカウトメール本文
     var mailBody: String?
-    var appearDaysLeft: Int = 4
+    // 掲載終了までの残り日数
     var appearDaysLeftString: NSMutableAttributedString = NSMutableAttributedString()
 
     enum promisedInterviewBenefit: Int {
@@ -62,10 +67,8 @@ class BAScoutDetailMailViewModel: NSObject {
 
         mailHeader = promisedInterviewBenefitTitle.isEmpty ? "あ" : "【" + promisedInterviewBenefitTitle + "】" + "あ"
 
-        benefitRemarksArray = ["※面接交通費支給", "※来社特典あり"]
-        guard let benefitRemarksArray = benefitRemarksArray else {
-            return
-        }
+        // 特典アイコン配列
+        let benefitRemarksArray = ["※面接交通費支給", "※来社特典あり"]
         for remark in benefitRemarksArray {
             guard let benefitRemarksIsEmpty: Bool = benefitRemarks?.isEmpty else {
                 return
@@ -89,6 +92,7 @@ class BAScoutDetailMailViewModel: NSObject {
             .foregroundColor: UIColor.red,
             .font: UIFont.boldSystemFont(ofSize: 17.0)
         ]
+        let appearDaysLeft: Int = 4
         if appearDaysLeft >= 4, appearDaysLeft <= 7 {
             let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack)
             let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack)
