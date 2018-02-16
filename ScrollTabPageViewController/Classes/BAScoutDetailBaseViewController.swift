@@ -68,6 +68,7 @@ extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
 
     // スカウト特典についてのWebView表示
     func showAboutBenefitView() {
+        // TODO:バイトルに入れる時はtoFreeWebにする
         let modal = BAScoutDetailAboutBenefitViewController()
         self.present(modal, animated: true, completion: nil)
     }
