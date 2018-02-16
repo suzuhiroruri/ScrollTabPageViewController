@@ -220,6 +220,9 @@
                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="avE-GL-HQR">
                                                                     <rect key="frame" x="0.0" y="5" width="400" height="40"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="I6z-7I-2tF"/>
+                                                                    </constraints>
                                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qzv-6a-WjZ">
                                                                         <size key="itemSize" width="50" height="50"/>
                                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -357,6 +360,7 @@
                 <outlet property="benefitCollectionView" destination="avE-GL-HQR" id="8Ax-Vo-b9j"/>
                 <outlet property="benefitRemarksBaseView" destination="nRY-u0-Zxl" id="ihn-Eg-umh"/>
                 <outlet property="benefitRemarksLabel" destination="wKG-g8-vGH" id="0Tl-fo-6N5"/>
+                <outlet property="collectionHeight" destination="I6z-7I-2tF" id="KkU-Rt-vNL"/>
                 <outlet property="mailBodyLabel" destination="jw3-ZB-nGT" id="X2Q-I7-FDU"/>
                 <outlet property="mailHeaderLabel" destination="zII-7a-K6R" id="aik-4t-GlU"/>
                 <outlet property="promisedInterViewBenefitBaseView" destination="eFN-Ps-KOz" id="XzB-R7-Zwa"/>
