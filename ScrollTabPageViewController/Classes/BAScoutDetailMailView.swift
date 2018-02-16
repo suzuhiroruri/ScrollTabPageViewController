@@ -58,6 +58,11 @@ class BAScoutDetailMailView: UIView {
     // スカウトメール本文
     @IBOutlet weak var mailBodyLabel: UILabel!
 
+    // 掲載終了残り日数土台ビュー
+    @IBOutlet weak var appearDaysLeftBaseView: UIView!
+    // 掲載終了残り日数ラベル
+    @IBOutlet weak var appearDaysLeftLabel: UILabel!
+
     // セグメントビュー
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     // セグメントビューの高さ
@@ -122,6 +127,8 @@ class BAScoutDetailMailView: UIView {
 
         mailBodyLabel.text = scoutDetailMailViewModel?.mailBody
         mailBodyLabel.sizeToFit()
+
+        appearDaysLeftLabel.attributedText = scoutDetailMailViewModel?.appearDaysLeftString
     }
 
     private func sizeFitting() {

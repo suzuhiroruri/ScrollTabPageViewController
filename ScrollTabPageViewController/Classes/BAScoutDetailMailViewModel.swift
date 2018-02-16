@@ -18,6 +18,8 @@ class BAScoutDetailMailViewModel: NSObject {
     var benefitRemarks: String? = ""
     var benefitRemarksArray: Array<String>?
     var mailBody: String?
+    var appearDaysLeft: Int = 4
+    var appearDaysLeftString: NSMutableAttributedString = NSMutableAttributedString()
 
     enum promisedInterviewBenefit: Int {
         case promisedInterview      = 0
@@ -75,6 +77,40 @@ class BAScoutDetailMailViewModel: NSObject {
         }
 
         mailBody = "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+
+        let attributeNormalBlack: [NSAttributedStringKey: Any] = [
+            .foregroundColor: UIColor.black
+        ]
+        let attributeBoldBlack: [NSAttributedStringKey: Any] = [
+            .foregroundColor: UIColor.black,
+            .font: UIFont.boldSystemFont(ofSize: 17.0)
+        ]
+        let attributeRed: [NSAttributedStringKey: Any] = [
+            .foregroundColor: UIColor.red,
+            .font: UIFont.boldSystemFont(ofSize: 17.0)
+        ]
+        if appearDaysLeft >= 4, appearDaysLeft <= 7 {
+            let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack)
+            let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack)
+            let stringThird = NSAttributedString(string: "日", attributes: attributeBoldBlack)
+
+            appearDaysLeftString.append(stringFirst)
+            appearDaysLeftString.append(stringSecond)
+            appearDaysLeftString.append(stringThird)
+
+        } else if appearDaysLeft >= 1, appearDaysLeft <= 3 {
+            let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack)
+            let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeRed)
+            let stringThird = NSAttributedString(string: "日", attributes: attributeRed)
+
+            appearDaysLeftString.append(stringFirst)
+            appearDaysLeftString.append(stringSecond)
+            appearDaysLeftString.append(stringThird)
+
+        } else if appearDaysLeft < 1 {
+            let string = NSAttributedString(string: "本日掲載終了", attributes: attributeRed)
+            appearDaysLeftString.append(string)
+        }
     }
 
     func numberOfCollectionCellAtSection() -> Int {
