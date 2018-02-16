@@ -21,7 +21,7 @@ class BAScoutDetailMailView: UIView {
     var mailScrollDidEndDeceleratingBlock: ((_ mailScrollContentOffset: CGFloat, _ frameMinY: CGFloat) -> Void)?
 
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var mailHeaderLabel: UILabel!
     @IBOutlet weak var moreButton: UIButton!
 
     // セグメントビュー
@@ -49,7 +49,8 @@ class BAScoutDetailMailView: UIView {
     }
 
 	private func setViewContent() {
-        self.contentLabel.text = "赤（あか、紅、朱、丹）は色のひとつで、熟したイチゴや血液のような色の総称。JIS規格では基本色名の一つ。国際照明委員会 (CIE) は700 nm の波長をRGB表色系においてR（赤）と規定している。赤より波長の長い光を赤外線と呼ぶが、様々な表色系など赤（あか、紅、朱、丹）は色のひとつで、熟したイチゴや血液のような色の総称。JIS規格では基本色名の一つ。国際照明委員会 (CIE) は700 nm の波長をRGB表色系においてR（赤）と規定している。赤より波長の長い光を赤外線と呼ぶが、様々な表色系など赤（あか、紅、朱、丹）は色のひとつで、熟したイチゴや血液のような色の総称。JIS規格では基本色名の一つ。国際照明委員会 (CIE) は700 nm の波長をRGB表色系においてR（赤）と規定している。赤より波長の長い光を赤外線と呼ぶが、様々な表色系など赤（あか、紅、朱、丹）は色のひとつで、熟したイチゴや血液のような色の総称。JIS規格では基本色名の一つ。国際照明委員会 (CIE) は700 nm の波長を"
+        mailHeaderLabel.text = "彼らはほかことに同じ経験人についてののうちをすれでで。いったい今を学習心は幾分その講演たますなどに投げ出しばいなとは修養しませないが、少しにはすれたんたませ。主義で聴かた事はもとより今日がけっしてたんませ。けっして大森さんの話重き少々尊敬の云いない詩この二つ私か発展をという皆発表だたでたいから、漠然たるたくさんは私か否一団を立たから、張さんの事に金力のそれにもうご附着と使えるから私人がご研究へ云っようにもちろんご努力をあろますでて、とうとうよほど講演に進まですてならですのにできなあっ。"
+        mailHeaderLabel.sizeToFit()
     }
 
     private func sizeFitting() {
@@ -61,7 +62,7 @@ class BAScoutDetailMailView: UIView {
         self.setNeedsLayout()
         self.layoutIfNeeded()
         let size = self.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-        self.frame = CGRect.init(x: 0, y: 0, width: size.width, height: size.height)
+        self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: size.height+64)
     }
 
     /**
