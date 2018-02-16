@@ -1,5 +1,5 @@
 //
-//  CardView.swift
+//  BAScoutDetailMailView.swift
 //  AutoSizingLabelSample
 //
 //  Created by Shota Kashihara on 2017/07/28.
@@ -20,9 +20,7 @@ class BAScoutDetailMailView: UIView {
     // スクロール慣性終了検知のブロック
     var mailScrollDidEndDeceleratingBlock: ((_ mailScrollContentOffset: CGFloat, _ frameMinY: CGFloat) -> Void)?
 
-    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var mailHeaderLabel: UILabel!
-    @IBOutlet weak var moreButton: UIButton!
 
     // セグメントビュー
     @IBOutlet weak var segmentedControl: UISegmentedControl!

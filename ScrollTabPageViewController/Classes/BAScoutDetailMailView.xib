@@ -18,15 +18,27 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMM-c9-nxq">
                     <rect key="frame" x="0.0" y="0.0" width="420" height="246"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BqF-hK-OjQ">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BqF-hK-OjQ" userLabel="Base View">
                             <rect key="frame" x="0.0" y="0.0" width="420" height="246"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zII-7a-K6R">
-                                    <rect key="frame" x="8" y="0.0" width="404" height="192"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgG-rT-PXP" userLabel="Header View">
+                                    <rect key="frame" x="5" y="0.0" width="410" height="202"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zII-7a-K6R">
+                                            <rect key="frame" x="0.0" y="0.0" width="410" height="202"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="zII-7a-K6R" secondAttribute="bottom" id="CWA-fv-70X"/>
+                                        <constraint firstItem="zII-7a-K6R" firstAttribute="leading" secondItem="zgG-rT-PXP" secondAttribute="leading" id="SDM-yb-s5Y"/>
+                                        <constraint firstItem="zII-7a-K6R" firstAttribute="top" secondItem="zgG-rT-PXP" secondAttribute="top" id="TUW-UO-35B"/>
+                                        <constraint firstAttribute="trailing" secondItem="zII-7a-K6R" secondAttribute="trailing" id="gaD-Hy-urc"/>
+                                    </constraints>
+                                </view>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-rN-Fjt">
                                     <rect key="frame" x="0.0" y="202" width="420" height="45"/>
                                     <constraints>
@@ -44,14 +56,12 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="9hh-rN-Fjt" firstAttribute="leading" secondItem="BqF-hK-OjQ" secondAttribute="leading" id="143-l4-IxP"/>
-                                <constraint firstItem="zII-7a-K6R" firstAttribute="leading" secondItem="BqF-hK-OjQ" secondAttribute="leading" constant="8" id="4AR-J1-qvH"/>
-                                <constraint firstItem="9hh-rN-Fjt" firstAttribute="top" secondItem="zII-7a-K6R" secondAttribute="bottom" constant="10" id="AEW-wh-sNm"/>
+                                <constraint firstAttribute="trailing" secondItem="zgG-rT-PXP" secondAttribute="trailing" constant="5" id="ILG-uq-rvU"/>
                                 <constraint firstAttribute="bottom" secondItem="9hh-rN-Fjt" secondAttribute="bottom" id="OAL-Pd-0sr"/>
-                                <constraint firstItem="zII-7a-K6R" firstAttribute="leading" secondItem="BqF-hK-OjQ" secondAttribute="leading" constant="8" id="RnL-jG-zOj"/>
-                                <constraint firstItem="zII-7a-K6R" firstAttribute="top" secondItem="BqF-hK-OjQ" secondAttribute="top" id="Tw0-nT-KbM"/>
-                                <constraint firstAttribute="trailing" secondItem="zII-7a-K6R" secondAttribute="trailing" constant="8" id="dHh-Fq-vW5"/>
+                                <constraint firstItem="zgG-rT-PXP" firstAttribute="top" secondItem="BqF-hK-OjQ" secondAttribute="top" id="RXc-Jh-svm"/>
                                 <constraint firstAttribute="trailing" secondItem="9hh-rN-Fjt" secondAttribute="trailing" id="fAx-NL-dgh"/>
-                                <constraint firstAttribute="trailing" secondItem="zII-7a-K6R" secondAttribute="trailing" constant="8" id="lAC-Hv-CYP"/>
+                                <constraint firstItem="zgG-rT-PXP" firstAttribute="leading" secondItem="BqF-hK-OjQ" secondAttribute="leading" constant="5" id="nkm-Qt-ubb"/>
+                                <constraint firstItem="9hh-rN-Fjt" firstAttribute="top" secondItem="zgG-rT-PXP" secondAttribute="bottom" id="tDD-1y-mhP"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -77,7 +87,6 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="cardView" destination="BqF-hK-OjQ" id="4Bm-5f-LHV"/>
                 <outlet property="mailHeaderLabel" destination="zII-7a-K6R" id="aik-4t-GlU"/>
                 <outlet property="scrollView" destination="pMM-c9-nxq" id="kzj-K5-h4j"/>
                 <outlet property="segmentedControl" destination="9hh-rN-Fjt" id="Puc-5U-qsq"/>
