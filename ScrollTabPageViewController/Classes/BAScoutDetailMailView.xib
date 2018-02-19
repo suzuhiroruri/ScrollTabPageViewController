@@ -303,7 +303,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFn-jO-BMu" userLabel="Appear Days Left Base View">
                                             <rect key="frame" x="0.0" y="402" width="420" height="30"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A16-nS-RV3" userLabel="Appear Days Left Label">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A16-nS-RV3" userLabel="Appear Days Left Label">
                                                     <rect key="frame" x="5" y="5" width="410" height="20"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -372,12 +372,17 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="appearDaysLeftBaseView" destination="YFn-jO-BMu" id="9A8-gx-CcW"/>
+                <outlet property="appearDaysLeftLabel" destination="A16-nS-RV3" id="rSz-eo-ySe"/>
                 <outlet property="benefitCollectionBaseView" destination="nME-JO-Lj3" id="dfE-kQ-PMP"/>
                 <outlet property="benefitCollectionView" destination="88K-m2-Y1d" id="WPz-T6-1Yv"/>
-                <outlet property="benefitRemarksBaseView" destination="Z45-Pr-ukK" id="idL-l9-djd"/>
                 <outlet property="benefitRemarksLabel" destination="LYf-1E-KCX" id="mqX-vb-Dj2"/>
                 <outlet property="collectionHeight" destination="9ag-wQ-GbT" id="Dhf-dt-WX6"/>
+                <outlet property="mailBodyLabel" destination="FCM-bf-RQv" id="HDj-u9-OTp"/>
                 <outlet property="mailHeaderLabel" destination="zII-7a-K6R" id="aik-4t-GlU"/>
+                <outlet property="promisedInterViewBenefitBaseView" destination="ZbK-Wc-ggI" id="HKV-cQ-G0s"/>
+                <outlet property="promisedInterviewBenefitSubTitleLabel" destination="46a-uL-fT5" id="TTa-7F-vsl"/>
+                <outlet property="promisedInterviewBenefitTitleLabel" destination="zeM-bU-aqZ" id="8r0-w2-2LA"/>
                 <outlet property="receivedDateLabel" destination="2T1-Rk-Ofv" id="v4W-kG-hBk"/>
                 <outlet property="scrollView" destination="pMM-c9-nxq" id="kzj-K5-h4j"/>
                 <outlet property="segmentedControl" destination="9hh-rN-Fjt" id="Puc-5U-qsq"/>

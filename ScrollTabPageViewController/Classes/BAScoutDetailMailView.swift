@@ -31,16 +31,13 @@ class BAScoutDetailMailView: UIView {
     // スカウトメールヘッダータイトルのラベル
     @IBOutlet weak var mailHeaderLabel: UILabel!
 
-    // セグメントビュー
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    // セグメントビューの高さ
-    @IBOutlet weak var segmentedControlHeight: NSLayoutConstraint!
-    // 選択されているsegmentのindex
-    var currentIndex: Int = 0
-    // セグメントが変更されたときの処理
-    var segmentChangedBlock: ((_ index: Int) -> Void)?
+    // 面接確約特典タイトルの土台ビュー
+    @IBOutlet weak var promisedInterViewBenefitBaseView: UIView!
+    // 面接確約特典のサブタイトル
+    @IBOutlet weak var promisedInterviewBenefitSubTitleLabel: UILabel!
+    // 面接確約特典のタイトル
+    @IBOutlet weak var promisedInterviewBenefitTitleLabel: UILabel!
 
-    @IBOutlet weak var collectionHeight: NSLayoutConstraint!
     // 特典アイコンの土台ビュー
     @IBOutlet weak var benefitCollectionBaseView: UIView!
     // 特典アイコンのcollectionView
@@ -50,10 +47,30 @@ class BAScoutDetailMailView: UIView {
             benefitCollectionView.register(nib, forCellWithReuseIdentifier: "bAScoutDetailBenefitCollectionCell")
         }
     }
+    // 特典アイコンのcollectionViewの高さ
+    @IBOutlet weak var collectionHeight: NSLayoutConstraint!
+
     // スカウト特典備考の土台ビュー
     @IBOutlet weak var benefitRemarksBaseView: UIView!
     // スカウト特典備考ラベル
     @IBOutlet weak var benefitRemarksLabel: UILabel!
+
+    // スカウトメール本文
+    @IBOutlet weak var mailBodyLabel: UILabel!
+
+    // 掲載終了残り日数土台ビュー
+    @IBOutlet weak var appearDaysLeftBaseView: UIView!
+    // 掲載終了残り日数ラベル
+    @IBOutlet weak var appearDaysLeftLabel: UILabel!
+
+    // セグメントビュー
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    // セグメントビューの高さ
+    @IBOutlet weak var segmentedControlHeight: NSLayoutConstraint!
+    // 選択されているsegmentのindex
+    var currentIndex: Int = 0
+    // セグメントが変更されたときの処理
+    var segmentChangedBlock: ((_ index: Int) -> Void)?
 
     var scoutDetailMailViewModel: BAScoutDetailMailViewModel?
 
@@ -72,13 +89,31 @@ class BAScoutDetailMailView: UIView {
         return view
     }
 
-	private func setViewContent() {
+    private func setViewContent() {
         scoutDetailMailViewModel = BAScoutDetailMailViewModel.init()
         scrollView.delegate = self
+
         benefitCollectionView.delegate = self
         benefitCollectionView.dataSource = self
-        mailHeaderLabel.text = "彼らはほかことに同じ経験人についてののうちを"
+
+        guard let isFromSubscribeList = scoutDetailMailViewModel?.isFromSubscribeList else {
+            return
+        }
+        receivedDateLabel.textColor = isFromSubscribeList ? UIColor.red : UIColor.black
+        receivedDateLabel.text = scoutDetailMailViewModel?.receivedDate
+
+        mailHeaderLabel.text = scoutDetailMailViewModel?.mailHeader
         mailHeaderLabel.sizeToFit()
+
+        guard let promisedInterviewBenefitTitleIsEmpty: Bool = scoutDetailMailViewModel?.promisedInterviewBenefitTitle?.isEmpty else {
+            return
+        }
+        if promisedInterviewBenefitTitleIsEmpty {
+            promisedInterViewBenefitBaseView.isHidden = true
+        } else {
+            promisedInterviewBenefitSubTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitSubTitle
+            promisedInterviewBenefitTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitTitle
+        }
 
         guard let benefitRemarksIsEmpty = scoutDetailMailViewModel?.benefitRemarks?.isEmpty else {
             return
@@ -89,18 +124,11 @@ class BAScoutDetailMailView: UIView {
             benefitRemarksLabel.text = scoutDetailMailViewModel?.benefitRemarks
             benefitRemarksLabel.sizeToFit()
         }
-        guard let promisedInterviewBenefitTitleIsEmpty: Bool = scoutDetailMailViewModel?.promisedInterviewBenefitTitle?.isEmpty else {
-            return
-        }
-        /*
-        if promisedInterviewBenefitTitleIsEmpty {
-            promisedInterViewBenefitBaseView.isHidden = true
-        } else {
-            promisedInterviewBenefitSubTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitSubTitle
-            promisedInterviewBenefitTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitTitle
-        }
-        */
 
+        mailBodyLabel.text = scoutDetailMailViewModel?.mailBody
+        mailBodyLabel.sizeToFit()
+
+        appearDaysLeftLabel.attributedText = scoutDetailMailViewModel?.appearDaysLeftString
     }
 
     private func sizeFitting() {
@@ -110,7 +138,9 @@ class BAScoutDetailMailView: UIView {
 
         self.setNeedsLayout()
         self.layoutIfNeeded()
+
         collectionHeight.constant = benefitCollectionView.contentSize.height
+
         let size = self.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: size.height+64)
     }
