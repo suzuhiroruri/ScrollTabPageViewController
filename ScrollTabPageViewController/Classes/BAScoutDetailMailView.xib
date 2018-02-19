@@ -23,7 +23,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="420" height="246"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgG-rT-PXP" userLabel="Header View">
-                                    <rect key="frame" x="0.0" y="0.0" width="420" height="111"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="420" height="57.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="受信日: 2017/12/11" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T1-Rk-Ofv">
                                             <rect key="frame" x="0.0" y="5" width="405" height="17"/>
@@ -35,7 +35,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zII-7a-K6R">
-                                            <rect key="frame" x="8" y="32" width="415" height="74"/>
+                                            <rect key="frame" x="8" y="32" width="415" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -53,13 +53,13 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRy-8T-rys" userLabel="BodyView">
-                                    <rect key="frame" x="0.0" y="111" width="420" height="91"/>
+                                    <rect key="frame" x="0.0" y="57.5" width="420" height="144.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeU-43-lpU" userLabel="BenefitBaseView">
-                                            <rect key="frame" x="5" y="5" width="410" height="81"/>
+                                            <rect key="frame" x="5" y="5" width="410" height="134.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uf7-ul-7Zf" userLabel="Benefit Stack View">
-                                                    <rect key="frame" x="5" y="0.0" width="400" height="81"/>
+                                                    <rect key="frame" x="5" y="-0.5" width="400" height="134.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmm-kP-XV1" userLabel="TitleBaseView">
                                                             <rect key="frame" x="0.0" y="0.0" width="400" height="15"/>
@@ -78,6 +78,9 @@
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaf-9I-ELv">
                                                                             <rect key="frame" x="-0.5" y="0.0" width="112.5" height="15"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="15" id="Pcr-zz-djw"/>
+                                                                            </constraints>
                                                                             <attributedString key="attributedText">
                                                                                 <fragment content="スカウト特典について">
                                                                                     <attributes>
@@ -211,25 +214,29 @@
                                                                 <constraint firstItem="KBi-W2-dKN" firstAttribute="leading" secondItem="ZbK-Wc-ggI" secondAttribute="leading" constant="5" id="gXW-OS-p8g"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPG-co-QB2" userLabel="benefitRemarksBaseView">
-                                                            <rect key="frame" x="0.0" y="60" width="400" height="21"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nME-JO-Lj3" userLabel="benefitCollectionBaseView">
+                                                            <rect key="frame" x="0.0" y="60" width="400" height="74.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUX-Eu-NtN" userLabel="benefitRemarksLabel">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="21"/>
+                                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="88K-m2-Y1d" userLabel="Benefit Collection View">
+                                                                    <rect key="frame" x="0.0" y="5" width="400" height="64.5"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="21" id="vYK-Qs-Pef"/>
+                                                                        <constraint firstAttribute="height" constant="64.5" id="9ag-wQ-GbT"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I9W-qY-YaG">
+                                                                        <size key="itemSize" width="50" height="50"/>
+                                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    </collectionViewFlowLayout>
+                                                                </collectionView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstItem="SUX-Eu-NtN" firstAttribute="leading" secondItem="lPG-co-QB2" secondAttribute="leading" id="7fB-cr-HL6"/>
-                                                                <constraint firstAttribute="trailing" secondItem="SUX-Eu-NtN" secondAttribute="trailing" id="I4g-ez-enq"/>
-                                                                <constraint firstAttribute="bottom" secondItem="SUX-Eu-NtN" secondAttribute="bottom" id="dSi-5W-FSO"/>
-                                                                <constraint firstItem="SUX-Eu-NtN" firstAttribute="top" secondItem="lPG-co-QB2" secondAttribute="top" id="vYt-Lx-aOI"/>
+                                                                <constraint firstItem="88K-m2-Y1d" firstAttribute="top" secondItem="nME-JO-Lj3" secondAttribute="top" constant="5" id="3WE-Rq-6Y8"/>
+                                                                <constraint firstAttribute="bottom" secondItem="88K-m2-Y1d" secondAttribute="bottom" constant="5" id="5E0-lG-XwF"/>
+                                                                <constraint firstItem="88K-m2-Y1d" firstAttribute="leading" secondItem="nME-JO-Lj3" secondAttribute="leading" id="JGu-f7-wLF"/>
+                                                                <constraint firstAttribute="trailing" secondItem="88K-m2-Y1d" secondAttribute="trailing" id="kw9-I3-aHB"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
@@ -239,7 +246,7 @@
                                             <constraints>
                                                 <constraint firstItem="Uf7-ul-7Zf" firstAttribute="leading" secondItem="MeU-43-lpU" secondAttribute="leading" constant="5" id="421-Ib-SNo"/>
                                                 <constraint firstAttribute="trailing" secondItem="Uf7-ul-7Zf" secondAttribute="trailing" constant="5" id="HJ2-Or-BG3"/>
-                                                <constraint firstAttribute="bottom" secondItem="Uf7-ul-7Zf" secondAttribute="bottom" id="fYl-Rk-ob8"/>
+                                                <constraint firstAttribute="bottom" secondItem="Uf7-ul-7Zf" secondAttribute="bottom" id="VgG-v8-7i8"/>
                                                 <constraint firstItem="Uf7-ul-7Zf" firstAttribute="top" secondItem="MeU-43-lpU" secondAttribute="top" id="t00-52-zgi"/>
                                             </constraints>
                                         </view>
@@ -303,6 +310,9 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="benefitCollectionBaseView" destination="nME-JO-Lj3" id="dfE-kQ-PMP"/>
+                <outlet property="benefitCollectionView" destination="88K-m2-Y1d" id="WPz-T6-1Yv"/>
+                <outlet property="collectionHeight" destination="9ag-wQ-GbT" id="Dhf-dt-WX6"/>
                 <outlet property="mailHeaderLabel" destination="zII-7a-K6R" id="aik-4t-GlU"/>
                 <outlet property="receivedDateLabel" destination="2T1-Rk-Ofv" id="v4W-kG-hBk"/>
                 <outlet property="scrollView" destination="pMM-c9-nxq" id="kzj-K5-h4j"/>

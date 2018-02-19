@@ -36,10 +36,17 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
+    /// Nib `BAScoutDetailBenefitCollectionCell`.
+    static let bAScoutDetailBenefitCollectionCell = _R.nib._BAScoutDetailBenefitCollectionCell()
     /// Nib `BAScoutDetailMailView`.
     static let bAScoutDetailMailView = _R.nib._BAScoutDetailMailView()
+    
+    /// `UINib(name: "BAScoutDetailBenefitCollectionCell", in: bundle)`
+    static func bAScoutDetailBenefitCollectionCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.bAScoutDetailBenefitCollectionCell)
+    }
     
     /// `UINib(name: "BAScoutDetailMailView", in: bundle)`
     static func bAScoutDetailMailView(_: Void = ()) -> UIKit.UINib {
@@ -49,8 +56,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `bAScoutDetailBenefitCollectionCell`.
+    static let bAScoutDetailBenefitCollectionCell: Rswift.ReuseIdentifier<BAScoutDetailBenefitCollectionCell> = Rswift.ReuseIdentifier(identifier: "bAScoutDetailBenefitCollectionCell")
+    
     fileprivate init() {}
   }
   
@@ -110,6 +120,20 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
+    struct _BAScoutDetailBenefitCollectionCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = BAScoutDetailBenefitCollectionCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "bAScoutDetailBenefitCollectionCell"
+      let name = "BAScoutDetailBenefitCollectionCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> BAScoutDetailBenefitCollectionCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BAScoutDetailBenefitCollectionCell
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _BAScoutDetailMailView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "BAScoutDetailMailView"
