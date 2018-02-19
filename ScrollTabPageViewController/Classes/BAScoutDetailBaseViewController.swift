@@ -112,7 +112,7 @@ extension BAScoutDetailBaseViewController {
         }
 
         // scoutDetailMailViewのDidScrollの時のブロック
-        scoutDetailMailView.scrollDidChangedBlock = { [weak self] (scroll: CGFloat, shouldScrollFrame: Bool) in
+        scoutDetailMailView.mailScrollDidChangedBlock = { [weak self] (scroll: CGFloat, shouldScrollFrame: Bool) in
             self?.shouldScrollMailView = shouldScrollFrame
             // 仕事詳細のテーブルのスクロールのY座標を更新する
             self?.updateJobDetailTableContentOffsetY(scroll: scroll)
@@ -166,6 +166,7 @@ extension BAScoutDetailBaseViewController {
             // 全くスクロールしていないときはmailViewの高さをそのままjobDetailViewのOffsetに設定
             jobDetailViewController.scrollView.contentOffset.y = -mailViewHeight
         } else if (mailViewScrollContentOffsetY < mailViewHeight - scoutDetailMailView.segmentedControlHeight.constant) || (jobDetailViewController.scrollView.contentOffset.y <= -scoutDetailMailView.segmentedControlHeight.constant) {
+            // スクロールされているがmailViewが表示されている場合は、スクロール分からmailViewの高さを差し引いた分をoffsetとする
             jobDetailViewController.scrollView.contentOffset.y = mailViewScrollContentOffsetY - mailViewHeight
         }
     }

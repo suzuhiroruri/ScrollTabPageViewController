@@ -14,7 +14,7 @@ class ContentsView: UIView {
     var currentIndex: Int = 0
     
     var tabButtonPressedBlock: ((_ index: Int) -> Void)?
-    var scrollDidChangedBlock: ((_ scroll: CGFloat, _ shouldScroll: Bool) -> Void)?
+    var mailScrollDidChangedBlock: ((_ scroll: CGFloat, _ shouldScroll: Bool) -> Void)?
 
     // スクロール開始時点の初期値
     var scrollStart: CGFloat = 0.0
@@ -100,17 +100,17 @@ extension ContentsView: UIScrollViewDelegate {
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > statusBarHeight {
-            scrollDidChangedBlock?(scrollView.contentOffset.y, true)
+            mailScrollDidChangedBlock?(scrollView.contentOffset.y, true)
             scrollView.contentOffset.y = statusBarHeight
         } else if scrollView.contentOffset.y > 0.0 {
-            scrollDidChangedBlock?(scrollView.contentOffset.y, true)
+            mailScrollDidChangedBlock?(scrollView.contentOffset.y, true)
             scrollView.contentOffset.y = 0.0
         } else if frame.minY < 0.0 {
-            scrollDidChangedBlock?(scrollView.contentOffset.y, true)
+            mailScrollDidChangedBlock?(scrollView.contentOffset.y, true)
             scrollView.contentOffset.y = 0.0
         } else {
             let scroll = scrollView.contentOffset.y - scrollStart
-            scrollDidChangedBlock?(scroll, false)
+            mailScrollDidChangedBlock?(scroll, false)
             scrollStart = scrollView.contentOffset.y
         }
     }

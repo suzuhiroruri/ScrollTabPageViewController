@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29D0A345203AF4EC000F3248 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D0A344203AF4EB000F3248 /* R.generated.swift */; };
 		4C8C50CD1C11B617008A69C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8C50CC1C11B617008A69C9 /* AppDelegate.swift */; };
 		4C8C50D41C11B617008A69C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C50D31C11B617008A69C9 /* Assets.xcassets */; };
 		4C8C50D71C11B617008A69C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C8C50D51C11B617008A69C9 /* LaunchScreen.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29D0A344203AF4EB000F3248 /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ScrollTabPageViewController/Resources/R.generated.swift; sourceTree = "<group>"; };
 		4C8C50C91C11B617008A69C9 /* ScrollTabPageViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollTabPageViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C8C50CC1C11B617008A69C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C8C50D31C11B617008A69C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		4C8C50C01C11B617008A69C9 = {
 			isa = PBXGroup;
 			children = (
+				29D0A344203AF4EB000F3248 /* R.generated.swift */,
 				4C8C50CB1C11B617008A69C9 /* ScrollTabPageViewController */,
 				4C8C50CA1C11B617008A69C9 /* Products */,
 				DBC3D45EF3AEBB6B3AB60237 /* Pods */,
@@ -124,6 +127,7 @@
 			buildConfigurationList = 4C8C50DB1C11B617008A69C9 /* Build configuration list for PBXNativeTarget "ScrollTabPageViewController" */;
 			buildPhases = (
 				47BA96F817DFFCF60AB2FA42 /* [CP] Check Pods Manifest.lock */,
+				29D0A343203AF4C4000F3248 /* R.swift */,
 				4C8C50C51C11B617008A69C9 /* Sources */,
 				4C8C50C61C11B617008A69C9 /* Frameworks */,
 				4C8C50C71C11B617008A69C9 /* Resources */,
@@ -189,6 +193,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		29D0A343203AF4C4000F3248 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ -e \"$SRCROOT/ScrollTabPageViewController/Resources/R.generated.swift\" ]; then\necho 'remove R.generated.swift'\nrm \"$SRCROOT/ScrollTabPageViewController/Resources/R.generated.swift\"\nfi\n\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT/ScrollTabPageViewController/Resources\"";
+		};
 		47BA96F817DFFCF60AB2FA42 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29D0A345203AF4EC000F3248 /* R.generated.swift in Sources */,
 				4C8C50CD1C11B617008A69C9 /* AppDelegate.swift in Sources */,
 				4C8C50EB1C13CA86008A69C9 /* ContentsView.swift in Sources */,
 				4C8C50ED1C13CB18008A69C9 /* ViewController.swift in Sources */,
