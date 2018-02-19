@@ -16,7 +16,7 @@ protocol ScrollTabPageViewControllerProtocol {
 class ScrollTabPageViewController: UIPageViewController {
 
     var pageViewControllers: [UIViewController] = []
-    
+
     // pageViewControllerの更新index
     var updateIndex: Int = 0
     
@@ -122,7 +122,6 @@ extension ScrollTabPageViewController {
         view.addSubview(contentsView)
     }
 }
-
 
 // MARK: - updateScroll
 

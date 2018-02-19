@@ -75,10 +75,10 @@
 		4C8C50E01C11C5BF008A69C9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4C8C50E11C11C5DF008A69C9 /* ScrollTabPageViewController.storyboard */,
 				4C8C50DE1C11C526008A69C9 /* ScrollTabPageViewController.swift */,
-				4C8C50EE1C13CB27008A69C9 /* ViewController.storyboard */,
+				4C8C50E11C11C5DF008A69C9 /* ScrollTabPageViewController.storyboard */,
 				4C8C50EC1C13CB18008A69C9 /* ViewController.swift */,
+				4C8C50EE1C13CB27008A69C9 /* ViewController.storyboard */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
