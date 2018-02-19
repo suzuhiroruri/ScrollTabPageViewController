@@ -23,7 +23,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="420" height="246"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgG-rT-PXP" userLabel="Header View">
-                                    <rect key="frame" x="0.0" y="0.0" width="420" height="132"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="420" height="111"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="受信日: 2017/12/11" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T1-Rk-Ofv">
                                             <rect key="frame" x="0.0" y="5" width="405" height="17"/>
@@ -35,7 +35,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zII-7a-K6R">
-                                            <rect key="frame" x="8" y="32" width="415" height="95"/>
+                                            <rect key="frame" x="8" y="32" width="415" height="74"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -53,13 +53,13 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRy-8T-rys" userLabel="BodyView">
-                                    <rect key="frame" x="0.0" y="132" width="420" height="70"/>
+                                    <rect key="frame" x="0.0" y="111" width="420" height="91"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeU-43-lpU" userLabel="BenefitBaseView">
-                                            <rect key="frame" x="5" y="5" width="410" height="60"/>
+                                            <rect key="frame" x="5" y="5" width="410" height="81"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uf7-ul-7Zf" userLabel="Benefit Stack View">
-                                                    <rect key="frame" x="5" y="0.0" width="400" height="60"/>
+                                                    <rect key="frame" x="5" y="0.0" width="400" height="81"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmm-kP-XV1" userLabel="TitleBaseView">
                                                             <rect key="frame" x="0.0" y="0.0" width="400" height="15"/>
@@ -209,6 +209,27 @@
                                                                 <constraint firstAttribute="bottom" secondItem="KBi-W2-dKN" secondAttribute="bottom" constant="5" id="200-kB-WaL"/>
                                                                 <constraint firstAttribute="trailing" secondItem="KBi-W2-dKN" secondAttribute="trailing" constant="5" id="Z1z-iD-AFd"/>
                                                                 <constraint firstItem="KBi-W2-dKN" firstAttribute="leading" secondItem="ZbK-Wc-ggI" secondAttribute="leading" constant="5" id="gXW-OS-p8g"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPG-co-QB2" userLabel="benefitRemarksBaseView">
+                                                            <rect key="frame" x="0.0" y="60" width="400" height="21"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUX-Eu-NtN" userLabel="benefitRemarksLabel">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="21"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="21" id="vYK-Qs-Pef"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstItem="SUX-Eu-NtN" firstAttribute="leading" secondItem="lPG-co-QB2" secondAttribute="leading" id="7fB-cr-HL6"/>
+                                                                <constraint firstAttribute="trailing" secondItem="SUX-Eu-NtN" secondAttribute="trailing" id="I4g-ez-enq"/>
+                                                                <constraint firstAttribute="bottom" secondItem="SUX-Eu-NtN" secondAttribute="bottom" id="dSi-5W-FSO"/>
+                                                                <constraint firstItem="SUX-Eu-NtN" firstAttribute="top" secondItem="lPG-co-QB2" secondAttribute="top" id="vYt-Lx-aOI"/>
                                                             </constraints>
                                                         </view>
                                                     </subviews>
