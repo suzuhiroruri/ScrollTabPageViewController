@@ -51,7 +51,6 @@ class BAScoutDetailBaseViewController: UIPageViewController {
     }
 }
 
-
 // MARK: - View
 
 extension BAScoutDetailBaseViewController {
@@ -216,7 +215,10 @@ extension BAScoutDetailBaseViewController {
      */
     func updateJobDetailTableContentOffsetY(scroll: CGFloat) {
         if let currentIndex = currentIndex, let jobDetailViewController = pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol {
+            // jobDetailのテーブルのスクロールのY座標を更新を反映させている間、userInteractionを許可しないことにより、意図しないスクロールのずれを防ぐ
+            jobDetailViewController.scrollView.isUserInteractionEnabled = false
             jobDetailViewController.scrollView.contentOffset.y += scroll
+            jobDetailViewController.scrollView.isUserInteractionEnabled = true
         }
     }
 
