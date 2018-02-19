@@ -33,7 +33,6 @@ class BAScoutDetailBaseViewController: UIPageViewController {
 
     // 仕事詳細ビューのスクロールをさせるべきかどうかを判別する変数
     var shouldUpdateJobDetailContentOffset: Bool = false
-    let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
 
     // pageViewControllerの現在のindex
     var currentIndex: Int? {
@@ -74,12 +73,12 @@ extension BAScoutDetailBaseViewController {
     // 別々のviewControllerを設定する場合はvc1&2の読み込み内容を変更する
     func setupJobDetailViewControllers() {
         // viewContrroller
-        let sb1 = UIStoryboard(name: "ViewController", bundle: nil)
-        let vc1 = sb1.instantiateViewController(withIdentifier: "ViewController")
+        let sb1 = UIStoryboard(name: R.storyboard.bAScoutDetailJobViewController.name, bundle: nil)
+        let vc1 = sb1.instantiateViewController(withIdentifier: "BAScoutDetailJobViewController")
 
         // viewContrroller
-        let sb2 = UIStoryboard(name: "ViewController", bundle: nil)
-        let vc2 = sb2.instantiateViewController(withIdentifier: "ViewController")
+        let sb2 = UIStoryboard(name: R.storyboard.bAScoutDetailJobViewController.name, bundle: nil)
+        let vc2 = sb2.instantiateViewController(withIdentifier: "BAScoutDetailJobViewController")
 
         pageViewControllers = [vc1, vc2]
     }
@@ -115,10 +114,35 @@ extension BAScoutDetailBaseViewController {
         }
 
         // scoutDetailMailViewのDidScrollの時のブロック
-        scoutDetailMailView.mailScrollDidChangedBlock = { [weak self] (scroll: CGFloat, shouldScrollFrame: Bool) in
-            self?.shouldScrollMailView = shouldScrollFrame
+        scoutDetailMailView.mailScrollDidChangedBlock = { [weak self] (scroll: CGFloat, shouldScrollMailView: Bool) in
+            guard let currentIndex = self?.currentIndex, let jobDetailViewController = self?.pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
+                return
+            }
+            jobDetailViewController.scrollView.isUserInteractionEnabled = false
+            self?.shouldScrollMailView = shouldScrollMailView
             // 仕事詳細のテーブルのスクロールのY座標を更新する
             self?.updateJobDetailTableContentOffsetY(scroll: scroll)
+            jobDetailViewController.scrollView.isUserInteractionEnabled = true
+        }
+
+        // scoutDetailMailViewのDidEndDeceleratingの時のブロック
+        // jobDetailTableのスクロールがずれたときの補正を行う
+        scoutDetailMailView.mailScrollDidEndDeceleratingBlock = { [weak self] (mailScrollContentOffset: CGFloat, frameMinY: CGFloat) in
+
+            guard let width = self?.scoutDetailMailView.frame.width, let height = self?.scoutDetailMailView.frame.height else {
+                return
+            }
+
+            if frameMinY > 0.0 {
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.2, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+                        self?.scoutDetailMailView.frame = CGRect(x: 0, y: 0, width: width, height: height)
+                    }, completion: nil)
+                }
+            }
+            if mailScrollContentOffset <= 0.0 && frameMinY >= 0.0 {
+                self?.updateJobDetailViewFrame()
+            }
         }
         view.addSubview(scoutDetailMailView)
     }
@@ -196,6 +220,20 @@ extension BAScoutDetailBaseViewController {
         }
     }
 
+    // jobDetailTableのスクロールがずれたときの補正を行う
+    func updateJobDetailViewFrame() {
+        guard let currentIndex = currentIndex, let jobDetailViewController = pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
+            return
+        }
+        if jobDetailViewController.scrollView.isDragging == false {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.1, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+                    jobDetailViewController.scrollView.contentOffset.y = -self.scoutDetailMailView.scrollView.frame.height
+                }, completion: nil)
+            }
+        }
+    }
+
     /**
      メールとJobDetailのスクロールを更新
      */
@@ -257,9 +295,9 @@ extension BAScoutDetailBaseViewController: UIPageViewControllerDataSource {
             guard var index = pageViewControllers.index(of: viewController) else {
                 return nil
             }
-            
-            index = index - 1
-            
+
+            index -= 1
+
             if index >= 0 && index < pageViewControllers.count {
                 return pageViewControllers[index]
             }
@@ -278,7 +316,7 @@ extension BAScoutDetailBaseViewController: UIPageViewControllerDataSource {
             return nil
         }
 
-        index = index + 1
+        index += 1
 
         if index >= 0 && index < pageViewControllers.count {
             return pageViewControllers[index]
