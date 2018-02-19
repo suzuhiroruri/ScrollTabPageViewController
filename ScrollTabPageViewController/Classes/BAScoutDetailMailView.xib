@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +23,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="420" height="246"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgG-rT-PXP" userLabel="Header View">
-                                    <rect key="frame" x="0.0" y="0.0" width="420" height="202"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="420" height="177"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="受信日: 2017/12/11" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T1-Rk-Ofv">
                                             <rect key="frame" x="0.0" y="5" width="405" height="17"/>
@@ -34,7 +35,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zII-7a-K6R">
-                                            <rect key="frame" x="8" y="32" width="415" height="165"/>
+                                            <rect key="frame" x="8" y="32" width="415" height="140"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -49,6 +50,133 @@
                                         <constraint firstItem="2T1-Rk-Ofv" firstAttribute="top" secondItem="zgG-rT-PXP" secondAttribute="top" constant="5" id="eAc-1Q-aVm"/>
                                         <constraint firstItem="zII-7a-K6R" firstAttribute="leading" secondItem="zgG-rT-PXP" secondAttribute="leading" constant="8" id="pls-lh-b4H"/>
                                         <constraint firstAttribute="trailing" secondItem="2T1-Rk-Ofv" secondAttribute="trailing" constant="15" id="u3A-9g-Wnn"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRy-8T-rys" userLabel="BodyView">
+                                    <rect key="frame" x="0.0" y="177" width="420" height="25"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeU-43-lpU" userLabel="BenefitBaseView">
+                                            <rect key="frame" x="5" y="5" width="410" height="15"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uf7-ul-7Zf" userLabel="Benefit Stack View">
+                                                    <rect key="frame" x="5" y="0.0" width="400" height="15"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmm-kP-XV1" userLabel="TitleBaseView">
+                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="15"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スカウト特典" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1Q-ic-VZj">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="92" height="15"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="15" id="qth-eJ-SHX"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXM-Wi-4kN" userLabel="aboutScoutBenefitButtonBaseView">
+                                                                    <rect key="frame" x="267.5" y="0.0" width="132.5" height="15"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaf-9I-ELv">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="112.5" height="15"/>
+                                                                            <attributedString key="attributedText">
+                                                                                <fragment content="スカウト特典について">
+                                                                                    <attributes>
+                                                                                        <color key="NSColor" red="0.016799999999999999" green="0.19835" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                        <font key="NSFont" size="12" name=".HiraKakuInterface-W3"/>
+                                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                                            <tabStops>
+                                                                                                <textTab alignment="left" location="28">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="56">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="84">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="112">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="140">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="168">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="196">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="224">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="252">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="280">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="308">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                                <textTab alignment="left" location="336">
+                                                                                                    <options/>
+                                                                                                </textTab>
+                                                                                            </tabStops>
+                                                                                        </paragraphStyle>
+                                                                                        <integer key="NSUnderline" value="1"/>
+                                                                                        <color key="NSUnderlineColor" red="0.016799999999999999" green="0.19835" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    </attributes>
+                                                                                </fragment>
+                                                                            </attributedString>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fjb-36-nwc">
+                                                                            <rect key="frame" x="117.5" y="0.0" width="15" height="15"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="Fjb-36-nwc" secondAttribute="height" multiplier="1:1" id="qhN-si-lu4"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="Aaf-9I-ELv" firstAttribute="top" secondItem="eXM-Wi-4kN" secondAttribute="top" id="5cS-bb-Iff"/>
+                                                                        <constraint firstItem="Fjb-36-nwc" firstAttribute="leading" secondItem="Aaf-9I-ELv" secondAttribute="trailing" constant="5" id="5wr-o7-eeZ"/>
+                                                                        <constraint firstItem="Aaf-9I-ELv" firstAttribute="leading" secondItem="eXM-Wi-4kN" secondAttribute="leading" id="JCy-wa-NY7"/>
+                                                                        <constraint firstItem="Fjb-36-nwc" firstAttribute="top" secondItem="eXM-Wi-4kN" secondAttribute="top" id="KAC-sp-weg"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Fjb-36-nwc" secondAttribute="bottom" id="fqK-4r-thw"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Aaf-9I-ELv" secondAttribute="bottom" id="htT-sF-A0c"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="Fjb-36-nwc" secondAttribute="trailing" id="mTl-DS-1lP"/>
+                                                                    </constraints>
+                                                                </view>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="eXM-Wi-4kN" secondAttribute="bottom" id="IJQ-Fb-tI1"/>
+                                                                <constraint firstItem="Y1Q-ic-VZj" firstAttribute="leading" secondItem="Xmm-kP-XV1" secondAttribute="leading" id="JB7-On-wlE"/>
+                                                                <constraint firstItem="eXM-Wi-4kN" firstAttribute="top" secondItem="Xmm-kP-XV1" secondAttribute="top" id="Svk-W7-F9w"/>
+                                                                <constraint firstAttribute="trailing" secondItem="eXM-Wi-4kN" secondAttribute="trailing" id="bwe-0z-PPo"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Y1Q-ic-VZj" secondAttribute="bottom" id="lDm-66-i5v"/>
+                                                                <constraint firstItem="Y1Q-ic-VZj" firstAttribute="top" secondItem="Xmm-kP-XV1" secondAttribute="top" id="tme-HC-7DM"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Uf7-ul-7Zf" firstAttribute="leading" secondItem="MeU-43-lpU" secondAttribute="leading" constant="5" id="421-Ib-SNo"/>
+                                                <constraint firstAttribute="trailing" secondItem="Uf7-ul-7Zf" secondAttribute="trailing" constant="5" id="HJ2-Or-BG3"/>
+                                                <constraint firstAttribute="bottom" secondItem="Uf7-ul-7Zf" secondAttribute="bottom" id="fYl-Rk-ob8"/>
+                                                <constraint firstItem="Uf7-ul-7Zf" firstAttribute="top" secondItem="MeU-43-lpU" secondAttribute="top" id="t00-52-zgi"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="MeU-43-lpU" firstAttribute="top" secondItem="sRy-8T-rys" secondAttribute="top" constant="5" id="Qjd-6P-EcF"/>
+                                        <constraint firstAttribute="trailing" secondItem="MeU-43-lpU" secondAttribute="trailing" constant="5" id="UyO-cK-YFZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="MeU-43-lpU" secondAttribute="bottom" constant="5" id="mfE-ks-1kh"/>
+                                        <constraint firstItem="MeU-43-lpU" firstAttribute="leading" secondItem="sRy-8T-rys" secondAttribute="leading" constant="5" id="ziS-fr-Pdk"/>
                                     </constraints>
                                 </view>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-rN-Fjt">
@@ -68,12 +196,15 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="9hh-rN-Fjt" firstAttribute="leading" secondItem="BqF-hK-OjQ" secondAttribute="leading" id="143-l4-IxP"/>
+                                <constraint firstItem="9hh-rN-Fjt" firstAttribute="top" secondItem="sRy-8T-rys" secondAttribute="bottom" id="CUm-gC-tlz"/>
                                 <constraint firstAttribute="trailing" secondItem="zgG-rT-PXP" secondAttribute="trailing" id="ILG-uq-rvU"/>
+                                <constraint firstItem="sRy-8T-rys" firstAttribute="leading" secondItem="BqF-hK-OjQ" secondAttribute="leading" id="Keh-B6-3uQ"/>
                                 <constraint firstAttribute="bottom" secondItem="9hh-rN-Fjt" secondAttribute="bottom" id="OAL-Pd-0sr"/>
+                                <constraint firstItem="sRy-8T-rys" firstAttribute="top" secondItem="zgG-rT-PXP" secondAttribute="bottom" id="OZr-5i-Osa"/>
                                 <constraint firstItem="zgG-rT-PXP" firstAttribute="top" secondItem="BqF-hK-OjQ" secondAttribute="top" id="RXc-Jh-svm"/>
+                                <constraint firstAttribute="trailing" secondItem="sRy-8T-rys" secondAttribute="trailing" id="UYk-D2-5SI"/>
                                 <constraint firstAttribute="trailing" secondItem="9hh-rN-Fjt" secondAttribute="trailing" id="fAx-NL-dgh"/>
                                 <constraint firstItem="zgG-rT-PXP" firstAttribute="leading" secondItem="BqF-hK-OjQ" secondAttribute="leading" id="nkm-Qt-ubb"/>
-                                <constraint firstItem="9hh-rN-Fjt" firstAttribute="top" secondItem="zgG-rT-PXP" secondAttribute="bottom" id="tDD-1y-mhP"/>
                             </constraints>
                         </view>
                     </subviews>
