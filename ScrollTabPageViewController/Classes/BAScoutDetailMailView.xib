@@ -148,7 +148,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="面接確約" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeM-bU-aqZ" userLabel="Promised Interview Benefit Title Label">
                                                                             <rect key="frame" x="0.0" y="15" width="390" height="20"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="20" id="BBn-H0-GYq"/>
+                                                                                <constraint firstAttribute="height" priority="999" constant="20" id="BBn-H0-GYq"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                             <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
