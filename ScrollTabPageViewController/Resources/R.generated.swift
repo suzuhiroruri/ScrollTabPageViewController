@@ -36,10 +36,17 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
   struct nib {
+    /// Nib `BAScoutDetailMailView`.
+    static let bAScoutDetailMailView = _R.nib._BAScoutDetailMailView()
     /// Nib `ContentsView`.
     static let contentsView = _R.nib._ContentsView()
+    
+    /// `UINib(name: "BAScoutDetailMailView", in: bundle)`
+    static func bAScoutDetailMailView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.bAScoutDetailMailView)
+    }
     
     /// `UINib(name: "ContentsView", in: bundle)`
     static func contentsView(_: Void = ()) -> UIKit.UINib {
@@ -110,6 +117,17 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
+    struct _BAScoutDetailMailView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "BAScoutDetailMailView"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> BAScoutDetailMailView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BAScoutDetailMailView
+      }
+      
+      fileprivate init() {}
+    }
+    
     struct _ContentsView: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "ContentsView"

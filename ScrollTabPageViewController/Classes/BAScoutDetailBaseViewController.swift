@@ -21,10 +21,10 @@ class BAScoutDetailBaseViewController: UIPageViewController {
     var updateIndex: Int = 0
 
     // スカウトメールのビュー
-    var scoutDetailMailView: ContentsView!
+    var scoutDetailMailView: BAScoutDetailMailView!
 
     // スカウトメールのビューの高さ
-    let mailViewHeight: CGFloat = 280.0
+    var mailViewHeight: CGFloat = 0.0
 
     // スカウトメールのビューのスクロールの値
     var mailViewScrollContentOffsetY: CGFloat = 0.0
@@ -86,10 +86,13 @@ extension BAScoutDetailBaseViewController {
 
     // scoutDetailMailViewのセットアップ
     func setupScoutDetailMailView() {
-    	// scoutMailViewを生成
-        scoutDetailMailView = ContentsView(frame: CGRect(x:0.0, y:64.0, width:view.frame.width, height:mailViewHeight))
+        // scoutMailViewを生成
+        scoutDetailMailView = BAScoutDetailMailView.instantiate()
+        let barHeight: CGFloat = 64
+        mailViewHeight = scoutDetailMailView.frame.height - barHeight
+
         // タップでセグメントが変更された時の挙動を設定
-        scoutDetailMailView.tabButtonPressedBlock = { [weak self] (index: Int) in
+        scoutDetailMailView.segmentChangedBlock = { [weak self] (index: Int) in
             guard let uself = self else {
                 return
             }
