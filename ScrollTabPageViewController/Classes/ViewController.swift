@@ -22,7 +22,7 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        scrollTabPageViewController.updateLayoutIfNeeded()
+        bAScoutDetailBaseViewController.updateLayoutIfNeeded()
     }
 }
 
@@ -52,17 +52,17 @@ extension ViewController: UITableViewDelegate {
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // contentsViewのスクロールを同期
-        scrollTabPageViewController.updateContentViewFrame()
+        bAScoutDetailBaseViewController.updateContentViewFrame()
     }
 }
 
 
 // MARK: - ScrollTabPageViewControllerProtocol
 
-extension ViewController: ScrollTabPageViewControllerProtocol {
+extension ViewController: BAScoutDetailBaseViewControllerProtocol {
 
-    var scrollTabPageViewController: ScrollTabPageViewController {
-        return parent as! ScrollTabPageViewController
+    var bAScoutDetailBaseViewController: BAScoutDetailBaseViewController {
+        return parent as! BAScoutDetailBaseViewController
     }
 
     var scrollView: UIScrollView {
