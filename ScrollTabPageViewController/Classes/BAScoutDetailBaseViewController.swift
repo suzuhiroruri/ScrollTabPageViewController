@@ -49,6 +49,15 @@ class BAScoutDetailBaseViewController: UIPageViewController {
         // 各ビューを設定
         self.setupViews()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        guard let currentIndex = self.currentIndex, let jobDetailViewController = self.pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
+            return
+        }
+        // 初期表示の時にスクロールの位置がずれてしまう場合、修正する
+        if -jobDetailViewController.scrollView.contentOffset.y < scoutDetailMailView.frame.height {
+            jobDetailViewController.scrollView.contentOffset.y = -scoutDetailMailView.frame.height
+        }
+    }
 }
 
 // MARK: - View
