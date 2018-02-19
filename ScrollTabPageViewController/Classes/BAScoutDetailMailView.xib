@@ -13,17 +13,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BAScoutDetailMailView" customModule="ScrollTabPageViewController" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="420" height="246"/>
+            <rect key="frame" x="0.0" y="0.0" width="420" height="476"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMM-c9-nxq">
-                    <rect key="frame" x="0.0" y="0.0" width="420" height="246"/>
+                    <rect key="frame" x="0.0" y="0.0" width="420" height="476"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BqF-hK-OjQ" userLabel="Base View">
-                            <rect key="frame" x="0.0" y="0.0" width="420" height="246"/>
+                            <rect key="frame" x="0.0" y="0.0" width="420" height="476"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgG-rT-PXP" userLabel="Header View">
-                                    <rect key="frame" x="0.0" y="0.0" width="420" height="37"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="420" height="137"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="受信日: 2017/12/11" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T1-Rk-Ofv">
                                             <rect key="frame" x="0.0" y="5" width="405" height="17"/>
@@ -35,7 +35,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zII-7a-K6R">
-                                            <rect key="frame" x="8" y="32" width="415" height="0.0"/>
+                                            <rect key="frame" x="8" y="32" width="415" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="pbO-m8-raN"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -53,13 +56,13 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRy-8T-rys" userLabel="BodyView">
-                                    <rect key="frame" x="0.0" y="37" width="420" height="165"/>
+                                    <rect key="frame" x="0.0" y="137" width="420" height="295"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeU-43-lpU" userLabel="BenefitBaseView">
-                                            <rect key="frame" x="5" y="5" width="410" height="155"/>
+                                            <rect key="frame" x="5" y="5" width="410" height="285"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uf7-ul-7Zf" userLabel="Benefit Stack View">
-                                                    <rect key="frame" x="5" y="-0.5" width="400" height="155.5"/>
+                                                    <rect key="frame" x="5" y="-0.5" width="400" height="285.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmm-kP-XV1" userLabel="TitleBaseView">
                                                             <rect key="frame" x="0.0" y="0.0" width="400" height="15"/>
@@ -131,10 +134,10 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZbK-Wc-ggI" userLabel="promisedInterViewBenefitBaseView">
-                                                            <rect key="frame" x="0.0" y="15" width="400" height="45"/>
+                                                            <rect key="frame" x="0.0" y="15" width="400" height="50"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBi-W2-dKN" userLabel="interViewBenefitView">
-                                                                    <rect key="frame" x="5" y="5" width="390" height="35"/>
+                                                                    <rect key="frame" x="5" y="5" width="390" height="40"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="書類なしですぐ面接" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46a-uL-fT5" userLabel="Promised Interview Benefit Sub Title Label">
                                                                             <rect key="frame" x="0.0" y="0.0" width="390" height="15"/>
@@ -146,7 +149,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="面接確約" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeM-bU-aqZ" userLabel="Promised Interview Benefit Title Label">
-                                                                            <rect key="frame" x="0.0" y="15" width="390" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="15" width="390" height="25"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" priority="999" constant="20" id="BBn-H0-GYq"/>
                                                                             </constraints>
@@ -176,13 +179,13 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nME-JO-Lj3" userLabel="benefitCollectionBaseView">
-                                                            <rect key="frame" x="0.0" y="60" width="400" height="74.5"/>
+                                                            <rect key="frame" x="0.0" y="65" width="400" height="160.5"/>
                                                             <subviews>
                                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="88K-m2-Y1d" userLabel="Benefit Collection View">
-                                                                    <rect key="frame" x="0.0" y="5" width="400" height="64.5"/>
+                                                                    <rect key="frame" x="0.0" y="5" width="400" height="150.5"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="64.5" id="9ag-wQ-GbT"/>
+                                                                        <constraint firstAttribute="height" priority="999" constant="64.5" id="9ag-wQ-GbT"/>
                                                                     </constraints>
                                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I9W-qY-YaG">
                                                                         <size key="itemSize" width="50" height="50"/>
@@ -201,12 +204,12 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z45-Pr-ukK" userLabel="benefitRemarksBaseView">
-                                                            <rect key="frame" x="0.0" y="134.5" width="400" height="21"/>
+                                                            <rect key="frame" x="0.0" y="225.5" width="400" height="60"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYf-1E-KCX" userLabel="benefitRemarksLabel">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="60"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="21" id="KHU-We-DZJ"/>
+                                                                        <constraint firstAttribute="height" constant="60" id="vDO-Ec-1xJ"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
@@ -242,7 +245,7 @@
                                     </constraints>
                                 </view>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-rN-Fjt">
-                                    <rect key="frame" x="0.0" y="202" width="420" height="45"/>
+                                    <rect key="frame" x="0.0" y="432" width="420" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="mhL-49-ql3"/>
                                     </constraints>
@@ -303,7 +306,7 @@
                 <outlet property="segmentedControl" destination="9hh-rN-Fjt" id="Puc-5U-qsq"/>
                 <outlet property="segmentedControlHeight" destination="mhL-49-ql3" id="Ny4-ol-atP"/>
             </connections>
-            <point key="canvasLocation" x="33" y="-157"/>
+            <point key="canvasLocation" x="33" y="-42"/>
         </view>
     </objects>
 </document>
