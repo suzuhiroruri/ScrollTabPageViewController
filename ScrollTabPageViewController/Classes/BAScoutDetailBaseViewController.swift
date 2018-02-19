@@ -48,7 +48,9 @@ class BAScoutDetailBaseViewController: UIPageViewController {
 
         // 各ビューを設定
         self.setupViews()
+        scoutDetailMailView.bAScoutDetailMailViewProtocol = self
     }
+
     override func viewWillAppear(_ animated: Bool) {
         guard let currentIndex = self.currentIndex, let jobDetailViewController = self.pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
             return
@@ -62,7 +64,14 @@ class BAScoutDetailBaseViewController: UIPageViewController {
 
 // MARK: - View
 
-extension BAScoutDetailBaseViewController {
+extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
+
+    // スカウト特典についてのWebView表示
+    func showAboutBenefitView() {
+        // TODO:バイトルに入れる時はtoFreeWebにする
+        let modal = BAScoutDetailAboutBenefitViewController()
+        self.present(modal, animated: true, completion: nil)
+    }
 
     // 各Viewを設定
     func setupViews() {

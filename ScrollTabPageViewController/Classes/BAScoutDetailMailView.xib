@@ -108,6 +108,9 @@
                                                                                 </imageView>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfY-Ad-oWj" userLabel="aboutScoutBenefitButton">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="132.5" height="15"/>
+                                                                                    <connections>
+                                                                                        <action selector="tapAboutScoutbenefitLink:" destination="iN0-l3-epB" eventType="touchUpInside" id="w39-FN-xVl"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                             </subviews>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
