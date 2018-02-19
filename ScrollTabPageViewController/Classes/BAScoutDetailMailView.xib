@@ -13,17 +13,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BAScoutDetailMailView" customModule="ScrollTabPageViewController" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="420" height="476"/>
+            <rect key="frame" x="0.0" y="0.0" width="420" height="561"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMM-c9-nxq">
-                    <rect key="frame" x="0.0" y="0.0" width="420" height="476"/>
+                    <rect key="frame" x="0.0" y="0.0" width="420" height="561"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BqF-hK-OjQ" userLabel="Base View">
-                            <rect key="frame" x="0.0" y="0.0" width="420" height="476"/>
+                            <rect key="frame" x="0.0" y="0.0" width="420" height="561"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JQb-CW-qjS">
-                                    <rect key="frame" x="0.0" y="0.0" width="420" height="432"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="420" height="517"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgG-rT-PXP" userLabel="Header View">
                                             <rect key="frame" x="0.0" y="0.0" width="420" height="107"/>
@@ -59,7 +59,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRy-8T-rys" userLabel="BodyView">
-                                            <rect key="frame" x="0.0" y="107" width="420" height="295"/>
+                                            <rect key="frame" x="0.0" y="107" width="420" height="380"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeU-43-lpU" userLabel="BenefitBaseView">
                                                     <rect key="frame" x="5" y="5" width="410" height="194"/>
@@ -242,7 +242,7 @@
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="r8X-zV-fWq" userLabel="mailBodyStackView">
-                                                    <rect key="frame" x="5" y="199" width="410" height="96"/>
+                                                    <rect key="frame" x="5" y="199" width="410" height="181"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JsY-AR-3Uj" userLabel="mailBodyTitleBaseView">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="20"/>
@@ -266,12 +266,12 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PTx-XZ-h9g" userLabel="mailBodyBaseView">
-                                                            <rect key="frame" x="0.0" y="20" width="410" height="76"/>
+                                                            <rect key="frame" x="0.0" y="20" width="410" height="161"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCM-bf-RQv">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="410" height="76"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="410" height="161"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="76" id="MBs-g6-LNY"/>
+                                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="MBs-g6-LNY"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -301,7 +301,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YFn-jO-BMu" userLabel="Appear Days Left Base View">
-                                            <rect key="frame" x="0.0" y="402" width="420" height="30"/>
+                                            <rect key="frame" x="0.0" y="487" width="420" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A16-nS-RV3" userLabel="Appear Days Left Label">
                                                     <rect key="frame" x="5" y="5" width="410" height="20"/>
@@ -325,7 +325,7 @@
                                     </subviews>
                                 </stackView>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-rN-Fjt">
-                                    <rect key="frame" x="0.0" y="432" width="420" height="45"/>
+                                    <rect key="frame" x="0.0" y="517" width="420" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="mhL-49-ql3"/>
                                     </constraints>
@@ -388,7 +388,7 @@
                 <outlet property="segmentedControl" destination="9hh-rN-Fjt" id="Puc-5U-qsq"/>
                 <outlet property="segmentedControlHeight" destination="mhL-49-ql3" id="Ny4-ol-atP"/>
             </connections>
-            <point key="canvasLocation" x="33" y="-42"/>
+            <point key="canvasLocation" x="33" y="-32.5"/>
         </view>
     </objects>
 </document>
