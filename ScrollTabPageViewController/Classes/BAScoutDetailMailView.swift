@@ -81,7 +81,7 @@ class BAScoutDetailMailView: UIView {
     static func instantiate() -> BAScoutDetailMailView {
         let nib = UINib(nibName: R.nib.bAScoutDetailMailView.name, bundle: nil)
 
-        guard let view = nib.instantiate(withOwner: nil, options: nil)[0] as? BAScoutDetailMailView else {
+        guard let view = nib.instantiate(withOwner: nil, options: nil).first as? BAScoutDetailMailView else {
             return BAScoutDetailMailView()
         }
         view.setViewContent()
