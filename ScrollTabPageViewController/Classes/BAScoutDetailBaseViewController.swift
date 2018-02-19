@@ -182,7 +182,7 @@ extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
                             // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
                             self?.setupJobDetailScrollContentInset(index: 0)
         })
-        
+
         setViewControllers([pageViewControllers[1]],
                            direction: .forward,
                            animated: false,
@@ -190,7 +190,7 @@ extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
                             // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
                             self?.setupJobDetailScrollContentInset(index: 1)
         })
-        
+
     }
 }
 
