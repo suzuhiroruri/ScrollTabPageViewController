@@ -22,7 +22,7 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        bAScoutDetailBaseViewController.updateLayoutIfNeeded()
+        scoutDetailBaseViewController.updateLayoutIfNeeded()
     }
 }
 
@@ -52,7 +52,7 @@ extension ViewController: UITableViewDelegate {
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // contentsViewのスクロールを同期
-        bAScoutDetailBaseViewController.updateContentViewFrame()
+        scoutDetailBaseViewController.updateContentViewFrame()
     }
 }
 
@@ -61,7 +61,7 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: BAScoutDetailBaseViewControllerProtocol {
 
-    var bAScoutDetailBaseViewController: BAScoutDetailBaseViewController {
+    var scoutDetailBaseViewController: BAScoutDetailBaseViewController {
         return parent as! BAScoutDetailBaseViewController
     }
 

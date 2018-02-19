@@ -19,21 +19,23 @@ class BAScoutDetailBaseViewController: UIPageViewController {
 
     // pageViewControllerの更新index
     var updateIndex: Int = 0
-    
+
+    // スカウトメールのビュー
     var contentsView: ContentsView!
-    
-    // contentViewの高さ
+
+    // スカウトメールのビューの高さ
     let contentViewHeihgt: CGFloat = 280.0
-    
-    // contentsViewのスクロールの値
+
+    // スカウトメールのビューのスクロールの値
     var scrollContentOffsetY: CGFloat = 0.0
-    
+
     var shouldScrollFrame: Bool = true
+
+    // 仕事詳細ビューのスクロールをさせるべきかどうかを判別する変数
     var shouldUpdateLayout: Bool = false
     let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
-    
-    
-    // tabViewControllerの現在のindex
+
+    // pageViewControllerの現在のindex
     var currentIndex: Int? {
         guard let viewController = viewControllers?.first, let index = pageViewControllers.index(of: viewController) else {
             return nil
@@ -52,14 +54,19 @@ class BAScoutDetailBaseViewController: UIPageViewController {
 
 extension BAScoutDetailBaseViewController {
 
-    // outletをセットアップ
+    // 各Viewを設定
     func setupOutlets() {
-        setupViewControllers()
-        setupContentsView()
-        setupPageViewController()
+    	// 仕事詳細のcontrollerをセットアップ
+        self.setupViewControllers()
+        
+        // スカウトメールのビューをセットアップ
+        self.setupContentsView()
+
+        // pageViewControllerに仕事詳細のcontrollerを格納
+        self.setupPageViewController()
     }
 
-    // viewControllerをセットアップ
+    // BAScoutDetailJobViewControllerをセットアップ
     // 別々のviewControllerを設定する場合はvc1&2の読み込み内容を変更する
     func setupViewControllers() {
         // viewContrroller
@@ -101,7 +108,7 @@ extension BAScoutDetailBaseViewController {
             let direction: UIPageViewControllerNavigationDirection = (uself.currentIndex! < index) ? .forward : .reverse
             uself.setViewControllers([uself.pageViewControllers[index]],
                 direction: direction,
-                animated: true,
+                animated: false,
                 completion: { [weak self] (completed: Bool) in
                     guard let uself = self else {
                         return
@@ -131,40 +138,40 @@ extension BAScoutDetailBaseViewController {
      BAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
      */
     func setupCurrentContentInset() {
-        guard let currentIndex = currentIndex, let vc = pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
+        guard let currentIndex = currentIndex, let jobDetailViewController = pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
             return
         }
 
-        vc.scrollView.contentInset.top = contentViewHeihgt
-        vc.scrollView.scrollIndicatorInsets.top = contentViewHeihgt
+        jobDetailViewController.scrollView.contentInset.top = contentViewHeihgt
+        jobDetailViewController.scrollView.scrollIndicatorInsets.top = contentViewHeihgt
     }
     
     /**
      次のscrollViewのcontentInsetをセット
      */
     func setupNextContentInset(nextIndex:Int) {
-        guard let vc = pageViewControllers[nextIndex] as? BAScoutDetailBaseViewControllerProtocol else {
+        guard let jobDetailViewController = pageViewControllers[nextIndex] as? BAScoutDetailBaseViewControllerProtocol else {
             return
         }
         
-        vc.scrollView.contentInset.top = contentViewHeihgt
-        vc.scrollView.scrollIndicatorInsets.top = contentViewHeihgt
+        jobDetailViewController.scrollView.contentInset.top = contentViewHeihgt
+        jobDetailViewController.scrollView.scrollIndicatorInsets.top = contentViewHeihgt
     }
 
     /**
-     Y座標をセット(初期表示やページングがされた時)
+     ページングがされ、mailViewがまだ表示されているとき、jobDetailのテーブルのスクロールのオフセットを設定
      - parameter index: ページングのindex
      - parameter scroll: どれだけスクロールしているか
      */
     func setupContentOffsetY(index: Int, scroll: CGFloat) {
-        guard let  vc = pageViewControllers[index] as? BAScoutDetailBaseViewControllerProtocol else {
+        guard let  jobDetailViewController = pageViewControllers[index] as? BAScoutDetailBaseViewControllerProtocol else {
             return
         }
 
         if scroll == 0.0 {
-            vc.scrollView.contentOffset.y = -contentViewHeihgt
-        } else if (scroll < contentViewHeihgt - contentsView.segmentedControlHeight.constant) || (vc.scrollView.contentOffset.y <= -contentsView.segmentedControlHeight.constant) {
-            vc.scrollView.contentOffset.y = scroll - contentViewHeihgt
+            jobDetailViewController.scrollView.contentOffset.y = -contentViewHeihgt
+        } else if (scroll < contentViewHeihgt - contentsView.segmentedControlHeight.constant) || (jobDetailViewController.scrollView.contentOffset.y <= -contentsView.segmentedControlHeight.constant) {
+            jobDetailViewController.scrollView.contentOffset.y = scroll - contentViewHeihgt
         }
     }
 
