@@ -68,11 +68,10 @@
 		2979E341203452840075D321 /* Mail */ = {
 			isa = PBXGroup;
 			children = (
-				29FADB9D20342E9C00F78190 /* BAScoutDetailMailView.swift */,
-				29FADB9E20342E9D00F78190 /* BAScoutDetailMailView.xib */,
+				29D6F689203A99FB00D03211 /* View */,
+				29D6F68A203A9A0500D03211 /* ViewModel */,
 				29D6F686203A983E00D03211 /* BAScoutDetailBenefitCollectionCell.swift */,
 				29D6F685203A983E00D03211 /* BAScoutDetailBenefitCollectionCell.xib */,
-				29D6F683203A982A00D03211 /* BAScoutDetailMailViewModel.swift */,
 			);
 			name = Mail;
 			sourceTree = "<group>";
@@ -84,6 +83,23 @@
 				4C8C50EE1C13CB27008A69C9 /* BAScoutDetailJobViewController.storyboard */,
 			);
 			name = Job;
+			sourceTree = "<group>";
+		};
+		29D6F689203A99FB00D03211 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				29FADB9D20342E9C00F78190 /* BAScoutDetailMailView.swift */,
+				29FADB9E20342E9D00F78190 /* BAScoutDetailMailView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		29D6F68A203A9A0500D03211 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				29D6F683203A982A00D03211 /* BAScoutDetailMailViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		4C8C50C01C11B617008A69C9 = {
