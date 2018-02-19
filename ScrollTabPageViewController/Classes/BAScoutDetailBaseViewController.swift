@@ -45,7 +45,10 @@ class BAScoutDetailBaseViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupOutlets()
+        self.title = "スカウト詳細"
+
+        // 各ビューを設定
+        self.setupViews()
     }
 }
 
@@ -55,9 +58,9 @@ class BAScoutDetailBaseViewController: UIPageViewController {
 extension BAScoutDetailBaseViewController {
 
     // 各Viewを設定
-    func setupOutlets() {
-    
-    	// 仕事詳細のcontrollerをセットアップ
+    func setupViews() {
+
+        // 仕事詳細のcontrollerをセットアップ
         self.setupJobDetailViewControllers()
 
         // スカウトメールのビューをセットアップ
@@ -102,7 +105,7 @@ extension BAScoutDetailBaseViewController {
                                             return
                                         }
                                         if uself.shouldUpdateJobDetailContentOffset {
-                                            uself.setupJobDetailScrollContentOffsetY(index:index, scroll: -uself.mailViewScrollContentOffsetY)
+                                            uself.setupJobDetailScrollContentOffsetY(index:index, mailViewScrollContentOffsetY: -uself.mailViewScrollContentOffsetY)
                                             uself.shouldUpdateJobDetailContentOffset = false
                                         }
             })
@@ -111,8 +114,8 @@ extension BAScoutDetailBaseViewController {
         // scoutDetailMailViewのDidScrollの時のブロック
         scoutDetailMailView.scrollDidChangedBlock = { [weak self] (scroll: CGFloat, shouldScrollFrame: Bool) in
             self?.shouldScrollMailView = shouldScrollFrame
-            // Y座標を更新する
-            self?.updateContentOffsetY(scroll: scroll)
+            // 仕事詳細のテーブルのスクロールのY座標を更新する
+            self?.updateJobDetailTableContentOffsetY(scroll: scroll)
         }
         view.addSubview(scoutDetailMailView)
     }
@@ -128,7 +131,7 @@ extension BAScoutDetailBaseViewController {
             animated: false,
             completion: { [weak self] (completed: Bool) in
                 // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
-                self?.setupCurrentContentInset()
+                self?.setupJobDetailScrollContentInset(index: 0)
             })
     }
 }
@@ -140,8 +143,8 @@ extension BAScoutDetailBaseViewController {
     /**
      BAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
      */
-    func setupCurrentContentInset() {
-        guard let currentIndex = currentIndex, let jobDetailViewController = pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
+    func setupJobDetailScrollContentInset(index: Int) {
+        guard let jobDetailViewController = pageViewControllers[index] as? BAScoutDetailBaseViewControllerProtocol else {
             return
         }
 
@@ -166,20 +169,21 @@ extension BAScoutDetailBaseViewController {
      - parameter index: ページングのindex
      - parameter scroll: どれだけスクロールしているか
      */
-    func setupJobDetailScrollContentOffsetY(index: Int, scroll: CGFloat) {
+    func setupJobDetailScrollContentOffsetY(index: Int, mailViewScrollContentOffsetY: CGFloat) {
         guard let  jobDetailViewController = pageViewControllers[index] as? BAScoutDetailBaseViewControllerProtocol else {
             return
         }
 
-        if scroll == 0.0 {
+        if mailViewScrollContentOffsetY == 0.0 {
+            // 全くスクロールしていないときはmailViewの高さをそのままjobDetailViewのOffsetに設定
             jobDetailViewController.scrollView.contentOffset.y = -mailViewHeight
-        } else if (scroll < mailViewHeight - scoutDetailMailView.segmentedControlHeight.constant) || (jobDetailViewController.scrollView.contentOffset.y <= -scoutDetailMailView.segmentedControlHeight.constant) {
-            jobDetailViewController.scrollView.contentOffset.y = scroll - mailViewHeight
+        } else if (mailViewScrollContentOffsetY < mailViewHeight - scoutDetailMailView.segmentedControlHeight.constant) || (jobDetailViewController.scrollView.contentOffset.y <= -scoutDetailMailView.segmentedControlHeight.constant) {
+            jobDetailViewController.scrollView.contentOffset.y = mailViewScrollContentOffsetY - mailViewHeight
         }
     }
 
     /**
-     viewControllerのスクロールでのcontentViewを更新
+     jobDetailのスクロールをmailViewに反映
      - parameter scroll: 移動した分の座標
      */
     func updateContentView(scroll: CGFloat) {
@@ -191,42 +195,53 @@ extension BAScoutDetailBaseViewController {
     }
 
     /**
-     Y座標を更新
+     jobDetailのテーブルのスクロールのY座標を更新
      - parameter scroll: 移動した分の座標
      */
-    func updateContentOffsetY(scroll: CGFloat) {
+    func updateJobDetailTableContentOffsetY(scroll: CGFloat) {
         if let currentIndex = currentIndex, let vc = pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol {
             vc.scrollView.contentOffset.y += scroll
         }
     }
 
+    /**
+     メールとJobDetailのスクロールを更新
+     */
     func updateContentViewFrame() {
-        guard let currentIndex = currentIndex, let vc = pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
+        guard let currentIndex = currentIndex, let jobDetailViewController = pageViewControllers[currentIndex] as? BAScoutDetailBaseViewControllerProtocol else {
             return
         }
 
         // 予めスクロールのcontentOffsetはcontentsViewの分だけ差し引かれている。
         // スクロールの長さがsegmentedControlの高さより大きいかどうか判定
-        if vc.scrollView.contentOffset.y >= -scoutDetailMailView.segmentedControlHeight.constant {
+        if jobDetailViewController.scrollView.contentOffset.y >= -scoutDetailMailView.segmentedControlHeight.constant {
             // tableViewのスクロール更新
             let scroll = mailViewHeight - scoutDetailMailView.segmentedControlHeight.constant
             updateContentView(scroll: -scroll)
-            vc.scrollView.scrollIndicatorInsets.top = scoutDetailMailView.segmentedControlHeight.constant
+            jobDetailViewController.scrollView.scrollIndicatorInsets.top = scoutDetailMailView.segmentedControlHeight.constant
         } else {
             // contentsViewとtableViewのスクロール更新
-            let scroll = mailViewHeight + vc.scrollView.contentOffset.y
+            let scroll = mailViewHeight + jobDetailViewController.scrollView.contentOffset.y
             updateContentView(scroll: -scroll)
-            vc.scrollView.scrollIndicatorInsets.top = -vc.scrollView.contentOffset.y
+            jobDetailViewController.scrollView.scrollIndicatorInsets.top = -jobDetailViewController.scrollView.contentOffset.y
         }
     }
 
-    func updateLayoutIfNeeded() {
+    /**
+     JobDetailの余白とY座標を更新(主にページャーが更新されたとき)
+     */
+    func updateJobDetailLayoutIfNeeded() {
         if shouldUpdateJobDetailContentOffset {
-            let vc = pageViewControllers[updateIndex] as? BAScoutDetailBaseViewControllerProtocol
-            let shouldSetupContentOffsetY = vc?.scrollView.contentInset.top != mailViewHeight
+            let jobDetailViewController = pageViewControllers[updateIndex] as? BAScoutDetailBaseViewControllerProtocol
+            let shouldSetupContentOffsetY = jobDetailViewController?.scrollView.contentInset.top != mailViewHeight
             
-            setupCurrentContentInset()
-            setupJobDetailScrollContentOffsetY(index: updateIndex, scroll: -mailViewScrollContentOffsetY)
+            guard let currentIndex = currentIndex else {
+                return
+            }
+            // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
+            self.setupJobDetailScrollContentInset(index: currentIndex)
+            // jobDetailのテーブルのスクロールのY座標をセット
+            self.setupJobDetailScrollContentOffsetY(index: updateIndex, mailViewScrollContentOffsetY: -mailViewScrollContentOffsetY)
             shouldUpdateJobDetailContentOffset = shouldSetupContentOffsetY
         }
     }
@@ -237,6 +252,7 @@ extension BAScoutDetailBaseViewController {
 
 extension BAScoutDetailBaseViewController: UIPageViewControllerDataSource {
 
+    
     /**
      1つ目のviewControllerに戻った時の処理
      - parameter pageViewController: pageViewController
@@ -278,7 +294,6 @@ extension BAScoutDetailBaseViewController: UIPageViewControllerDataSource {
     }
 }
 
-
 // MARK: - UIPageViewControllerDelegate
 
 extension BAScoutDetailBaseViewController: UIPageViewControllerDelegate {
@@ -309,8 +324,11 @@ extension BAScoutDetailBaseViewController: UIPageViewControllerDelegate {
         }
 
         if shouldUpdateJobDetailContentOffset {
-            setupCurrentContentInset()
-            setupJobDetailScrollContentOffsetY(index: currentIndex, scroll: -mailViewScrollContentOffsetY)
+            // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
+            self.setupJobDetailScrollContentInset(index: currentIndex)
+
+            // jobDetailのテーブルのスクロールのY座標をセット
+            self.setupJobDetailScrollContentOffsetY(index: currentIndex, mailViewScrollContentOffsetY: -mailViewScrollContentOffsetY)
         }
 
         if currentIndex >= 0 && currentIndex < scoutDetailMailView.segmentedControl.numberOfSegments {
