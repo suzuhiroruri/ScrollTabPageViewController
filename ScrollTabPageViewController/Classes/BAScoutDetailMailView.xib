@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="420" height="432"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zgG-rT-PXP" userLabel="Header View">
-                                            <rect key="frame" x="0.0" y="0.0" width="420" height="137"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="420" height="107"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="受信日: 2017/12/11" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2T1-Rk-Ofv">
                                                     <rect key="frame" x="0.0" y="5" width="405" height="17"/>
@@ -38,9 +38,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zII-7a-K6R">
-                                                    <rect key="frame" x="8" y="32" width="415" height="100"/>
+                                                    <rect key="frame" x="8" y="32" width="415" height="70"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="100" id="pbO-m8-raN"/>
+                                                        <constraint firstAttribute="height" constant="70" id="pbO-m8-raN"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -59,13 +59,13 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sRy-8T-rys" userLabel="BodyView">
-                                            <rect key="frame" x="0.0" y="137" width="420" height="265"/>
+                                            <rect key="frame" x="0.0" y="107" width="420" height="295"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeU-43-lpU" userLabel="BenefitBaseView">
-                                                    <rect key="frame" x="5" y="5" width="410" height="164"/>
+                                                    <rect key="frame" x="5" y="5" width="410" height="194"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uf7-ul-7Zf" userLabel="Benefit Stack View">
-                                                            <rect key="frame" x="5" y="-0.5" width="400" height="164.5"/>
+                                                            <rect key="frame" x="5" y="-0.5" width="400" height="194.5"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xmm-kP-XV1" userLabel="TitleBaseView">
                                                                     <rect key="frame" x="0.0" y="0.0" width="400" height="15"/>
@@ -185,10 +185,10 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nME-JO-Lj3" userLabel="benefitCollectionBaseView">
-                                                                    <rect key="frame" x="0.0" y="60" width="400" height="44.5"/>
+                                                                    <rect key="frame" x="0.0" y="60" width="400" height="74.5"/>
                                                                     <subviews>
                                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="88K-m2-Y1d" userLabel="Benefit Collection View">
-                                                                            <rect key="frame" x="0.0" y="5" width="400" height="34.5"/>
+                                                                            <rect key="frame" x="0.0" y="5" width="400" height="64.5"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" priority="999" constant="64.5" id="9ag-wQ-GbT"/>
@@ -210,7 +210,7 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z45-Pr-ukK" userLabel="benefitRemarksBaseView">
-                                                                    <rect key="frame" x="0.0" y="104.5" width="400" height="60"/>
+                                                                    <rect key="frame" x="0.0" y="134.5" width="400" height="60"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYf-1E-KCX" userLabel="benefitRemarksLabel">
                                                                             <rect key="frame" x="0.0" y="0.0" width="400" height="60"/>
@@ -242,7 +242,7 @@
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="r8X-zV-fWq" userLabel="mailBodyStackView">
-                                                    <rect key="frame" x="5" y="169" width="410" height="96"/>
+                                                    <rect key="frame" x="5" y="199" width="410" height="96"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JsY-AR-3Uj" userLabel="mailBodyTitleBaseView">
                                                             <rect key="frame" x="0.0" y="0.0" width="410" height="20"/>
