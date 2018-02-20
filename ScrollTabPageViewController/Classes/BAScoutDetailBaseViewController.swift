@@ -175,20 +175,19 @@ extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
 
         // viewControllerをセット
         // セグメントを変更した時のアニメーションガタつき対策のため、あらかじめ両方セットしておく
-        setViewControllers([pageViewControllers[0]],
-                           direction: .forward,
-                           animated: false,
-                           completion: { [weak self] (completed: Bool) in
-                            // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
-                            self?.setupJobDetailScrollContentInset(index: 0)
-        })
-
         setViewControllers([pageViewControllers[1]],
                            direction: .forward,
                            animated: false,
                            completion: { [weak self] (completed: Bool) in
                             // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
                             self?.setupJobDetailScrollContentInset(index: 1)
+        })
+        setViewControllers([pageViewControllers[0]],
+                           direction: .forward,
+                           animated: false,
+                           completion: { [weak self] (completed: Bool) in
+                            // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
+                            self?.setupJobDetailScrollContentInset(index: 0)
         })
 
     }
