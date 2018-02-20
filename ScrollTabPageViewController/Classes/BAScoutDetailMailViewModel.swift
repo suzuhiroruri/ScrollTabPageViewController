@@ -35,8 +35,9 @@ class BAScoutDetailMailViewModel: NSObject {
 
     override init() {
         super.init()
-        let f = DateFormatter()
 
+        // スカウトメール受信日
+        let f = DateFormatter()
         guard let isFromSubscribeList = isFromSubscribeList else {
             return
         }
@@ -44,11 +45,13 @@ class BAScoutDetailMailViewModel: NSObject {
         f.dateStyle = .medium
         f.locale = Locale(identifier: "ja_JP")
         let now = Date()
-
         receivedDate = "受信日 :"
         receivedDate?.append(f.string(from: now))
 
+        // 面接確約特典サブタイトル
         promisedInterviewBenefitSubTitle = "書類なしでスグ面接♪"
+
+        // 面接確約特典タイトル
         switch promisedInterviewBenefit(rawValue: 2) {
         case .promisedInterview?:
             promisedInterviewBenefitTitle = "面接確約"
@@ -65,7 +68,8 @@ class BAScoutDetailMailViewModel: NSObject {
             return
         }
 
-        mailHeader = promisedInterviewBenefitTitle.isEmpty ? "あ" : "【" + promisedInterviewBenefitTitle + "】" + "あ"
+        // スカウトメールヘッダー
+        mailHeader = promisedInterviewBenefitTitle.isEmpty ? "あ" : "【" + promisedInterviewBenefitTitle + "】" + "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
 
         // 特典アイコン配列
         let benefitRemarksArray = ["※面接交通費支給", "※来社特典あり"]
@@ -79,8 +83,10 @@ class BAScoutDetailMailViewModel: NSObject {
             benefitRemarks?.append(remark)
         }
 
-        mailBody = "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+		// スカウトメール本文
+        mailBody = "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
 
+        // 掲載終了までの残り日数
         let attributeNormalBlack: [NSAttributedStringKey: Any] = [
             .foregroundColor: UIColor.black
         ]
@@ -92,7 +98,7 @@ class BAScoutDetailMailViewModel: NSObject {
             .foregroundColor: UIColor.red,
             .font: UIFont.boldSystemFont(ofSize: 17.0)
         ]
-        let appearDaysLeft: Int = 4
+        let appearDaysLeft: Int = 0
         if appearDaysLeft >= 4, appearDaysLeft <= 7 {
             let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack)
             let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack)
@@ -117,10 +123,12 @@ class BAScoutDetailMailViewModel: NSObject {
         }
     }
 
+    // コレクションセルのセル数
     func numberOfCollectionCellAtSection() -> Int {
         return 7
     }
 
+    // コレクションセルの文字列
     func collectionCellText(indexPath: IndexPath) -> String {
         return "あーーーー"
     }

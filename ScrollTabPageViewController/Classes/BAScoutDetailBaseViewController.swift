@@ -174,7 +174,7 @@ extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
         delegate = self
 
         // viewControllerをセット
-        // セグメント切り替え時のアニメーションガタつき対策のため両方ともセットしておく
+        // セグメントを変更した時のアニメーションガタつき対策のため、あらかじめ両方セットしておく
         setViewControllers([pageViewControllers[1]],
                            direction: .forward,
                            animated: false,
@@ -189,7 +189,6 @@ extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
                 // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
                 self?.setupJobDetailScrollContentInset(index: 0)
         })
-
     }
 }
 
