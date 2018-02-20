@@ -35,8 +35,9 @@ class BAScoutDetailMailViewModel: NSObject {
 
     override init() {
         super.init()
+        
+        // スカウトメール受信日
         let f = DateFormatter()
-
         guard let isFromSubscribeList = isFromSubscribeList else {
             return
         }
@@ -44,11 +45,13 @@ class BAScoutDetailMailViewModel: NSObject {
         f.dateStyle = .medium
         f.locale = Locale(identifier: "ja_JP")
         let now = Date()
-
         receivedDate = "受信日 :"
         receivedDate?.append(f.string(from: now))
 
+        // 面接確約特典サブタイトル
         promisedInterviewBenefitSubTitle = "書類なしでスグ面接♪"
+        
+        // 面接確約特典タイトル
         switch promisedInterviewBenefit(rawValue: 2) {
         case .promisedInterview?:
             promisedInterviewBenefitTitle = "面接確約"
@@ -65,6 +68,7 @@ class BAScoutDetailMailViewModel: NSObject {
             return
         }
 
+        // スカウトメールヘッダー
         mailHeader = promisedInterviewBenefitTitle.isEmpty ? "あ" : "【" + promisedInterviewBenefitTitle + "】" + "あ"
 
         // 特典アイコン配列
@@ -79,8 +83,10 @@ class BAScoutDetailMailViewModel: NSObject {
             benefitRemarks?.append(remark)
         }
 
+        // スカウトメール本文
         mailBody = "ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
 
+        // 掲載終了までの残り日数
         let attributeNormalBlack: [NSAttributedStringKey: Any] = [
             .foregroundColor: UIColor.black
         ]

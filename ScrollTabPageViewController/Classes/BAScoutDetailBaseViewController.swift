@@ -189,7 +189,6 @@ extension BAScoutDetailBaseViewController: BAScoutDetailMailViewProtocol {
                             // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
                             self?.setupJobDetailScrollContentInset(index: 0)
         })
-
     }
 }
 
