@@ -33,9 +33,9 @@ class BAScoutDetailMailView: UIView {
 
     // 面接確約特典タイトルの土台ビュー
     @IBOutlet weak var promisedInterViewBenefitBaseView: UIView!
-    // 面接確約特典のサブタイトル
+    // 面接確約特典のサブタイトルラベル
     @IBOutlet weak var promisedInterviewBenefitSubTitleLabel: UILabel!
-    // 面接確約特典のタイトル
+    // 面接確約特典のタイトルラベル
     @IBOutlet weak var promisedInterviewBenefitTitleLabel: UILabel!
 
     // 特典アイコンの土台ビュー
@@ -55,7 +55,7 @@ class BAScoutDetailMailView: UIView {
     // スカウト特典備考ラベル
     @IBOutlet weak var benefitRemarksLabel: UILabel!
 
-    // スカウトメール本文
+    // スカウトメール本文ラベル
     @IBOutlet weak var mailBodyLabel: UILabel!
 
     // 掲載終了残り日数土台ビュー
@@ -99,12 +99,16 @@ class BAScoutDetailMailView: UIView {
         guard let isFromSubscribeList = scoutDetailMailViewModel?.isFromSubscribeList else {
             return
         }
+        
+        // スカウトメール受信日ラベル
         receivedDateLabel.textColor = isFromSubscribeList ? UIColor.red : UIColor.black
         receivedDateLabel.text = scoutDetailMailViewModel?.receivedDate
 
+        // スカウトメールヘッダーラベル
         mailHeaderLabel.text = scoutDetailMailViewModel?.mailHeader
         mailHeaderLabel.sizeToFit()
 
+        // 面接確約特典ラベル
         guard let promisedInterviewBenefitTitleIsEmpty: Bool = scoutDetailMailViewModel?.promisedInterviewBenefitTitle?.isEmpty else {
             return
         }
@@ -115,6 +119,7 @@ class BAScoutDetailMailView: UIView {
             promisedInterviewBenefitTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitTitle
         }
 
+        // スカウト特典備考
         guard let benefitRemarksIsEmpty = scoutDetailMailViewModel?.benefitRemarks?.isEmpty else {
             return
         }
@@ -125,9 +130,11 @@ class BAScoutDetailMailView: UIView {
             benefitRemarksLabel.sizeToFit()
         }
 
+        // スカウトメール本文ラベル
         mailBodyLabel.text = scoutDetailMailViewModel?.mailBody
         mailBodyLabel.sizeToFit()
 
+        // 掲載終了残り日数ラベル
         appearDaysLeftLabel.attributedText = scoutDetailMailViewModel?.appearDaysLeftString
     }
 
@@ -139,6 +146,7 @@ class BAScoutDetailMailView: UIView {
         self.setNeedsLayout()
         self.layoutIfNeeded()
 
+        // 特典アイコンのcollectionViewの高さを調整
         collectionHeight.constant = benefitCollectionView.contentSize.height
 
         let size = self.systemLayoutSizeFitting(UILayoutFittingCompressedSize)

@@ -123,10 +123,12 @@ class BAScoutDetailMailViewModel: NSObject {
         }
     }
 
+    // コレクションセルのセル数
     func numberOfCollectionCellAtSection() -> Int {
         return 7
     }
 
+    // コレクションセルの文字列
     func collectionCellText(indexPath: IndexPath) -> String {
         return "あーーーー"
     }
