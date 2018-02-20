@@ -195,7 +195,7 @@ extension BAScoutDetailBaseViewController {
         if mailViewScrollContentOffsetY == 0.0 {
             // 全くスクロールしていないときはmailViewの高さをそのままjobDetailViewのOffsetに設定
             jobDetailViewController.scrollView.contentOffset.y = -mailViewHeight
-        } else if mailViewScrollContentOffsetY <= (mailViewHeight - scoutDetailMailView.segmentedControlHeight.constant) ||
+        } else if mailViewScrollContentOffsetY < (mailViewHeight - scoutDetailMailView.segmentedControlHeight.constant) ||
             jobDetailViewController.scrollView.contentOffset.y <= -scoutDetailMailView.segmentedControlHeight.constant {
             // スクロールされているがmailViewが表示されている場合は、スクロール分からmailViewの高さを差し引いた分をoffsetとする
             jobDetailViewController.scrollView.contentOffset.y = mailViewScrollContentOffsetY - mailViewHeight
