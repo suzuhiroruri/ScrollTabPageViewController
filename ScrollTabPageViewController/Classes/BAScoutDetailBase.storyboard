@@ -1,39 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="c6o-Bb-gtj">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fhO-Gw-DAv">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="pPx-Gn-Fni">
+        <!--Scout Detail Base View Controller-->
+        <scene sceneID="EO8-26-3nI">
             <objects>
-                <navigationController id="c6o-Bb-gtj" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="tEh-yH-wkr">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                <viewController id="fhO-Gw-DAv" customClass="BAScoutDetailBaseViewController" customModule="ScrollTabPageViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="09P-8e-HBx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RdP-7d-e2g">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <segue destination="fAZ-oA-jda" kind="embed" id="jjQ-pA-822"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RdP-7d-e2g" firstAttribute="leading" secondItem="09P-8e-HBx" secondAttribute="leading" id="5Ld-g0-FuF"/>
+                            <constraint firstItem="nom-kE-PAI" firstAttribute="bottom" secondItem="RdP-7d-e2g" secondAttribute="bottom" id="XaE-1Q-SJC"/>
+                            <constraint firstItem="nom-kE-PAI" firstAttribute="trailing" secondItem="RdP-7d-e2g" secondAttribute="trailing" id="s0U-gu-usn"/>
+                            <constraint firstItem="RdP-7d-e2g" firstAttribute="top" secondItem="nom-kE-PAI" secondAttribute="top" id="tVO-zb-LOJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nom-kE-PAI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="N8D-ou-x8e"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AYh-m3-jBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-262" y="144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YTw-dQ-pyV">
+            <objects>
+                <navigationController id="bRT-OI-mdt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YOB-93-FJD">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="kO8-WM-k1H" kind="relationship" relationship="rootViewController" id="yBh-4j-eLZ"/>
+                        <segue destination="fhO-Gw-DAv" kind="relationship" relationship="rootViewController" id="OlE-0n-zIV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9rT-of-0d5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JvB-PQ-piY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-465" y="403"/>
+            <point key="canvasLocation" x="-982" y="145"/>
         </scene>
-        <!--Scout Detail Base View Controller-->
-        <scene sceneID="QDl-nh-BYu">
+        <!--BAScoutDetailPage-->
+        <scene sceneID="fMd-Qe-M3C">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="kO8-WM-k1H" customClass="BAScoutDetailBaseViewController" customModule="ScrollTabPageViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="rOd-F1-MdZ"/>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EXp-im-XNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="BAScoutDetailPage" id="fAZ-oA-jda" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LUk-gy-fny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="160.53333333333333" y="378.66666666666669"/>
+            <point key="canvasLocation" x="23" y="597"/>
         </scene>
     </scenes>
 </document>

@@ -85,6 +85,7 @@ class BAScoutDetailMailView: UIView {
             return BAScoutDetailMailView()
         }
         view.setViewContent()
+        // ビューのサイズを調整
         view.sizeFitting()
         return view
     }
@@ -138,6 +139,7 @@ class BAScoutDetailMailView: UIView {
         appearDaysLeftLabel.attributedText = scoutDetailMailViewModel?.appearDaysLeftString
     }
 
+    // ビューのサイズを調整
     private func sizeFitting() {
 
         // 重要：xibと実機のwidthが違うと、systemLayoutSizeFittingが正しく計測されないため事前にwidthを合わせる。

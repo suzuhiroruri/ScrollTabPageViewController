@@ -44,10 +44,12 @@ class BAScoutDetailAboutBenefitViewController: UIViewController, WKNavigationDel
         webview.load(urlRequest)
     }
 
+    // 閉じるボタンタップ時の挙動
     @IBAction func tapDismissButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
 
+    // 更新ボタンタップ時の挙動
     @IBAction func tapReloadButton(_ sender: UIBarButtonItem) {
         webview?.reload()
     }

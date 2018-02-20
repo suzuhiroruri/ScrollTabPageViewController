@@ -21,7 +21,7 @@ class BAScoutDetailJobViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        scoutDetailBaseViewController.updateJobDetailLayoutIfNeeded()
+        scoutDetailPageViewController.updateJobDetailLayoutIfNeeded()
     }
 }
 
@@ -50,8 +50,8 @@ extension BAScoutDetailJobViewController: UITableViewDelegate {
      */
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         // スカウトメールのセグメントのインタラクションを利用不可にする(mailとjobのスクロールのずれ防止のため)
-        scoutDetailBaseViewController.scoutDetailMailView.segmentedControl.isUserInteractionEnabled = false
-        scoutDetailBaseViewController.scoutDetailMailView.scrollView.bounces = false
+        scoutDetailPageViewController.scoutDetailMailView.segmentedControl.isUserInteractionEnabled = false
+        scoutDetailPageViewController.scoutDetailMailView.scrollView.bounces = false
     }
 
     /**
@@ -60,7 +60,7 @@ extension BAScoutDetailJobViewController: UITableViewDelegate {
      */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // scoutDetailMailViewのスクロールを同期
-        scoutDetailBaseViewController.updateContentViewFrame()
+        scoutDetailPageViewController.updateContentViewFrame()
     }
 
     /**
@@ -71,8 +71,8 @@ extension BAScoutDetailJobViewController: UITableViewDelegate {
         if !scrollView.isDecelerating && !scrollView.isDragging {
             // ドラッグや慣性が検出されない場合
             // 利用不可にしていたスカウトメールのセグメントのインタラクションを利用可能にする
-            scoutDetailBaseViewController.scoutDetailMailView.segmentedControl.isUserInteractionEnabled = true
-            scoutDetailBaseViewController.scoutDetailMailView.scrollView.bounces = true
+            scoutDetailPageViewController.scoutDetailMailView.segmentedControl.isUserInteractionEnabled = true
+            scoutDetailPageViewController.scoutDetailMailView.scrollView.bounces = true
         }
     }
 
@@ -82,19 +82,19 @@ extension BAScoutDetailJobViewController: UITableViewDelegate {
      */
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         // 利用不可にしていたスカウトメールのセグメントのインタラクションを利用可能にする
-        scoutDetailBaseViewController.scoutDetailMailView.segmentedControl.isUserInteractionEnabled = true
-        scoutDetailBaseViewController.scoutDetailMailView.scrollView.bounces = true
+        scoutDetailPageViewController.scoutDetailMailView.segmentedControl.isUserInteractionEnabled = true
+        scoutDetailPageViewController.scoutDetailMailView.scrollView.bounces = true
     }
 
 }
 
 // MARK: - ScrollTabPageViewControllerProtocol
 
-extension BAScoutDetailJobViewController: BAScoutDetailBaseViewControllerProtocol {
+extension BAScoutDetailJobViewController: BAScoutDetailPageViewControllerProtocol {
 
-    var scoutDetailBaseViewController: BAScoutDetailBaseViewController {
-        guard let baseController = parent as? BAScoutDetailBaseViewController else {
-            return BAScoutDetailBaseViewController()
+    var scoutDetailPageViewController: BAScoutDetailPageViewController {
+        guard let baseController = parent as? BAScoutDetailPageViewController else {
+            return BAScoutDetailPageViewController()
         }
         return baseController
     }

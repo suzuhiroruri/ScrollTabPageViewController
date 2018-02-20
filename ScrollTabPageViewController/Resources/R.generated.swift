@@ -76,12 +76,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `BAScoutDetailBase`.
     static let bAScoutDetailBase = _R.storyboard.bAScoutDetailBase()
     /// Storyboard `BAScoutDetailJobViewController`.
     static let bAScoutDetailJobViewController = _R.storyboard.bAScoutDetailJobViewController()
+    /// Storyboard `BAScoutDetailPage`.
+    static let bAScoutDetailPage = _R.storyboard.bAScoutDetailPage()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     
@@ -93,6 +95,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "BAScoutDetailJobViewController", bundle: ...)`
     static func bAScoutDetailJobViewController(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.bAScoutDetailJobViewController)
+    }
+    
+    /// `UIStoryboard(name: "BAScoutDetailPage", bundle: ...)`
+    static func bAScoutDetailPage(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.bAScoutDetailPage)
     }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -172,7 +179,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct bAScoutDetailBase: Rswift.StoryboardResourceWithInitialControllerType {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = BAScoutDetailBaseViewController
       
       let bundle = R.hostingBundle
       let name = "BAScoutDetailBase"
@@ -194,6 +201,15 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if _R.storyboard.bAScoutDetailJobViewController().bAScoutDetailJobViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bAScoutDetailJobViewController' could not be loaded from storyboard 'BAScoutDetailJobViewController' as 'BAScoutDetailJobViewController'.") }
       }
+      
+      fileprivate init() {}
+    }
+    
+    struct bAScoutDetailPage: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = UIKit.UINavigationController
+      
+      let bundle = R.hostingBundle
+      let name = "BAScoutDetailPage"
       
       fileprivate init() {}
     }

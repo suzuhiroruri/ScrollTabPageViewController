@@ -26,6 +26,7 @@ class BAScoutDetailMailViewModel: NSObject {
     // 掲載終了までの残り日数
     var appearDaysLeftString: NSMutableAttributedString = NSMutableAttributedString()
 
+    // 面接確約特典のenum
     enum promisedInterviewBenefit: Int {
         case promisedInterview      = 0
         case exemptionFirstInterview
@@ -99,6 +100,8 @@ class BAScoutDetailMailViewModel: NSObject {
             .font: UIFont.boldSystemFont(ofSize: 17.0)
         ]
         let appearDaysLeft: Int = 0
+
+        // TODO:AttributedStringはバイトルのEXTENSIONを使う
         if appearDaysLeft >= 4, appearDaysLeft <= 7 {
             let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack)
             let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack)
