@@ -2,8 +2,8 @@
 //  BAScoutDetailPageViewController.swift
 //  ScrollTabPageViewController
 //
-//  Created by EndouMari on 2015/12/04.
-//  Copyright © 2015年 EndouMari. All rights reserved.
+//  Created by hir-suzuki on 2018/02/08.
+//  Copyright © 2018年 hir-suzuki All rights reserved.
 //
 
 import UIKit

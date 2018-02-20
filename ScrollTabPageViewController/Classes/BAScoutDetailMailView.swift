@@ -2,8 +2,8 @@
 //  BAScoutDetailMailView.swift
 //  AutoSizingLabelSample
 //
-//  Created by Shota Kashihara on 2017/07/28.
-//  Copyright © 2017年 Shota Kashihara. All rights reserved.
+//  Created by Hiromasa Suzuki on 2017/07/28.
+//  Copyright © 2018年 Hiromasa Suzuki All rights reserved.
 //
 
 import UIKit
