@@ -44,7 +44,6 @@ class BAScoutDetailPageViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "スカウト詳細"
 
         // 各ビューを設定
         self.setupViews()

@@ -25,11 +25,13 @@
             </objects>
             <point key="canvasLocation" x="-465" y="403"/>
         </scene>
-        <!--Scout Detail Page View Controller-->
+        <!--スカウト詳細-->
         <scene sceneID="QDl-nh-BYu">
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="kO8-WM-k1H" customClass="BAScoutDetailPageViewController" customModule="ScrollTabPageViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="rOd-F1-MdZ"/>
+                    <navigationItem key="navigationItem" title="スカウト詳細" id="5F1-6Z-orY">
+                        <barButtonItem key="rightBarButtonItem" title="キープ" id="d4K-uA-krd"/>
+                    </navigationItem>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EXp-im-XNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
