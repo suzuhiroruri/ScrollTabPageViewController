@@ -26,6 +26,7 @@ class BAScoutDetailJobBaseViewController: UIViewController {
 
     // スカウトメールのビューの高さ
     var mailViewHeight: CGFloat = 0.0
+    var mailViewRealHeight: CGFloat = 0.0
 
     // スカウトメールのビューのスクロールの値
     var mailViewScrollContentOffsetY: CGFloat = 0.0
@@ -111,6 +112,7 @@ extension BAScoutDetailJobBaseViewController {
         scoutDetailMailView = BAScoutDetailMailView.instantiate()
         let barHeight: CGFloat = 64
         mailViewHeight = scoutDetailMailView.frame.height - barHeight
+        mailViewRealHeight = scoutDetailMailView.frame.height
 
         // タップでセグメントが変更された時の挙動を設定
         scoutDetailMailView.segmentChangedBlock = { [weak self] (index: Int) in
@@ -222,8 +224,8 @@ extension BAScoutDetailJobBaseViewController {
             return
         }
 
-        jobDetailViewController.scrollView.contentInset.top = mailViewHeight
-        jobDetailViewController.scrollView.scrollIndicatorInsets.top = mailViewHeight
+        jobDetailViewController.scrollView.contentInset.top = mailViewRealHeight
+        jobDetailViewController.scrollView.scrollIndicatorInsets.top = mailViewRealHeight
     }
 
     /**

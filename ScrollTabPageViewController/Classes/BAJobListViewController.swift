@@ -17,7 +17,17 @@ class BAJobListViewController: UIViewController {
     }
 
     @IBAction func buttonTap(_ sender: UIButton) {
-        performSegue(withIdentifier: "BAScoutDetailJobBase", sender: nil)
+
+        //performSegue(withIdentifier: "BAScoutDetailJobBase", sender: nil)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let viewController = R.segue.bAJobListViewController.bAScoutDetailJobBase(segue: segue)?.destination else {
+            return
+        }
+        guard let vc = viewController.childViewControllers.first as? BAScoutDetailJobBaseViewController else {
+            return
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

@@ -70,7 +70,7 @@ class BAScoutDetailMailViewModel: NSObject {
         }
 
         // スカウトメールヘッダー
-        mailHeader = promisedInterviewBenefitTitle.isEmpty ? "あ" : "【" + promisedInterviewBenefitTitle + "】" + "あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+        mailHeader = promisedInterviewBenefitTitle.isEmpty ? "あ" : "【" + promisedInterviewBenefitTitle + "】" + "ああああああああああああああああああああ"
 
         // 特典アイコン配列
         let benefitRemarksArray = ["※面接交通費支給", "※来社特典あり"]

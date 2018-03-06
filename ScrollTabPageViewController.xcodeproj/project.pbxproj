@@ -123,6 +123,7 @@
 			children = (
 				29AB4227203C2DEE00AB8484 /* BAJobListViewController.swift */,
 				29AB4229203C2E2600AB8484 /* BAJobList.storyboard */,
+				2979E3402034527E0075D321 /* Base */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -162,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				29AB422D203C3D4100AB8484 /* List */,
-				2979E3402034527E0075D321 /* Base */,
 				2979E341203452840075D321 /* Mail */,
 				2979E342203452890075D321 /* Job */,
 			);

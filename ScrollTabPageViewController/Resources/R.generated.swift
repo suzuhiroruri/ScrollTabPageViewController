@@ -69,12 +69,12 @@ struct R: Rswift.Validatable {
     /// This struct is generated for `BAJobListViewController`, and contains static references to 1 segues.
     struct bAJobListViewController {
       /// Segue identifier `BAScoutDetailJobBase`.
-      static let bAScoutDetailJobBase: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, BAJobListViewController, UIKit.UINavigationController> = Rswift.StoryboardSegueIdentifier(identifier: "BAScoutDetailJobBase")
+      static let bAScoutDetailJobBase: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, BAJobListViewController, BAScoutDetailJobBaseViewController> = Rswift.StoryboardSegueIdentifier(identifier: "BAScoutDetailJobBase")
       
       /// Optionally returns a typed version of segue `BAScoutDetailJobBase`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func bAScoutDetailJobBase(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, BAJobListViewController, UIKit.UINavigationController>? {
+      static func bAScoutDetailJobBase(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, BAJobListViewController, BAScoutDetailJobBaseViewController>? {
         return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.bAJobListViewController.bAScoutDetailJobBase, segue: segue)
       }
       
@@ -211,7 +211,7 @@ struct _R: Rswift.Validatable {
     }
     
     struct bAScoutDetailJobBase: Rswift.StoryboardResourceWithInitialControllerType {
-      typealias InitialController = UIKit.UINavigationController
+      typealias InitialController = BAScoutDetailJobBaseViewController
       
       let bundle = R.hostingBundle
       let name = "BAScoutDetailJobBase"
