@@ -90,11 +90,11 @@ extension BAScoutDetailJobViewController: UITableViewDelegate {
 
 // MARK: - ScrollTabPageViewControllerProtocol
 
-extension BAScoutDetailJobViewController: BAScoutDetailPageViewControllerProtocol {
+extension BAScoutDetailJobViewController: BAScoutDetailJobBaseViewControllerProtocol {
 
-    var scoutDetailPageViewController: BAScoutDetailPageViewController {
-        guard let baseController = parent as? BAScoutDetailPageViewController else {
-            return BAScoutDetailPageViewController()
+    var scoutDetailPageViewController: BAScoutDetailJobBaseViewController {
+        guard let baseController = parent as? BAScoutDetailJobBaseViewController else {
+            return BAScoutDetailJobBaseViewController()
         }
         return baseController
     }

@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol BAScoutDetailPageViewControllerProtocol {
-    var scoutDetailPageViewController: BAScoutDetailPageViewController { get }
+protocol BAScoutDetailJobBaseViewControllerProtocol {
+    var scoutDetailPageViewController: BAScoutDetailJobBaseViewController { get }
     var scrollView: UIScrollView { get }
 }
 
-class BAScoutDetailPageViewController: UIPageViewController {
+class BAScoutDetailJobBaseViewController: UIViewController {
 
-    var pageViewControllers: [UIViewController] = []
+    var inTabViewController: [UIViewController] = []
 
     // pageViewControllerの更新index
     var updateIndex: Int = 0
@@ -34,6 +34,17 @@ class BAScoutDetailPageViewController: UIPageViewController {
     // 仕事詳細ビューのスクロールをさせるべきかどうかを判別する変数
     var shouldUpdateJobDetailContentOffset: Bool = false
 
+    /// タブ切り替え用
+    lazy var pageViewController: UIPageViewController? = {
+        if let pageViewController = self.childViewControllers.first as? UIPageViewController {
+            pageViewController.delegate = self
+            pageViewController.dataSource = self
+            return pageViewController
+        }
+        return nil
+    }()
+
+    /*
     // pageViewControllerの現在のindex
     var currentIndex: Int? {
         guard let viewController = viewControllers?.first, let index = pageViewControllers.index(of: viewController) else {
@@ -41,17 +52,31 @@ class BAScoutDetailPageViewController: UIPageViewController {
         }
         return index
     }
+    */
+    // pageViewControllerの現在のindex
+    var currentIndex: Int? {
+        guard let pageViewController = pageViewController else {
+            return nil
+        }
+        guard let viewController = pageViewController.viewControllers?.first, let index = inTabViewController.index(of: viewController) else {
+            return nil
+        }
+        return index
+    }
+
+    var segmentChangeFlag = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // 各ビューを設定
         self.setupViews()
-        scoutDetailMailView.bAScoutDetailMailViewProtocol = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        guard let currentIndex = self.currentIndex, let jobDetailViewController = self.pageViewControllers[currentIndex] as? BAScoutDetailPageViewControllerProtocol else {
+        super.viewWillAppear(animated)
+
+        guard let currentIndex = self.currentIndex, let jobDetailViewController = self.inTabViewController[currentIndex] as? BAScoutDetailJobBaseViewControllerProtocol else {
             return
         }
         // 初期表示の時にスクロールの位置がずれてしまう場合、修正する
@@ -63,14 +88,7 @@ class BAScoutDetailPageViewController: UIPageViewController {
 
 // MARK: - View
 
-extension BAScoutDetailPageViewController: BAScoutDetailMailViewProtocol {
-
-    // スカウト特典についてのWebView表示
-    func showAboutBenefitView() {
-        // TODO:バイトルに入れる時はtoFreeWebにする
-        let modal = BAScoutDetailAboutBenefitViewController()
-        self.present(modal, animated: true, completion: nil)
-    }
+extension BAScoutDetailJobBaseViewController {
 
     // 各Viewを設定
     func setupViews() {
@@ -80,20 +98,6 @@ extension BAScoutDetailPageViewController: BAScoutDetailMailViewProtocol {
         self.setupJobDetailViewControllers()
         // pageViewControllerに仕事詳細のcontrollerを格納
         self.setupPageViewController()
-    }
-
-    // BAScoutDetailJobViewControllerをセットアップ
-    // 別々のviewControllerを設定する場合はvc1&2の読み込み内容を変更する
-    func setupJobDetailViewControllers() {
-        // viewContrroller
-        let sb1 = UIStoryboard(name: R.storyboard.bAScoutDetailJobViewController.name, bundle: nil)
-        let vc1 = sb1.instantiateViewController(withIdentifier: "BAScoutDetailJobViewController")
-
-        // viewContrroller
-        let sb2 = UIStoryboard(name: R.storyboard.bAScoutDetailJobViewController.name, bundle: nil)
-        let vc2 = sb2.instantiateViewController(withIdentifier: "BAScoutDetailJobViewController")
-
-        pageViewControllers = [vc1, vc2]
     }
 
     // scoutDetailMailViewのセットアップ
@@ -106,36 +110,38 @@ extension BAScoutDetailPageViewController: BAScoutDetailMailViewProtocol {
         // タップでセグメントが変更された時の挙動を設定
         scoutDetailMailView.segmentChangedBlock = { [weak self] (index: Int) in
             self?.shouldUpdateJobDetailContentOffset = true
-
             self?.updateIndex = index
             guard let currentIndex = self?.currentIndex else {
                 return
             }
             let direction: UIPageViewControllerNavigationDirection = (currentIndex < index) ? .forward : .reverse
-            guard let pageViewControllers = self?.pageViewControllers else {
+            guard let pageViewControllers = self?.inTabViewController else {
                 return
             }
-            self?.setViewControllers([pageViewControllers[index]],
-                direction: direction,
-                animated: false,
-                completion: { [weak self] (completed: Bool) in
-                    guard let shouldUpdateLayout = self?.shouldUpdateJobDetailContentOffset else {
-                        return
-                    }
-                    if shouldUpdateLayout {
-                        guard let mailViewScrollContentOffsetY = self?.mailViewScrollContentOffsetY else {
-                            return
-                        }
-                        // jobDetailのテーブルのスクロールのY座標をセット
-                        self?.setupJobDetailScrollContentOffsetY(index: index, mailViewScrollContentOffsetY: -mailViewScrollContentOffsetY)
-                        self?.shouldUpdateJobDetailContentOffset = false
-                    }
+            if let pageViewController = self?.pageViewController {
+                pageViewController.setViewControllers([pageViewControllers[index]],
+                                         direction: direction,
+                                         animated: false,
+                                         completion: { [weak self] (completed: Bool) in
+                                            guard let shouldUpdateLayout = self?.shouldUpdateJobDetailContentOffset else {
+                                                return
+                                            }
+                                            if shouldUpdateLayout {
+                                                guard let mailViewScrollContentOffsetY = self?.mailViewScrollContentOffsetY else {
+                                                    return
+                                                }
+                                                // jobDetailのテーブルのスクロールのY座標をセット
+                                                self?.setupJobDetailScrollContentOffsetY(index: index, mailViewScrollContentOffsetY: -mailViewScrollContentOffsetY)
+                                                self?.shouldUpdateJobDetailContentOffset = false
+                                            }
                 })
+            }
+
         }
 
         // scoutDetailMailViewのDidScrollの時のブロック
         scoutDetailMailView.mailScrollDidChangedBlock = { [weak self] (scroll: CGFloat, shouldScrollMailView: Bool) in
-            guard let currentIndex = self?.currentIndex, let jobDetailViewController = self?.pageViewControllers[currentIndex] as? BAScoutDetailPageViewControllerProtocol else {
+            guard let currentIndex = self?.currentIndex, let jobDetailViewController = self?.inTabViewController[currentIndex] as? BAScoutDetailJobBaseViewControllerProtocol else {
                 return
             }
             jobDetailViewController.scrollView.isUserInteractionEnabled = false
@@ -167,39 +173,54 @@ extension BAScoutDetailPageViewController: BAScoutDetailMailViewProtocol {
         view.addSubview(scoutDetailMailView)
     }
 
+    // BAScoutDetailJobViewControllerをセットアップ
+    // 別々のviewControllerを設定する場合はvc1&2の読み込み内容を変更する
+    func setupJobDetailViewControllers() {
+        // viewContrroller
+        let sb1 = UIStoryboard(name: R.storyboard.bAScoutDetailJobViewController.name, bundle: nil)
+        let vc1 = sb1.instantiateViewController(withIdentifier: "BAScoutDetailJobViewController")
+
+        // viewContrroller
+        let sb2 = UIStoryboard(name: R.storyboard.bAScoutDetailJobViewController.name, bundle: nil)
+        let vc2 = sb2.instantiateViewController(withIdentifier: "BAScoutDetailJobViewController")
+
+        inTabViewController = [vc1, vc2]
+    }
+
     // pageViewControllerをセットアップする
     func setupPageViewController() {
-        dataSource = self
-        delegate = self
-
-        // viewControllerをセット
-        // セグメントを変更した時のアニメーションガタつき対策のため、あらかじめ両方セットしておく
-        setViewControllers([pageViewControllers[1]],
-                           direction: .forward,
-                           animated: false,
-                           completion: { [weak self] (completed: Bool) in
-                            // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
-                            self?.setupJobDetailScrollContentInset(index: 1)
-        })
-        setViewControllers([pageViewControllers[0]],
-            direction: .forward,
-            animated: false,
-            completion: { [weak self] (completed: Bool) in
-                // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
-                self?.setupJobDetailScrollContentInset(index: 0)
-        })
+        //dataSource = self
+        //delegate = self
+        if let pageViewController = pageViewController {
+            // viewControllerをセット
+            // セグメントを変更した時のアニメーションガタつき対策のため、あらかじめ両方セットしておく
+            pageViewController.setViewControllers([inTabViewController[1]],
+                               direction: .forward,
+                               animated: false,
+                               completion: { [weak self] (completed: Bool) in
+                                // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
+                                self?.setupJobDetailScrollContentInset(index: 1)
+            })
+            pageViewController.setViewControllers([inTabViewController[0]],
+                               direction: .forward,
+                               animated: false,
+                               completion: { [weak self] (completed: Bool) in
+                                // 現在のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
+                                self?.setupJobDetailScrollContentInset(index: 0)
+            })
+        }
     }
 }
 
 // MARK: - updateScroll
 
-extension BAScoutDetailPageViewController {
+extension BAScoutDetailJobBaseViewController {
 
     /**
      BAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
      */
     func setupJobDetailScrollContentInset(index: Int) {
-        guard let jobDetailViewController = pageViewControllers[index] as? BAScoutDetailPageViewControllerProtocol else {
+        guard let jobDetailViewController = inTabViewController[index] as? BAScoutDetailJobBaseViewControllerProtocol else {
             return
         }
 
@@ -213,7 +234,7 @@ extension BAScoutDetailPageViewController {
      - parameter scroll: どれだけスクロールしているか
      */
     func setupJobDetailScrollContentOffsetY(index: Int, mailViewScrollContentOffsetY: CGFloat) {
-        guard let  jobDetailViewController = pageViewControllers[index] as? BAScoutDetailPageViewControllerProtocol else {
+        guard let  jobDetailViewController = inTabViewController[index] as? BAScoutDetailJobBaseViewControllerProtocol else {
             return
         }
 
@@ -244,7 +265,7 @@ extension BAScoutDetailPageViewController {
      - parameter scroll: 移動した分の座標
      */
     func updateJobDetailTableContentOffsetY(scroll: CGFloat) {
-        if let currentIndex = currentIndex, let jobDetailViewController = pageViewControllers[currentIndex] as? BAScoutDetailPageViewControllerProtocol {
+        if let currentIndex = currentIndex, let jobDetailViewController = inTabViewController[currentIndex] as? BAScoutDetailJobBaseViewControllerProtocol {
             // jobDetailのテーブルのスクロールのY座標を更新を反映させている間、userInteractionを許可しないことにより、意図しないスクロールのずれを防ぐ
             jobDetailViewController.scrollView.isUserInteractionEnabled = false
             jobDetailViewController.scrollView.contentOffset.y += scroll
@@ -254,7 +275,7 @@ extension BAScoutDetailPageViewController {
 
     // jobDetailTableのスクロールがずれたときの補正を行う
     func updateJobDetailViewFrame() {
-        guard let currentIndex = currentIndex, let jobDetailViewController = pageViewControllers[currentIndex] as? BAScoutDetailPageViewControllerProtocol else {
+        guard let currentIndex = currentIndex, let jobDetailViewController = inTabViewController[currentIndex] as? BAScoutDetailJobBaseViewControllerProtocol else {
             return
         }
         if jobDetailViewController.scrollView.isDragging == false {
@@ -270,12 +291,15 @@ extension BAScoutDetailPageViewController {
      メールとJobDetailのスクロールを更新
      */
     func updateContentViewFrame() {
-        guard let currentIndex = currentIndex, let jobDetailViewController = pageViewControllers[currentIndex] as? BAScoutDetailPageViewControllerProtocol else {
+        guard let currentIndex = currentIndex, let jobDetailViewController = inTabViewController[currentIndex] as? BAScoutDetailJobBaseViewControllerProtocol else {
             return
         }
 
         // jobDetailのscrollのオフセットがsegmentの高さより大きい場合
         if jobDetailViewController.scrollView.contentOffset.y >= -scoutDetailMailView.segmentedControlHeight.constant {
+            if segmentChangeFlag == true {
+
+            }
             // scoutDetailJobViewControllerのtableViewのスクロール更新
             let scroll = mailViewHeight - scoutDetailMailView.segmentedControlHeight.constant
             // mailViewのスクロールを更新
@@ -290,6 +314,7 @@ extension BAScoutDetailPageViewController {
             // jobDetailのscrollの上部の余白はjobDetailのcontentOffset(=mailViewの表示の高さ)
             jobDetailViewController.scrollView.scrollIndicatorInsets.top = -jobDetailViewController.scrollView.contentOffset.y
         }
+        segmentChangeFlag = false
     }
 
     /**
@@ -297,7 +322,7 @@ extension BAScoutDetailPageViewController {
      */
     func updateJobDetailLayoutIfNeeded() {
         if shouldUpdateJobDetailContentOffset {
-            let jobDetailViewController = pageViewControllers[updateIndex] as? BAScoutDetailPageViewControllerProtocol
+            let jobDetailViewController = inTabViewController[updateIndex] as? BAScoutDetailJobBaseViewControllerProtocol
             let shouldSetupContentOffsetY = jobDetailViewController?.scrollView.contentInset.top != mailViewHeight
 
             guard let currentIndex = currentIndex else {
@@ -314,7 +339,7 @@ extension BAScoutDetailPageViewController {
 
 // MARK: - UIPageViewControllerDateSource
 
-extension BAScoutDetailPageViewController: UIPageViewControllerDataSource {
+extension BAScoutDetailJobBaseViewController: UIPageViewControllerDataSource {
 
     /**
      1つ目のviewControllerに戻った時の処理
@@ -324,14 +349,14 @@ extension BAScoutDetailPageViewController: UIPageViewControllerDataSource {
      */
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
-            guard var index = pageViewControllers.index(of: viewController) else {
+            guard var index = inTabViewController.index(of: viewController) else {
                 return nil
             }
 
             index -= 1
 
-            if index >= 0 && index < pageViewControllers.count {
-                return pageViewControllers[index]
+            if index >= 0 && index < inTabViewController.count {
+                return inTabViewController[index]
             }
             return nil
     }
@@ -344,14 +369,14 @@ extension BAScoutDetailPageViewController: UIPageViewControllerDataSource {
      */
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
 
-        guard var index = pageViewControllers.index(of: viewController) else {
+        guard var index = inTabViewController.index(of: viewController) else {
             return nil
         }
 
         index += 1
 
-        if index >= 0 && index < pageViewControllers.count {
-            return pageViewControllers[index]
+        if index >= 0 && index < inTabViewController.count {
+            return inTabViewController[index]
         }
         return nil
     }
@@ -359,15 +384,14 @@ extension BAScoutDetailPageViewController: UIPageViewControllerDataSource {
 
 // MARK: - UIPageViewControllerDelegate
 
-extension BAScoutDetailPageViewController: UIPageViewControllerDelegate {
-
+extension BAScoutDetailJobBaseViewController: UIPageViewControllerDelegate {
     /**
      スワイプでpageViewControllerで別のviewControllerに遷移する時の処理
      - parameter pageViewController: pageViewController
      - parameter pagingViewControllers: これから遷移しようとしているviewController
      */
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        if let jobDetailViewController = pendingViewControllers.first, let index = pageViewControllers.index(of: jobDetailViewController) {
+        if let jobDetailViewController = pendingViewControllers.first, let index = inTabViewController.index(of: jobDetailViewController) {
             shouldUpdateJobDetailContentOffset = true
             updateIndex = index
             // 次のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット

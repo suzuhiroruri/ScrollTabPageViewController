@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="c6o-Bb-gtj">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="pPx-Gn-Fni">
+            <objects>
+                <navigationController id="c6o-Bb-gtj" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="tEh-yH-wkr">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Bsp-y1-QfX" kind="relationship" relationship="rootViewController" id="caK-Re-uUW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9rT-of-0d5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-261" y="245"/>
+        </scene>
+        <!--Scout Detail Job Base View Controller-->
+        <scene sceneID="avv-3S-Ahj">
+            <objects>
+                <viewController id="Bsp-y1-QfX" customClass="BAScoutDetailJobBaseViewController" customModule="ScrollTabPageViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="glx-rv-OEo"/>
+                        <viewControllerLayoutGuide type="bottom" id="caW-eG-8Uc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ssq-oM-tj0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALH-dd-aSo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <connections>
+                                    <segue destination="xZt-jL-fzS" kind="embed" id="zXe-Zb-Ya8"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ALH-dd-aSo" firstAttribute="leading" secondItem="ssq-oM-tj0" secondAttribute="leading" id="93U-kf-Phf"/>
+                            <constraint firstAttribute="trailing" secondItem="ALH-dd-aSo" secondAttribute="trailing" id="CfC-Il-sCR"/>
+                            <constraint firstItem="caW-eG-8Uc" firstAttribute="top" secondItem="ALH-dd-aSo" secondAttribute="bottom" id="QcY-iN-wfu"/>
+                            <constraint firstItem="ALH-dd-aSo" firstAttribute="top" secondItem="glx-rv-OEo" secondAttribute="bottom" id="c5d-CU-gCk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bai-jv-isN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vHb-on-25N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="246" y="228"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="MFn-lR-MGZ">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="xZt-jL-fzS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fyW-Pc-H1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125" y="915"/>
+        </scene>
+    </scenes>
+</document>

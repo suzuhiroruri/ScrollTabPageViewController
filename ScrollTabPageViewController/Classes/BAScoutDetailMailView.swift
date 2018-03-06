@@ -8,13 +8,7 @@
 
 import UIKit
 
-protocol BAScoutDetailMailViewProtocol {
-    func showAboutBenefitView()
-}
-
 class BAScoutDetailMailView: UIView {
-
-    var bAScoutDetailMailViewProtocol: BAScoutDetailMailViewProtocol?
 
     // スクロールビュー
     @IBOutlet weak var scrollView: UIScrollView!
@@ -173,14 +167,6 @@ class BAScoutDetailMailView: UIView {
         // セグメントが変更されたときの処理
         segmentChangedBlock?(sender.selectedSegmentIndex)
         updateCurrentIndex(index: sender.selectedSegmentIndex, animated: true)
-    }
-
-    /**
-     スカウト特典についてのボタンをタップしたときの処理
-     - parameter sender: UIButton
-     */
-    @IBAction func tapAboutScoutbenefitLink(_ sender: UIButton) {
-        bAScoutDetailMailViewProtocol?.showAboutBenefitView()
     }
 }
 

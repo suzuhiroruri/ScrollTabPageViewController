@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bRT-OI-mdt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="YTw-dQ-pyV">
+            <objects>
+                <navigationController id="bRT-OI-mdt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YOB-93-FJD">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="03N-YQ-heS" kind="relationship" relationship="rootViewController" id="eXi-W5-F1W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JvB-PQ-piY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-980" y="159"/>
+        </scene>
+        <!--Job List View Controller-->
+        <scene sceneID="lDH-pG-4pa">
+            <objects>
+                <viewController storyboardIdentifier="JobList" id="03N-YQ-heS" customClass="BAJobListViewController" customModule="ScrollTabPageViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dp3-Xj-Iaz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67I-gM-17U">
+                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="GW5-Ge-8Bj"/>
+                                    <constraint firstAttribute="width" constant="100" id="aMB-zR-ooD"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonTap:" destination="03N-YQ-heS" eventType="touchUpInside" id="E1Y-km-VSt"/>
+                                    <segue destination="9Jx-MA-gm8" kind="show" identifier="BAScoutDetailJobBase" action="showDetailViewController:sender:" id="owY-iD-138"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="67I-gM-17U" firstAttribute="centerX" secondItem="dp3-Xj-Iaz" secondAttribute="centerX" id="KFw-dX-Ybv"/>
+                            <constraint firstItem="67I-gM-17U" firstAttribute="centerY" secondItem="dp3-Xj-Iaz" secondAttribute="centerY" id="dj8-xu-cRk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Uag-uq-ehm"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WT6-Nj-4y4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ihz-ic-es5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-212" y="159"/>
+        </scene>
+        <!--BAScoutDetailJobBase-->
+        <scene sceneID="SYX-II-gVM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BAScoutDetailJobBase" id="9Jx-MA-gm8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWt-Oi-Zgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="338" y="93"/>
+        </scene>
+    </scenes>
+</document>
