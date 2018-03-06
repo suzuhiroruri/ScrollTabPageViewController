@@ -13,7 +13,7 @@ protocol BAScoutDetailJobBaseViewControllerProtocol {
     var scrollView: UIScrollView { get }
 }
 
-class BAScoutDetailJobBaseViewController: UIViewController, UIPageViewControllerDataSource {
+class BAScoutDetailJobBaseViewController: UIViewController {
 
     /// タブにセットするViewController
     var inTabViewController: [UIViewController] = []
@@ -46,6 +46,20 @@ class BAScoutDetailJobBaseViewController: UIViewController, UIPageViewController
         return index
     }
 
+	/// 募集内容
+    lazy var requirementsViewController: BAScoutDetailJobRequirementsViewController? = {
+        let sb1 = UIStoryboard(name: R.storyboard.bAScoutDetailJobRequirementsViewController.name, bundle: nil)
+        let vc1 = sb1.instantiateViewController(withIdentifier: "BAScoutDetailJobRequirementsViewController") as? BAScoutDetailJobRequirementsViewController
+        return vc1
+    }()
+
+    /// 選考・会社概要
+    lazy var selectionViewController: BAScoutDetailJobSelectionViewController? = {
+        let sb2 = UIStoryboard(name: R.storyboard.bAScoutDetailJobSelectionViewController.name, bundle: nil)
+        let vc2 = sb2.instantiateViewController(withIdentifier: "BAScoutDetailJobSelectionViewController") as? BAScoutDetailJobSelectionViewController
+        return vc2
+    }()
+
     /// タブ切り替え用
     lazy var pageViewController: UIPageViewController? = {
         if let pageViewController = self.childViewControllers.first as? UIPageViewController {
@@ -56,13 +70,11 @@ class BAScoutDetailJobBaseViewController: UIViewController, UIPageViewController
         return nil
     }()
 
-    var segmentChangeFlag = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // View初期設定
-        self.initSetting()
+        self.updateView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -81,14 +93,15 @@ class BAScoutDetailJobBaseViewController: UIViewController, UIPageViewController
 // MARK: - View
 
 extension BAScoutDetailJobBaseViewController {
-
-    // 各Viewを設定
-    func initSetting() {
+    /// 表示更新
+    func updateView() {
         // スカウトメールのビューをセットアップ
         self.setupScoutDetailMailView()
-        // 仕事詳細のcontrollerをセットアップ
+
+        // タブ、ViewControllerセット
         self.setupJobDetailViewControllers()
-        // pageViewControllerに仕事詳細のcontrollerを格納
+
+        // pageViewControllerに仕事詳細のcontrollerをセットアップ
         self.setupPageViewController()
     }
 
@@ -107,11 +120,11 @@ extension BAScoutDetailJobBaseViewController {
                 return
             }
             let direction: UIPageViewControllerNavigationDirection = (currentIndex < index) ? .forward : .reverse
-            guard let pageViewControllers = self?.inTabViewController else {
+            guard let inTabViewController = self?.inTabViewController else {
                 return
             }
             if let pageViewController = self?.pageViewController {
-                pageViewController.setViewControllers([pageViewControllers[index]],
+                pageViewController.setViewControllers([inTabViewController[index]],
                                          direction: direction,
                                          animated: false,
                                          completion: { [weak self] (completed: Bool) in
@@ -128,7 +141,6 @@ extension BAScoutDetailJobBaseViewController {
                                             }
                 })
             }
-
         }
 
         // scoutDetailMailViewのDidScrollの時のブロック
@@ -158,6 +170,7 @@ extension BAScoutDetailJobBaseViewController {
                     }, completion: nil)
                 }
             }
+
             if mailScrollContentOffset <= 0.0 && frameMinY >= 0.0 {
                 self?.updateJobDetailViewFrame()
             }
@@ -167,13 +180,13 @@ extension BAScoutDetailJobBaseViewController {
 
     /// タブ、ViewControllerをセットする
     func setupJobDetailViewControllers() {
-        // viewContrroller
-        let sb1 = UIStoryboard(name: R.storyboard.bAScoutDetailJobRequirementsViewController.name, bundle: nil)
-        let vc1 = sb1.instantiateViewController(withIdentifier: "BAScoutDetailJobRequirementsViewController")
-
-        let sb2 = UIStoryboard(name: R.storyboard.bAScoutDetailJobSelectionViewController.name, bundle: nil)
-        let vc2 = sb2.instantiateViewController(withIdentifier: "BAScoutDetailJobSelectionViewController")
-        inTabViewController = [vc1, vc2]
+        // 案件情報に動画、雰囲気に関する情報がない場合は雰囲気タブは表示しない
+        if let viewController = requirementsViewController {
+            inTabViewController.append(viewController)
+        }
+        if let viewController = selectionViewController {
+            inTabViewController.append(viewController)
+        }
     }
 
     // pageViewControllerをセットアップする
@@ -321,7 +334,7 @@ extension BAScoutDetailJobBaseViewController {
 
 // MARK: - UIPageViewControllerDateSource
 
-extension BAScoutDetailJobBaseViewController {
+extension BAScoutDetailJobBaseViewController: UIPageViewControllerDataSource {
 
     /**
      1つ目のviewControllerに戻った時の処理
@@ -331,16 +344,16 @@ extension BAScoutDetailJobBaseViewController {
      */
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 
-            guard var index = inTabViewController.index(of: viewController) else {
-                return nil
-            }
-
-            index -= 1
-
-            if index >= 0 && index < inTabViewController.count {
-                return inTabViewController[index]
-            }
+        guard var index = inTabViewController.index(of: viewController) else {
             return nil
+        }
+
+        index -= 1
+
+        if index >= 0 && index < inTabViewController.count {
+            return inTabViewController[index]
+        }
+        return nil
     }
 
     /**
@@ -365,7 +378,6 @@ extension BAScoutDetailJobBaseViewController {
 }
 
 // MARK: - UIPageViewControllerDelegate
-
 extension BAScoutDetailJobBaseViewController: UIPageViewControllerDelegate {
 
     /**
@@ -374,7 +386,8 @@ extension BAScoutDetailJobBaseViewController: UIPageViewControllerDelegate {
      - parameter pagingViewControllers: これから遷移しようとしているviewController
      */
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        if let jobDetailViewController = pendingViewControllers.first, let index = inTabViewController.index(of: jobDetailViewController) {
+        if let viewController = pendingViewControllers.first, let index = inTabViewController.index(of: viewController) {
+
             shouldUpdateJobDetailContentOffset = true
             updateIndex = index
             // 次のBAScoutDetailJobViewControllerのscrollView(tableView)の上部のマージンをセット
