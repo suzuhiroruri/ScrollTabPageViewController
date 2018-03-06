@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BAScoutDetailJobViewController: UIViewController {
+class BAScoutDetailJobRequirementsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -27,7 +27,7 @@ class BAScoutDetailJobViewController: UIViewController {
 
 // MARK: - UITableVIewDataSource
 
-extension BAScoutDetailJobViewController: UITableViewDataSource {
+extension BAScoutDetailJobRequirementsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 100
@@ -42,7 +42,7 @@ extension BAScoutDetailJobViewController: UITableViewDataSource {
 
 // MARK: - UIScrollViewDelegate
 
-extension BAScoutDetailJobViewController: UITableViewDelegate {
+extension BAScoutDetailJobRequirementsViewController: UITableViewDelegate {
 
     /**
      スクロールのドラッグ開始を検知
@@ -90,10 +90,9 @@ extension BAScoutDetailJobViewController: UITableViewDelegate {
 
 // MARK: - ScrollTabPageViewControllerProtocol
 
-extension BAScoutDetailJobViewController: BAScoutDetailJobBaseViewControllerProtocol {
-
+extension BAScoutDetailJobRequirementsViewController: BAScoutDetailJobBaseViewControllerProtocol {
     var scoutDetailJobBaseViewController: BAScoutDetailJobBaseViewController {
-        guard let baseController = parent as? BAScoutDetailJobBaseViewController else {
+        guard let baseController = parent?.parent as? BAScoutDetailJobBaseViewController else {
             return BAScoutDetailJobBaseViewController()
         }
         return baseController

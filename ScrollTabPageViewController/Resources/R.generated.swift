@@ -84,12 +84,16 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 6 storyboards.
   struct storyboard {
     /// Storyboard `BAJobList`.
     static let bAJobList = _R.storyboard.bAJobList()
     /// Storyboard `BAScoutDetailJobBase`.
     static let bAScoutDetailJobBase = _R.storyboard.bAScoutDetailJobBase()
+    /// Storyboard `BAScoutDetailJobRequirementsViewController`.
+    static let bAScoutDetailJobRequirementsViewController = _R.storyboard.bAScoutDetailJobRequirementsViewController()
+    /// Storyboard `BAScoutDetailJobSelectionViewController`.
+    static let bAScoutDetailJobSelectionViewController = _R.storyboard.bAScoutDetailJobSelectionViewController()
     /// Storyboard `BAScoutDetailJobViewController`.
     static let bAScoutDetailJobViewController = _R.storyboard.bAScoutDetailJobViewController()
     /// Storyboard `LaunchScreen`.
@@ -103,6 +107,16 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "BAScoutDetailJobBase", bundle: ...)`
     static func bAScoutDetailJobBase(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.bAScoutDetailJobBase)
+    }
+    
+    /// `UIStoryboard(name: "BAScoutDetailJobRequirementsViewController", bundle: ...)`
+    static func bAScoutDetailJobRequirementsViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.bAScoutDetailJobRequirementsViewController)
+    }
+    
+    /// `UIStoryboard(name: "BAScoutDetailJobSelectionViewController", bundle: ...)`
+    static func bAScoutDetailJobSelectionViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.bAScoutDetailJobSelectionViewController)
     }
     
     /// `UIStoryboard(name: "BAScoutDetailJobViewController", bundle: ...)`
@@ -172,8 +186,10 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
+      try bAScoutDetailJobRequirementsViewController.validate()
       try bAScoutDetailJobViewController.validate()
       try bAJobList.validate()
+      try bAScoutDetailJobSelectionViewController.validate()
     }
     
     struct bAJobList: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
@@ -199,6 +215,42 @@ struct _R: Rswift.Validatable {
       
       let bundle = R.hostingBundle
       let name = "BAScoutDetailJobBase"
+      
+      fileprivate init() {}
+    }
+    
+    struct bAScoutDetailJobRequirementsViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = BAScoutDetailJobRequirementsViewController
+      
+      let bAScoutDetailJobRequirementsViewController = StoryboardViewControllerResource<BAScoutDetailJobRequirementsViewController>(identifier: "BAScoutDetailJobRequirementsViewController")
+      let bundle = R.hostingBundle
+      let name = "BAScoutDetailJobRequirementsViewController"
+      
+      func bAScoutDetailJobRequirementsViewController(_: Void = ()) -> BAScoutDetailJobRequirementsViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bAScoutDetailJobRequirementsViewController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.bAScoutDetailJobRequirementsViewController().bAScoutDetailJobRequirementsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bAScoutDetailJobRequirementsViewController' could not be loaded from storyboard 'BAScoutDetailJobRequirementsViewController' as 'BAScoutDetailJobRequirementsViewController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct bAScoutDetailJobSelectionViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = BAScoutDetailJobSelectionViewController
+      
+      let bAScoutDetailJobSelectionViewController = StoryboardViewControllerResource<BAScoutDetailJobSelectionViewController>(identifier: "BAScoutDetailJobSelectionViewController")
+      let bundle = R.hostingBundle
+      let name = "BAScoutDetailJobSelectionViewController"
+      
+      func bAScoutDetailJobSelectionViewController(_: Void = ()) -> BAScoutDetailJobSelectionViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bAScoutDetailJobSelectionViewController)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.bAScoutDetailJobSelectionViewController().bAScoutDetailJobSelectionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bAScoutDetailJobSelectionViewController' could not be loaded from storyboard 'BAScoutDetailJobSelectionViewController' as 'BAScoutDetailJobSelectionViewController'.") }
+      }
       
       fileprivate init() {}
     }
