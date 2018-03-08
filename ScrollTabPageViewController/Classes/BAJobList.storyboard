@@ -43,7 +43,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="buttonTap:" destination="03N-YQ-heS" eventType="touchUpInside" id="E1Y-km-VSt"/>
-                                    <segue destination="vdI-Hb-v7J" kind="show" identifier="BAScoutDetailJobBase2" id="a7R-ZO-mgu"/>
+                                    <segue destination="vdI-Hb-v7J" kind="show" identifier="BAScoutDetailJobBase" id="a7R-ZO-mgu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -60,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="-212" y="159"/>
         </scene>
-        <!--BAScoutDetailJobBase2-->
+        <!--BAScoutDetailJobBase-->
         <scene sceneID="pdW-ii-R3A">
             <objects>
-                <viewControllerPlaceholder storyboardName="BAScoutDetailJobBase2" id="vdI-Hb-v7J" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="BAScoutDetailJobBase" id="vdI-Hb-v7J" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHk-CP-hIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="418" y="97"/>

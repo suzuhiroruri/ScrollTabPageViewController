@@ -20,15 +20,7 @@ class BAJobListViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let bAScoutDetailJobBaseViewController2 = segue.destination as? BAScoutDetailJobBaseViewController2 {
-            let mailView = BAScoutDetailMailView.instantiate()
-
-            let viewController = UIViewController()
-            viewController.view.frame = mailView.frame
-
-            viewController.view.addSubview(mailView)
-
-            bAScoutDetailJobBaseViewController2.viewController = viewController
+        if let bAScoutDetailJobBaseViewController = segue.destination as? BAScoutDetailJobBaseViewController {
         }
     }
 }
