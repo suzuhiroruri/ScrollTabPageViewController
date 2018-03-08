@@ -135,7 +135,6 @@ class BAScoutDetailMailView: UIView {
 
     // ビューのサイズを調整
     private func sizeFitting() {
-
         // 重要：xibと実機のwidthが違うと、systemLayoutSizeFittingが正しく計測されないため事前にwidthを合わせる。
         self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: self.frame.height)
 
@@ -146,7 +145,7 @@ class BAScoutDetailMailView: UIView {
         collectionHeight.constant = benefitCollectionView.contentSize.height
 
         let size = self.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-        self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: size.height+64)
+        self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: size.height)
     }
 
     /**

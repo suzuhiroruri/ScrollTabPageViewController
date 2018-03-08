@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67I-gM-17U">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67I-gM-17U" customClass="BAScoutDetailJobBase" customModule="ScrollTabPageViewController" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="GW5-Ge-8Bj"/>
@@ -43,7 +43,7 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="buttonTap:" destination="03N-YQ-heS" eventType="touchUpInside" id="E1Y-km-VSt"/>
-                                    <segue destination="9Jx-MA-gm8" kind="show" identifier="BAScoutDetailJobBase" id="owY-iD-138"/>
+                                    <segue destination="vdI-Hb-v7J" kind="show" identifier="BAScoutDetailJobBase2" id="a7R-ZO-mgu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -60,15 +60,13 @@
             </objects>
             <point key="canvasLocation" x="-212" y="159"/>
         </scene>
-        <!--BAScoutDetailJobBase-->
-        <scene sceneID="SYX-II-gVM">
+        <!--BAScoutDetailJobBase2-->
+        <scene sceneID="pdW-ii-R3A">
             <objects>
-                <viewControllerPlaceholder storyboardName="BAScoutDetailJobBase" id="9Jx-MA-gm8" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="FUe-Hf-rUa"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iWt-Oi-Zgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="BAScoutDetailJobBase2" id="vdI-Hb-v7J" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sHk-CP-hIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="338" y="93"/>
+            <point key="canvasLocation" x="418" y="97"/>
         </scene>
     </scenes>
 </document>

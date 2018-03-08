@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SJSegmentedScrollView
 
 class BAScoutDetailJobSelectionViewController: UIViewController {
 
@@ -17,11 +18,14 @@ class BAScoutDetailJobSelectionViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+        let edgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = edgeInsets
+        tableView.scrollIndicatorInsets = edgeInsets
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        scoutDetailJobBaseViewController.updateJobDetailLayoutIfNeeded()
+        //scoutDetailJobBaseViewController.updateJobDetailLayoutIfNeeded()
     }
 }
 
@@ -39,11 +43,16 @@ extension BAScoutDetailJobSelectionViewController: UITableViewDataSource {
         return cell
     }
 }
+extension BAScoutDetailJobSelectionViewController: SJSegmentedViewControllerViewSource {
+    func viewForSegmentControllerToObserveContentOffsetChange() -> UIView {
+        return tableView
+    }
+}
 
 // MARK: - UIScrollViewDelegate
 
 extension BAScoutDetailJobSelectionViewController: UITableViewDelegate {
-
+    /*
     /**
      スクロールのドラッグ開始を検知
      - parameter scrollView: scrollView
@@ -85,11 +94,12 @@ extension BAScoutDetailJobSelectionViewController: UITableViewDelegate {
         scoutDetailJobBaseViewController.scoutDetailMailView.segmentedControl.isUserInteractionEnabled = true
         scoutDetailJobBaseViewController.scoutDetailMailView.scrollView.bounces = true
     }
+    */
 
 }
 
 // MARK: - ScrollTabPageViewControllerProtocol
-
+/*
 extension BAScoutDetailJobSelectionViewController: BAScoutDetailJobBaseViewControllerProtocol {
 
     var scoutDetailJobBaseViewController: BAScoutDetailJobBaseViewController {
@@ -103,3 +113,4 @@ extension BAScoutDetailJobSelectionViewController: BAScoutDetailJobBaseViewContr
         return tableView
     }
 }
+*/

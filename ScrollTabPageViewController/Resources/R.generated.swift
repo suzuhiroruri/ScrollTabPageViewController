@@ -36,12 +36,22 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 7 nibs.
   struct nib {
     /// Nib `BAScoutDetailBenefitCollectionCell`.
     static let bAScoutDetailBenefitCollectionCell = _R.nib._BAScoutDetailBenefitCollectionCell()
     /// Nib `BAScoutDetailMailView`.
     static let bAScoutDetailMailView = _R.nib._BAScoutDetailMailView()
+    /// Nib `BAScoutMailController`.
+    static let bAScoutMailController = _R.nib._BAScoutMailController()
+    /// Nib `BAScoutMailHeaderCell`.
+    static let bAScoutMailHeaderCell = _R.nib._BAScoutMailHeaderCell()
+    /// Nib `BAScoutMailReceivedDateCell`.
+    static let bAScoutMailReceivedDateCell = _R.nib._BAScoutMailReceivedDateCell()
+    /// Nib `BAScoutMailTableViewCell`.
+    static let bAScoutMailTableViewCell = _R.nib._BAScoutMailTableViewCell()
+    /// Nib `BAScoutMailViewController`.
+    static let bAScoutMailViewController = _R.nib._BAScoutMailViewController()
     
     /// `UINib(name: "BAScoutDetailBenefitCollectionCell", in: bundle)`
     static func bAScoutDetailBenefitCollectionCell(_: Void = ()) -> UIKit.UINib {
@@ -53,13 +63,42 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.bAScoutDetailMailView)
     }
     
+    /// `UINib(name: "BAScoutMailController", in: bundle)`
+    static func bAScoutMailController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.bAScoutMailController)
+    }
+    
+    /// `UINib(name: "BAScoutMailHeaderCell", in: bundle)`
+    static func bAScoutMailHeaderCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.bAScoutMailHeaderCell)
+    }
+    
+    /// `UINib(name: "BAScoutMailReceivedDateCell", in: bundle)`
+    static func bAScoutMailReceivedDateCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.bAScoutMailReceivedDateCell)
+    }
+    
+    /// `UINib(name: "BAScoutMailTableViewCell", in: bundle)`
+    static func bAScoutMailTableViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.bAScoutMailTableViewCell)
+    }
+    
+    /// `UINib(name: "BAScoutMailViewController", in: bundle)`
+    static func bAScoutMailViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.bAScoutMailViewController)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `bAScoutDetailBenefitCollectionCell`.
     static let bAScoutDetailBenefitCollectionCell: Rswift.ReuseIdentifier<BAScoutDetailBenefitCollectionCell> = Rswift.ReuseIdentifier(identifier: "bAScoutDetailBenefitCollectionCell")
+    /// Reuse identifier `mailHeader`.
+    static let mailHeader: Rswift.ReuseIdentifier<BAScoutMailHeaderCell> = Rswift.ReuseIdentifier(identifier: "mailHeader")
+    /// Reuse identifier `scoutMailReceivedDateCell`.
+    static let scoutMailReceivedDateCell: Rswift.ReuseIdentifier<BAScoutMailReceivedDateCell> = Rswift.ReuseIdentifier(identifier: "scoutMailReceivedDateCell")
     
     fileprivate init() {}
   }
@@ -68,14 +107,14 @@ struct R: Rswift.Validatable {
   struct segue {
     /// This struct is generated for `BAJobListViewController`, and contains static references to 1 segues.
     struct bAJobListViewController {
-      /// Segue identifier `BAScoutDetailJobBase`.
-      static let bAScoutDetailJobBase: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, BAJobListViewController, BAScoutDetailJobBaseViewController> = Rswift.StoryboardSegueIdentifier(identifier: "BAScoutDetailJobBase")
+      /// Segue identifier `BAScoutDetailJobBase2`.
+      static let bAScoutDetailJobBase2: Rswift.StoryboardSegueIdentifier<UIKit.UIStoryboardSegue, BAJobListViewController, BAScoutDetailJobBaseViewController2> = Rswift.StoryboardSegueIdentifier(identifier: "BAScoutDetailJobBase2")
       
-      /// Optionally returns a typed version of segue `BAScoutDetailJobBase`.
+      /// Optionally returns a typed version of segue `BAScoutDetailJobBase2`.
       /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
       /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
-      static func bAScoutDetailJobBase(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, BAJobListViewController, BAScoutDetailJobBaseViewController>? {
-        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.bAJobListViewController.bAScoutDetailJobBase, segue: segue)
+      static func bAScoutDetailJobBase2(segue: UIKit.UIStoryboardSegue) -> Rswift.TypedStoryboardSegueInfo<UIKit.UIStoryboardSegue, BAJobListViewController, BAScoutDetailJobBaseViewController2>? {
+        return Rswift.TypedStoryboardSegueInfo(segueIdentifier: R.segue.bAJobListViewController.bAScoutDetailJobBase2, segue: segue)
       }
       
       fileprivate init() {}
@@ -88,14 +127,14 @@ struct R: Rswift.Validatable {
   struct storyboard {
     /// Storyboard `BAJobList`.
     static let bAJobList = _R.storyboard.bAJobList()
+    /// Storyboard `BAScoutDetailJobBase2`.
+    static let bAScoutDetailJobBase2 = _R.storyboard.bAScoutDetailJobBase2()
     /// Storyboard `BAScoutDetailJobBase`.
     static let bAScoutDetailJobBase = _R.storyboard.bAScoutDetailJobBase()
     /// Storyboard `BAScoutDetailJobRequirementsViewController`.
     static let bAScoutDetailJobRequirementsViewController = _R.storyboard.bAScoutDetailJobRequirementsViewController()
     /// Storyboard `BAScoutDetailJobSelectionViewController`.
     static let bAScoutDetailJobSelectionViewController = _R.storyboard.bAScoutDetailJobSelectionViewController()
-    /// Storyboard `BAScoutDetailJobViewController`.
-    static let bAScoutDetailJobViewController = _R.storyboard.bAScoutDetailJobViewController()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     
@@ -109,6 +148,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIStoryboard(resource: R.storyboard.bAScoutDetailJobBase)
     }
     
+    /// `UIStoryboard(name: "BAScoutDetailJobBase2", bundle: ...)`
+    static func bAScoutDetailJobBase2(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.bAScoutDetailJobBase2)
+    }
+    
     /// `UIStoryboard(name: "BAScoutDetailJobRequirementsViewController", bundle: ...)`
     static func bAScoutDetailJobRequirementsViewController(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.bAScoutDetailJobRequirementsViewController)
@@ -117,11 +161,6 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "BAScoutDetailJobSelectionViewController", bundle: ...)`
     static func bAScoutDetailJobSelectionViewController(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.bAScoutDetailJobSelectionViewController)
-    }
-    
-    /// `UIStoryboard(name: "BAScoutDetailJobViewController", bundle: ...)`
-    static func bAScoutDetailJobViewController(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.bAScoutDetailJobViewController)
     }
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
@@ -181,13 +220,73 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
+    struct _BAScoutMailController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "BAScoutMailController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _BAScoutMailHeaderCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = BAScoutMailHeaderCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "mailHeader"
+      let name = "BAScoutMailHeaderCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> BAScoutMailHeaderCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BAScoutMailHeaderCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _BAScoutMailReceivedDateCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = BAScoutMailReceivedDateCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "scoutMailReceivedDateCell"
+      let name = "BAScoutMailReceivedDateCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> BAScoutMailReceivedDateCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BAScoutMailReceivedDateCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _BAScoutMailTableViewCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "BAScoutMailTableViewCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> BAScoutMailTableViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BAScoutMailTableViewCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _BAScoutMailViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "BAScoutMailViewController"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       try bAScoutDetailJobRequirementsViewController.validate()
-      try bAScoutDetailJobViewController.validate()
       try bAJobList.validate()
       try bAScoutDetailJobSelectionViewController.validate()
     }
@@ -206,6 +305,15 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if _R.storyboard.bAJobList().jobList() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'jobList' could not be loaded from storyboard 'BAJobList' as 'BAJobListViewController'.") }
       }
+      
+      fileprivate init() {}
+    }
+    
+    struct bAScoutDetailJobBase2: Rswift.StoryboardResourceWithInitialControllerType {
+      typealias InitialController = BAScoutDetailJobBaseViewController2
+      
+      let bundle = R.hostingBundle
+      let name = "BAScoutDetailJobBase2"
       
       fileprivate init() {}
     }
@@ -250,24 +358,6 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if _R.storyboard.bAScoutDetailJobSelectionViewController().bAScoutDetailJobSelectionViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bAScoutDetailJobSelectionViewController' could not be loaded from storyboard 'BAScoutDetailJobSelectionViewController' as 'BAScoutDetailJobSelectionViewController'.") }
-      }
-      
-      fileprivate init() {}
-    }
-    
-    struct bAScoutDetailJobViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = BAScoutDetailJobViewController
-      
-      let bAScoutDetailJobViewController = StoryboardViewControllerResource<BAScoutDetailJobViewController>(identifier: "BAScoutDetailJobViewController")
-      let bundle = R.hostingBundle
-      let name = "BAScoutDetailJobViewController"
-      
-      func bAScoutDetailJobViewController(_: Void = ()) -> BAScoutDetailJobViewController? {
-        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: bAScoutDetailJobViewController)
-      }
-      
-      static func validate() throws {
-        if _R.storyboard.bAScoutDetailJobViewController().bAScoutDetailJobViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'bAScoutDetailJobViewController' could not be loaded from storyboard 'BAScoutDetailJobViewController' as 'BAScoutDetailJobViewController'.") }
       }
       
       fileprivate init() {}

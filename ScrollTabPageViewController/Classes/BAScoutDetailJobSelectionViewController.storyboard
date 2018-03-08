@@ -12,7 +12,7 @@
         <!--Scout Detail Job Selection View Controller-->
         <scene sceneID="1dT-n6-RE6">
             <objects>
-                <viewController storyboardIdentifier="BAScoutDetailJobSelectionViewController" id="tHF-NM-rgV" customClass="BAScoutDetailJobSelectionViewController" customModule="ScrollTabPageViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BAScoutDetailJobSelectionViewController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="tHF-NM-rgV" customClass="BAScoutDetailJobSelectionViewController" customModule="ScrollTabPageViewController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z9P-RP-Og5"/>
                         <viewControllerLayoutGuide type="bottom" id="ctt-sd-81t"/>
@@ -34,6 +34,7 @@
                             <constraint firstAttribute="trailing" secondItem="lng-gb-gUg" secondAttribute="trailing" id="tyQ-bn-gsZ"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <connections>
                         <outlet property="tableView" destination="lng-gb-gUg" id="Fxg-FU-Rqz"/>
                     </connections>

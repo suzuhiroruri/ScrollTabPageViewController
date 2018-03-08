@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="r"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="KGk-i7-Jjw" customClass="BAScoutMailTableViewCell" customModule="ScrollTabPageViewController" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="479" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="479" height="71.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAL-qQ-hlr" userLabel="Header View">
+                        <rect key="frame" x="0.0" y="0.0" width="479" height="71.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="受信日: 2017/12/11" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkg-ff-j0l">
+                                <rect key="frame" x="0.0" y="5" width="464" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="r9N-Rg-J3j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJ3-QW-2Cq">
+                                <rect key="frame" x="8" y="32" width="474" height="34.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UJ3-QW-2Cq" firstAttribute="top" secondItem="Kkg-ff-j0l" secondAttribute="bottom" constant="10" id="5nA-bu-wPR"/>
+                            <constraint firstItem="UJ3-QW-2Cq" firstAttribute="width" secondItem="oAL-qQ-hlr" secondAttribute="width" constant="-5" id="FCx-zp-5XV"/>
+                            <constraint firstAttribute="bottom" secondItem="UJ3-QW-2Cq" secondAttribute="bottom" constant="5" id="Jo9-uW-ODU"/>
+                            <constraint firstItem="Kkg-ff-j0l" firstAttribute="leading" secondItem="oAL-qQ-hlr" secondAttribute="leading" id="RBt-sb-yl7"/>
+                            <constraint firstItem="Kkg-ff-j0l" firstAttribute="top" secondItem="oAL-qQ-hlr" secondAttribute="top" constant="5" id="Rjc-jN-8xP"/>
+                            <constraint firstItem="UJ3-QW-2Cq" firstAttribute="leading" secondItem="oAL-qQ-hlr" secondAttribute="leading" constant="8" id="ney-3X-37M"/>
+                            <constraint firstAttribute="trailing" secondItem="Kkg-ff-j0l" secondAttribute="trailing" constant="15" id="prY-wq-dNw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="oAL-qQ-hlr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="GrT-ys-kfb"/>
+                    <constraint firstAttribute="bottom" secondItem="oAL-qQ-hlr" secondAttribute="bottom" id="m7m-fG-oNh"/>
+                    <constraint firstItem="oAL-qQ-hlr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tkg-70-x6x"/>
+                    <constraint firstAttribute="trailing" secondItem="oAL-qQ-hlr" secondAttribute="trailing" id="vIi-nW-fom"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="-102.5" y="-56"/>
+        </tableViewCell>
+    </objects>
+</document>

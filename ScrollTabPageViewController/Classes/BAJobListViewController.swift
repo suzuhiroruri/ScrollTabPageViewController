@@ -7,27 +7,28 @@
 //
 
 import UIKit
+import SJSegmentedScrollView
 
 class BAJobListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func buttonTap(_ sender: UIButton) {
 
-        //performSegue(withIdentifier: "BAScoutDetailJobBase", sender: nil)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let viewController = R.segue.bAJobListViewController.bAScoutDetailJobBase(segue: segue)?.destination else {
-            return
+        if let bAScoutDetailJobBaseViewController2 = segue.destination as? BAScoutDetailJobBaseViewController2 {
+            let mailView = BAScoutDetailMailView.instantiate()
+
+            let viewController = UIViewController()
+            viewController.view.frame = mailView.frame
+
+            viewController.view.addSubview(mailView)
+
+            bAScoutDetailJobBaseViewController2.viewController = viewController
         }
-        guard let vc = viewController.childViewControllers.first as? BAScoutDetailJobBaseViewController else {
-            return
-        }
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
