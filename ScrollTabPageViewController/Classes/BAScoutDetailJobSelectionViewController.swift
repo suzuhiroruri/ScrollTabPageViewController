@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SJSegmentedScrollView
 
 class BAScoutDetailJobSelectionViewController: UIViewController {
 
@@ -22,7 +21,15 @@ class BAScoutDetailJobSelectionViewController: UIViewController {
         tableView.contentInset = edgeInsets
         tableView.scrollIndicatorInsets = edgeInsets
     }
-
+    var scrollDelegateFunc: ((UIScrollView) -> Void)?
+    func scrollViewDidScroll(_ tableView: UIScrollView) {
+        if self.scrollDelegateFunc != nil {
+            guard let scrollDelegateFunc = self.scrollDelegateFunc else {
+                return
+            }
+            scrollDelegateFunc(tableView)
+        }
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //scoutDetailJobBaseViewController.updateJobDetailLayoutIfNeeded()
@@ -41,11 +48,6 @@ extension BAScoutDetailJobSelectionViewController: UITableViewDataSource {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
         cell.textLabel?.text = String(indexPath.row)
         return cell
-    }
-}
-extension BAScoutDetailJobSelectionViewController: SJSegmentedViewControllerViewSource {
-    func viewForSegmentControllerToObserveContentOffsetChange() -> UIView {
-        return tableView
     }
 }
 

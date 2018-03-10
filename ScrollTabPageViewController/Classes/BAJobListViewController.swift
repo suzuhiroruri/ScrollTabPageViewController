@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SJSegmentedScrollView
 
 class BAJobListViewController: UIViewController {
 

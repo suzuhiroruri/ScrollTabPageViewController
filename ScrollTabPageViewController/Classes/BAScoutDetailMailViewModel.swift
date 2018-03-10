@@ -86,7 +86,7 @@ class BAScoutDetailMailViewModel: NSObject {
 
 		// スカウトメール本文
         mailBody = "あああああ"
-
+        /*
         // 掲載終了までの残り日数
         let attributeNormalBlack: [NSAttributedStringKey: Any] = [
             .foregroundColor: UIColor.black
@@ -124,6 +124,7 @@ class BAScoutDetailMailViewModel: NSObject {
             let string = NSAttributedString(string: "本日掲載終了", attributes: attributeRed)
             appearDaysLeftString.append(string)
         }
+        */
     }
 
     // コレクションセルのセル数
