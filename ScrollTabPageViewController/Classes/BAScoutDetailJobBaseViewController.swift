@@ -7,11 +7,23 @@
 //
 
 import UIKit
-//import HeaderedTabScrollView
-import PageMenu
+//import PageMenu
+
+protocol BAScoutDetailJobBaseViewControllerProtocol {
+    var scoutDetailJobBaseViewController: BAScoutDetailJobBaseViewController { get }
+    var scrollView: UIScrollView { get }
+}
 
 class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CAPSPageMenuDelegate {
-    let tabsTexts = ["Submissions", "Comments"]
+
+    var inTabViewController: [UIViewController] = []
+
+    var lastRequiredScrollOffset: CGFloat = 0.0
+    var lastRequiredHeaderCurrentY: CGFloat = 0.0
+
+    var lastSelectedScrollOffset: CGFloat = 0.0
+    var lastSelectedHeaderCurrentY: CGFloat = 0.0
+
     /// 募集内容
     lazy var requirementsViewController: BAScoutDetailJobRequirementsViewController? = {
         let sb1 = UIStoryboard(name: R.storyboard.bAScoutDetailJobRequirementsViewController.name, bundle: nil)
@@ -25,54 +37,95 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         let vc2 = sb2.instantiateViewController(withIdentifier: "BAScoutDetailJobSelectionViewController") as? BAScoutDetailJobSelectionViewController
         return vc2
     }()
+
     override func viewDidLoad() {
-        automaticallyAdjustsScrollViewInsets = false
         let mailView = BAScoutDetailMailView.instantiate()
         self.headerHeight = mailView.frame.height
-        print(self.headerHeight)
+
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.headerView = mailView
         guard let requirementsViewController = requirementsViewController else {
             return
         }
-        requirementsViewController.title = "1"
+        requirementsViewController.title = "募集内容"
 
         guard let selectionViewController  = selectionViewController else {
             return
         }
-        selectionViewController.title = "2"
+        selectionViewController.title = "選考・会社概要"
+
         requirementsViewController.scrollDelegateFunc = { [weak self] in self?.pleaseScroll($0) }
         selectionViewController.scrollDelegateFunc = { [weak self] in self?.pleaseScroll($0) }
-        var controllers: [UIViewController] = []
-        controllers.append(requirementsViewController)
-        controllers.append(selectionViewController)
+
+        inTabViewController.append(requirementsViewController)
+        inTabViewController.append(selectionViewController)
+
         let parameters: [CAPSPageMenuOption] = [
-            .menuItemWidth(50),
-            .scrollMenuBackgroundColor(#colorLiteral(red: 0.07058823529, green: 0.09411764706, blue: 0.1019607843, alpha: 0.5)),
-            .viewBackgroundColor(#colorLiteral(red: 0.07058823529, green: 0.09411764706, blue: 0.1019607843, alpha: 0.5)),
-            .bottomMenuHairlineColor(UIColor(red: 20.0/255.0, green: 20.0/255.0, blue: 20.0/255.0, alpha: 0.1)),
-            .selectionIndicatorColor(#colorLiteral(red: 0.8404174447, green: 0.396413058, blue: 0, alpha: 1)),
-            .menuMargin(0.0),
-            .menuHeight(40.0),
-            .selectedMenuItemLabelColor(.white),
+            .scrollMenuBackgroundColor(UIColor.lightGray),
+            .menuItemSeparatorColor(UIColor.clear),
+            .viewBackgroundColor(UIColor.lightGray),
+            .bottomMenuHairlineColor(UIColor.clear),
+            .selectionIndicatorColor(UIColor.clear),
+            .menuHeight(44.0),
             .unselectedMenuItemLabelColor(.white),
             .useMenuLikeSegmentedControl(true),
-            .selectionIndicatorHeight(2.0),
-            .menuItemWidthBasedOnTitleTextWidth(false)
+            .selectedMenuItemLabelColor(UIColor.white),
+            .menuItemWidthBasedOnTitleTextWidth(false),
+            .selectionIndicatorHeight(0.0)
         ]
-        self.addPageMenu(menu: CAPSPageMenu(viewControllers: controllers, frame: CGRect(x: 0, y: 0, width: pageMenuContainer.frame.width, height: pageMenuContainer.frame.height+200), pageMenuOptions: parameters))
-        self.pageMenuController!.delegate = self
-        self.navBarTransparancy = 1
+        self.addPageMenu(menu: CAPSPageMenu(viewControllers: inTabViewController, frame: CGRect(x: 0, y: 0, width: pageMenuContainer.frame.width, height: pageMenuContainer.frame.height+200), pageMenuOptions: parameters))
+        guard let pageMenuController = pageMenuController else {
+            return
+        }
+        pageMenuController.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavBarTitle(title: "Curtis' profile")
+        self.setNavBarTitle(title: "仕事詳細")
         self.navBarColor = UIColor.white
         UIApplication.shared.statusBarStyle = .lightContent
         self.navBarTransparancy = 1
     }
+
+    // ヘッダーがスクロールされるときに呼ばれる
     override func headerDidScroll(minY: CGFloat, maxY: CGFloat, currentY: CGFloat) {
+
         updateHeaderPositionAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: currentY)
+        guard let currentIndex = self.pageMenuController?.currentPageIndex else {
+            return
+        }
+
+        if currentIndex == 0 {
+            lastRequiredHeaderCurrentY = currentY
+        } else {
+            lastSelectedHeaderCurrentY = currentY
+        }
+    }
+
+    // ページングする直前
+    func willMoveToPage(_ controller: UIViewController, index: Int) {
+
+        guard let jobDetailViewController = inTabViewController[index] as? BAScoutDetailJobBaseViewControllerProtocol else {
+            return
+        }
+
+        if jobDetailViewController.scrollView.frame.height != 0 {
+           jobDetailViewController.scrollView.showsVerticalScrollIndicator = false
+            // 左右でヘッダーのOffsetが変更されていた場合はスクロールをリセットする
+            if lastRequiredHeaderCurrentY != lastSelectedHeaderCurrentY {
+                lastTabScrollViewOffset.y = 0
+                jobDetailViewController.scrollView.contentOffset.y = 0
+            }
+        }
+    }
+
+    // ページングする直前
+    func didMoveToPage(_ controller: UIViewController, index: Int) {
+        guard let jobDetailViewController = inTabViewController[index] as? BAScoutDetailJobBaseViewControllerProtocol else {
+            return
+        }
+        jobDetailViewController.scrollView.showsVerticalScrollIndicator = true
     }
 }

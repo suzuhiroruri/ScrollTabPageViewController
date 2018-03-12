@@ -56,15 +56,8 @@ class BAScoutDetailMailView: UIView {
     @IBOutlet weak var appearDaysLeftBaseView: UIView!
     // 掲載終了残り日数ラベル
     @IBOutlet weak var appearDaysLeftLabel: UILabel!
-
-    // セグメントビュー
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    // セグメントビューの高さ
-    @IBOutlet weak var segmentedControlHeight: NSLayoutConstraint!
     // 選択されているsegmentのindex
     var currentIndex: Int = 0
-    // セグメントが変更されたときの処理
-    var segmentChangedBlock: ((_ index: Int) -> Void)?
 
     var scoutDetailMailViewModel: BAScoutDetailMailViewModel?
 
@@ -146,26 +139,6 @@ class BAScoutDetailMailView: UIView {
 
         let size = self.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: size.height)
-    }
-
-    /**
-     セグメントのindex番号を更新
-     - parameter index: 更新しようとしているindex番号
-     - parameter animated: アニメーションするかのBOOL
-     */
-    func updateCurrentIndex(index: Int, animated: Bool) {
-        segmentedControl.selectedSegmentIndex = index
-        currentIndex = index
-    }
-
-    /**
-     セグメントが変更されたときの処理
-     - parameter sender: UISegmentedControl
-     */
-    @IBAction func changeSegmentValue(_ sender: UISegmentedControl) {
-        // セグメントが変更されたときの処理
-        segmentChangedBlock?(sender.selectedSegmentIndex)
-        updateCurrentIndex(index: sender.selectedSegmentIndex, animated: true)
     }
 }
 

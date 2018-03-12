@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BAScoutDetailJobSelectionViewController: UIViewController {
+class BAScoutDetailJobSelectionViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -30,9 +30,9 @@ class BAScoutDetailJobSelectionViewController: UIViewController {
             scrollDelegateFunc(tableView)
         }
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //scoutDetailJobBaseViewController.updateJobDetailLayoutIfNeeded()
     }
 }
 
@@ -51,57 +51,6 @@ extension BAScoutDetailJobSelectionViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - UIScrollViewDelegate
-
-extension BAScoutDetailJobSelectionViewController: UITableViewDelegate {
-    /*
-    /**
-     スクロールのドラッグ開始を検知
-     - parameter scrollView: scrollView
-     */
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        // スカウトメールのセグメントのインタラクションを利用不可にする(mailとjobのスクロールのずれ防止のため)
-        scoutDetailJobBaseViewController.scoutDetailMailView.segmentedControl.isUserInteractionEnabled = false
-        scoutDetailJobBaseViewController.scoutDetailMailView.scrollView.bounces = false
-    }
-
-    /**
-     スクロールを検知
-     - parameter scrollView: scrollView
-     */
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        // scoutDetailMailViewのスクロールを同期
-        scoutDetailJobBaseViewController.updateContentViewFrame()
-    }
-
-    /**
-     スクロールのドラッグ終了を検知
-     - parameter scrollView: scrollView
-     */
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !scrollView.isDecelerating && !scrollView.isDragging {
-            // ドラッグや慣性が検出されない場合
-            // 利用不可にしていたスカウトメールのセグメントのインタラクションを利用可能にする
-            scoutDetailJobBaseViewController.scoutDetailMailView.segmentedControl.isUserInteractionEnabled = true
-            scoutDetailJobBaseViewController.scoutDetailMailView.scrollView.bounces = true
-        }
-    }
-
-    /**
-     スクロールの慣性終了を検知
-     - parameter scrollView: scrollView
-     */
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        // 利用不可にしていたスカウトメールのセグメントのインタラクションを利用可能にする
-        scoutDetailJobBaseViewController.scoutDetailMailView.segmentedControl.isUserInteractionEnabled = true
-        scoutDetailJobBaseViewController.scoutDetailMailView.scrollView.bounces = true
-    }
-    */
-
-}
-
-// MARK: - ScrollTabPageViewControllerProtocol
-/*
 extension BAScoutDetailJobSelectionViewController: BAScoutDetailJobBaseViewControllerProtocol {
 
     var scoutDetailJobBaseViewController: BAScoutDetailJobBaseViewController {
@@ -112,7 +61,9 @@ extension BAScoutDetailJobSelectionViewController: BAScoutDetailJobBaseViewContr
     }
 
     var scrollView: UIScrollView {
+        guard let tableView = tableView else {
+            return UITableView()
+        }
         return tableView
     }
 }
-*/

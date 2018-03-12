@@ -26,7 +26,8 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
     /// Constraint on the top of the tabScrollView
     var tabTopConstraint: NSLayoutConstraint?
     /// Remembers the last position (since last viewDidScroll event) of the tabScrollView (relatively to the top of the view)
-    private var lastTabScrollViewOffset: CGPoint = .zero
+    //private var lastTabScrollViewOffset: CGPoint = .zero
+    public var lastTabScrollViewOffset: CGPoint = .zero
 
     /// Handle the tranparency of the navBar
     private var navBarOverlay: UIView?
@@ -37,16 +38,15 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
     /// The view pinned on top of the tabScrollview
     public var headerView: UIView? {
         didSet {
-            if headerView != nil {
+            if let headerView = headerView {
                 headerContainer.subviews.forEach({ $0.removeFromSuperview() })
-                headerContainer.addSubview(headerView!)
-                headerView!.translatesAutoresizingMaskIntoConstraints = false
-                headerView!.topAnchor.constraint(equalTo: headerContainer.topAnchor).isActive = true
-                headerView!.leadingAnchor.constraint(equalTo: headerContainer.leadingAnchor).isActive = true
-                headerView!.trailingAnchor.constraint(equalTo: headerContainer.trailingAnchor).isActive = true
-                headerView!.bottomAnchor.constraint(equalTo: headerContainer.bottomAnchor).isActive = true
+                headerContainer.addSubview(headerView)
+                headerView.translatesAutoresizingMaskIntoConstraints = false
+                headerView.topAnchor.constraint(equalTo: headerContainer.topAnchor).isActive = true
+                headerView.leadingAnchor.constraint(equalTo: headerContainer.leadingAnchor).isActive = true
+                headerView.trailingAnchor.constraint(equalTo: headerContainer.trailingAnchor).isActive = true
+                headerView.bottomAnchor.constraint(equalTo: headerContainer.bottomAnchor).isActive = true
             }
-
         }
     }
 
@@ -62,12 +62,10 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
     /// get & set the alpha of the navigation bar.
     public var navBarTransparancy: CGFloat {
         get {
-            if navBarOverlay != nil {
-                return navBarOverlay!.backgroundColor!.cgColor.alpha
-            } else {
+            guard let navBarOverlay = navBarOverlay, let backgroundColor = navBarOverlay.backgroundColor else {
                 return 0
             }
-
+            return backgroundColor.cgColor.alpha
         } set (value) {
             if navBarOverlay != nil {
                 navBarOverlay!.backgroundColor = navBarColor.withAlphaComponent(value)
@@ -184,7 +182,6 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
     public func setNavbarTitleTransparency(alpha: CGFloat) {
         if let navCtrl = self.navigationController {
             let navBar = navCtrl.navigationBar
-            //navBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white.withAlphaComponent(alpha)]
         }
     }
     public func setNavBarLeftItems(items: [UIBarButtonItem]) {
@@ -199,6 +196,8 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
      Handles all the effects hapening on a scroll event. You have
      to bind this method to the viewDidScroll action of the subpages' scrollView.
      */
+    // 上が動くとき:tabTopConstraint!.constantが動く
+    // 下が動くとき:lastTabScrollViewOffset.yが動く
     public func pleaseScroll(_ scrollView: UIScrollView) {
         var delta =  scrollView.contentOffset.y - lastTabScrollViewOffset.y
 
@@ -207,21 +206,24 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
         let minY: CGFloat = self.headerHeight
 
         if tabTopConstraint == nil { return }
-        //we compress the top view
-        if delta > 0 && tabTopConstraint!.constant > maxY && scrollView.contentOffset.y > 0 {
-            if tabTopConstraint!.constant - delta < maxY {
-                delta = tabTopConstraint!.constant - maxY
+        // ヘッダービューを縮める(上スクロール)
+        guard let tabTopConstraintConstant = tabTopConstraint?.constant else {
+            return
+        }
+        if delta > 0 && tabTopConstraintConstant > maxY && scrollView.contentOffset.y > 0 {
+            if tabTopConstraintConstant - delta < maxY {
+                delta = tabTopConstraintConstant - maxY
             }
             tabTopConstraint!.constant -= delta
             scrollView.contentOffset.y -= delta
         }
 
-        //we expand the top view
+        // ヘッダービューを拡張(下スクロール)
         if delta < 0 {
 
-            if tabTopConstraint!.constant < minY && scrollView.contentOffset.y < 0 {
-                if tabTopConstraint!.constant - delta > minY {
-                    delta = tabTopConstraint!.constant - minY
+            if tabTopConstraintConstant < minY && scrollView.contentOffset.y < 0 {
+                if tabTopConstraintConstant - delta > minY {
+                    delta = tabTopConstraintConstant - minY
                 }
                 tabTopConstraint!.constant -= delta
                 scrollView.contentOffset.y -= delta
@@ -229,7 +231,7 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
         }
 
         lastTabScrollViewOffset = scrollView.contentOffset
-        headerDidScroll(minY: minY, maxY: maxY, currentY: tabTopConstraint!.constant)
+        headerDidScroll(minY: minY, maxY: maxY, currentY: tabTopConstraintConstant)
     }
 
     /**
@@ -241,10 +243,12 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
      */
     open func headerDidScroll(minY: CGFloat, maxY: CGFloat, currentY: CGFloat) {
         // Change de opacity of the navBar
-        updateNavBarAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: tabTopConstraint!.constant)
-        updateHeaderPositionAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: tabTopConstraint!.constant)
-        updateHeaderAlphaAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: tabTopConstraint!.constant)
-
+        guard let tabTopConstraintConstant = tabTopConstraint?.constant else {
+            return
+        }
+        updateNavBarAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: tabTopConstraintConstant)
+        updateHeaderPositionAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: tabTopConstraintConstant)
+        updateHeaderAlphaAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: tabTopConstraintConstant)
     }
 
     func navBarOffset() -> CGFloat {
@@ -259,7 +263,7 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
      - currentY: The y coordinate of the current position of the top of the tabScrollView (relatively to the top of the parentView)
      */
     open func updateNavBarAccordingToScrollPosition(minY: CGFloat, maxY: CGFloat, currentY: CGFloat) {
-        let alphaOffset: CGFloat = (minY-maxY)*0.3 // alpha start changing at 1/3 of the way up
+        let alphaOffset: CGFloat = (minY-maxY)*1 // alpha start changing at 1/3 of the way up
         var alpha = (currentY + alphaOffset - minY)/(maxY+alphaOffset-minY)
         if currentY > minY - alphaOffset {
             alpha = 0

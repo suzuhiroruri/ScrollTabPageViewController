@@ -7,8 +7,21 @@
 //
 
 import UIKit
-import PageMenu
+//import PageMenu
 
+extension BAScoutDetailJobRequirementsViewController: BAScoutDetailJobBaseViewControllerProtocol {
+
+    var scoutDetailJobBaseViewController: BAScoutDetailJobBaseViewController {
+        guard let baseController = parent?.parent as? BAScoutDetailJobBaseViewController else {
+            return BAScoutDetailJobBaseViewController()
+        }
+        return baseController
+    }
+
+    var scrollView: UIScrollView {
+        return tableView
+    }
+}
 class BAScoutDetailJobRequirementsViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!

@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		29064372204EB35B008715C4 /* BAScoutDetailJobBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29064371204EB35B008715C4 /* BAScoutDetailJobBaseViewController.swift */; };
 		2906437C204F69A3008715C4 /* BAScoutDetailJobBase.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2906437B204F69A3008715C4 /* BAScoutDetailJobBase.storyboard */; };
+		291FA7D5205646D9000327D6 /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291FA7CE205646D8000327D6 /* CAPSPageMenu.swift */; };
+		291FA7D6205646D9000327D6 /* CAPSPageMenu+UIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291FA7CF205646D8000327D6 /* CAPSPageMenu+UIConfiguration.swift */; };
+		291FA7D7205646D9000327D6 /* CAPSPageMenu+UIScrollViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291FA7D0205646D8000327D6 /* CAPSPageMenu+UIScrollViewDelegate.swift */; };
+		291FA7D8205646D9000327D6 /* CAPSPageMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291FA7D1205646D9000327D6 /* CAPSPageMenuConfiguration.swift */; };
+		291FA7D9205646D9000327D6 /* CAPSPageMenu+Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291FA7D2205646D9000327D6 /* CAPSPageMenu+Options.swift */; };
+		291FA7DA205646D9000327D6 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291FA7D3205646D9000327D6 /* MenuItemView.swift */; };
+		291FA7DB205646D9000327D6 /* CAPSPageMenu+UIGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291FA7D4205646D9000327D6 /* CAPSPageMenu+UIGestureRecognizerDelegate.swift */; };
 		29391AE320369D2F00D469F1 /* BAScoutDetailMailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29391AE220369D2F00D469F1 /* BAScoutDetailMailViewModel.swift */; };
 		29391AEA2036A06100D469F1 /* BAScoutDetailBenefitCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29391AE82036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.xib */; };
 		29391AEB2036A06100D469F1 /* BAScoutDetailBenefitCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29391AE92036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.swift */; };
@@ -32,6 +39,13 @@
 /* Begin PBXFileReference section */
 		29064371204EB35B008715C4 /* BAScoutDetailJobBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAScoutDetailJobBaseViewController.swift; sourceTree = "<group>"; };
 		2906437B204F69A3008715C4 /* BAScoutDetailJobBase.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BAScoutDetailJobBase.storyboard; sourceTree = "<group>"; };
+		291FA7CE205646D8000327D6 /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
+		291FA7CF205646D8000327D6 /* CAPSPageMenu+UIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAPSPageMenu+UIConfiguration.swift"; sourceTree = "<group>"; };
+		291FA7D0205646D8000327D6 /* CAPSPageMenu+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAPSPageMenu+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
+		291FA7D1205646D9000327D6 /* CAPSPageMenuConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenuConfiguration.swift; sourceTree = "<group>"; };
+		291FA7D2205646D9000327D6 /* CAPSPageMenu+Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAPSPageMenu+Options.swift"; sourceTree = "<group>"; };
+		291FA7D3205646D9000327D6 /* MenuItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		291FA7D4205646D9000327D6 /* CAPSPageMenu+UIGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAPSPageMenu+UIGestureRecognizerDelegate.swift"; sourceTree = "<group>"; };
 		29391AE220369D2F00D469F1 /* BAScoutDetailMailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAScoutDetailMailViewModel.swift; sourceTree = "<group>"; };
 		29391AE82036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAScoutDetailBenefitCollectionCell.xib; sourceTree = "<group>"; };
 		29391AE92036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAScoutDetailBenefitCollectionCell.swift; sourceTree = "<group>"; };
@@ -68,6 +82,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		291FA7C52056436E000327D6 /* PageMenu+ */ = {
+			isa = PBXGroup;
+			children = (
+				291FA7CE205646D8000327D6 /* CAPSPageMenu.swift */,
+				291FA7D2205646D9000327D6 /* CAPSPageMenu+Options.swift */,
+				291FA7CF205646D8000327D6 /* CAPSPageMenu+UIConfiguration.swift */,
+				291FA7D4205646D9000327D6 /* CAPSPageMenu+UIGestureRecognizerDelegate.swift */,
+				291FA7D0205646D8000327D6 /* CAPSPageMenu+UIScrollViewDelegate.swift */,
+				291FA7D1205646D9000327D6 /* CAPSPageMenuConfiguration.swift */,
+				291FA7D3205646D9000327D6 /* MenuItemView.swift */,
+			);
+			path = "PageMenu+";
+			sourceTree = "<group>";
+		};
 		29391AE020369CCD00D469F1 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +149,6 @@
 			children = (
 				29AB4227203C2DEE00AB8484 /* BAJobListViewController.swift */,
 				29AB4229203C2E2600AB8484 /* BAJobList.storyboard */,
-				2979E3402034527E0075D321 /* Base */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -129,7 +156,6 @@
 		4C8C50C01C11B617008A69C9 = {
 			isa = PBXGroup;
 			children = (
-				D2D0B560205396C100184DD2 /* Classes */,
 				2979E3432035112B0075D321 /* R.generated.swift */,
 				4C8C50CB1C11B617008A69C9 /* ScrollTabPageViewController */,
 				4C8C50CA1C11B617008A69C9 /* Products */,
@@ -153,6 +179,8 @@
 				4C8C50D31C11B617008A69C9 /* Assets.xcassets */,
 				4C8C50D81C11B617008A69C9 /* Info.plist */,
 				4C8C50D51C11B617008A69C9 /* LaunchScreen.storyboard */,
+				291FA7C52056436E000327D6 /* PageMenu+ */,
+				D2D0B560205396C100184DD2 /* HeaderedTabScrollView */,
 				4C8C50E31C11C608008A69C9 /* View */,
 			);
 			path = ScrollTabPageViewController;
@@ -162,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				29AB422D203C3D4100AB8484 /* List */,
+				2979E3402034527E0075D321 /* Base */,
 				2979E341203452840075D321 /* Mail */,
 				2979E342203452890075D321 /* Job */,
 			);
@@ -186,13 +215,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		D2D0B560205396C100184DD2 /* Classes */ = {
+		D2D0B560205396C100184DD2 /* HeaderedTabScrollView */ = {
 			isa = PBXGroup;
 			children = (
 				D2D0B561205396C100184DD2 /* HeaderedCAPSPageMenuViewController.swift */,
 				D2D0B562205396C100184DD2 /* AbstractHeaderedTabScrollViewController.swift */,
 			);
-			path = Classes;
+			path = HeaderedTabScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,7 +357,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		B90641FFE1F30C28263753C8 /* [CP] Copy Pods Resources */ = {
@@ -355,11 +384,18 @@
 			files = (
 				29AB4228203C2DEE00AB8484 /* BAJobListViewController.swift in Sources */,
 				D2D0B563205396C100184DD2 /* HeaderedCAPSPageMenuViewController.swift in Sources */,
+				291FA7D5205646D9000327D6 /* CAPSPageMenu.swift in Sources */,
+				291FA7D6205646D9000327D6 /* CAPSPageMenu+UIConfiguration.swift in Sources */,
 				29391AEB2036A06100D469F1 /* BAScoutDetailBenefitCollectionCell.swift in Sources */,
+				291FA7DB205646D9000327D6 /* CAPSPageMenu+UIGestureRecognizerDelegate.swift in Sources */,
+				291FA7D9205646D9000327D6 /* CAPSPageMenu+Options.swift in Sources */,
+				291FA7D8205646D9000327D6 /* CAPSPageMenuConfiguration.swift in Sources */,
+				291FA7DA205646D9000327D6 /* MenuItemView.swift in Sources */,
 				29753FBF20511447004E93C5 /* BAScoutDetailMailView.swift in Sources */,
 				29064372204EB35B008715C4 /* BAScoutDetailJobBaseViewController.swift in Sources */,
 				2979E3442035112B0075D321 /* R.generated.swift in Sources */,
 				29FDF18B204E213A002E1550 /* BAScoutDetailJobSelectionViewController.swift in Sources */,
+				291FA7D7205646D9000327D6 /* CAPSPageMenu+UIScrollViewDelegate.swift in Sources */,
 				4C8C50CD1C11B617008A69C9 /* AppDelegate.swift in Sources */,
 				29391AE320369D2F00D469F1 /* BAScoutDetailMailViewModel.swift in Sources */,
 				D2D0B564205396C100184DD2 /* AbstractHeaderedTabScrollViewController.swift in Sources */,
