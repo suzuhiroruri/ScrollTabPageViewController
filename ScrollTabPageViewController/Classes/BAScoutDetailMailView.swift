@@ -11,7 +11,7 @@ import UIKit
 class BAScoutDetailMailView: UIView {
 
     // スクロールビュー
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var mailScrollView: UIScrollView!
 
     // スクロール開始時点の初期値
     var scrollStart: CGFloat = 0.0
@@ -79,7 +79,7 @@ class BAScoutDetailMailView: UIView {
 
     private func setViewContent() {
         scoutDetailMailViewModel = BAScoutDetailMailViewModel.init()
-        scrollView.delegate = self
+        mailScrollView.delegate = self
 
         benefitCollectionView.delegate = self
         benefitCollectionView.dataSource = self

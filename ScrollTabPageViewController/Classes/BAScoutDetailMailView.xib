@@ -353,11 +353,11 @@
                 <outlet property="collectionHeight" destination="I6z-7I-2tF" id="KkU-Rt-vNL"/>
                 <outlet property="mailBodyLabel" destination="jw3-ZB-nGT" id="X2Q-I7-FDU"/>
                 <outlet property="mailHeaderLabel" destination="zII-7a-K6R" id="aik-4t-GlU"/>
+                <outlet property="mailScrollView" destination="pMM-c9-nxq" id="egI-RJ-O9F"/>
                 <outlet property="promisedInterViewBenefitBaseView" destination="eFN-Ps-KOz" id="XzB-R7-Zwa"/>
                 <outlet property="promisedInterviewBenefitSubTitleLabel" destination="E9i-rm-0XM" id="5E3-yQ-3UN"/>
                 <outlet property="promisedInterviewBenefitTitleLabel" destination="WXD-Va-2q8" id="sqD-Mt-1BR"/>
                 <outlet property="receivedDateLabel" destination="2T1-Rk-Ofv" id="v4W-kG-hBk"/>
-                <outlet property="scrollView" destination="pMM-c9-nxq" id="kzj-K5-h4j"/>
             </connections>
             <point key="canvasLocation" x="33" y="-47"/>
         </view>
