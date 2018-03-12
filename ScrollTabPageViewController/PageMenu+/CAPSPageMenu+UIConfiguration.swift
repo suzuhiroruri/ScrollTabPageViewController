@@ -225,8 +225,11 @@ extension CAPSPageMenu {
         // Set selected color for title label of selected menu item
         if !menuItems.isEmpty {
             if menuItems[currentPageIndex].titleLabel != nil {
-                menuItems[currentPageIndex].titleLabel!.backgroundColor = UIColor.red
-                menuItems[currentPageIndex].titleLabel!.textColor = configuration.selectedMenuItemLabelColor
+                guard let titleLabel = menuItems[currentPageIndex].titleLabel else {
+                    return
+                }
+                titleLabel.backgroundColor = UIColor.red
+                titleLabel.textColor = configuration.selectedMenuItemLabelColor
             }
         }
 

@@ -258,8 +258,18 @@ extension CAPSPageMenu {
 
                 for item: MenuItemView in menuItems as [MenuItemView] {
                     item.frame = CGRect(x: self.view.frame.width / CGFloat(controllerArray.count) * CGFloat(index), y: 0.0, width: self.view.frame.width / CGFloat(controllerArray.count), height: configuration.menuHeight)
-                    item.titleLabel!.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width / CGFloat(controllerArray.count), height: configuration.menuHeight)
-                    item.menuItemSeparator!.frame = CGRect(x: item.frame.width - (configuration.menuItemSeparatorWidth / 2), y: item.menuItemSeparator!.frame.origin.y, width: item.menuItemSeparator!.frame.width, height: item.menuItemSeparator!.frame.height)
+                    guard let titleLabel = item.titleLabel else {
+                        return
+                    }
+                    titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width / CGFloat(controllerArray.count), height: configuration.menuHeight)
+
+                    guard let menuItemSeparator = item.menuItemSeparator else {
+                        return
+                    }
+                    menuItemSeparator.frame = CGRect(x: item.frame.width - (configuration.menuItemSeparatorWidth / 2),
+                                                           y: menuItemSeparator.frame.origin.y,
+                                                           width: menuItemSeparator.frame.width,
+                                                           height: menuItemSeparator.frame.height)
 
                     index += 1
                 }
