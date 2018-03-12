@@ -95,9 +95,12 @@ class MenuItemView: UIView {
 
         // Set title depending on if controller has a title set
         if controller.title != nil {
-            self.titleLabel!.text = controller.title!
+            guard let controllerTitle = controller.title else {
+                return
+            }
+            self.titleLabel?.text  = controllerTitle
         } else {
-            self.titleLabel!.text = "Menu \(Int(index) + 1)"
+            self.titleLabel?.text = "Menu \(Int(index) + 1)"
         }
 
         // Add separator between menu items when using as segmented control

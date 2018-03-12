@@ -154,7 +154,7 @@ open class CAPSPageMenu: UIViewController {
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
+        super.init(coder: aDecoder)
     }
 }
 
@@ -190,11 +190,18 @@ extension CAPSPageMenu {
 
                 // Switch newly selected menu item title label to selected color and old one to unselected color
                 if !self.menuItems.isEmpty {
+
                     if self.menuItems[self.lastPageIndex].titleLabel != nil && self.menuItems[self.currentPageIndex].titleLabel != nil {
-                        self.menuItems[self.lastPageIndex].titleLabel!.backgroundColor = UIColor.lightGray
-                        self.menuItems[self.currentPageIndex].titleLabel!.backgroundColor = UIColor.red
-                        self.menuItems[self.lastPageIndex].titleLabel!.textColor = self.configuration.unselectedMenuItemLabelColor
-                        self.menuItems[self.currentPageIndex].titleLabel!.textColor = self.configuration.selectedMenuItemLabelColor
+                        guard let lastMenuItemsTitleLabel = self.menuItems[self.lastPageIndex].titleLabel else {
+                            return
+                        }
+                        guard let currentMenuItemsTitleLabel = self.menuItems[self.currentPageIndex].titleLabel else {
+                            return
+                        }
+                        lastMenuItemsTitleLabel.backgroundColor = UIColor.lightGray
+                        lastMenuItemsTitleLabel.textColor = self.configuration.unselectedMenuItemLabelColor
+                        currentMenuItemsTitleLabel.backgroundColor = UIColor.red
+                        currentMenuItemsTitleLabel.textColor = self.configuration.selectedMenuItemLabelColor
                     }
                 }
             })

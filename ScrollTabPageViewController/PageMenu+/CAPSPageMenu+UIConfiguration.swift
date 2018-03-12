@@ -183,10 +183,14 @@ extension CAPSPageMenu {
                 }
                 //**************************拡張ここまで*************************************
             } else if configuration.menuItemWidthBasedOnTitleTextWidth {
-                let controllerTitle: String? = controller.title
-
-                let titleText: String = controllerTitle != nil ? controllerTitle! : "Menu \(Int(index) + 1)"
-                let itemWidthRect: CGRect = (titleText as NSString).boundingRect(with: CGSize(width: 1000, height: 1000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: configuration.menuItemFont], context: nil)
+                var titleText = "Menu \(Int(index) + 1)"
+                if controller.title != nil, let controllerTitle = controller.title {
+                    titleText = controllerTitle
+                }
+                let itemWidthRect: CGRect = (titleText as NSString).boundingRect(with: CGSize(width: 1000, height: 1000),
+                                                                                 options: NSStringDrawingOptions.usesLineFragmentOrigin,
+                                                                                 attributes: [NSFontAttributeName: configuration.menuItemFont],
+                                                                                 context: nil)
                 configuration.menuItemWidth = itemWidthRect.width
 
                 menuItemFrame = CGRect(x: totalMenuItemWidthIfDifferentWidths + configuration.menuMargin + (configuration.menuMargin * index), y: 0.0, width: configuration.menuItemWidth, height: configuration.menuHeight)
