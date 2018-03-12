@@ -59,11 +59,9 @@ extension CAPSPageMenu: UIGestureRecognizerDelegate {
                     let largerIndex: Int = lastPageIndex > currentPageIndex ? lastPageIndex : currentPageIndex
 
                     if smallerIndex + 1 != largerIndex {
-                        for index in (smallerIndex + 1)...(largerIndex - 1) {
-                            if pagesAddedDictionary[index] != index {
-                                addPageAtIndex(index)
-                                pagesAddedDictionary[index] = index
-                            }
+                        for index in (smallerIndex + 1)...(largerIndex - 1) where pagesAddedDictionary[index] != index {
+                            addPageAtIndex(index)
+                            pagesAddedDictionary[index] = index
                         }
                     }
 
@@ -74,16 +72,8 @@ extension CAPSPageMenu: UIGestureRecognizerDelegate {
                 }
 
                 // Move controller scroll view when tapping menu item
-                let duration: Double = Double(configuration.scrollAnimationDurationOnMenuItemTap) / Double(1000)
-
                 let xOffset: CGFloat = CGFloat(itemIndex) * self.controllerScrollView.frame.width
                 self.controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: self.controllerScrollView.contentOffset.y), animated: false)
-                /*
-                UIView.animate(withDuration: duration, animations: { () -> Void in
-                    let xOffset: CGFloat = CGFloat(itemIndex) * self.controllerScrollView.frame.width
-                    self.controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: self.controllerScrollView.contentOffset.y), animated: false)
-                })
-                */
 
                 if tapTimer != nil {
                     tapTimer!.invalidate()

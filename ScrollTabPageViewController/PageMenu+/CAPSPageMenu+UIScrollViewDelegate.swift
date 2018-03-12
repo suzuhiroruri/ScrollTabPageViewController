@@ -151,10 +151,8 @@ extension CAPSPageMenu: UIScrollViewDelegate {
             delegate?.didMoveToPage?(currentController, index: currentPageIndex)
 
             // Remove all but current page after decelerating
-            for key in pagesAddedDictionary.keys {
-                if key != currentPageIndex {
-                    removePageAtIndex(key)
-                }
+            for key in pagesAddedDictionary.keys where key != currentPageIndex {
+                removePageAtIndex(key)
             }
 
             didScrollAlready = false
@@ -171,10 +169,8 @@ extension CAPSPageMenu: UIScrollViewDelegate {
         delegate?.didMoveToPage?(currentController, index: currentPageIndex)
 
         // Remove all but current page after decelerating
-        for key in pagesAddedDictionary.keys {
-            if key != currentPageIndex {
-                removePageAtIndex(key)
-            }
+        for key in pagesAddedDictionary.keys where key != currentPageIndex {
+            removePageAtIndex(key)
         }
 
         startingPageForScroll = currentPageIndex

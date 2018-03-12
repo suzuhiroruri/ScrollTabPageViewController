@@ -90,7 +90,7 @@ open class CAPSPageMenu: UIViewController {
     }
 
     public convenience init(viewControllers: [UIViewController], frame: CGRect, pageMenuOptions: [CAPSPageMenuOption]?) {
-        self.init(viewControllers:viewControllers, frame:frame, options:nil)
+        self.init(viewControllers: viewControllers, frame: frame, options: nil)
 
         if let options = pageMenuOptions {
             configurePageMenu(options: options)
@@ -334,11 +334,9 @@ extension CAPSPageMenu {
                 let largerIndex: Int = lastPageIndex > currentPageIndex ? lastPageIndex : currentPageIndex
 
                 if smallerIndex + 1 != largerIndex {
-                    for i in (smallerIndex + 1)...(largerIndex - 1) {
-                        if pagesAddedDictionary[i] != i {
-                            addPageAtIndex(i)
-                            pagesAddedDictionary[i] = i
-                        }
+                    for i in (smallerIndex + 1)...(largerIndex - 1) where pagesAddedDictionary[i] != i {
+                        addPageAtIndex(i)
+                        pagesAddedDictionary[i] = i
                     }
                 }
 

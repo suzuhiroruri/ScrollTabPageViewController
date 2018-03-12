@@ -70,7 +70,7 @@ extension CAPSPageMenu {
     }
 
     func setUpUserInterface() {
-        let viewsDictionary = ["menuScrollView":menuScrollView, "controllerScrollView":controllerScrollView]
+        let viewsDictionary = ["menuScrollView": menuScrollView, "controllerScrollView": controllerScrollView]
 
         // Set up controller scroll view
         controllerScrollView.isPagingEnabled = true
@@ -109,8 +109,8 @@ extension CAPSPageMenu {
 
             self.view.addSubview(menuBottomHairline)
 
-            let menuBottomHairline_constraint_H: Array = NSLayoutConstraint.constraints(withVisualFormat: "H:|[menuBottomHairline]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline":menuBottomHairline])
-            let menuBottomHairline_constraint_V: Array = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(configuration.menuHeight)-[menuBottomHairline(0.5)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline":menuBottomHairline])
+            let menuBottomHairline_constraint_H: Array = NSLayoutConstraint.constraints(withVisualFormat: "H:|[menuBottomHairline]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline": menuBottomHairline])
+            let menuBottomHairline_constraint_V: Array = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(configuration.menuHeight)-[menuBottomHairline(0.5)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline": menuBottomHairline])
 
             self.view.addConstraints(menuBottomHairline_constraint_H)
             self.view.addConstraints(menuBottomHairline_constraint_V)
@@ -186,7 +186,7 @@ extension CAPSPageMenu {
                 let controllerTitle: String? = controller.title
 
                 let titleText: String = controllerTitle != nil ? controllerTitle! : "Menu \(Int(index) + 1)"
-                let itemWidthRect: CGRect = (titleText as NSString).boundingRect(with: CGSize(width: 1000, height: 1000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName:configuration.menuItemFont], context: nil)
+                let itemWidthRect: CGRect = (titleText as NSString).boundingRect(with: CGSize(width: 1000, height: 1000), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: configuration.menuItemFont], context: nil)
                 configuration.menuItemWidth = itemWidthRect.width
 
                 menuItemFrame = CGRect(x: totalMenuItemWidthIfDifferentWidths + configuration.menuMargin + (configuration.menuMargin * index), y: 0.0, width: configuration.menuItemWidth, height: configuration.menuHeight)
