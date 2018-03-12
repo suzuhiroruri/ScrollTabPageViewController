@@ -40,10 +40,12 @@ class MenuItemView: UIView {
 
     func setTitleText(_ text: NSString) {
         if titleLabel != nil {
-            
-            titleLabel!.text = text as String
-            titleLabel!.numberOfLines = 0
-            titleLabel!.sizeToFit()
+            guard let titleLabel = titleLabel else {
+                return
+            }
+            titleLabel.text = text as String
+            titleLabel.numberOfLines = 0
+            titleLabel.sizeToFit()
         }
     }
 
@@ -101,7 +103,10 @@ class MenuItemView: UIView {
         // Add separator between menu items when using as segmented control
         if pageMenu.configuration.useMenuLikeSegmentedControl {
             if Int(index) < pageMenu.controllerArray.count - 1 {
-                self.menuItemSeparator!.isHidden = false
+                guard let menuItemSeparator = menuItemSeparator else {
+                    return
+                }
+                menuItemSeparator.isHidden = false
             }
         }
     }
