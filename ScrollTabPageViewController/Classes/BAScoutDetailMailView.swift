@@ -8,10 +8,20 @@
 
 import UIKit
 
+extension BAScoutDetailMailView: BAScoutDetailJobBaseViewControllerProtocol {
+
+    var scrollView: UIScrollView {
+        guard let mailScrollView = mailScrollView else {
+            return UITableView()
+        }
+        return mailScrollView
+    }
+}
 class BAScoutDetailMailView: UIView {
 
     // スクロールビュー
     @IBOutlet weak var mailScrollView: UIScrollView!
+    var scrollDelegateFunc: ((UIScrollView) -> Void)?
 
     // スクロール開始時点の初期値
     var scrollStart: CGFloat = 0.0
@@ -148,14 +158,17 @@ extension BAScoutDetailMailView: UIScrollViewDelegate {
      BAScoutDetailMailViewへの慣性スクロールの終了を検知
      - parameter scrollView: scrollView
      */
+    /*
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         mailScrollDidEndDeceleratingBlock?(scrollView.contentOffset.y, frame.minY)
     }
+    */
 
     /**
      BAScoutDetailMailViewへのスクロールを検知
      - parameter scrollView: scrollView
      */
+    /*
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
         if scrollView.contentOffset.y > 0.0 {
@@ -168,6 +181,16 @@ extension BAScoutDetailMailView: UIScrollViewDelegate {
             let scroll = scrollView.contentOffset.y - scrollStart
             mailScrollDidChangedBlock?(scroll, false)
             scrollStart = scrollView.contentOffset.y
+        }
+    }
+    */
+
+    func scrollViewDidScroll(_ tableView: UIScrollView) {
+        if self.scrollDelegateFunc != nil {
+            guard let scrollDelegateFunc = self.scrollDelegateFunc else {
+                return
+            }
+            scrollDelegateFunc(tableView)
         }
     }
 }

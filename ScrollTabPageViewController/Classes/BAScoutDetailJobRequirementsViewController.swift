@@ -7,21 +7,13 @@
 //
 
 import UIKit
-//import PageMenu
 
 extension BAScoutDetailJobRequirementsViewController: BAScoutDetailJobBaseViewControllerProtocol {
-
-    var scoutDetailJobBaseViewController: BAScoutDetailJobBaseViewController {
-        guard let baseController = parent?.parent as? BAScoutDetailJobBaseViewController else {
-            return BAScoutDetailJobBaseViewController()
-        }
-        return baseController
-    }
-
     var scrollView: UIScrollView {
         return tableView
     }
 }
+
 class BAScoutDetailJobRequirementsViewController: UIViewController, UITableViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
@@ -31,23 +23,6 @@ class BAScoutDetailJobRequirementsViewController: UIViewController, UITableViewD
 
         tableView.dataSource = self
         tableView.delegate = self
-        /*
-        automaticallyAdjustsScrollViewInsets = false
-        let edgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 64, right: 0)
-        tableView.contentInset = edgeInsets
-        tableView.scrollIndicatorInsets = edgeInsets
-        */
-        /*
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        tableView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
- 
-        tableView.isScrollEnabled = true
-        tableView.alwaysBounceVertical = true
-        */
     }
     var scrollDelegateFunc: ((UIScrollView) -> Void)?
     func scrollViewDidScroll(_ tableView: UIScrollView) {

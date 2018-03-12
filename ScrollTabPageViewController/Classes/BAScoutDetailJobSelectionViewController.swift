@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension BAScoutDetailJobSelectionViewController: BAScoutDetailJobBaseViewControllerProtocol {
+
+    var scrollView: UIScrollView {
+        guard let tableView = tableView else {
+            return UITableView()
+        }
+        return tableView
+    }
+}
+
 class BAScoutDetailJobSelectionViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
@@ -48,22 +58,5 @@ extension BAScoutDetailJobSelectionViewController: UITableViewDataSource {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
         cell.textLabel?.text = String(indexPath.row)
         return cell
-    }
-}
-
-extension BAScoutDetailJobSelectionViewController: BAScoutDetailJobBaseViewControllerProtocol {
-
-    var scoutDetailJobBaseViewController: BAScoutDetailJobBaseViewController {
-        guard let baseController = parent?.parent as? BAScoutDetailJobBaseViewController else {
-            return BAScoutDetailJobBaseViewController()
-        }
-        return baseController
-    }
-
-    var scrollView: UIScrollView {
-        guard let tableView = tableView else {
-            return UITableView()
-        }
-        return tableView
     }
 }

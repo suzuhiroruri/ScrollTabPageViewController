@@ -9,7 +9,6 @@
 import UIKit
 
 protocol BAScoutDetailJobBaseViewControllerProtocol {
-    var scoutDetailJobBaseViewController: BAScoutDetailJobBaseViewController { get }
     var scrollView: UIScrollView { get }
 }
 
@@ -41,6 +40,7 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         super.viewDidLoad()
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.headerView = mailView
+
         guard let requirementsViewController = requirementsViewController else {
             return
         }
@@ -50,7 +50,7 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
             return
         }
         selectionViewController.title = "選考・会社概要"
-
+        mailView.scrollDelegateFunc = { [weak self] in self?.pleaseScroll($0) }
         requirementsViewController.scrollDelegateFunc = { [weak self] in self?.pleaseScroll($0) }
         selectionViewController.scrollDelegateFunc = { [weak self] in self?.pleaseScroll($0) }
 
