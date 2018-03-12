@@ -69,14 +69,17 @@ class MenuItemView: UIView {
                                    menuItemSeparatorColor: pageMenu.configuration.menuItemSeparatorColor)
         }
 
+        guard let titleLabel = titleLabel else {
+            return
+        }
         // Configure menu item label font if font is set by user
-        self.titleLabel!.font = pageMenu.configuration.menuItemFont
+        titleLabel.font = pageMenu.configuration.menuItemFont
 
-        self.titleLabel!.textAlignment = NSTextAlignment.center
-        self.titleLabel!.textColor = pageMenu.configuration.unselectedMenuItemLabelColor
+        titleLabel.textAlignment = NSTextAlignment.center
+        titleLabel.textColor = pageMenu.configuration.unselectedMenuItemLabelColor
 
         //**************************拡張*************************************
-        self.titleLabel!.adjustsFontSizeToFitWidth = pageMenu.configuration.titleTextSizeBasedOnMenuItemWidth
+        titleLabel.adjustsFontSizeToFitWidth = pageMenu.configuration.titleTextSizeBasedOnMenuItemWidth
         //**************************拡張ここまで*************************************
 
         // Set title depending on if controller has a title set
