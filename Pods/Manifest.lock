@@ -2,7 +2,7 @@ PODS:
   - R.swift (3.3.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
-  - Reveal-SDK (8)
+  - Reveal-SDK (13)
 
 DEPENDENCIES:
   - R.swift (~> 3.3.0)
@@ -11,8 +11,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
-  Reveal-SDK: 43be4e662864e937960d0d04d005135e29c4e53b
+  Reveal-SDK: ccc2b0f8014965ea448b7534a7c2c8da232b75e8
 
-PODFILE CHECKSUM: bb352404716befbb0152e4a4771d865dc9e177dc
+PODFILE CHECKSUM: 7dafaa93479a4299fe20aa600248a3a9be2d0bae
 
 COCOAPODS: 1.2.1

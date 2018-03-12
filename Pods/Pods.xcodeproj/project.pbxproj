@@ -60,13 +60,13 @@
 		0E51B622DD1D9BC7F74543D450E76B0B /* Pods-ScrollTabPageViewController-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ScrollTabPageViewController-acknowledgements.plist"; sourceTree = "<group>"; };
 		0F8666228D7883640D48198512EA3F19 /* StoryboardResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StoryboardResource.swift; path = Library/Core/StoryboardResource.swift; sourceTree = "<group>"; };
 		11DA075741265CA4E5B55762BADCB8F1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AFCA5AB9B29BADFEE359E06DB4EA67B /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = "RevealServer-8/iOS/RevealServer.framework"; sourceTree = "<group>"; };
 		2078E44F40230E6389FE1107D93D5641 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20AB3D958CE2197DD0B5ACC194DABDA4 /* Pods-ScrollTabPageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ScrollTabPageViewController-dummy.m"; sourceTree = "<group>"; };
 		2D6F296BF7C966B77A386EE749731CC6 /* UIKit+Migration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIKit+Migration.swift"; path = "Library/UIKit/UIKit+Migration.swift"; sourceTree = "<group>"; };
 		2D8500870D3DA94D24AE544E66B0E523 /* Pods-ScrollTabPageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ScrollTabPageViewController-umbrella.h"; sourceTree = "<group>"; };
 		44CF7258BA7ED8CBE1699AC313561B01 /* UIViewController+NibResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+NibResource.swift"; path = "Library/UIKit/UIViewController+NibResource.swift"; sourceTree = "<group>"; };
 		4799315288FC43F5175B0E342FC6F47F /* NibResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NibResource.swift; path = Library/Core/NibResource.swift; sourceTree = "<group>"; };
+		5617527101343FB599F47C620888D921 /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = "RevealServer-13/iOS/RevealServer.framework"; sourceTree = "<group>"; };
 		56C08D66CF2BAC7627AAF9681639D6F3 /* ColorResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ColorResource.swift; path = Library/Core/ColorResource.swift; sourceTree = "<group>"; };
 		5C5E1BE90BE93527EBA7945688C97C64 /* R.swift.Library.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = R.swift.Library.xcconfig; sourceTree = "<group>"; };
 		5E8CDA407A0A8B6DAE5D616961C4FF20 /* Data+FileResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+FileResource.swift"; path = "Library/Foundation/Data+FileResource.swift"; sourceTree = "<group>"; };
@@ -129,14 +129,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1372AE86E35C08A46DB4C13478EB228E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1AFCA5AB9B29BADFEE359E06DB4EA67B /* RevealServer.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		2F7FBA53F2EB6682EE7BAD8EF75D80AF /* R.swift.Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,7 +190,7 @@
 		7043CE695FEF8BD7AAF763DE45A592CB /* Reveal-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				1372AE86E35C08A46DB4C13478EB228E /* Frameworks */,
+				C6128CF0D6623A7E620C2262829846B0 /* Frameworks */,
 			);
 			name = "Reveal-SDK";
 			path = "Reveal-SDK";
@@ -261,6 +253,14 @@
 			);
 			name = "Pods-ScrollTabPageViewController";
 			path = "Target Support Files/Pods-ScrollTabPageViewController";
+			sourceTree = "<group>";
+		};
+		C6128CF0D6623A7E620C2262829846B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5617527101343FB599F47C620888D921 /* RevealServer.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
