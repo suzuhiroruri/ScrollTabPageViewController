@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import PageMenu
 
 protocol BAScoutDetailJobBaseViewControllerProtocol {
     var scoutDetailJobBaseViewController: BAScoutDetailJobBaseViewController { get }
@@ -18,10 +17,7 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
 
     var inTabViewController: [UIViewController] = []
 
-    var lastRequiredScrollOffset: CGFloat = 0.0
     var lastRequiredHeaderCurrentY: CGFloat = 0.0
-
-    var lastSelectedScrollOffset: CGFloat = 0.0
     var lastSelectedHeaderCurrentY: CGFloat = 0.0
 
     /// 募集内容
@@ -33,9 +29,9 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
 
     /// 選考・会社概要
     lazy var selectionViewController: BAScoutDetailJobSelectionViewController? = {
-        let sb2 = UIStoryboard(name: R.storyboard.bAScoutDetailJobSelectionViewController.name, bundle: nil)
-        let vc2 = sb2.instantiateViewController(withIdentifier: "BAScoutDetailJobSelectionViewController") as? BAScoutDetailJobSelectionViewController
-        return vc2
+        let sb1 = UIStoryboard(name: R.storyboard.bAScoutDetailJobSelectionViewController.name, bundle: nil)
+        let vc1 = sb1.instantiateViewController(withIdentifier: "BAScoutDetailJobSelectionViewController") as? BAScoutDetailJobSelectionViewController
+        return vc1
     }()
 
     override func viewDidLoad() {
@@ -83,15 +79,12 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.setNavBarTitle(title: "仕事詳細")
-        self.navBarColor = UIColor.white
+        title = "仕事詳細"
         UIApplication.shared.statusBarStyle = .lightContent
-        self.navBarTransparancy = 1
     }
 
     // ヘッダーがスクロールされるときに呼ばれる
     override func headerDidScroll(minY: CGFloat, maxY: CGFloat, currentY: CGFloat) {
-
         updateHeaderPositionAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: currentY)
         guard let currentIndex = self.pageMenuController?.currentPageIndex else {
             return

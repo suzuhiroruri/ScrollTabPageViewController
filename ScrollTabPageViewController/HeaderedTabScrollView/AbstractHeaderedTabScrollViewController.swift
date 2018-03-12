@@ -59,69 +59,6 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
         }
     }
 
-    /// get & set the alpha of the navigation bar.
-    public var navBarTransparancy: CGFloat {
-        get {
-            guard let navBarOverlay = navBarOverlay, let backgroundColor = navBarOverlay.backgroundColor else {
-                return 0
-            }
-            return backgroundColor.cgColor.alpha
-        } set (value) {
-            if navBarOverlay != nil {
-                guard let navBarOverlay = navBarOverlay else {
-                    return
-                }
-                navBarOverlay.backgroundColor = navBarColor.withAlphaComponent(value)
-            }
-        }
-    }
-
-    /**
-     The background color of the navigation bar (if any)
-     */
-    public var navBarColor: UIColor = .black {
-        didSet {
-            if navBarOverlay != nil {
-                guard let navBarOverlay = navBarOverlay else {
-                    return
-                }
-                navBarOverlay.backgroundColor = navBarColor.withAlphaComponent(navBarTransparancy)
-            }
-        }
-    }
-    /**
-     *  This correspond to the color the header will progressivelly get
-     *  as it's scrolled up (if you enable the alpha animation). It's
-     *  also the color that the status bar will get when the header is
-     *  totally scrolled up if there's no navigation  bar.
-     */
-    public var headerBackgroundColor: UIColor? {
-        get {
-            return self.view.backgroundColor
-        }
-        set(value) {
-            self.view.backgroundColor = value
-        }
-    }
-
-    /// The color of the items in the navigation bar (if any)
-    public var navBarItemsColor: UIColor = .white {
-        didSet {
-            if let navCtrl = self.navigationController {
-                navCtrl.navigationBar.tintColor = navBarItemsColor
-            }
-        }
-    }
-
-    /// Color of the title in the navigation bar
-    public var navBarTitleColor: UIColor = .white {
-        didSet {
-            if let navCtrl = self.navigationController {
-                //navCtrl.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:navBarTitleColor]
-            }
-        }
-    }
-
     // MARK: - Initialisation
     // ===================================
 
@@ -145,57 +82,6 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
         headerHeightConstraint.isActive = true
         lastTabScrollViewOffset = CGPoint(x: CGFloat(0), y: navBarOffset())
 
-    }
-
-    override open func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupNavBar()
-    }
-    override open func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        if let navCtrl = self.navigationController {
-            let navBar = navCtrl.navigationBar
-            navBar.setBackgroundImage(nil, for: UIBarMetrics.default)
-            navBar.shadowImage = nil
-            navBarOverlay?.removeFromSuperview()
-            //navCtrl.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:self.navBarItemsColor.withAlphaComponent(1)]
-        }
-
-    }
-    private func setupNavBar() {
-        if let navCtrl = self.navigationController {
-            let navBar = navCtrl.navigationBar
-            // Make the navBar transparent
-            navBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-            navBar.shadowImage = UIImage()
-            if navBarOverlay == nil {
-                navBarOverlay = UIView.init(frame: CGRect.init(x: 0, y: 0, width: navBar.bounds.width, height: self.navBarOffset()))
-            }
-            guard let navBarOverlay = navBarOverlay else {
-                return
-            }
-            navBarOverlay.autoresizingMask = UIViewAutoresizing.flexibleWidth
-            navBar.subviews.first?.insertSubview(navBarOverlay, at: 0)
-            navBarOverlay.backgroundColor = navBarColor.withAlphaComponent(0.0)
-        }
-    }
-    override open func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: Navigation bar helpers
-    public func setNavBarRightItems(items: [UIBarButtonItem]) {
-        self.navigationItem.rightBarButtonItems = items
-        self.navigationItem.rightBarButtonItem?.tintColor = .white
-    }
-    public func setNavBarTitle(title: String) {
-        self.title = title
-    }
-    public func setNavBarLeftItems(items: [UIBarButtonItem]) {
-        self.navigationItem.leftBarButtonItems = items
-        self.navigationItem.leftBarButtonItem?.tintColor = .white
     }
 
     // MARK: - Scroll management
@@ -254,40 +140,11 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
         guard let tabTopConstraintConstant = tabTopConstraint?.constant else {
             return
         }
-        updateNavBarAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: tabTopConstraintConstant)
         updateHeaderPositionAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: tabTopConstraintConstant)
-        updateHeaderAlphaAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: tabTopConstraintConstant)
     }
 
     func navBarOffset() -> CGFloat {
         return (self.navigationController?.navigationBar.bounds.height ?? 0) + UIApplication.shared.statusBarFrame.height
-    }
-
-    /**
-     Updates the transparency of the navigation bar according to the current position of the tabScrollview
-     - parameters:
-     - minY: The y coordinate of the lowest possible position of the top of the tabScrollView (relatively to the top of the parentView)
-     - maxY: The y coordinate of the highest possible position of the top of the tabScrollView (relatively to the top of the parentView)
-     - currentY: The y coordinate of the current position of the top of the tabScrollView (relatively to the top of the parentView)
-     */
-    open func updateNavBarAccordingToScrollPosition(minY: CGFloat, maxY: CGFloat, currentY: CGFloat) {
-        let alphaOffset: CGFloat = (minY-maxY)*1 // alpha start changing at 1/3 of the way up
-        var alpha = (currentY + alphaOffset - minY)/(maxY+alphaOffset-minY)
-        if currentY > minY - alphaOffset {
-            alpha = 0
-        }
-
-        if (navBarOverlay != nil) {
-            guard let navBarOverlay = navBarOverlay else {
-                return
-            }
-            navBarOverlay.backgroundColor = navBarColor.withAlphaComponent(alpha)
-        }
-        // Only the title's color is updated here
-        navBarTitleColor = navBarTitleColor.withAlphaComponent(alpha)
-        // do the following to update items too:
-        // navBarItemsColor = navBarItemsColor.withAlphaComponent(alpha)
-
     }
 
     /**
@@ -307,19 +164,4 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
         }
     }
 
-    /**
-     Updates the transparency of the header according to the current position of the tabScrollview
-     - parameters:
-     - minY: The y coordinate of the lowest possible position of the top of the tabScrollView (relatively to the top of the parentView)
-     - maxY: The y coordinate of the highest possible position of the top of the tabScrollView (relatively to the top of the parentView)
-     - currentY: The y coordinate of the current position of the top of the tabScrollView (relatively to the top of the parentView)
-     */
-    open func updateHeaderAlphaAccordingToScrollPosition(minY: CGFloat, maxY: CGFloat, currentY: CGFloat) {
-        let alphaOffset: CGFloat = (minY-maxY)*0.3 // alpha start changing at 1/3 of the way up
-        var alpha = 1 - (currentY + alphaOffset - minY)/(maxY+alphaOffset-minY)
-        if currentY > minY - alphaOffset {
-            alpha = 1
-        }
-        headerContainer.alpha = alpha
-    }
 }
