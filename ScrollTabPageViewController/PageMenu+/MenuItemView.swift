@@ -18,20 +18,29 @@ class MenuItemView: UIView {
         titleLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: menuItemWidth, height: menuScrollViewHeight - indicatorHeight))
 
         menuItemSeparator = UIView(frame: CGRect(x: menuItemWidth - (separatorWidth / 2), y: floor(menuScrollViewHeight * ((1.0 - separatorPercentageHeight) / 2.0)), width: separatorWidth, height: floor(menuScrollViewHeight * separatorPercentageHeight)))
-        menuItemSeparator!.backgroundColor = menuItemSeparatorColor
 
-        if separatorRoundEdges {
-            menuItemSeparator!.layer.cornerRadius = menuItemSeparator!.frame.width / 2
+        guard let menuItemSeparator = menuItemSeparator else {
+            return
         }
 
-        menuItemSeparator!.isHidden = true
-        self.addSubview(menuItemSeparator!)
+        menuItemSeparator.backgroundColor = menuItemSeparatorColor
 
-        self.addSubview(titleLabel!)
+        if separatorRoundEdges {
+            menuItemSeparator.layer.cornerRadius = menuItemSeparator.frame.width / 2
+        }
+
+        menuItemSeparator.isHidden = true
+        self.addSubview(menuItemSeparator)
+
+        guard let titleLabel = titleLabel else {
+            return
+        }
+        self.addSubview(titleLabel)
     }
 
     func setTitleText(_ text: NSString) {
         if titleLabel != nil {
+            
             titleLabel!.text = text as String
             titleLabel!.numberOfLines = 0
             titleLabel!.sizeToFit()
