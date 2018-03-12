@@ -68,7 +68,10 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
             return backgroundColor.cgColor.alpha
         } set (value) {
             if navBarOverlay != nil {
-                navBarOverlay!.backgroundColor = navBarColor.withAlphaComponent(value)
+                guard let navBarOverlay = navBarOverlay else {
+                    return
+                }
+                navBarOverlay.backgroundColor = navBarColor.withAlphaComponent(value)
             }
         }
     }
@@ -79,7 +82,10 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
     public var navBarColor: UIColor = .black {
         didSet {
             if navBarOverlay != nil {
-                navBarOverlay!.backgroundColor = navBarColor.withAlphaComponent(navBarTransparancy)
+                guard let navBarOverlay = navBarOverlay else {
+                    return
+                }
+                navBarOverlay.backgroundColor = navBarColor.withAlphaComponent(navBarTransparancy)
             }
         }
     }
@@ -126,11 +132,17 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
         self.view.addSubview(headerContainer)
         headerContainer.translatesAutoresizingMaskIntoConstraints = false
         headerTopConstraint = headerContainer.topAnchor.constraint(equalTo: self.view.topAnchor)
-        headerTopConstraint!.isActive = true
+        guard let headerTopConstraint = headerTopConstraint else {
+            return
+        }
+        headerTopConstraint.isActive = true
         headerContainer.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         headerContainer.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         headerHeightConstraint = headerContainer.heightAnchor.constraint(equalToConstant: self.headerHeight)
-        headerHeightConstraint!.isActive = true
+        guard let headerHeightConstraint = headerHeightConstraint else {
+            return
+        }
+        headerHeightConstraint.isActive = true
         lastTabScrollViewOffset = CGPoint(x: CGFloat(0), y: navBarOffset())
 
     }
@@ -160,10 +172,12 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
             if navBarOverlay == nil {
                 navBarOverlay = UIView.init(frame: CGRect.init(x: 0, y: 0, width: navBar.bounds.width, height: self.navBarOffset()))
             }
-
-            navBarOverlay!.autoresizingMask = UIViewAutoresizing.flexibleWidth
-            navBar.subviews.first?.insertSubview(navBarOverlay!, at: 0)
-            navBarOverlay!.backgroundColor = navBarColor.withAlphaComponent(0.0)
+            guard let navBarOverlay = navBarOverlay else {
+                return
+            }
+            navBarOverlay.autoresizingMask = UIViewAutoresizing.flexibleWidth
+            navBar.subviews.first?.insertSubview(navBarOverlay, at: 0)
+            navBarOverlay.backgroundColor = navBarColor.withAlphaComponent(0.0)
         }
     }
     override open func didReceiveMemoryWarning() {
@@ -178,11 +192,6 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
     }
     public func setNavBarTitle(title: String) {
         self.title = title
-    }
-    public func setNavbarTitleTransparency(alpha: CGFloat) {
-        if let navCtrl = self.navigationController {
-            let navBar = navCtrl.navigationBar
-        }
     }
     public func setNavBarLeftItems(items: [UIBarButtonItem]) {
         self.navigationItem.leftBarButtonItems = items
@@ -207,31 +216,30 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
 
         if tabTopConstraint == nil { return }
         // ヘッダービューを縮める(上スクロール)
-        guard let tabTopConstraintConstant = tabTopConstraint?.constant else {
+        guard let tabTopConstraint = tabTopConstraint else {
             return
         }
-        if delta > 0 && tabTopConstraintConstant > maxY && scrollView.contentOffset.y > 0 {
-            if tabTopConstraintConstant - delta < maxY {
-                delta = tabTopConstraintConstant - maxY
+        if delta > 0 && tabTopConstraint.constant > maxY && scrollView.contentOffset.y > 0 {
+            if tabTopConstraint.constant - delta < maxY {
+                delta = tabTopConstraint.constant - maxY
             }
-            tabTopConstraint!.constant -= delta
+            tabTopConstraint.constant -= delta
             scrollView.contentOffset.y -= delta
         }
 
         // ヘッダービューを拡張(下スクロール)
         if delta < 0 {
-
-            if tabTopConstraintConstant < minY && scrollView.contentOffset.y < 0 {
-                if tabTopConstraintConstant - delta > minY {
-                    delta = tabTopConstraintConstant - minY
+            if tabTopConstraint.constant < minY && scrollView.contentOffset.y < 0 {
+                if tabTopConstraint.constant - delta > minY {
+                    delta = tabTopConstraint.constant - minY
                 }
-                tabTopConstraint!.constant -= delta
+                tabTopConstraint.constant -= delta
                 scrollView.contentOffset.y -= delta
             }
         }
 
         lastTabScrollViewOffset = scrollView.contentOffset
-        headerDidScroll(minY: minY, maxY: maxY, currentY: tabTopConstraintConstant)
+        headerDidScroll(minY: minY, maxY: maxY, currentY: tabTopConstraint.constant)
     }
 
     /**
@@ -270,7 +278,10 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
         }
 
         if (navBarOverlay != nil) {
-            navBarOverlay!.backgroundColor = navBarColor.withAlphaComponent(alpha)
+            guard let navBarOverlay = navBarOverlay else {
+                return
+            }
+            navBarOverlay.backgroundColor = navBarColor.withAlphaComponent(alpha)
         }
         // Only the title's color is updated here
         navBarTitleColor = navBarTitleColor.withAlphaComponent(alpha)
