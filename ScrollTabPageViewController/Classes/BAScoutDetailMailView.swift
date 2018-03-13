@@ -126,10 +126,15 @@ class BAScoutDetailMailView: UIView {
         mailBodyLabel.text = scoutDetailMailViewModel?.mailBody
         mailBodyLabel.sizeToFit()
 
-        
-        scoutDetailMailViewModel?.appearDaysLeftString
         // 掲載終了残り日数ラベル
         appearDaysLeftLabel.attributedText = scoutDetailMailViewModel?.appearDaysLeftString
+        guard let isAppearDaysLeftLabelEmpty = appearDaysLeftLabel.text?.isEmpty else {
+            return
+        }
+        if isAppearDaysLeftLabelEmpty {
+            appearDaysLeftLabel.isHidden = true
+            appearDaysLeftBaseView.isHidden = true
+        }
     }
 
     // ビューのサイズを調整
