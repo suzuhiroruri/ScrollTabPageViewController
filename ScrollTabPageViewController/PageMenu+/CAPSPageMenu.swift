@@ -179,9 +179,9 @@ extension CAPSPageMenu {
                         guard let currentMenuItemsTitleLabel = self.menuItems[self.currentPageIndex].titleLabel else {
                             return
                         }
-                        lastMenuItemsTitleLabel.backgroundColor = UIColor.lightGray
+                        lastMenuItemsTitleLabel.backgroundColor = self.configuration.unselectedMenuItemBackgroundColor
                         lastMenuItemsTitleLabel.textColor = self.configuration.unselectedMenuItemLabelColor
-                        currentMenuItemsTitleLabel.backgroundColor = UIColor.red
+                        currentMenuItemsTitleLabel.backgroundColor = self.configuration.selectedMenuItemBackgroundColor
                         currentMenuItemsTitleLabel.textColor = self.configuration.selectedMenuItemLabelColor
                     }
                 }

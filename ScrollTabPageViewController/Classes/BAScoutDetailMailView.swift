@@ -3,7 +3,7 @@
 //  ScrollTabPageViewController
 //
 //  Created by hir-suzuki on 2018/03/13.
-//  Copyright © 2018年 EndouMari. All rights reserved.
+//  Copyright © 2018年 hir-suzuki. All rights reserved.
 //
 
 import UIKit

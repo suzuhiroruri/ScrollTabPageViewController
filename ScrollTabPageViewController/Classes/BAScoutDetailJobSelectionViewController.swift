@@ -9,7 +9,6 @@
 import UIKit
 
 extension BAScoutDetailJobSelectionViewController: BAScoutDetailJobBaseViewControllerProtocol {
-
     var scrollView: UIScrollView {
         guard let tableView = tableView else {
             return UITableView()

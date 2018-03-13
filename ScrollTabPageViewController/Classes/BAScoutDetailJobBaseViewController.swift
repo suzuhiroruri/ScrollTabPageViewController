@@ -1,9 +1,9 @@
 //
-//  BAScoutDetailJobBaseViewController2.swift
+//  BAScoutDetailJobBaseViewController.swift
 //  ScrollTabPageViewController
 //
 //  Created by hir-suzuki on 2018/03/06.
-//  Copyright © 2018年 EndouMari. All rights reserved.
+//  Copyright © 2018年 hir-suzuki. All rights reserved.
 //
 
 import UIKit
@@ -36,11 +36,6 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
     override func viewDidLoad() {
         let mailView = BAScoutDetailMailView.instantiate()
         headerHeight = mailView.frame.height
-        print("\n",
-              "mailView",
-              "\n",
-              headerHeight
-        )
 
         super.viewDidLoad()
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -63,13 +58,14 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         inTabViewController.append(selectionViewController)
 
         let parameters: [CAPSPageMenuOption] = [
-            .scrollMenuBackgroundColor(UIColor.lightGray),
-            .viewBackgroundColor(UIColor.lightGray),
-            //.bottomMenuHairlineColor(UIColor.clear),
+            .scrollMenuBackgroundColor(.lightGray),
+            .viewBackgroundColor(.lightGray),
             .menuHeight(44.0),
-            .unselectedMenuItemLabelColor(.white),
             .useMenuLikeSegmentedControl(true),
-            .selectedMenuItemLabelColor(UIColor.white)
+            .unselectedMenuItemLabelColor(.white),
+            .selectedMenuItemLabelColor(.white),
+            .unselectedMenuItemBackgroundColor(.lightGray),
+            .selectedMenuItemBackgroundColor(UIColor.red)
         ]
         self.addPageMenu(menu: CAPSPageMenu(viewControllers: inTabViewController, frame: CGRect(x: 0, y: 0, width: pageMenuContainer.frame.width, height: pageMenuContainer.frame.height+130), pageMenuOptions: parameters))
         guard let pageMenuController = pageMenuController else {
@@ -115,7 +111,7 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         }
     }
 
-    // ページングする直前
+    // ページングした直後
     func didMoveToPage(_ controller: UIViewController, index: Int) {
         guard let jobDetailViewController = inTabViewController[index] as? BAScoutDetailJobBaseViewControllerProtocol else {
             return

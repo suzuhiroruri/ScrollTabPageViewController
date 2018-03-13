@@ -15,9 +15,10 @@ public class CAPSPageMenuConfiguration {
     open var scrollAnimationDurationOnMenuItemTap: Int = 500 // Millisecons
     open var selectedMenuItemLabelColor: UIColor = UIColor.white
     open var unselectedMenuItemLabelColor: UIColor = UIColor.lightGray
+    open var selectedMenuItemBackgroundColor: UIColor = UIColor.white
+    open var unselectedMenuItemBackgroundColor: UIColor = UIColor.lightGray
     open var scrollMenuBackgroundColor: UIColor = UIColor.black
     open var viewBackgroundColor: UIColor = UIColor.white
-    //open var bottomMenuHairlineColor: UIColor = UIColor.white
     open var menuItemFont: UIFont = UIFont.systemFont(ofSize: 15.0)
     open var useMenuLikeSegmentedControl: Bool = false
 

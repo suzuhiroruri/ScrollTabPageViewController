@@ -16,8 +16,6 @@ extension CAPSPageMenu {
                 configuration.scrollMenuBackgroundColor = value
             case let .viewBackgroundColor(value):
                 configuration.viewBackgroundColor = value
-            //case let .bottomMenuHairlineColor(value):
-            //    configuration.bottomMenuHairlineColor = value
             case let .menuMargin(value):
                 configuration.menuMargin = value
             case let .menuItemMargin(value):
@@ -28,6 +26,10 @@ extension CAPSPageMenu {
                 configuration.selectedMenuItemLabelColor = value
             case let .unselectedMenuItemLabelColor(value):
                 configuration.unselectedMenuItemLabelColor = value
+            case let .selectedMenuItemBackgroundColor(value):
+                configuration.selectedMenuItemBackgroundColor = value
+            case let .unselectedMenuItemBackgroundColor(value):
+                configuration.unselectedMenuItemBackgroundColor = value
             case let .useMenuLikeSegmentedControl(value):
                 configuration.useMenuLikeSegmentedControl = value
             case let .menuItemFont(value):
@@ -154,7 +156,7 @@ extension CAPSPageMenu {
                 guard let titleLabel = menuItems[currentPageIndex].titleLabel else {
                     return
                 }
-                titleLabel.backgroundColor = UIColor.red
+                titleLabel.backgroundColor = configuration.selectedMenuItemBackgroundColor
                 titleLabel.textColor = configuration.selectedMenuItemLabelColor
             }
         }
