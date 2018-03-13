@@ -16,7 +16,6 @@ open class HeaderedCAPSPageMenuViewController: AbstractHeaderedTabScrollViewCont
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-        //automaticallyAdjustsScrollViewInsets = true
         // PageMenu
         self.view.addSubview(pageMenuContainer)
         pageMenuContainer.frame = CGRect(x: 0, y: headerHeight, width: UIScreen.main.bounds.size.width, height: self.view.frame.height - navBarOffset())
@@ -32,8 +31,8 @@ open class HeaderedCAPSPageMenuViewController: AbstractHeaderedTabScrollViewCont
         }
         tabTopConstraint.isActive = true
         pageMenuContainer.heightAnchor.constraint(equalToConstant: self.view.frame.height - navBarOffset()).isActive = true
-
     }
+
     public func addPageMenu(menu: CAPSPageMenu) {
         pageMenuController = menu
         guard let pageMenuController = pageMenuController else {

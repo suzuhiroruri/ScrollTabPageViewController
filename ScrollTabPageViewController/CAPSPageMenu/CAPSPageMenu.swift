@@ -161,13 +161,6 @@ extension CAPSPageMenu {
     func moveSelectionIndicator(_ pageIndex: Int) {
         if pageIndex >= 0 && pageIndex < controllerArray.count {
             UIView.animate(withDuration: 0.15, animations: { () -> Void in
-                var selectionIndicatorX: CGFloat = 0.0
-
-                if self.configuration.useMenuLikeSegmentedControl {
-                    selectionIndicatorX = CGFloat(pageIndex) * (self.view.frame.width / CGFloat(self.controllerArray.count))
-                } else {
-                    selectionIndicatorX = self.configuration.menuItemWidth * CGFloat(pageIndex) + self.configuration.menuMargin * CGFloat(pageIndex + 1) + self.startingMenuMargin
-                }
 
                 // Switch newly selected menu item title label to selected color and old one to unselected color
                 if !self.menuItems.isEmpty {

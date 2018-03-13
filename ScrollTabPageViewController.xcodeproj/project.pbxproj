@@ -82,7 +82,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		291FA7C52056436E000327D6 /* PageMenu+ */ = {
+		291FA7C52056436E000327D6 /* CAPSPageMenu */ = {
 			isa = PBXGroup;
 			children = (
 				291FA7CE205646D8000327D6 /* CAPSPageMenu.swift */,
@@ -93,7 +93,7 @@
 				291FA7D1205646D9000327D6 /* CAPSPageMenuConfiguration.swift */,
 				291FA7D3205646D9000327D6 /* MenuItemView.swift */,
 			);
-			path = "PageMenu+";
+			path = CAPSPageMenu;
 			sourceTree = "<group>";
 		};
 		29391AE020369CCD00D469F1 /* View */ = {
@@ -179,7 +179,7 @@
 				4C8C50D31C11B617008A69C9 /* Assets.xcassets */,
 				4C8C50D81C11B617008A69C9 /* Info.plist */,
 				4C8C50D51C11B617008A69C9 /* LaunchScreen.storyboard */,
-				291FA7C52056436E000327D6 /* PageMenu+ */,
+				291FA7C52056436E000327D6 /* CAPSPageMenu */,
 				D2D0B560205396C100184DD2 /* HeaderedTabScrollView */,
 				4C8C50E31C11C608008A69C9 /* View */,
 			);
