@@ -36,10 +36,8 @@ public enum CAPSPageMenuOption {
     case menuItemSeparatorPercentageHeight(CGFloat)
     case menuItemWidth(CGFloat)
     case enableHorizontalBounce(Bool)
-    case addBottomMenuHairline(Bool)
     case menuItemWidthBasedOnTitleTextWidth(Bool)
     case titleTextSizeBasedOnMenuItemWidth(Bool)
     case scrollAnimationDurationOnMenuItemTap(Int)
     case centerMenuItems(Bool)
-    case hideTopMenuBar(Bool)
 }

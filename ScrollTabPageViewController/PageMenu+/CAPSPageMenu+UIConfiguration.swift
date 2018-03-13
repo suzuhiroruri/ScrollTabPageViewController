@@ -44,8 +44,6 @@ extension CAPSPageMenu {
                 configuration.menuItemWidth = value
             case let .enableHorizontalBounce(value):
                 configuration.enableHorizontalBounce = value
-            case let .addBottomMenuHairline(value):
-                configuration.addBottomMenuHairline = value
             case let .menuItemWidthBasedOnTitleTextWidth(value):
                 configuration.menuItemWidthBasedOnTitleTextWidth = value
             case let .titleTextSizeBasedOnMenuItemWidth(value):
@@ -54,14 +52,7 @@ extension CAPSPageMenu {
                 configuration.scrollAnimationDurationOnMenuItemTap = value
             case let .centerMenuItems(value):
                 configuration.centerMenuItems = value
-            case let .hideTopMenuBar(value):
-                configuration.hideTopMenuBar = value
             }
-        }
-
-        if configuration.hideTopMenuBar {
-            configuration.addBottomMenuHairline = false
-            configuration.menuHeight = 0.0
         }
     }
 
@@ -96,23 +87,6 @@ extension CAPSPageMenu {
 
         self.view.addConstraints(menuScrollView_constraint_H)
         self.view.addConstraints(menuScrollView_constraint_V)
-
-        // Add hairline to menu scroll view
-        if configuration.addBottomMenuHairline {
-            let menuBottomHairline: UIView = UIView()
-
-            menuBottomHairline.translatesAutoresizingMaskIntoConstraints = false
-
-            self.view.addSubview(menuBottomHairline)
-
-            let menuBottomHairline_constraint_H: Array = NSLayoutConstraint.constraints(withVisualFormat: "H:|[menuBottomHairline]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline": menuBottomHairline])
-            let menuBottomHairline_constraint_V: Array = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(configuration.menuHeight)-[menuBottomHairline(0.5)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline": menuBottomHairline])
-
-            self.view.addConstraints(menuBottomHairline_constraint_H)
-            self.view.addConstraints(menuBottomHairline_constraint_V)
-
-            menuBottomHairline.backgroundColor = configuration.bottomMenuHairlineColor
-        }
 
         // Disable scroll bars
         menuScrollView.showsHorizontalScrollIndicator = false
