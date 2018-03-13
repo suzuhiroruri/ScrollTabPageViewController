@@ -14,7 +14,9 @@ class BAScoutDetailBenefitCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // セルの枠線の色
-        self.layer.borderColor = UIColor.yellow.cgColor
+        self.layer.borderColor = UIColor.blue.cgColor
+        // セルの枠線の角
+        self.layer.cornerRadius = 4
         // セルの枠線太さ
         self.layer.borderWidth = 1.0
     }

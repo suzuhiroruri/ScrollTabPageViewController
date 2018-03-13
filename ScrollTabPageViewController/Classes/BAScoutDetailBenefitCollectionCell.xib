@@ -22,12 +22,11 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJy-dY-UlK">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="1" green="1" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="HJy-dY-UlK" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Fab-4y-irU"/>
                 <constraint firstAttribute="bottom" secondItem="HJy-dY-UlK" secondAttribute="bottom" id="MD2-9Z-f80"/>
