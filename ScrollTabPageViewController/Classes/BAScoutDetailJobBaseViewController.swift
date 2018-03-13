@@ -21,21 +21,20 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
 
     /// 募集内容
     lazy var requirementsViewController: BAScoutDetailJobRequirementsViewController? = {
-        let sb1 = UIStoryboard(name: R.storyboard.bAScoutDetailJobRequirementsViewController.name, bundle: nil)
-        let vc1 = sb1.instantiateViewController(withIdentifier: "BAScoutDetailJobRequirementsViewController") as? BAScoutDetailJobRequirementsViewController
-        return vc1
+        let sb = UIStoryboard(name: R.storyboard.bAScoutDetailJobRequirementsViewController.name, bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "BAScoutDetailJobRequirementsViewController") as? BAScoutDetailJobRequirementsViewController
+        return vc
     }()
 
     /// 選考・会社概要
     lazy var selectionViewController: BAScoutDetailJobSelectionViewController? = {
-        let sb1 = UIStoryboard(name: R.storyboard.bAScoutDetailJobSelectionViewController.name, bundle: nil)
-        let vc1 = sb1.instantiateViewController(withIdentifier: "BAScoutDetailJobSelectionViewController") as? BAScoutDetailJobSelectionViewController
-        return vc1
+        let sb = UIStoryboard(name: R.storyboard.bAScoutDetailJobSelectionViewController.name, bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "BAScoutDetailJobSelectionViewController") as? BAScoutDetailJobSelectionViewController
+        return vc
     }()
 
     override func viewDidLoad() {
         let mailView = BAScoutDetailMailView.instantiate()
-        //let mailView = BAView.instantiate()
         self.headerHeight = mailView.frame.height
 
         super.viewDidLoad()
