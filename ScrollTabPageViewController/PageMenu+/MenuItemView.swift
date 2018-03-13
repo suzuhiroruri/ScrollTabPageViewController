@@ -14,7 +14,7 @@ class MenuItemView: UIView {
     var titleLabel: UILabel?
     var menuItemSeparator: UIView?
 
-    func setUpMenuItemView(_ menuItemWidth: CGFloat, menuScrollViewHeight: CGFloat, separatorPercentageHeight: CGFloat, separatorWidth: CGFloat, separatorRoundEdges: Bool, menuItemSeparatorColor: UIColor) {
+    func setUpMenuItemView(_ menuItemWidth: CGFloat, menuScrollViewHeight: CGFloat, separatorPercentageHeight: CGFloat, separatorWidth: CGFloat, separatorRoundEdges: Bool) {
         titleLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: menuItemWidth, height: menuScrollViewHeight - 0))
 
         menuItemSeparator = UIView(frame: CGRect(x: menuItemWidth - (separatorWidth / 2), y: floor(menuScrollViewHeight * ((1.0 - separatorPercentageHeight) / 2.0)), width: separatorWidth, height: floor(menuScrollViewHeight * separatorPercentageHeight)))
@@ -22,8 +22,6 @@ class MenuItemView: UIView {
         guard let menuItemSeparator = menuItemSeparator else {
             return
         }
-
-        menuItemSeparator.backgroundColor = menuItemSeparatorColor
 
         if separatorRoundEdges {
             menuItemSeparator.layer.cornerRadius = menuItemSeparator.frame.width / 2
@@ -59,15 +57,13 @@ class MenuItemView: UIView {
                                        menuScrollViewHeight: pageMenu.configuration.menuHeight,
                                        separatorPercentageHeight: pageMenu.configuration.menuItemSeparatorPercentageHeight,
                                        separatorWidth: pageMenu.configuration.menuItemSeparatorWidth,
-                                       separatorRoundEdges: pageMenu.configuration.menuItemSeparatorRoundEdges,
-                                       menuItemSeparatorColor: pageMenu.configuration.menuItemSeparatorColor)
+                                       separatorRoundEdges: pageMenu.configuration.menuItemSeparatorRoundEdges)
             } else {
                 self.setUpMenuItemView(CGFloat(pageMenu.view.frame.width) / CGFloat(pageMenu.controllerArray.count),
                                        menuScrollViewHeight: pageMenu.configuration.menuHeight,
                                        separatorPercentageHeight: pageMenu.configuration.menuItemSeparatorPercentageHeight,
                                        separatorWidth: pageMenu.configuration.menuItemSeparatorWidth,
-                                       separatorRoundEdges: pageMenu.configuration.menuItemSeparatorRoundEdges,
-                                       menuItemSeparatorColor: pageMenu.configuration.menuItemSeparatorColor)
+                                       separatorRoundEdges: pageMenu.configuration.menuItemSeparatorRoundEdges)
             }
             //**************************拡張ここまで*************************************
         } else {
@@ -75,8 +71,7 @@ class MenuItemView: UIView {
                                    menuScrollViewHeight: pageMenu.configuration.menuHeight,
                                    separatorPercentageHeight: pageMenu.configuration.menuItemSeparatorPercentageHeight,
                                    separatorWidth: pageMenu.configuration.menuItemSeparatorWidth,
-                                   separatorRoundEdges: pageMenu.configuration.menuItemSeparatorRoundEdges,
-                                   menuItemSeparatorColor: pageMenu.configuration.menuItemSeparatorColor)
+                                   separatorRoundEdges: pageMenu.configuration.menuItemSeparatorRoundEdges)
         }
 
         guard let titleLabel = titleLabel else {

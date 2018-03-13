@@ -166,11 +166,7 @@ extension CAPSPageMenu {
                 if self.configuration.useMenuLikeSegmentedControl {
                     selectionIndicatorX = CGFloat(pageIndex) * (self.view.frame.width / CGFloat(self.controllerArray.count))
                 } else {
-                    if self.configuration.centerMenuItems && pageIndex == 0 {
-                        selectionIndicatorX = self.startingMenuMargin + self.configuration.menuMargin
-                    } else {
-                        selectionIndicatorX = self.configuration.menuItemWidth * CGFloat(pageIndex) + self.configuration.menuMargin * CGFloat(pageIndex + 1) + self.startingMenuMargin
-                    }
+                    selectionIndicatorX = self.configuration.menuItemWidth * CGFloat(pageIndex) + self.configuration.menuMargin * CGFloat(pageIndex + 1) + self.startingMenuMargin
                 }
 
                 // Switch newly selected menu item title label to selected color and old one to unselected color
@@ -256,25 +252,6 @@ extension CAPSPageMenu {
                                                            y: menuItemSeparator.frame.origin.y,
                                                            width: menuItemSeparator.frame.width,
                                                            height: menuItemSeparator.frame.height)
-
-                    index += 1
-                }
-            } else if configuration.centerMenuItems {
-                startingMenuMargin = ((self.view.frame.width - ((CGFloat(controllerArray.count) * configuration.menuItemWidth) + (CGFloat(controllerArray.count - 1) * configuration.menuMargin))) / 2.0) -  configuration.menuMargin
-
-                if startingMenuMargin < 0.0 {
-                    startingMenuMargin = 0.0
-                }
-
-                // Recalculate frame for menu items if centered
-                var index: Int = 0
-
-                for item: MenuItemView in menuItems as [MenuItemView] {
-                    if index == 0 {
-                        item.frame = CGRect(x: startingMenuMargin + configuration.menuMargin, y: 0.0, width: configuration.menuItemWidth, height: configuration.menuHeight)
-                    } else {
-                        item.frame = CGRect(x: configuration.menuItemWidth * CGFloat(index) + configuration.menuMargin * CGFloat(index + 1) + startingMenuMargin, y: 0.0, width: configuration.menuItemWidth, height: configuration.menuHeight)
-                    }
 
                     index += 1
                 }

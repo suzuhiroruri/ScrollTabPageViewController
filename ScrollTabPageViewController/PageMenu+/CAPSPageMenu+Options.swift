@@ -24,7 +24,6 @@ public enum CAPSPageMenuOption {
     case scrollMenuBackgroundColor(UIColor)
     case viewBackgroundColor(UIColor)
     case bottomMenuHairlineColor(UIColor)
-    case menuItemSeparatorColor(UIColor)
     case menuMargin(CGFloat)
     case menuItemMargin(CGFloat)
     case menuHeight(CGFloat)
@@ -36,5 +35,4 @@ public enum CAPSPageMenuOption {
     case menuItemSeparatorPercentageHeight(CGFloat)
     case menuItemWidth(CGFloat)
     case scrollAnimationDurationOnMenuItemTap(Int)
-    case centerMenuItems(Bool)
 }

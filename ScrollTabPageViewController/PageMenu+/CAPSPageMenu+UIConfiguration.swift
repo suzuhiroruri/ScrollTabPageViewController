@@ -20,8 +20,6 @@ extension CAPSPageMenu {
                 configuration.viewBackgroundColor = value
             case let .bottomMenuHairlineColor(value):
                 configuration.bottomMenuHairlineColor = value
-            case let .menuItemSeparatorColor(value):
-                configuration.menuItemSeparatorColor = value
             case let .menuMargin(value):
                 configuration.menuMargin = value
             case let .menuItemMargin(value):
@@ -44,8 +42,6 @@ extension CAPSPageMenu {
                 configuration.menuItemWidth = value
             case let .scrollAnimationDurationOnMenuItemTap(value):
                 configuration.scrollAnimationDurationOnMenuItemTap = value
-            case let .centerMenuItems(value):
-                configuration.centerMenuItems = value
             }
         }
     }
@@ -145,17 +141,7 @@ extension CAPSPageMenu {
                 }
                 //**************************拡張ここまで*************************************
             } else {
-                if configuration.centerMenuItems && index == 0.0 {
-                    startingMenuMargin = ((self.view.frame.width - ((CGFloat(controllerArray.count) * configuration.menuItemWidth) + (CGFloat(controllerArray.count - 1) * configuration.menuMargin))) / 2.0) -  configuration.menuMargin
-
-                    if startingMenuMargin < 0.0 {
-                        startingMenuMargin = 0.0
-                    }
-
-                    menuItemFrame = CGRect(x: startingMenuMargin + configuration.menuMargin, y: 0.0, width: configuration.menuItemWidth, height: configuration.menuHeight)
-                } else {
-                    menuItemFrame = CGRect(x: configuration.menuItemWidth * index + configuration.menuMargin * (index + 1) + startingMenuMargin, y: 0.0, width: configuration.menuItemWidth, height: configuration.menuHeight)
-                }
+                menuItemFrame = CGRect(x: configuration.menuItemWidth * index + configuration.menuMargin * (index + 1) + startingMenuMargin, y: 0.0, width: configuration.menuItemWidth, height: configuration.menuHeight)
             }
 
             let menuItemView: MenuItemView = MenuItemView(frame: menuItemFrame)
@@ -167,7 +153,7 @@ extension CAPSPageMenu {
 
             index += 1
         }
-        
+
         // Set selected color for title label of selected menu item
         if !menuItems.isEmpty {
             if menuItems[currentPageIndex].titleLabel != nil {
