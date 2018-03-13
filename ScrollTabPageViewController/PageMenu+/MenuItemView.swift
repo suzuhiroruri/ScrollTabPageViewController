@@ -88,10 +88,6 @@ class MenuItemView: UIView {
         titleLabel.textAlignment = NSTextAlignment.center
         titleLabel.textColor = pageMenu.configuration.unselectedMenuItemLabelColor
 
-        //**************************拡張*************************************
-        titleLabel.adjustsFontSizeToFitWidth = pageMenu.configuration.titleTextSizeBasedOnMenuItemWidth
-        //**************************拡張ここまで*************************************
-
         // Set title depending on if controller has a title set
         if controller.title != nil {
             guard let controllerTitle = controller.title else {

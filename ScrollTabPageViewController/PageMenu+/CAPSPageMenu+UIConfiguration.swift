@@ -42,12 +42,6 @@ extension CAPSPageMenu {
                 configuration.menuItemSeparatorPercentageHeight = value
             case let .menuItemWidth(value):
                 configuration.menuItemWidth = value
-            case let .enableHorizontalBounce(value):
-                configuration.enableHorizontalBounce = value
-            case let .menuItemWidthBasedOnTitleTextWidth(value):
-                configuration.menuItemWidthBasedOnTitleTextWidth = value
-            case let .titleTextSizeBasedOnMenuItemWidth(value):
-                configuration.titleTextSizeBasedOnMenuItemWidth = value
             case let .scrollAnimationDurationOnMenuItemTap(value):
                 configuration.scrollAnimationDurationOnMenuItemTap = value
             case let .centerMenuItems(value):
@@ -62,8 +56,6 @@ extension CAPSPageMenu {
         // Set up controller scroll view
         controllerScrollView.isPagingEnabled = true
         controllerScrollView.translatesAutoresizingMaskIntoConstraints = false
-        controllerScrollView.alwaysBounceHorizontal = configuration.enableHorizontalBounce
-        controllerScrollView.bounces = configuration.enableHorizontalBounce
 
         controllerScrollView.frame = CGRect(x: 0.0, y: configuration.menuHeight, width: self.view.frame.width, height: self.view.frame.height)
 
@@ -152,21 +144,6 @@ extension CAPSPageMenu {
                     menuItemFrame = CGRect(x: self.view.frame.width / CGFloat(controllerArray.count) * CGFloat(index), y: 0.0, width: CGFloat(self.view.frame.width) / CGFloat(controllerArray.count), height: configuration.menuHeight)
                 }
                 //**************************拡張ここまで*************************************
-            } else if configuration.menuItemWidthBasedOnTitleTextWidth {
-                var titleText = "Menu \(Int(index) + 1)"
-                if controller.title != nil, let controllerTitle = controller.title {
-                    titleText = controllerTitle
-                }
-                let itemWidthRect: CGRect = (titleText as NSString).boundingRect(with: CGSize(width: 1000, height: 1000),
-                                                                                 options: NSStringDrawingOptions.usesLineFragmentOrigin,
-                                                                                 attributes: [NSFontAttributeName: configuration.menuItemFont],
-                                                                                 context: nil)
-                configuration.menuItemWidth = itemWidthRect.width
-
-                menuItemFrame = CGRect(x: totalMenuItemWidthIfDifferentWidths + configuration.menuMargin + (configuration.menuMargin * index), y: 0.0, width: configuration.menuItemWidth, height: configuration.menuHeight)
-
-                totalMenuItemWidthIfDifferentWidths += itemWidthRect.width
-                menuItemWidths.append(itemWidthRect.width)
             } else {
                 if configuration.centerMenuItems && index == 0.0 {
                     startingMenuMargin = ((self.view.frame.width - ((CGFloat(controllerArray.count) * configuration.menuItemWidth) + (CGFloat(controllerArray.count - 1) * configuration.menuMargin))) / 2.0) -  configuration.menuMargin
@@ -190,12 +167,7 @@ extension CAPSPageMenu {
 
             index += 1
         }
-
-        // Set new content size for menu scroll view if needed
-        if configuration.menuItemWidthBasedOnTitleTextWidth {
-            menuScrollView.contentSize = CGSize(width: (totalMenuItemWidthIfDifferentWidths + configuration.menuMargin) + CGFloat(controllerArray.count) * configuration.menuMargin, height: configuration.menuHeight)
-        }
-
+        
         // Set selected color for title label of selected menu item
         if !menuItems.isEmpty {
             if menuItems[currentPageIndex].titleLabel != nil {

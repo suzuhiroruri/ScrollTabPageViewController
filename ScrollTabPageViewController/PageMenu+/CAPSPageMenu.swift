@@ -165,14 +165,6 @@ extension CAPSPageMenu {
 
                 if self.configuration.useMenuLikeSegmentedControl {
                     selectionIndicatorX = CGFloat(pageIndex) * (self.view.frame.width / CGFloat(self.controllerArray.count))
-                } else if self.configuration.menuItemWidthBasedOnTitleTextWidth {
-                    selectionIndicatorX += self.configuration.menuMargin
-
-                    if pageIndex > 0 {
-                        for i in 0...(pageIndex - 1) {
-                            selectionIndicatorX += (self.configuration.menuMargin + self.menuItemWidths[i])
-                        }
-                    }
                 } else {
                     if self.configuration.centerMenuItems && pageIndex == 0 {
                         selectionIndicatorX = self.startingMenuMargin + self.configuration.menuMargin

@@ -35,9 +35,6 @@ public enum CAPSPageMenuOption {
     case menuItemFont(UIFont)
     case menuItemSeparatorPercentageHeight(CGFloat)
     case menuItemWidth(CGFloat)
-    case enableHorizontalBounce(Bool)
-    case menuItemWidthBasedOnTitleTextWidth(Bool)
-    case titleTextSizeBasedOnMenuItemWidth(Bool)
     case scrollAnimationDurationOnMenuItemTap(Int)
     case centerMenuItems(Bool)
 }

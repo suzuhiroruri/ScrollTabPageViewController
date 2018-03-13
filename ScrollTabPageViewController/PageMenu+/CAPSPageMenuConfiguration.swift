@@ -25,11 +25,9 @@ public class CAPSPageMenuConfiguration {
     open var menuItemSeparatorWidth: CGFloat = 0.5
     open var menuItemSeparatorRoundEdges: Bool = false
 
-    open var menuItemWidthBasedOnTitleTextWidth: Bool = false
-    open var titleTextSizeBasedOnMenuItemWidth: Bool = false
+    
     open var useMenuLikeSegmentedControl: Bool = false
     open var centerMenuItems: Bool = false
-    open var enableHorizontalBounce: Bool = true
 
     public init() {
 

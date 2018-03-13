@@ -70,8 +70,7 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
             .menuHeight(44.0),
             .unselectedMenuItemLabelColor(.white),
             .useMenuLikeSegmentedControl(true),
-            .selectedMenuItemLabelColor(UIColor.white),
-            .menuItemWidthBasedOnTitleTextWidth(false)
+            .selectedMenuItemLabelColor(UIColor.white)
         ]
         self.addPageMenu(menu: CAPSPageMenu(viewControllers: inTabViewController, frame: CGRect(x: 0, y: 0, width: pageMenuContainer.frame.width, height: pageMenuContainer.frame.height+130), pageMenuOptions: parameters))
         guard let pageMenuController = pageMenuController else {
