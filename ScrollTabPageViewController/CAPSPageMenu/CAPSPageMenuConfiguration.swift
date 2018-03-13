@@ -22,7 +22,5 @@ public class CAPSPageMenuConfiguration {
     open var menuItemFont: UIFont = UIFont.systemFont(ofSize: 15.0)
     open var useMenuLikeSegmentedControl: Bool = false
 
-    public init() {
-
-    }
+    public init() {}
 }

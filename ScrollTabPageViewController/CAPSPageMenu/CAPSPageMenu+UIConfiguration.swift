@@ -127,7 +127,6 @@ extension CAPSPageMenu {
             var menuItemFrame: CGRect = CGRect()
 
             if configuration.useMenuLikeSegmentedControl {
-                //**************************拡張*************************************
                 if menuItemMargin > 0 {
                     let marginSum = menuItemMargin * CGFloat(controllerArray.count + 1)
                     let menuItemWidth = (self.view.frame.width - marginSum) / CGFloat(controllerArray.count)
@@ -135,7 +134,6 @@ extension CAPSPageMenu {
                 } else {
                     menuItemFrame = CGRect(x: self.view.frame.width / CGFloat(controllerArray.count) * CGFloat(index), y: 0.0, width: CGFloat(self.view.frame.width) / CGFloat(controllerArray.count), height: configuration.menuHeight)
                 }
-                //**************************拡張ここまで*************************************
             } else {
                 menuItemFrame = CGRect(x: configuration.menuItemWidth * index + configuration.menuMargin * (index + 1) + startingMenuMargin, y: 0.0, width: configuration.menuItemWidth, height: configuration.menuHeight)
             }

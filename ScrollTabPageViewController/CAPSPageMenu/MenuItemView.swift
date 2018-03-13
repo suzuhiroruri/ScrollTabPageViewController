@@ -34,7 +34,6 @@ class MenuItemView: UIView {
 
     func configure(for pageMenu: CAPSPageMenu, controller: UIViewController, index: CGFloat) {
         if pageMenu.configuration.useMenuLikeSegmentedControl {
-            //**************************拡張*************************************
             if pageMenu.menuItemMargin > 0 {
                 let marginSum = pageMenu.menuItemMargin * CGFloat(pageMenu.controllerArray.count + 1)
                 let menuItemWidth = (pageMenu.view.frame.width - marginSum) / CGFloat(pageMenu.controllerArray.count)
@@ -44,7 +43,6 @@ class MenuItemView: UIView {
                 self.setUpMenuItemView(CGFloat(pageMenu.view.frame.width) / CGFloat(pageMenu.controllerArray.count),
                                        menuScrollViewHeight: pageMenu.configuration.menuHeight)
             }
-            //**************************拡張ここまで*************************************
         } else {
             self.setUpMenuItemView(pageMenu.configuration.menuItemWidth,
                                    menuScrollViewHeight: pageMenu.configuration.menuHeight)

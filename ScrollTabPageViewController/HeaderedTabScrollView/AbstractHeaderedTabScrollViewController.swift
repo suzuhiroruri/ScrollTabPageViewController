@@ -165,5 +165,4 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
             constraint.constant = -headerTargetY
         }
     }
-
 }

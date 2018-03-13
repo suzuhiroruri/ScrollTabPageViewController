@@ -164,7 +164,6 @@ extension CAPSPageMenu {
 
                 // Switch newly selected menu item title label to selected color and old one to unselected color
                 if !self.menuItems.isEmpty {
-
                     if self.menuItems[self.lastPageIndex].titleLabel != nil && self.menuItems[self.currentPageIndex].titleLabel != nil {
                         guard let lastMenuItemsTitleLabel = self.menuItems[self.lastPageIndex].titleLabel else {
                             return
