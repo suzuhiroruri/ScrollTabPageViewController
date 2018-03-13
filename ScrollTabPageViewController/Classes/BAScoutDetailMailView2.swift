@@ -1,34 +1,25 @@
 //
 //  BAScoutDetailMailView.swift
-//  ScrollTabPageViewController
+//  AutoSizingLabelSample
 //
-//  Created by hir-suzuki on 2018/03/13.
-//  Copyright © 2018年 EndouMari. All rights reserved.
+//  Created by Hiromasa Suzuki on 2017/07/28.
+//  Copyright © 2018年 Hiromasa Suzuki All rights reserved.
 //
 
 import UIKit
 
-extension BAScoutDetailMailView: BAScoutDetailJobBaseViewControllerProtocol {
-    var scrollView: UIScrollView {
-        guard let scrollView = mailScrollView else {
-            return UIScrollView()
-        }
-        return scrollView
-    }
-}
-
-class BAScoutDetailMailView: UIView {
+class BAScoutDetailMailView2: UIView {
 
     // スクロールビュー
     @IBOutlet weak var mailScrollView: UIScrollView!
     var scrollDelegateFunc: ((UIScrollView) -> Void)?
 
-    // 応募日時土台ビュー
-    @IBOutlet weak var subscribeDateBaseView: UIView!
-    // 応募日時ラベル
-    @IBOutlet weak var subscribeDateLabel: UILabel!
-    // 表示期限ラベル
-    @IBOutlet weak var displayLimitDateLabel: UILabel!
+    // スクロール開始時点の初期値
+    var scrollStart: CGFloat = 0.0
+    // スクロール検知のブロック
+    var mailScrollDidChangedBlock: ((_ scroll: CGFloat, _ shouldScrollMailView: Bool) -> Void)?
+    // スクロール慣性終了検知のブロック
+    var mailScrollDidEndDeceleratingBlock: ((_ mailScrollContentOffset: CGFloat, _ frameMinY: CGFloat) -> Void)?
 
     // スカウトメール受信日のラベル
     @IBOutlet weak var receivedDateLabel: UILabel!
@@ -37,6 +28,8 @@ class BAScoutDetailMailView: UIView {
 
     // 面接確約特典タイトルの土台ビュー
     @IBOutlet weak var promisedInterViewBenefitBaseView: UIView!
+    // 面接確約特典のサブタイトルラベル
+    @IBOutlet weak var promisedInterviewBenefitSubTitleLabel: UILabel!
     // 面接確約特典のタイトルラベル
     @IBOutlet weak var promisedInterviewBenefitTitleLabel: UILabel!
 
@@ -64,6 +57,8 @@ class BAScoutDetailMailView: UIView {
     @IBOutlet weak var appearDaysLeftBaseView: UIView!
     // 掲載終了残り日数ラベル
     @IBOutlet weak var appearDaysLeftLabel: UILabel!
+    // 選択されているsegmentのindex
+    var currentIndex: Int = 0
 
     var scoutDetailMailViewModel: BAScoutDetailMailViewModel?
 
@@ -71,11 +66,11 @@ class BAScoutDetailMailView: UIView {
      ビューを生成する
      - returns: BAScoutDetailMailView
      */
-    static func instantiate() -> BAScoutDetailMailView {
-        let nib = UINib(nibName: R.nib.bAScoutDetailMailView.name, bundle: nil)
+    static func instantiate() -> BAScoutDetailMailView2 {
+        let nib = UINib(nibName: R.nib.bAScoutDetailMailView2.name, bundle: nil)
 
-        guard let view = nib.instantiate(withOwner: nil, options: nil).first as? BAScoutDetailMailView else {
-            return BAScoutDetailMailView()
+        guard let view = nib.instantiate(withOwner: nil, options: nil).first as? BAScoutDetailMailView2 else {
+            return BAScoutDetailMailView2()
         }
         view.setViewContent()
         // ビューのサイズを調整
@@ -108,6 +103,7 @@ class BAScoutDetailMailView: UIView {
         if promisedInterviewBenefitTitleIsEmpty {
             promisedInterViewBenefitBaseView.isHidden = true
         } else {
+            promisedInterviewBenefitSubTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitSubTitle
             promisedInterviewBenefitTitleLabel.text = scoutDetailMailViewModel?.promisedInterviewBenefitTitle
         }
 
@@ -126,8 +122,6 @@ class BAScoutDetailMailView: UIView {
         mailBodyLabel.text = scoutDetailMailViewModel?.mailBody
         mailBodyLabel.sizeToFit()
 
-        
-        scoutDetailMailViewModel?.appearDaysLeftString
         // 掲載終了残り日数ラベル
         appearDaysLeftLabel.attributedText = scoutDetailMailViewModel?.appearDaysLeftString
     }
@@ -144,23 +138,23 @@ class BAScoutDetailMailView: UIView {
         collectionHeight.constant = benefitCollectionView.contentSize.height
 
         let size = self.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-        self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: size.height)
-
+        self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: mailScrollView.contentSize.height)
     }
 }
 
-extension BAScoutDetailMailView: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ mailScrollView: UIScrollView) {
+extension BAScoutDetailMailView2: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(_ tableView: UIScrollView) {
         if self.scrollDelegateFunc != nil {
             guard let scrollDelegateFunc = self.scrollDelegateFunc else {
                 return
             }
-            scrollDelegateFunc(mailScrollView)
+            scrollDelegateFunc(tableView)
         }
     }
 }
 
-extension BAScoutDetailMailView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension BAScoutDetailMailView2: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // MARK: - CollectionView Delegate & DataSource
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

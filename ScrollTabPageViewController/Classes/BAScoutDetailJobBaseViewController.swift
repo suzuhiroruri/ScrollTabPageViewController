@@ -34,8 +34,8 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
     }()
 
     override func viewDidLoad() {
-        //let mailView = BAScoutDetailMailView.instantiate()
-        let mailView = BAView.instantiate()
+        let mailView = BAScoutDetailMailView.instantiate()
+        //let mailView = BAView.instantiate()
         self.headerHeight = mailView.frame.height
 
         super.viewDidLoad()
