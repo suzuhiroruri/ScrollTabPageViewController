@@ -16,14 +16,16 @@ open class HeaderedCAPSPageMenuViewController: AbstractHeaderedTabScrollViewCont
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-
+        //automaticallyAdjustsScrollViewInsets = true
         // PageMenu
         self.view.addSubview(pageMenuContainer)
         pageMenuContainer.frame = CGRect(x: 0, y: headerHeight, width: UIScreen.main.bounds.size.width, height: self.view.frame.height - navBarOffset())
         pageMenuContainer.translatesAutoresizingMaskIntoConstraints = false
+        // 左
         pageMenuContainer.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        // 右
         pageMenuContainer.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-
+        // 上
         tabTopConstraint = pageMenuContainer.topAnchor.constraint(equalTo: self.view.topAnchor, constant: headerHeight)
         guard let tabTopConstraint = tabTopConstraint else {
             return

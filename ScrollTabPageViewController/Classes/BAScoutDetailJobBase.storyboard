@@ -13,14 +13,14 @@
         <!--Scout Detail Job Base View Controller-->
         <scene sceneID="lID-ld-Faj">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" id="Ya9-tn-6vc" customClass="BAScoutDetailJobBaseViewController" customModule="ScrollTabPageViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="Ya9-tn-6vc" customClass="BAScoutDetailJobBaseViewController" customModule="ScrollTabPageViewController" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rM4-Ot-qRS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lpk-bJ-QKZ"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLU-t3-9Rq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

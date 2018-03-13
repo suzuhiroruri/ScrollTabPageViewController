@@ -51,7 +51,7 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
     }
 
     /// Height of the header
-    public var headerHeight: CGFloat = 210 {
+    public var headerHeight: CGFloat = 0 {
         didSet {
             if let constraint = headerHeightConstraint {
                 constraint.constant = headerHeight
@@ -64,7 +64,7 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
 
     override open func viewDidLoad() {
         super.viewDidLoad()
-
+        //automaticallyAdjustsScrollViewInsets = true
         // Header
         self.view.addSubview(headerContainer)
         headerContainer.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +73,9 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
             return
         }
         headerTopConstraint.isActive = true
+        // 左
         headerContainer.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        // 右
         headerContainer.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         headerHeightConstraint = headerContainer.heightAnchor.constraint(equalToConstant: self.headerHeight)
         guard let headerHeightConstraint = headerHeightConstraint else {
@@ -105,9 +107,9 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
         guard let tabTopConstraint = tabTopConstraint else {
             return
         }
-        if delta > 0 && tabTopConstraint.constant > maxY && scrollView.contentOffset.y > 0 {
-            if tabTopConstraint.constant - delta < maxY {
-                delta = tabTopConstraint.constant - maxY
+        if delta > 0 && tabTopConstraint.constant + 64 > maxY && scrollView.contentOffset.y > 0 {
+            if tabTopConstraint.constant + 64 - delta < maxY {
+                delta = tabTopConstraint.constant + 64 - maxY
             }
             tabTopConstraint.constant -= delta
             scrollView.contentOffset.y -= delta

@@ -34,7 +34,7 @@
                             <constraint firstAttribute="trailing" secondItem="lng-gb-gUg" secondAttribute="trailing" id="tyQ-bn-gsZ"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="tableView" destination="lng-gb-gUg" id="Fxg-FU-Rqz"/>
                     </connections>

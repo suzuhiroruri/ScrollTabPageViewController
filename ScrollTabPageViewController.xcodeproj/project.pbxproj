@@ -22,6 +22,8 @@
 		29753FBF20511447004E93C5 /* BAScoutDetailMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29753FBD20511446004E93C5 /* BAScoutDetailMailView.swift */; };
 		29753FC020511447004E93C5 /* BAScoutDetailMailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29753FBE20511446004E93C5 /* BAScoutDetailMailView.xib */; };
 		2979E3442035112B0075D321 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2979E3432035112B0075D321 /* R.generated.swift */; };
+		29A4339920575F5E009F08E9 /* BAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A4339820575F5E009F08E9 /* BAView.swift */; };
+		29A4339B20575F6E009F08E9 /* BAView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29A4339A20575F6E009F08E9 /* BAView.xib */; };
 		29AB4228203C2DEE00AB8484 /* BAJobListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB4227203C2DEE00AB8484 /* BAJobListViewController.swift */; };
 		29AB422A203C2E2600AB8484 /* BAJobList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29AB4229203C2E2600AB8484 /* BAJobList.storyboard */; };
 		29FDF188204E213A002E1550 /* BAScoutDetailJobSelectionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29FDF184204E2139002E1550 /* BAScoutDetailJobSelectionViewController.storyboard */; };
@@ -52,6 +54,8 @@
 		29753FBD20511446004E93C5 /* BAScoutDetailMailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BAScoutDetailMailView.swift; sourceTree = "<group>"; };
 		29753FBE20511446004E93C5 /* BAScoutDetailMailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAScoutDetailMailView.xib; sourceTree = "<group>"; };
 		2979E3432035112B0075D321 /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = ScrollTabPageViewController/Resources/R.generated.swift; sourceTree = "<group>"; };
+		29A4339820575F5E009F08E9 /* BAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAView.swift; sourceTree = "<group>"; };
+		29A4339A20575F6E009F08E9 /* BAView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BAView.xib; sourceTree = "<group>"; };
 		29AB4227203C2DEE00AB8484 /* BAJobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BAJobListViewController.swift; sourceTree = "<group>"; };
 		29AB4229203C2E2600AB8484 /* BAJobList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BAJobList.storyboard; sourceTree = "<group>"; };
 		29FDF184204E2139002E1550 /* BAScoutDetailJobSelectionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BAScoutDetailJobSelectionViewController.storyboard; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 			children = (
 				29753FBD20511446004E93C5 /* BAScoutDetailMailView.swift */,
 				29753FBE20511446004E93C5 /* BAScoutDetailMailView.xib */,
+				29A4339820575F5E009F08E9 /* BAView.swift */,
+				29A4339A20575F6E009F08E9 /* BAView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -218,8 +224,8 @@
 		D2D0B560205396C100184DD2 /* HeaderedTabScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				D2D0B561205396C100184DD2 /* HeaderedCAPSPageMenuViewController.swift */,
 				D2D0B562205396C100184DD2 /* AbstractHeaderedTabScrollViewController.swift */,
+				D2D0B561205396C100184DD2 /* HeaderedCAPSPageMenuViewController.swift */,
 			);
 			path = HeaderedTabScrollView;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 				4C8C50D71C11B617008A69C9 /* LaunchScreen.storyboard in Resources */,
 				29391AEA2036A06100D469F1 /* BAScoutDetailBenefitCollectionCell.xib in Resources */,
 				29753FC020511447004E93C5 /* BAScoutDetailMailView.xib in Resources */,
+				29A4339B20575F6E009F08E9 /* BAView.xib in Resources */,
 				29FDF18A204E213A002E1550 /* BAScoutDetailJobRequirementsViewController.storyboard in Resources */,
 				29FDF188204E213A002E1550 /* BAScoutDetailJobSelectionViewController.storyboard in Resources */,
 				4C8C50D41C11B617008A69C9 /* Assets.xcassets in Resources */,
@@ -393,6 +400,7 @@
 				291FA7DA205646D9000327D6 /* MenuItemView.swift in Sources */,
 				29753FBF20511447004E93C5 /* BAScoutDetailMailView.swift in Sources */,
 				29064372204EB35B008715C4 /* BAScoutDetailJobBaseViewController.swift in Sources */,
+				29A4339920575F5E009F08E9 /* BAView.swift in Sources */,
 				2979E3442035112B0075D321 /* R.generated.swift in Sources */,
 				29FDF18B204E213A002E1550 /* BAScoutDetailJobSelectionViewController.swift in Sources */,
 				291FA7D7205646D9000327D6 /* CAPSPageMenu+UIScrollViewDelegate.swift in Sources */,

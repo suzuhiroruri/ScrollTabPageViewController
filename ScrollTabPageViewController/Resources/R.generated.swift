@@ -36,12 +36,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 2 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
   struct nib {
     /// Nib `BAScoutDetailBenefitCollectionCell`.
     static let bAScoutDetailBenefitCollectionCell = _R.nib._BAScoutDetailBenefitCollectionCell()
     /// Nib `BAScoutDetailMailView`.
     static let bAScoutDetailMailView = _R.nib._BAScoutDetailMailView()
+    /// Nib `BAView`.
+    static let bAView = _R.nib._BAView()
     
     /// `UINib(name: "BAScoutDetailBenefitCollectionCell", in: bundle)`
     static func bAScoutDetailBenefitCollectionCell(_: Void = ()) -> UIKit.UINib {
@@ -51,6 +53,11 @@ struct R: Rswift.Validatable {
     /// `UINib(name: "BAScoutDetailMailView", in: bundle)`
     static func bAScoutDetailMailView(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.bAScoutDetailMailView)
+    }
+    
+    /// `UINib(name: "BAView", in: bundle)`
+    static func bAView(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.bAView)
     }
     
     fileprivate init() {}
@@ -169,6 +176,17 @@ struct _R: Rswift.Validatable {
       
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> BAScoutDetailMailView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BAScoutDetailMailView
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct _BAView: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "BAView"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> BAView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? BAView
       }
       
       fileprivate init() {}

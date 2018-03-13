@@ -12,7 +12,7 @@ extension BAScoutDetailMailView: BAScoutDetailJobBaseViewControllerProtocol {
 
     var scrollView: UIScrollView {
         guard let mailScrollView = mailScrollView else {
-            return UITableView()
+            return UIScrollView()
         }
         return mailScrollView
     }
@@ -148,42 +148,11 @@ class BAScoutDetailMailView: UIView {
         collectionHeight.constant = benefitCollectionView.contentSize.height
 
         let size = self.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-        self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: size.height)
+        self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: mailScrollView.contentSize.height)
     }
 }
 
 extension BAScoutDetailMailView: UIScrollViewDelegate {
-
-    /**
-     BAScoutDetailMailViewへの慣性スクロールの終了を検知
-     - parameter scrollView: scrollView
-     */
-    /*
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        mailScrollDidEndDeceleratingBlock?(scrollView.contentOffset.y, frame.minY)
-    }
-    */
-
-    /**
-     BAScoutDetailMailViewへのスクロールを検知
-     - parameter scrollView: scrollView
-     */
-    /*
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-        if scrollView.contentOffset.y > 0.0 {
-            mailScrollDidChangedBlock?(scrollView.contentOffset.y, true)
-            scrollView.contentOffset.y = 0.0
-        } else if frame.minY < 0.0 {
-            mailScrollDidChangedBlock?(scrollView.contentOffset.y, true)
-            scrollView.contentOffset.y = 0.0
-        } else {
-            let scroll = scrollView.contentOffset.y - scrollStart
-            mailScrollDidChangedBlock?(scroll, false)
-            scrollStart = scrollView.contentOffset.y
-        }
-    }
-    */
 
     func scrollViewDidScroll(_ tableView: UIScrollView) {
         if self.scrollDelegateFunc != nil {
