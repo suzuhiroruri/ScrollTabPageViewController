@@ -34,8 +34,6 @@ extension CAPSPageMenu {
                 configuration.useMenuLikeSegmentedControl = value
             case let .menuItemFont(value):
                 configuration.menuItemFont = value
-            case let .menuItemSeparatorPercentageHeight(value):
-                configuration.menuItemSeparatorPercentageHeight = value
             case let .menuItemWidth(value):
                 configuration.menuItemWidth = value
             case let .scrollAnimationDurationOnMenuItemTap(value):

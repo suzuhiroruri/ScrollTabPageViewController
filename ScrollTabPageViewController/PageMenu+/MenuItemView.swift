@@ -13,7 +13,7 @@ class MenuItemView: UIView {
 
     var titleLabel: UILabel?
 
-    func setUpMenuItemView(_ menuItemWidth: CGFloat, menuScrollViewHeight: CGFloat, separatorPercentageHeight: CGFloat, separatorWidth: CGFloat/*, separatorRoundEdges: Bool*/) {
+    func setUpMenuItemView(_ menuItemWidth: CGFloat, menuScrollViewHeight: CGFloat, separatorWidth: CGFloat) {
         titleLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: menuItemWidth, height: menuScrollViewHeight - 0))
         guard let titleLabel = titleLabel else {
             return
@@ -40,19 +40,16 @@ class MenuItemView: UIView {
                 let menuItemWidth = (pageMenu.view.frame.width - marginSum) / CGFloat(pageMenu.controllerArray.count)
                 self.setUpMenuItemView(menuItemWidth,
                                        menuScrollViewHeight: pageMenu.configuration.menuHeight,
-                                       separatorPercentageHeight: pageMenu.configuration.menuItemSeparatorPercentageHeight,
                                        separatorWidth: pageMenu.configuration.menuItemSeparatorWidth)
             } else {
                 self.setUpMenuItemView(CGFloat(pageMenu.view.frame.width) / CGFloat(pageMenu.controllerArray.count),
                                        menuScrollViewHeight: pageMenu.configuration.menuHeight,
-                                       separatorPercentageHeight: pageMenu.configuration.menuItemSeparatorPercentageHeight,
                                        separatorWidth: pageMenu.configuration.menuItemSeparatorWidth)
             }
             //**************************拡張ここまで*************************************
         } else {
             self.setUpMenuItemView(pageMenu.configuration.menuItemWidth,
                                    menuScrollViewHeight: pageMenu.configuration.menuHeight,
-                                   separatorPercentageHeight: pageMenu.configuration.menuItemSeparatorPercentageHeight,
                                    separatorWidth: pageMenu.configuration.menuItemSeparatorWidth)
         }
 
