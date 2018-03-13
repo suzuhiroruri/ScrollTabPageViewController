@@ -32,8 +32,6 @@ extension CAPSPageMenu {
                 configuration.unselectedMenuItemLabelColor = value
             case let .useMenuLikeSegmentedControl(value):
                 configuration.useMenuLikeSegmentedControl = value
-            case let .menuItemSeparatorRoundEdges(value):
-                configuration.menuItemSeparatorRoundEdges = value
             case let .menuItemFont(value):
                 configuration.menuItemFont = value
             case let .menuItemSeparatorPercentageHeight(value):

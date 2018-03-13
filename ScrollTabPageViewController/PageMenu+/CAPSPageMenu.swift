@@ -245,14 +245,6 @@ extension CAPSPageMenu {
                     }
                     titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width / CGFloat(controllerArray.count), height: configuration.menuHeight)
 
-                    guard let menuItemSeparator = item.menuItemSeparator else {
-                        return
-                    }
-                    menuItemSeparator.frame = CGRect(x: item.frame.width - (configuration.menuItemSeparatorWidth / 2),
-                                                           y: menuItemSeparator.frame.origin.y,
-                                                           width: menuItemSeparator.frame.width,
-                                                           height: menuItemSeparator.frame.height)
-
                     index += 1
                 }
             }
