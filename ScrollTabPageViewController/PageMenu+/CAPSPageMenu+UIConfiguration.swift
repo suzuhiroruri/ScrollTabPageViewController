@@ -16,8 +16,8 @@ extension CAPSPageMenu {
                 configuration.scrollMenuBackgroundColor = value
             case let .viewBackgroundColor(value):
                 configuration.viewBackgroundColor = value
-            case let .bottomMenuHairlineColor(value):
-                configuration.bottomMenuHairlineColor = value
+            //case let .bottomMenuHairlineColor(value):
+            //    configuration.bottomMenuHairlineColor = value
             case let .menuMargin(value):
                 configuration.menuMargin = value
             case let .menuItemMargin(value):

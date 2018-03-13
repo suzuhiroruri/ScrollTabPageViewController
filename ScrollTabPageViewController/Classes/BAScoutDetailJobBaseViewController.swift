@@ -65,7 +65,7 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         let parameters: [CAPSPageMenuOption] = [
             .scrollMenuBackgroundColor(UIColor.lightGray),
             .viewBackgroundColor(UIColor.lightGray),
-            .bottomMenuHairlineColor(UIColor.clear),
+            //.bottomMenuHairlineColor(UIColor.clear),
             .menuHeight(44.0),
             .unselectedMenuItemLabelColor(.white),
             .useMenuLikeSegmentedControl(true),

@@ -22,7 +22,7 @@ import UIKit
 public enum CAPSPageMenuOption {
     case scrollMenuBackgroundColor(UIColor)
     case viewBackgroundColor(UIColor)
-    case bottomMenuHairlineColor(UIColor)
+    //case bottomMenuHairlineColor(UIColor)
     case menuMargin(CGFloat)
     case menuItemMargin(CGFloat)
     case menuHeight(CGFloat)
