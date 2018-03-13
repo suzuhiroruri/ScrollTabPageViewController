@@ -12,8 +12,6 @@ extension CAPSPageMenu {
     func configurePageMenu(options: [CAPSPageMenuOption]) {
         for option in options {
             switch (option) {
-            case let .menuItemSeparatorWidth(value):
-                configuration.menuItemSeparatorWidth = value
             case let .scrollMenuBackgroundColor(value):
                 configuration.scrollMenuBackgroundColor = value
             case let .viewBackgroundColor(value):

@@ -19,7 +19,6 @@ public class CAPSPageMenuConfiguration {
     open var viewBackgroundColor: UIColor = UIColor.white
     open var bottomMenuHairlineColor: UIColor = UIColor.white
     open var menuItemFont: UIFont = UIFont.systemFont(ofSize: 15.0)
-    open var menuItemSeparatorWidth: CGFloat = 0.5
     open var useMenuLikeSegmentedControl: Bool = false
 
     public init() {

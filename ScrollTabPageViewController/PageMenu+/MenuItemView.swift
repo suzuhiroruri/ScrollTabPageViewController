@@ -13,7 +13,7 @@ class MenuItemView: UIView {
 
     var titleLabel: UILabel?
 
-    func setUpMenuItemView(_ menuItemWidth: CGFloat, menuScrollViewHeight: CGFloat, separatorWidth: CGFloat) {
+    func setUpMenuItemView(_ menuItemWidth: CGFloat, menuScrollViewHeight: CGFloat) {
         titleLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: menuItemWidth, height: menuScrollViewHeight - 0))
         guard let titleLabel = titleLabel else {
             return
@@ -39,18 +39,15 @@ class MenuItemView: UIView {
                 let marginSum = pageMenu.menuItemMargin * CGFloat(pageMenu.controllerArray.count + 1)
                 let menuItemWidth = (pageMenu.view.frame.width - marginSum) / CGFloat(pageMenu.controllerArray.count)
                 self.setUpMenuItemView(menuItemWidth,
-                                       menuScrollViewHeight: pageMenu.configuration.menuHeight,
-                                       separatorWidth: pageMenu.configuration.menuItemSeparatorWidth)
+                                       menuScrollViewHeight: pageMenu.configuration.menuHeight)
             } else {
                 self.setUpMenuItemView(CGFloat(pageMenu.view.frame.width) / CGFloat(pageMenu.controllerArray.count),
-                                       menuScrollViewHeight: pageMenu.configuration.menuHeight,
-                                       separatorWidth: pageMenu.configuration.menuItemSeparatorWidth)
+                                       menuScrollViewHeight: pageMenu.configuration.menuHeight)
             }
             //**************************拡張ここまで*************************************
         } else {
             self.setUpMenuItemView(pageMenu.configuration.menuItemWidth,
-                                   menuScrollViewHeight: pageMenu.configuration.menuHeight,
-                                   separatorWidth: pageMenu.configuration.menuItemSeparatorWidth)
+                                   menuScrollViewHeight: pageMenu.configuration.menuHeight)
         }
 
         guard let titleLabel = titleLabel else {
