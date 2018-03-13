@@ -35,11 +35,16 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
 
     override func viewDidLoad() {
         let mailView = BAScoutDetailMailView.instantiate()
-        self.headerHeight = mailView.frame.height
+        headerHeight = mailView.frame.height
+        print("\n",
+              "mailView",
+              "\n",
+              headerHeight
+        )
 
         super.viewDidLoad()
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        self.headerView = mailView
+        headerView = mailView
 
         guard let requirementsViewController = requirementsViewController else {
             return
@@ -62,15 +67,13 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
             .menuItemSeparatorColor(UIColor.clear),
             .viewBackgroundColor(UIColor.lightGray),
             .bottomMenuHairlineColor(UIColor.clear),
-            .selectionIndicatorColor(UIColor.clear),
             .menuHeight(44.0),
             .unselectedMenuItemLabelColor(.white),
             .useMenuLikeSegmentedControl(true),
             .selectedMenuItemLabelColor(UIColor.white),
-            .menuItemWidthBasedOnTitleTextWidth(false),
-            .selectionIndicatorHeight(0.0)
+            .menuItemWidthBasedOnTitleTextWidth(false)
         ]
-        self.addPageMenu(menu: CAPSPageMenu(viewControllers: inTabViewController, frame: CGRect(x: 0, y: 0, width: pageMenuContainer.frame.width, height: pageMenuContainer.frame.height+200), pageMenuOptions: parameters))
+        self.addPageMenu(menu: CAPSPageMenu(viewControllers: inTabViewController, frame: CGRect(x: 0, y: 0, width: pageMenuContainer.frame.width, height: pageMenuContainer.frame.height+130), pageMenuOptions: parameters))
         guard let pageMenuController = pageMenuController else {
             return
         }

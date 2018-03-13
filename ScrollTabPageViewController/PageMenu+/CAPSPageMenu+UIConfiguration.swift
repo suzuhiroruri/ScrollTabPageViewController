@@ -12,8 +12,6 @@ extension CAPSPageMenu {
     func configurePageMenu(options: [CAPSPageMenuOption]) {
         for option in options {
             switch (option) {
-            case let .selectionIndicatorHeight(value):
-                configuration.selectionIndicatorHeight = value
             case let .menuItemSeparatorWidth(value):
                 configuration.menuItemSeparatorWidth = value
             case let .scrollMenuBackgroundColor(value):
@@ -22,8 +20,6 @@ extension CAPSPageMenu {
                 configuration.viewBackgroundColor = value
             case let .bottomMenuHairlineColor(value):
                 configuration.bottomMenuHairlineColor = value
-            case let .selectionIndicatorColor(value):
-                configuration.selectionIndicatorColor = value
             case let .menuItemSeparatorColor(value):
                 configuration.menuItemSeparatorColor = value
             case let .menuMargin(value):
@@ -236,24 +232,5 @@ extension CAPSPageMenu {
                 titleLabel.textColor = configuration.selectedMenuItemLabelColor
             }
         }
-
-        // Configure selection indicator view
-        var selectionIndicatorFrame: CGRect = CGRect()
-
-        if configuration.useMenuLikeSegmentedControl {
-            selectionIndicatorFrame = CGRect(x: 0.0, y: configuration.menuHeight - configuration.selectionIndicatorHeight, width: self.view.frame.width / CGFloat(controllerArray.count), height: configuration.selectionIndicatorHeight)
-        } else if configuration.menuItemWidthBasedOnTitleTextWidth {
-            selectionIndicatorFrame = CGRect(x: configuration.menuMargin, y: configuration.menuHeight - configuration.selectionIndicatorHeight, width: menuItemWidths[0], height: configuration.selectionIndicatorHeight)
-        } else {
-            if configuration.centerMenuItems {
-                selectionIndicatorFrame = CGRect(x: startingMenuMargin + configuration.menuMargin, y: configuration.menuHeight - configuration.selectionIndicatorHeight, width: configuration.menuItemWidth, height: configuration.selectionIndicatorHeight)
-            } else {
-                selectionIndicatorFrame = CGRect(x: configuration.menuMargin, y: configuration.menuHeight - configuration.selectionIndicatorHeight, width: configuration.menuItemWidth, height: configuration.selectionIndicatorHeight)
-            }
-        }
-
-        selectionIndicatorView = UIView(frame: selectionIndicatorFrame)
-        selectionIndicatorView.backgroundColor = configuration.selectionIndicatorColor
-        menuScrollView.addSubview(selectionIndicatorView)
     }
 }

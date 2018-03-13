@@ -14,8 +14,8 @@ class MenuItemView: UIView {
     var titleLabel: UILabel?
     var menuItemSeparator: UIView?
 
-    func setUpMenuItemView(_ menuItemWidth: CGFloat, menuScrollViewHeight: CGFloat, indicatorHeight: CGFloat, separatorPercentageHeight: CGFloat, separatorWidth: CGFloat, separatorRoundEdges: Bool, menuItemSeparatorColor: UIColor) {
-        titleLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: menuItemWidth, height: menuScrollViewHeight - indicatorHeight))
+    func setUpMenuItemView(_ menuItemWidth: CGFloat, menuScrollViewHeight: CGFloat, separatorPercentageHeight: CGFloat, separatorWidth: CGFloat, separatorRoundEdges: Bool, menuItemSeparatorColor: UIColor) {
+        titleLabel = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: menuItemWidth, height: menuScrollViewHeight - 0))
 
         menuItemSeparator = UIView(frame: CGRect(x: menuItemWidth - (separatorWidth / 2), y: floor(menuScrollViewHeight * ((1.0 - separatorPercentageHeight) / 2.0)), width: separatorWidth, height: floor(menuScrollViewHeight * separatorPercentageHeight)))
 
@@ -55,8 +55,8 @@ class MenuItemView: UIView {
             if pageMenu.menuItemMargin > 0 {
                 let marginSum = pageMenu.menuItemMargin * CGFloat(pageMenu.controllerArray.count + 1)
                 let menuItemWidth = (pageMenu.view.frame.width - marginSum) / CGFloat(pageMenu.controllerArray.count)
-                self.setUpMenuItemView(menuItemWidth, menuScrollViewHeight: pageMenu.configuration.menuHeight,
-                                       indicatorHeight: pageMenu.configuration.selectionIndicatorHeight,
+                self.setUpMenuItemView(menuItemWidth,
+                                       menuScrollViewHeight: pageMenu.configuration.menuHeight,
                                        separatorPercentageHeight: pageMenu.configuration.menuItemSeparatorPercentageHeight,
                                        separatorWidth: pageMenu.configuration.menuItemSeparatorWidth,
                                        separatorRoundEdges: pageMenu.configuration.menuItemSeparatorRoundEdges,
@@ -64,7 +64,6 @@ class MenuItemView: UIView {
             } else {
                 self.setUpMenuItemView(CGFloat(pageMenu.view.frame.width) / CGFloat(pageMenu.controllerArray.count),
                                        menuScrollViewHeight: pageMenu.configuration.menuHeight,
-                                       indicatorHeight: pageMenu.configuration.selectionIndicatorHeight,
                                        separatorPercentageHeight: pageMenu.configuration.menuItemSeparatorPercentageHeight,
                                        separatorWidth: pageMenu.configuration.menuItemSeparatorWidth,
                                        separatorRoundEdges: pageMenu.configuration.menuItemSeparatorRoundEdges,
@@ -72,8 +71,8 @@ class MenuItemView: UIView {
             }
             //**************************拡張ここまで*************************************
         } else {
-            self.setUpMenuItemView(pageMenu.configuration.menuItemWidth, menuScrollViewHeight: pageMenu.configuration.menuHeight,
-                                   indicatorHeight: pageMenu.configuration.selectionIndicatorHeight,
+            self.setUpMenuItemView(pageMenu.configuration.menuItemWidth,
+                                   menuScrollViewHeight: pageMenu.configuration.menuHeight,
                                    separatorPercentageHeight: pageMenu.configuration.menuItemSeparatorPercentageHeight,
                                    separatorWidth: pageMenu.configuration.menuItemSeparatorWidth,
                                    separatorRoundEdges: pageMenu.configuration.menuItemSeparatorRoundEdges,

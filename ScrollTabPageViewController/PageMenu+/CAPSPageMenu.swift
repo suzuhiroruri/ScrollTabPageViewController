@@ -44,7 +44,7 @@ open class CAPSPageMenu: UIViewController {
     var startingMenuMargin: CGFloat = 0.0
     var menuItemMargin: CGFloat = 0.0
 
-    var selectionIndicatorView: UIView = UIView()
+    //var selectionIndicatorView: UIView = UIView()
 
     public var currentPageIndex: Int = 0
     var lastPageIndex: Int = 0
@@ -160,6 +160,7 @@ open class CAPSPageMenu: UIViewController {
 
 extension CAPSPageMenu {
     // MARK: - Handle Selection Indicator
+    /*
     func moveSelectionIndicator(_ pageIndex: Int) {
         if pageIndex >= 0 && pageIndex < controllerArray.count {
             UIView.animate(withDuration: 0.15, animations: { () -> Void in
@@ -207,7 +208,7 @@ extension CAPSPageMenu {
             })
         }
     }
-
+    */
     // MARK: - Remove/Add Page
     func addPageAtIndex(_ index: Int) {
         // Call didMoveToPage delegate function
@@ -256,9 +257,9 @@ extension CAPSPageMenu {
                 menuScrollView.contentSize = CGSize(width: self.view.frame.width, height: configuration.menuHeight)
 
                 // Resize selectionIndicator bar
-                let selectionIndicatorX: CGFloat = CGFloat(currentPageIndex) * (self.view.frame.width / CGFloat(self.controllerArray.count))
-                let selectionIndicatorWidth: CGFloat = self.view.frame.width / CGFloat(self.controllerArray.count)
-                selectionIndicatorView.frame =  CGRect(x: selectionIndicatorX, y: self.selectionIndicatorView.frame.origin.y, width: selectionIndicatorWidth, height: self.selectionIndicatorView.frame.height)
+                //let selectionIndicatorX: CGFloat = CGFloat(currentPageIndex) * (self.view.frame.width / CGFloat(self.controllerArray.count))
+                //let selectionIndicatorWidth: CGFloat = self.view.frame.width / CGFloat(self.controllerArray.count)
+                //selectionIndicatorView.frame =  CGRect(x: selectionIndicatorX, y: self.selectionIndicatorView.frame.origin.y, width: selectionIndicatorWidth, height: self.selectionIndicatorView.frame.height)
 
                 // Resize menu items
                 var index: Int = 0
@@ -287,8 +288,8 @@ extension CAPSPageMenu {
                     startingMenuMargin = 0.0
                 }
 
-                let selectionIndicatorX: CGFloat = self.configuration.menuItemWidth * CGFloat(currentPageIndex) + self.configuration.menuMargin * CGFloat(currentPageIndex + 1) + self.startingMenuMargin
-                selectionIndicatorView.frame =  CGRect(x: selectionIndicatorX, y: self.selectionIndicatorView.frame.origin.y, width: self.selectionIndicatorView.frame.width, height: self.selectionIndicatorView.frame.height)
+                //let selectionIndicatorX: CGFloat = self.configuration.menuItemWidth * CGFloat(currentPageIndex) + self.configuration.menuMargin * CGFloat(currentPageIndex + 1) + self.startingMenuMargin
+                //selectionIndicatorView.frame =  CGRect(x: selectionIndicatorX, y: self.selectionIndicatorView.frame.origin.y, width: self.selectionIndicatorView.frame.width, height: self.selectionIndicatorView.frame.height)
 
                 // Recalculate frame for menu items if centered
                 var index: Int = 0

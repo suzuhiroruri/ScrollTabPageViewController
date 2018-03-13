@@ -122,7 +122,7 @@ extension CAPSPageMenu: UIScrollViewDelegate {
                         }
 
                         // Move selection indicator view when swiping
-                        moveSelectionIndicator(page)
+                        //moveSelectionIndicator(page)
                     }
                 } else {
                     var ratio: CGFloat = 1.0
@@ -140,7 +140,7 @@ extension CAPSPageMenu: UIScrollViewDelegate {
             didLayoutSubviewsAfterRotation = false
 
             // Move selection indicator view when swiping
-            moveSelectionIndicator(currentPageIndex)
+            //moveSelectionIndicator(currentPageIndex)
         }
     }
 
