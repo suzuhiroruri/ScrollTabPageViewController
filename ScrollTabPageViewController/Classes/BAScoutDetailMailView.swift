@@ -150,7 +150,6 @@ class BAScoutDetailMailView: UIView {
 
         let size = self.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
         self.frame = CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: size.height)
-
     }
 }
 

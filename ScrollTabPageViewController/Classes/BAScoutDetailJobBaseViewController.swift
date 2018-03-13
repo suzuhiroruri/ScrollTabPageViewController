@@ -14,9 +14,10 @@ protocol BAScoutDetailJobBaseViewControllerProtocol {
 
 class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CAPSPageMenuDelegate {
 
+	/// タブにセットするViewController
     var inTabViewController: [UIViewController] = []
 
-    var lastRequiredHeaderCurrentY: CGFloat = 0.0
+	var lastRequiredHeaderCurrentY: CGFloat = 0.0
     var lastSelectedHeaderCurrentY: CGFloat = 0.0
 
     /// 募集内容
@@ -38,7 +39,6 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         headerHeight = mailView.frame.height
 
         super.viewDidLoad()
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         headerView = mailView
 
         guard let requirementsViewController = requirementsViewController else {
@@ -77,7 +77,6 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "仕事詳細"
-        UIApplication.shared.statusBarStyle = .lightContent
     }
 
     // ヘッダーがスクロールされるときに呼ばれる
