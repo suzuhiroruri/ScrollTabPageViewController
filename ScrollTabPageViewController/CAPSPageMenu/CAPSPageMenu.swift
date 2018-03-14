@@ -37,7 +37,6 @@ open class CAPSPageMenu: UIViewController {
     let controllerScrollView = UIScrollView()
     var controllerArray: [UIViewController] = []
     var menuItems: [MenuItemView] = []
-    var menuItemWidths: [CGFloat] = []
 
     var totalMenuItemWidthIfDifferentWidths: CGFloat = 0.0
 
@@ -223,22 +222,19 @@ extension CAPSPageMenu {
         if (oldCurrentOrientationIsPortrait && UIDevice.current.orientation.isLandscape) || (!oldCurrentOrientationIsPortrait && (UIDevice.current.orientation.isPortrait || UIDevice.current.orientation.isFlat)) {
             didLayoutSubviewsAfterRotation = true
 
-            //Resize menu items if using as segmented control
-            if configuration.useMenuLikeSegmentedControl {
-                menuScrollView.contentSize = CGSize(width: self.view.frame.width, height: configuration.menuHeight)
+            menuScrollView.contentSize = CGSize(width: self.view.frame.width, height: configuration.menuHeight)
 
-                // Resize menu items
-                var index: Int = 0
+            // Resize menu items
+            var index: Int = 0
 
-                for item: MenuItemView in menuItems as [MenuItemView] {
-                    item.frame = CGRect(x: self.view.frame.width / CGFloat(controllerArray.count) * CGFloat(index), y: 0.0, width: self.view.frame.width / CGFloat(controllerArray.count), height: configuration.menuHeight)
-                    guard let titleLabel = item.titleLabel else {
-                        return
-                    }
-                    titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width / CGFloat(controllerArray.count), height: configuration.menuHeight)
-
-                    index += 1
+            for item: MenuItemView in menuItems as [MenuItemView] {
+                item.frame = CGRect(x: self.view.frame.width / CGFloat(controllerArray.count) * CGFloat(index), y: 0.0, width: self.view.frame.width / CGFloat(controllerArray.count), height: configuration.menuHeight)
+                guard let titleLabel = item.titleLabel else {
+                    return
                 }
+                titleLabel.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width / CGFloat(controllerArray.count), height: configuration.menuHeight)
+
+                index += 1
             }
 
             for view in controllerScrollView.subviews {

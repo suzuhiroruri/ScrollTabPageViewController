@@ -33,18 +33,13 @@ class MenuItemView: UIView {
     }
 
     func configure(for pageMenu: CAPSPageMenu, controller: UIViewController, index: CGFloat) {
-        if pageMenu.configuration.useMenuLikeSegmentedControl {
-            if pageMenu.menuItemMargin > 0 {
-                let marginSum = pageMenu.menuItemMargin * CGFloat(pageMenu.controllerArray.count + 1)
-                let menuItemWidth = (pageMenu.view.frame.width - marginSum) / CGFloat(pageMenu.controllerArray.count)
-                self.setUpMenuItemView(menuItemWidth,
-                                       menuScrollViewHeight: pageMenu.configuration.menuHeight)
-            } else {
-                self.setUpMenuItemView(CGFloat(pageMenu.view.frame.width) / CGFloat(pageMenu.controllerArray.count),
-                                       menuScrollViewHeight: pageMenu.configuration.menuHeight)
-            }
+        if pageMenu.menuItemMargin > 0 {
+            let marginSum = pageMenu.menuItemMargin * CGFloat(pageMenu.controllerArray.count + 1)
+            let menuItemWidth = (pageMenu.view.frame.width - marginSum) / CGFloat(pageMenu.controllerArray.count)
+            self.setUpMenuItemView(menuItemWidth,
+                                   menuScrollViewHeight: pageMenu.configuration.menuHeight)
         } else {
-            self.setUpMenuItemView(pageMenu.configuration.menuItemWidth,
+            self.setUpMenuItemView(CGFloat(pageMenu.view.frame.width) / CGFloat(pageMenu.controllerArray.count),
                                    menuScrollViewHeight: pageMenu.configuration.menuHeight)
         }
 
@@ -56,6 +51,7 @@ class MenuItemView: UIView {
 
         titleLabel.textAlignment = NSTextAlignment.center
         titleLabel.textColor = pageMenu.configuration.unselectedMenuItemLabelColor
+        titleLabel.backgroundColor = pageMenu.configuration.unselectedMenuItemBackgroundColor
 
         // Set title depending on if controller has a title set
         if controller.title != nil {

@@ -17,18 +17,7 @@ extension CAPSPageMenu: UIGestureRecognizerDelegate {
             // Calculate tapped page
             var itemIndex: Int = 0
 
-            if configuration.useMenuLikeSegmentedControl {
-                itemIndex = Int(tappedPoint.x / (self.view.frame.width / CGFloat(controllerArray.count)))
-            } else {
-                let rawItemIndex: CGFloat = ((tappedPoint.x - startingMenuMargin) - configuration.menuMargin / 2) / (configuration.menuMargin + configuration.menuItemWidth)
-
-                // Prevent moving to first item when tapping left to first item
-                if rawItemIndex < 0 {
-                    itemIndex = -1
-                } else {
-                    itemIndex = Int(rawItemIndex)
-                }
-            }
+            itemIndex = Int(tappedPoint.x / (self.view.frame.width / CGFloat(controllerArray.count)))
 
             if itemIndex >= 0 && itemIndex < controllerArray.count {
                 // Update page if changed

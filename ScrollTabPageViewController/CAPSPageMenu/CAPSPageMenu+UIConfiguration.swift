@@ -30,12 +30,8 @@ extension CAPSPageMenu {
                 configuration.selectedMenuItemBackgroundColor = value
             case let .unselectedMenuItemBackgroundColor(value):
                 configuration.unselectedMenuItemBackgroundColor = value
-            case let .useMenuLikeSegmentedControl(value):
-                configuration.useMenuLikeSegmentedControl = value
             case let .menuItemFont(value):
                 configuration.menuItemFont = value
-            case let .menuItemWidth(value):
-                configuration.menuItemWidth = value
             case let .scrollAnimationDurationOnMenuItemTap(value):
                 configuration.scrollAnimationDurationOnMenuItemTap = value
             }
@@ -101,14 +97,9 @@ extension CAPSPageMenu {
         menuScrollView.scrollsToTop = false
         controllerScrollView.scrollsToTop = false
 
-        // Configure menu scroll view
-        if configuration.useMenuLikeSegmentedControl {
-            menuScrollView.isScrollEnabled = false
-            menuScrollView.contentSize = CGSize(width: self.view.frame.width, height: configuration.menuHeight)
-            configuration.menuMargin = 0.0
-        } else {
-            menuScrollView.contentSize = CGSize(width: (configuration.menuItemWidth + configuration.menuMargin) * CGFloat(controllerArray.count) + configuration.menuMargin, height: configuration.menuHeight)
-        }
+        menuScrollView.isScrollEnabled = false
+        menuScrollView.contentSize = CGSize(width: self.view.frame.width, height: configuration.menuHeight)
+        configuration.menuMargin = 0.0
 
         // Configure controller scroll view content size
         controllerScrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(controllerArray.count), height: 0.0)
@@ -126,16 +117,12 @@ extension CAPSPageMenu {
             // Set up menu item for menu scroll view
             var menuItemFrame: CGRect = CGRect()
 
-            if configuration.useMenuLikeSegmentedControl {
-                if menuItemMargin > 0 {
-                    let marginSum = menuItemMargin * CGFloat(controllerArray.count + 1)
-                    let menuItemWidth = (self.view.frame.width - marginSum) / CGFloat(controllerArray.count)
-                    menuItemFrame = CGRect(x: CGFloat(menuItemMargin * (index + 1)) + menuItemWidth * CGFloat(index), y: 0.0, width: CGFloat(self.view.frame.width) / CGFloat(controllerArray.count), height: configuration.menuHeight)
-                } else {
-                    menuItemFrame = CGRect(x: self.view.frame.width / CGFloat(controllerArray.count) * CGFloat(index), y: 0.0, width: CGFloat(self.view.frame.width) / CGFloat(controllerArray.count), height: configuration.menuHeight)
-                }
+            if menuItemMargin > 0 {
+                let marginSum = menuItemMargin * CGFloat(controllerArray.count + 1)
+                let menuItemWidth = (self.view.frame.width - marginSum) / CGFloat(controllerArray.count)
+                menuItemFrame = CGRect(x: CGFloat(menuItemMargin * (index + 1)) + menuItemWidth * CGFloat(index), y: 0.0, width: CGFloat(self.view.frame.width) / CGFloat(controllerArray.count), height: configuration.menuHeight)
             } else {
-                menuItemFrame = CGRect(x: configuration.menuItemWidth * index + configuration.menuMargin * (index + 1) + startingMenuMargin, y: 0.0, width: configuration.menuItemWidth, height: configuration.menuHeight)
+                menuItemFrame = CGRect(x: self.view.frame.width / CGFloat(controllerArray.count) * CGFloat(index), y: 0.0, width: CGFloat(self.view.frame.width) / CGFloat(controllerArray.count), height: configuration.menuHeight)
             }
 
             let menuItemView: MenuItemView = MenuItemView(frame: menuItemFrame)
