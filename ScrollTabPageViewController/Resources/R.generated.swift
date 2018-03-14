@@ -33,12 +33,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.image` struct is generated, and contains static references to 1 images.
   struct image {
-    /// Image `BAScoutDetailAboutScout`.
-    static let bAScoutDetailAboutScout = Rswift.ImageResource(bundle: R.hostingBundle, name: "BAScoutDetailAboutScout")
+    /// Image `BAScoutDetailAboutScoutBenefit`.
+    static let bAScoutDetailAboutScoutBenefit = Rswift.ImageResource(bundle: R.hostingBundle, name: "BAScoutDetailAboutScoutBenefit")
     
-    /// `UIImage(named: "BAScoutDetailAboutScout", bundle: ..., traitCollection: ...)`
-    static func bAScoutDetailAboutScout(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.bAScoutDetailAboutScout, compatibleWith: traitCollection)
+    /// `UIImage(named: "BAScoutDetailAboutScoutBenefit", bundle: ..., traitCollection: ...)`
+    static func bAScoutDetailAboutScoutBenefit(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bAScoutDetailAboutScoutBenefit, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -185,7 +185,7 @@ struct _R: Rswift.Validatable {
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "BAScoutDetailAboutScout", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'BAScoutDetailAboutScout' is used in nib 'BAScoutDetailMailView', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "BAScoutDetailAboutScoutBenefit", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'BAScoutDetailAboutScoutBenefit' is used in nib 'BAScoutDetailMailView', but couldn't be loaded.") }
       }
       
       fileprivate init() {}
