@@ -30,6 +30,9 @@ class BAScoutDetailMailView: UIView {
     // 表示期限ラベル
     @IBOutlet weak var displayLimitDateLabel: UILabel!
 
+    // スカウトメール受信日の土台ビュー
+    @IBOutlet weak var receivedDateBaseView: UIView!
+    @IBOutlet weak var receivedDataBaseViewConstant: NSLayoutConstraint!
     // スカウトメール受信日のラベル
     @IBOutlet weak var receivedDateLabel: UILabel!
     // スカウトメールヘッダータイトルのラベル
@@ -92,6 +95,27 @@ class BAScoutDetailMailView: UIView {
         guard let isFromSubscribeList = scoutDetailMailViewModel?.isFromSubscribeList else {
             return
         }
+
+        if isFromSubscribeList {
+            // 応募済みの場合
+            subscribeDateLabel.isHidden = false
+            receivedDateBaseView.isHidden = false
+            receivedDateLabel.isHidden = false
+
+            // 表示期限
+            displayLimitDateLabel.textColor = UIColor.gray
+        } else {
+            // 未応募の場合
+            subscribeDateLabel.isHidden = true
+            receivedDateBaseView.isHidden = true
+            receivedDateLabel.isHidden = true
+            receivedDataBaseViewConstant.constant = 0
+
+            // 表示期限
+            displayLimitDateLabel.textColor = UIColor.black
+        }
+        // 表示期限
+        displayLimitDateLabel.text = scoutDetailMailViewModel?.displayLimitDate
 
         // スカウトメール受信日ラベル
         receivedDateLabel.textColor = isFromSubscribeList ? UIColor.red : UIColor.black
@@ -188,7 +212,7 @@ extension BAScoutDetailMailView: UICollectionViewDelegate, UICollectionViewDataS
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 125, height: 25)
+        return CGSize(width: 120, height: 25)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

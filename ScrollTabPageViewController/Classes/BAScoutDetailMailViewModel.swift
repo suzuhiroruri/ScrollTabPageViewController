@@ -13,6 +13,8 @@ class BAScoutDetailMailViewModel: NSObject {
     var isFromSubscribeList: Bool? = false
     // スカウトメール受信日
     var receivedDate: String?
+    // 表示期限
+    var displayLimitDate: String?
     // スカウトメールヘッダー
     var mailHeader: String?
     // 面接確約特典サブタイトル
@@ -48,6 +50,16 @@ class BAScoutDetailMailViewModel: NSObject {
         let now = Date()
         receivedDate = "受信日 :"
         receivedDate?.append(f.string(from: now))
+
+        if isFromSubscribeList {
+            // 応募済みの場合
+            displayLimitDate = "表示期限 :"
+            displayLimitDate?.append("2017/11/11")
+        } else {
+            // 未応募の場合
+            displayLimitDate = "受信日 :"
+            displayLimitDate?.append("2017/11/11")
+        }
 
         // 面接確約特典サブタイトル
         promisedInterviewBenefitSubTitle = "書類なしでスグ面接♪"
@@ -85,46 +97,45 @@ class BAScoutDetailMailViewModel: NSObject {
         }
 
 		// スカウトメール本文
-        mailBody = "あああああ"
-        /*
+        mailBody = "あああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+
         // 掲載終了までの残り日数
         let attributeNormalBlack: [NSAttributedStringKey: Any] = [
-            .foregroundColor: UIColor.black
+            NSForegroundColorAttributeName as NSString: UIColor.black
         ]
         let attributeBoldBlack: [NSAttributedStringKey: Any] = [
-            .foregroundColor: UIColor.black,
-            .font: UIFont.boldSystemFont(ofSize: 17.0)
+            NSForegroundColorAttributeName as NSString: UIColor.black,
+            NSFontAttributeName as NSString: UIFont.boldSystemFont(ofSize: 17.0)
         ]
         let attributeRed: [NSAttributedStringKey: Any] = [
-            .foregroundColor: UIColor.red,
-            .font: UIFont.boldSystemFont(ofSize: 17.0)
+            NSForegroundColorAttributeName as NSString: UIColor.red,
+            NSFontAttributeName as NSString: UIFont.boldSystemFont(ofSize: 17.0)
         ]
         let appearDaysLeft: Int = 0
 
         // TODO:AttributedStringはバイトルのEXTENSIONを使う
         if appearDaysLeft >= 4, appearDaysLeft <= 7 {
-            let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack)
-            let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack)
-            let stringThird = NSAttributedString(string: "日", attributes: attributeBoldBlack)
+            let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack as [String: Any])
+            let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack as [String: Any])
+            let stringThird = NSAttributedString(string: "日", attributes: attributeBoldBlack as [String: Any])
 
             appearDaysLeftString.append(stringFirst)
             appearDaysLeftString.append(stringSecond)
             appearDaysLeftString.append(stringThird)
 
         } else if appearDaysLeft >= 1, appearDaysLeft <= 3 {
-            let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack)
-            let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeRed)
-            let stringThird = NSAttributedString(string: "日", attributes: attributeRed)
+            let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack as [String: Any])
+            let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeRed as [String: Any])
+            let stringThird = NSAttributedString(string: "日", attributes: attributeRed as [String: Any])
 
             appearDaysLeftString.append(stringFirst)
             appearDaysLeftString.append(stringSecond)
             appearDaysLeftString.append(stringThird)
 
         } else if appearDaysLeft < 1 {
-            let string = NSAttributedString(string: "本日掲載終了", attributes: attributeRed)
+            let string = NSAttributedString(string: "本日掲載終了", attributes: attributeRed as [String: Any])
             appearDaysLeftString.append(string)
         }
-        */
     }
 
     // コレクションセルのセル数

@@ -9,6 +9,7 @@
 import UIKit
 
 protocol BAScoutDetailJobBaseViewControllerProtocol {
+	// ページビューのcontrollerのスクロールビュー
     var scrollView: UIScrollView { get }
 }
 
@@ -17,8 +18,10 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
     /// タブにセットするViewController
     private var inTabViewController: [UIViewController] = []
 
-    var lastRequiredHeaderCurrentY: CGFloat = 0.0
-    var lastSelectedHeaderCurrentY: CGFloat = 0.0
+    /// 募集内容タブのメールヘッダーのスクロールOffset
+    var lastRequiredHeaderOffsetY: CGFloat = 0.0
+    /// 選考・会社概要タブのメールヘッダーのスクロールOffset
+    var lastSelectedHeaderOffsetY: CGFloat = 0.0
 
     /// 募集内容
     private lazy var requirementsViewController: BAScoutDetailJobRequirementsViewController? = {
@@ -35,11 +38,16 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
     }()
 
     override func viewDidLoad() {
+        // ヘッダーとしてメールのビューを生成
     	let mailView = BAScoutDetailMailView.instantiate()
+        // ヘッダーのビューの高さを指定
         headerHeight = mailView.frame.height
 
         super.viewDidLoad()
+
+        // ヘッダービューに生成したメールビューを格納
         headerView = mailView
+        // メールビューのスクロールを検知して画面全体or仕事詳細部分をスクロールさせるようにセット
         mailView.scrollDelegateFunc = { [weak self] in self?.pleaseScroll($0) }
 
         self.updateView()
@@ -79,6 +87,7 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         inTabViewController.append(requirementsViewController)
         inTabViewController.append(selectionViewController)
 
+        // ページに関する設定を格納
         self.addPageMenu(menu: CAPSPageMenu(viewControllers: inTabViewController, frame: CGRect(x: 0, y: 0, width: pageMenuContainer.frame.width, height: pageMenuContainer.frame.height+130), pageMenuOptions: nil))
         guard let pageMenuController = pageMenuController else {
             return
@@ -86,42 +95,44 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         pageMenuController.delegate = self
     }
 
-    // ヘッダーがスクロールされるときに呼ばれる
+    /// タブスクロールビューがスクロールされるときに呼ばれる
+    ///
+    /// - Parameter minY:最上部スクロール可能Offset
+    /// - Parameter maxY:最下部スクロール可能Offset
+    /// - Parameter currentY:現在のスクロールOffset
     override func headerDidScroll(minY: CGFloat, maxY: CGFloat, currentY: CGFloat) {
+        // 画面Scrollに応じてタブをスクロールさせる
         updateHeaderPositionAccordingToScrollPosition(minY: minY, maxY: maxY, currentY: currentY)
+
+        // 現在表示している画面incex
         guard let currentIndex = self.pageMenuController?.currentPageIndex else {
             return
         }
 
         if currentIndex == 0 {
-            lastRequiredHeaderCurrentY = currentY
+            lastRequiredHeaderOffsetY = currentY
         } else {
-            lastSelectedHeaderCurrentY = currentY
+            lastSelectedHeaderOffsetY = currentY
         }
     }
 
-    // ページングする直前
+    /// ページングする直前に呼ばれる処理
+    ///
+    /// - Parameter controller: ページング先ViewController
+    /// - Parameter index: 画面インデックス
     func willMoveToPage(_ controller: UIViewController, index: Int) {
 
-        guard let jobDetailViewController = inTabViewController[index] as? BAScoutDetailJobBaseViewControllerProtocol else {
+        // ページング予定のviewController
+        guard let nextViewController = controller as? BAScoutDetailJobBaseViewControllerProtocol else {
             return
         }
 
-        if jobDetailViewController.scrollView.frame.height != 0 {
-           jobDetailViewController.scrollView.showsVerticalScrollIndicator = false
-            // 左右でヘッダーのOffsetが変更されていた場合はスクロールをリセットする
-            if lastRequiredHeaderCurrentY != lastSelectedHeaderCurrentY {
+        if nextViewController.scrollView.frame.height != 0 {
+            // タブ左右でヘッダーのOffsetが変更されていた場合はスクロールをリセットする
+            if lastRequiredHeaderOffsetY != lastSelectedHeaderOffsetY {
                 lastTabScrollViewOffset.y = 0
-                jobDetailViewController.scrollView.contentOffset.y = 0
+                nextViewController.scrollView.contentOffset.y = 0
             }
         }
-    }
-
-    // ページングした直後
-    func didMoveToPage(_ controller: UIViewController, index: Int) {
-        guard let jobDetailViewController = inTabViewController[index] as? BAScoutDetailJobBaseViewControllerProtocol else {
-            return
-        }
-        jobDetailViewController.scrollView.showsVerticalScrollIndicator = true
     }
 }
