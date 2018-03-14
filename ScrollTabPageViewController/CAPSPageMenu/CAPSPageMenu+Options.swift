@@ -20,11 +20,18 @@
 import UIKit
 
 public enum CAPSPageMenuOption {
+    // ページビューの背景色
     case viewBackgroundColor(UIColor)
+    // セグメントの高さ
     case menuHeight(CGFloat)
+    // セグメントの選択ラベルの文字色
     case selectedMenuItemLabelColor(UIColor)
+    // セグメントの非選択ラベルの文字色
     case unselectedMenuItemLabelColor(UIColor)
+    // セグメントの選択ラベルの背景色
     case selectedMenuItemBackgroundColor(UIColor)
+    // セグメントの非選択ラベルの背景色
     case unselectedMenuItemBackgroundColor(UIColor)
+    // セグメントのフォント
     case menuItemFont(UIFont)
 }
