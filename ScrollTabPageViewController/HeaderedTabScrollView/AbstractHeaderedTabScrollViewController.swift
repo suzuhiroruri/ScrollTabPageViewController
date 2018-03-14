@@ -46,6 +46,7 @@ open class AbstractHeaderedTabScrollViewController: UIViewController {
                 headerView.leadingAnchor.constraint(equalTo: headerContainer.leadingAnchor).isActive = true
                 headerView.trailingAnchor.constraint(equalTo: headerContainer.trailingAnchor).isActive = true
                 headerView.bottomAnchor.constraint(equalTo: headerContainer.bottomAnchor).isActive = true
+                headerView.backgroundColor = UIColor(red: 224 / 255.0, green: 224 / 255.0, blue: 224 / 255.0, alpha: 1)
             }
         }
     }
