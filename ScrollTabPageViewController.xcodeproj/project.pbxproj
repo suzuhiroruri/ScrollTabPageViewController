@@ -102,7 +102,7 @@
 				29A4339820575F5E009F08E9 /* BAScoutDetailMailView.swift */,
 				29A4339A20575F6E009F08E9 /* BAScoutDetailMailView.xib */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		29391AE120369CD800D469F1 /* ViewModel */ = {
@@ -110,7 +110,7 @@
 			children = (
 				29391AE220369D2F00D469F1 /* BAScoutDetailMailViewModel.swift */,
 			);
-			name = ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2979E3402034527E0075D321 /* Base */ = {
@@ -120,6 +120,7 @@
 				2906437B204F69A3008715C4 /* BAScoutDetailJobBase.storyboard */,
 			);
 			name = Base;
+			path = JobDetail/Normal/Base;
 			sourceTree = "<group>";
 		};
 		2979E341203452840075D321 /* Mail */ = {
@@ -130,18 +131,35 @@
 				29391AE92036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.swift */,
 				29391AE82036A06000D469F1 /* BAScoutDetailBenefitCollectionCell.xib */,
 			);
-			name = Mail;
+			path = Mail;
 			sourceTree = "<group>";
 		};
 		2979E342203452890075D321 /* Job */ = {
 			isa = PBXGroup;
 			children = (
+				297D064720591A750046F3F7 /* Requirements */,
+				297D064820591A7D0046F3F7 /* Selection */,
+			);
+			name = Job;
+			path = JobDetail/Normal;
+			sourceTree = "<group>";
+		};
+		297D064720591A750046F3F7 /* Requirements */ = {
+			isa = PBXGroup;
+			children = (
 				29FDF185204E2139002E1550 /* BAScoutDetailJobRequirementsViewController.swift */,
 				29FDF186204E2139002E1550 /* BAScoutDetailJobRequirementsViewController.storyboard */,
+			);
+			path = Requirements;
+			sourceTree = "<group>";
+		};
+		297D064820591A7D0046F3F7 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
 				29FDF187204E213A002E1550 /* BAScoutDetailJobSelectionViewController.swift */,
 				29FDF184204E2139002E1550 /* BAScoutDetailJobSelectionViewController.storyboard */,
 			);
-			name = Job;
+			path = Selection;
 			sourceTree = "<group>";
 		};
 		29AB422D203C3D4100AB8484 /* List */ = {
