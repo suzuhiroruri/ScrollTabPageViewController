@@ -41,7 +41,6 @@ open class CAPSPageMenu: UIViewController {
     var totalMenuItemWidthIfDifferentWidths: CGFloat = 0.0
 
     var startingMenuMargin: CGFloat = 0.0
-    var menuItemMargin: CGFloat = 0.0
 
     public var currentPageIndex: Int = 0
     var lastPageIndex: Int = 0
@@ -60,8 +59,6 @@ open class CAPSPageMenu: UIViewController {
     var pagesAddedDictionary: [Int: Int] = [:]
 
     open weak var delegate: CAPSPageMenuDelegate?
-
-    var tapTimer: Timer?
 
     enum CAPSPageMenuScrollDirection: Int {
         case left
@@ -295,14 +292,8 @@ extension CAPSPageMenu {
                 // Add page from which tap is initiated so it can be removed after tap is done
                 pagesAddedDictionary[lastPageIndex] = lastPageIndex
             }
-
-            // Move controller scroll view when tapping menu item
-            let duration: Double = Double(configuration.scrollAnimationDurationOnMenuItemTap) / Double(1000)
-
-            UIView.animate(withDuration: duration, animations: { () -> Void in
-                let xOffset: CGFloat = CGFloat(index) * self.controllerScrollView.frame.width
-                self.controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: self.controllerScrollView.contentOffset.y), animated: false)
-            })
+            let xOffset: CGFloat = CGFloat(index) * self.controllerScrollView.frame.width
+            self.controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: self.controllerScrollView.contentOffset.y), animated: false)
         }
     }
 }

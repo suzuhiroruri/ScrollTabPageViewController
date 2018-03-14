@@ -48,15 +48,7 @@ extension CAPSPageMenu: UIGestureRecognizerDelegate {
                 let xOffset: CGFloat = CGFloat(itemIndex) * self.controllerScrollView.frame.width
                 self.controllerScrollView.setContentOffset(CGPoint(x: xOffset, y: self.controllerScrollView.contentOffset.y), animated: false)
 
-                if tapTimer != nil {
-                    guard let tapTimer = tapTimer else {
-                        return
-                    }
-                    tapTimer.invalidate()
-                }
-
-                let timerInterval: TimeInterval = Double(configuration.scrollAnimationDurationOnMenuItemTap) * 0.001
-                tapTimer = Timer.scheduledTimer(timeInterval: timerInterval, target: self, selector: #selector(CAPSPageMenu.scrollViewDidEndTapScrollingAnimation), userInfo: nil, repeats: false)
+                scrollViewDidEndTapScrollingAnimation()
             }
         }
     }

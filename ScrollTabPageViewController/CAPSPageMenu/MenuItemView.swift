@@ -33,15 +33,8 @@ class MenuItemView: UIView {
     }
 
     func configure(for pageMenu: CAPSPageMenu, controller: UIViewController, index: CGFloat) {
-        if pageMenu.menuItemMargin > 0 {
-            let marginSum = pageMenu.menuItemMargin * CGFloat(pageMenu.controllerArray.count + 1)
-            let menuItemWidth = (pageMenu.view.frame.width - marginSum) / CGFloat(pageMenu.controllerArray.count)
-            self.setUpMenuItemView(menuItemWidth,
-                                   menuScrollViewHeight: pageMenu.configuration.menuHeight)
-        } else {
-            self.setUpMenuItemView(CGFloat(pageMenu.view.frame.width) / CGFloat(pageMenu.controllerArray.count),
-                                   menuScrollViewHeight: pageMenu.configuration.menuHeight)
-        }
+        self.setUpMenuItemView(CGFloat(pageMenu.view.frame.width) / CGFloat(pageMenu.controllerArray.count),
+                               menuScrollViewHeight: pageMenu.configuration.menuHeight)
 
         guard let titleLabel = titleLabel else {
             return

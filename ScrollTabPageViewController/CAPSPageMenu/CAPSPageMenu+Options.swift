@@ -20,15 +20,11 @@
 import UIKit
 
 public enum CAPSPageMenuOption {
-    case scrollMenuBackgroundColor(UIColor)
     case viewBackgroundColor(UIColor)
-    case menuMargin(CGFloat)
-    case menuItemMargin(CGFloat)
     case menuHeight(CGFloat)
     case selectedMenuItemLabelColor(UIColor)
     case unselectedMenuItemLabelColor(UIColor)
     case selectedMenuItemBackgroundColor(UIColor)
     case unselectedMenuItemBackgroundColor(UIColor)
     case menuItemFont(UIFont)
-    case scrollAnimationDurationOnMenuItemTap(Int)
 }

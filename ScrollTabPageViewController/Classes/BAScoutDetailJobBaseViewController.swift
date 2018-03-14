@@ -79,17 +79,6 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         inTabViewController.append(requirementsViewController)
         inTabViewController.append(selectionViewController)
 
-        let parameters: [CAPSPageMenuOption] = [
-
-            .scrollMenuBackgroundColor(.yellow),
-            .viewBackgroundColor(.lightGray),
-            .menuHeight(44.0),
-            .unselectedMenuItemLabelColor(.gray),
-            .selectedMenuItemLabelColor(.white),
-            .unselectedMenuItemBackgroundColor(UIColor(red: 224 / 255.0, green: 224 / 255.0, blue: 224 / 255.0, alpha: 1)),
-            .selectedMenuItemBackgroundColor(UIColor.red),
-            .menuItemFont(UIFont.systemFont(ofSize: 13, weight: UIFontWeightBold))
-        ]
         self.addPageMenu(menu: CAPSPageMenu(viewControllers: inTabViewController, frame: CGRect(x: 0, y: 0, width: pageMenuContainer.frame.width, height: pageMenuContainer.frame.height+130), pageMenuOptions: nil))
         guard let pageMenuController = pageMenuController else {
             return
