@@ -136,7 +136,7 @@
                                                                         </label>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncJ-P2-ZG5">
                                                                             <rect key="frame" x="395" y="4" width="123" height="22"/>
-                                                                            <state key="normal" image="BAScoutDetailAboutScout"/>
+                                                                            <state key="normal" image="BAScoutDetailAboutScoutBenefit"/>
                                                                         </button>
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -371,6 +371,6 @@
         </view>
     </objects>
     <resources>
-        <image name="BAScoutDetailAboutScout" width="123" height="12"/>
+        <image name="BAScoutDetailAboutScoutBenefit" width="123" height="12"/>
     </resources>
 </document>
