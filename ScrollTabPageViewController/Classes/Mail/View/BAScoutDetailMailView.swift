@@ -150,6 +150,13 @@ class BAScoutDetailMailView: UIView {
         mailBodyLabel.text = scoutDetailMailViewModel?.mailBody
         mailBodyLabel.sizeToFit()
 
+        // 掲載終了残り日数土台ビュー
+        // 下線のCALayerを作成
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x: 0, y: appearDaysLeftBaseView.bounds.size.height - 1, width: appearDaysLeftBaseView.frame.width, height: 1.0)
+        bottomBorder.backgroundColor = UIColor(red: 187 / 255.0, green: 187 / 255.0, blue: 187 / 255.0, alpha: 1).cgColor
+        appearDaysLeftBaseView.layer.addSublayer(bottomBorder)
+
         // 掲載終了残り日数ラベル
         appearDaysLeftLabel.attributedText = scoutDetailMailViewModel?.appearDaysLeftString
         guard let isAppearDaysLeftLabelEmpty = appearDaysLeftLabel.text?.isEmpty else {

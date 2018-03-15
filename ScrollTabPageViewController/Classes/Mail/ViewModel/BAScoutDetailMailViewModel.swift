@@ -97,7 +97,7 @@ class BAScoutDetailMailViewModel: NSObject {
         }
 
 		// スカウトメール本文
-        mailBody = "あああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+        mailBody = "最新のフードデリバリーサービス\nUber Eats（ウーバーイーツ）のお料理を配達するお仕事！\n【1】アプリを開くとレストランから配達リクエストが届く\n▼\n【2】自転車や原付バイクで料理を受け取り、配達スタート!\n▼\n【3】注文者に料理を届けて、アプリで完了ボタンをタップ!\n★殆どの人がデリバリー初心者！\n★配達バッグは貸し出し有!\n★自分の自転車・原付バイク(125cc以下)で稼働OK！\n★お仕事は私服でOK!"
 
         // 掲載終了までの残り日数
         let attributeNormalBlack: [NSAttributedStringKey: Any] = [
@@ -115,18 +115,18 @@ class BAScoutDetailMailViewModel: NSObject {
 
         // TODO:AttributedStringはバイトルのEXTENSIONを使う
         if appearDaysLeft >= 4, appearDaysLeft <= 7 {
-            let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack as [String: Any])
+            let stringFirst = NSAttributedString(string: "掲載終了まで残り ", attributes: attributeNormalBlack as [String: Any])
             let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack as [String: Any])
-            let stringThird = NSAttributedString(string: "日", attributes: attributeBoldBlack as [String: Any])
+            let stringThird = NSAttributedString(string: " 日", attributes: attributeBoldBlack as [String: Any])
 
             appearDaysLeftString.append(stringFirst)
             appearDaysLeftString.append(stringSecond)
             appearDaysLeftString.append(stringThird)
 
         } else if appearDaysLeft >= 1, appearDaysLeft <= 3 {
-            let stringFirst = NSAttributedString(string: "掲載終了まで残り", attributes: attributeNormalBlack as [String: Any])
+            let stringFirst = NSAttributedString(string: "掲載終了まで残り ", attributes: attributeNormalBlack as [String: Any])
             let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeRed as [String: Any])
-            let stringThird = NSAttributedString(string: "日", attributes: attributeRed as [String: Any])
+            let stringThird = NSAttributedString(string: " 日", attributes: attributeBoldBlack as [String: Any])
 
             appearDaysLeftString.append(stringFirst)
             appearDaysLeftString.append(stringSecond)

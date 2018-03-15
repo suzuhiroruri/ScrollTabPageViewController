@@ -55,7 +55,7 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-		title = "仕事詳細"
+		title = "スカウト詳細"
     }
 
     /// 表示更新
