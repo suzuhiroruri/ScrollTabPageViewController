@@ -10,7 +10,9 @@ import UIKit
 
 class BAScoutDetailMailViewModel: NSObject {
 
-    var isFromSubscribeList: Bool? = false
+    var isFromSubscribeList: Bool? = true
+    // 応募日時
+    var subscribeDate: String?
     // スカウトメール受信日
     var receivedDate: String?
     // 表示期限
@@ -49,21 +51,26 @@ class BAScoutDetailMailViewModel: NSObject {
         guard let isFromSubscribeList = isFromSubscribeList else {
             return
         }
-        f.timeStyle = isFromSubscribeList ? .medium:.none
+        f.timeStyle = .none
         f.dateStyle = .medium
         f.locale = Locale(identifier: "ja_JP")
         let now = Date()
+        let receivedDateString = f.string(from: now)
         receivedDate = "受信日 :"
-        receivedDate?.append(f.string(from: now))
+        receivedDate?.append(receivedDateString)
 
         if isFromSubscribeList {
             // 応募済みの場合
+            f.timeStyle = .medium
+            let subscribeDateString = f.string(from: now)
+            subscribeDate = "応募日時 :"
+            subscribeDate?.append(subscribeDateString)
             displayLimitDate = "表示期限 :"
             displayLimitDate?.append("2017/11/11")
         } else {
             // 未応募の場合
             displayLimitDate = "受信日 :"
-            displayLimitDate?.append("2017/11/11")
+            displayLimitDate?.append(receivedDateString)
         }
 
         // 面接確約特典サブタイトル
@@ -165,30 +172,35 @@ class BAScoutDetailMailViewModel: NSObject {
             NSForegroundColorAttributeName as NSString: UIColor.red,
             NSFontAttributeName as NSString: UIFont.boldSystemFont(ofSize: 17.0)
         ]
-        let appearDaysLeft: Int = 8
+        let appearDaysLeft: Int = 1
 
-        // TODO:AttributedStringはバイトルのEXTENSIONを使う
-        if appearDaysLeft >= 4, appearDaysLeft <= 7 {
-            let stringFirst = NSAttributedString(string: "掲載終了まで残り ", attributes: attributeNormalBlack as [String: Any])
-            let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack as [String: Any])
-            let stringThird = NSAttributedString(string: " 日", attributes: attributeBoldBlack as [String: Any])
-
-            appearDaysLeftString.append(stringFirst)
-            appearDaysLeftString.append(stringSecond)
-            appearDaysLeftString.append(stringThird)
-
-        } else if appearDaysLeft >= 1, appearDaysLeft <= 3 {
-            let stringFirst = NSAttributedString(string: "掲載終了まで残り ", attributes: attributeNormalBlack as [String: Any])
-            let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeRed as [String: Any])
-            let stringThird = NSAttributedString(string: " 日", attributes: attributeBoldBlack as [String: Any])
-
-            appearDaysLeftString.append(stringFirst)
-            appearDaysLeftString.append(stringSecond)
-            appearDaysLeftString.append(stringThird)
-
-        } else if appearDaysLeft < 1 {
-            let string = NSAttributedString(string: "本日掲載終了", attributes: attributeRed as [String: Any])
+        if isFromSubscribeList {
+            let string = NSAttributedString(string: "求人詳細はこちら", attributes: attributeNormalBlack as [String: Any])
             appearDaysLeftString.append(string)
+        } else {
+            // TODO:AttributedStringはバイトルのEXTENSIONを使う
+            if appearDaysLeft >= 4, appearDaysLeft <= 7 {
+                let stringFirst = NSAttributedString(string: "掲載終了まで残り ", attributes: attributeNormalBlack as [String: Any])
+                let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack as [String: Any])
+                let stringThird = NSAttributedString(string: " 日", attributes: attributeBoldBlack as [String: Any])
+
+                appearDaysLeftString.append(stringFirst)
+                appearDaysLeftString.append(stringSecond)
+                appearDaysLeftString.append(stringThird)
+
+            } else if appearDaysLeft >= 1, appearDaysLeft <= 3 {
+                let stringFirst = NSAttributedString(string: "掲載終了まで残り ", attributes: attributeNormalBlack as [String: Any])
+                let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeRed as [String: Any])
+                let stringThird = NSAttributedString(string: " 日", attributes: attributeBoldBlack as [String: Any])
+
+                appearDaysLeftString.append(stringFirst)
+                appearDaysLeftString.append(stringSecond)
+                appearDaysLeftString.append(stringThird)
+
+            } else if appearDaysLeft < 1 {
+                let string = NSAttributedString(string: "本日掲載終了", attributes: attributeRed as [String: Any])
+                appearDaysLeftString.append(string)
+            }
         }
     }
 

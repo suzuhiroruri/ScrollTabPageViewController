@@ -107,7 +107,7 @@ class BAScoutDetailMailView: UIView {
             subscribeDateLabel.isHidden = false
             receivedDateBaseView.isHidden = false
             receivedDateLabel.isHidden = false
-
+            subscribeDateLabel.text = scoutDetailMailViewModel?.subscribeDate
             // 表示期限
             displayLimitDateLabel.textColor = UIColor.gray
         } else {
@@ -124,7 +124,6 @@ class BAScoutDetailMailView: UIView {
         displayLimitDateLabel.text = scoutDetailMailViewModel?.displayLimitDate
 
         // スカウトメール受信日ラベル
-        receivedDateLabel.textColor = isFromSubscribeList ? UIColor.red : UIColor.black
         receivedDateLabel.text = scoutDetailMailViewModel?.receivedDate
 
         // スカウトメールヘッダーラベル
