@@ -180,7 +180,7 @@ class BAScoutDetailMailViewModel: NSObject {
         } else {
             // TODO:AttributedStringはバイトルのEXTENSIONを使う
             if appearDaysLeft >= 4, appearDaysLeft <= 7 {
-                let stringFirst = NSAttributedString(string: "掲載終了まで残り ", attributes: attributeNormalBlack as [String: Any])
+                let stringFirst = NSAttributedString(string: "掲載終了日まで残り ", attributes: attributeNormalBlack as [String: Any])
                 let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack as [String: Any])
                 let stringThird = NSAttributedString(string: " 日", attributes: attributeBoldBlack as [String: Any])
 
@@ -189,7 +189,7 @@ class BAScoutDetailMailViewModel: NSObject {
                 appearDaysLeftString.append(stringThird)
 
             } else if appearDaysLeft >= 1, appearDaysLeft <= 3 {
-                let stringFirst = NSAttributedString(string: "掲載終了まで残り ", attributes: attributeNormalBlack as [String: Any])
+                let stringFirst = NSAttributedString(string: "掲載終了日まで残り ", attributes: attributeNormalBlack as [String: Any])
                 let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeRed as [String: Any])
                 let stringThird = NSAttributedString(string: " 日", attributes: attributeBoldBlack as [String: Any])
 

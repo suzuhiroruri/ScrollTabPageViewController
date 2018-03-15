@@ -60,10 +60,13 @@
                                                     <rect key="frame" x="10" y="30" width="543" height="85"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOY-nV-fhZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="543" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="543" height="20"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="受信日:2017/11/11" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cU6-sL-tGk">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="543" height="50"/>
+                                                                    <rect key="frame" x="0.0" y="10" width="543" height="10"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="10" id="MeC-if-SUz"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -72,17 +75,17 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="cU6-sL-tGk" secondAttribute="bottom" id="2CL-10-OY0"/>
-                                                                <constraint firstItem="cU6-sL-tGk" firstAttribute="top" secondItem="aOY-nV-fhZ" secondAttribute="top" id="BPQ-xi-a5l"/>
-                                                                <constraint firstAttribute="height" constant="50" id="h2P-Am-CNs"/>
+                                                                <constraint firstItem="cU6-sL-tGk" firstAttribute="top" secondItem="aOY-nV-fhZ" secondAttribute="top" constant="10" id="BPQ-xi-a5l"/>
+                                                                <constraint firstAttribute="height" constant="20" id="h2P-Am-CNs"/>
                                                                 <constraint firstAttribute="trailing" secondItem="cU6-sL-tGk" secondAttribute="trailing" id="iW8-uI-k7q"/>
                                                                 <constraint firstItem="cU6-sL-tGk" firstAttribute="leading" secondItem="aOY-nV-fhZ" secondAttribute="leading" id="mB5-2H-OyT"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vyx-pC-WB9">
-                                                            <rect key="frame" x="0.0" y="50" width="543" height="35"/>
+                                                            <rect key="frame" x="0.0" y="20" width="543" height="65"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="【面接確約】XXX" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLb-0g-AnL">
-                                                                    <rect key="frame" x="0.0" y="10" width="543" height="25"/>
+                                                                    <rect key="frame" x="0.0" y="10" width="543" height="55"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="bdV-VH-Kfr"/>
                                                                     </constraints>
