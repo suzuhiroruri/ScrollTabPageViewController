@@ -52,6 +52,10 @@ class BAScoutDetailMailView: UIView {
             benefitCollectionView.register(nib, forCellWithReuseIdentifier: "bAScoutDetailBenefitCollectionCell")
         }
     }
+    // 特典アイコンのcollectionViewの上部制約
+    @IBOutlet weak var benefitCollectionTopConstrant: NSLayoutConstraint!
+    // 特典アイコンのcollectionViewの下部制約
+    @IBOutlet weak var benefitCollectionBottomConstrant: NSLayoutConstraint!
     // 特典アイコンのcollectionViewの高さ
     @IBOutlet weak var collectionHeight: NSLayoutConstraint!
 
@@ -67,6 +71,8 @@ class BAScoutDetailMailView: UIView {
     @IBOutlet weak var appearDaysLeftBaseView: UIView!
     // 掲載終了残り日数ラベル
     @IBOutlet weak var appearDaysLeftLabel: UILabel!
+    // 掲載終了残り日数ラベルの高さ
+    @IBOutlet weak var appearDaysLeftLabelHeight: NSLayoutConstraint!
 
     var scoutDetailMailViewModel: BAScoutDetailMailViewModel?
 
@@ -163,6 +169,7 @@ class BAScoutDetailMailView: UIView {
             return
         }
         if isAppearDaysLeftLabelEmpty {
+            appearDaysLeftLabelHeight.constant = 0
             appearDaysLeftLabel.isHidden = true
             appearDaysLeftBaseView.isHidden = true
         }
@@ -204,6 +211,8 @@ extension BAScoutDetailMailView: UICollectionViewDelegate, UICollectionViewDataS
         }
         if !(scoutDetailMailViewModel.numberOfCollectionCellAtSection() > 0) {
             benefitCollectionBaseView.isHidden = true
+            benefitCollectionTopConstrant.constant = 0
+            benefitCollectionBottomConstrant.constant = 0
         }
         return scoutDetailMailViewModel.numberOfCollectionCellAtSection()
     }

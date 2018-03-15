@@ -21,6 +21,11 @@ class BAScoutDetailMailViewModel: NSObject {
     var promisedInterviewBenefitSubTitle: String?
     // 面接確約特典タイトル
     var promisedInterviewBenefitTitle: String?
+    // 特典アイコン配列
+    var benefitIconArray: Array<String> = []
+    // 直接採用企業かどうか
+    var isDirectEmployCompany: Bool?  = true
+
     // スカウト特典備考
     var benefitRemarks: String? = ""
     // スカウトメール本文
@@ -84,8 +89,57 @@ class BAScoutDetailMailViewModel: NSObject {
         // スカウトメールヘッダー
         mailHeader = promisedInterviewBenefitTitle.isEmpty ? "あ" : "【" + promisedInterviewBenefitTitle + "】" + "ああああああああああああああああああああ"
 
+        guard let isDirectEmployCompany = isDirectEmployCompany else {
+            return
+        }
+
+        let tripInterviewFlag = true
+        if tripInterviewFlag {
+            let iconString = isDirectEmployCompany ? "出張面接" : "出張登録会"
+            benefitIconArray.append(iconString)
+        }
+
+        let weekendFlag = true
+        if weekendFlag {
+            let iconString = isDirectEmployCompany ? "土日面接可能" : "土日登録会"
+            benefitIconArray.append(iconString)
+        }
+
+        let nightInterviewFlag = true
+        if nightInterviewFlag {
+            let iconString = isDirectEmployCompany ? "夜間採用" : "夜間登録会"
+            benefitIconArray.append(iconString)
+        }
+
+        let interviewTransportProvideKind = 1
+        if interviewTransportProvideKind == 1 || interviewTransportProvideKind == 2 {
+            let iconString = isDirectEmployCompany ? "面接交通費支給" : "登録会交通費支給"
+            benefitIconArray.append(iconString)
+        }
+
+        let visitCompanyInterviewFlag = true
+        if visitCompanyInterviewFlag {
+            let iconString = "来社特典あり"
+            benefitIconArray.append(iconString)
+        }
+
         // 特典アイコン配列
-        let benefitRemarksArray = ["※面接交通費支給", "※来社特典あり"]
+        var benefitRemarksArray: Array<String> = []
+        let interviewTransportSupplyInfo = "面接交通費支給内容"
+        if interviewTransportProvideKind == 1 {
+            let remarkString = "※面接交通費支給 : 全額支給 (" + interviewTransportSupplyInfo + ")"
+            benefitRemarksArray.append(remarkString)
+        } else if interviewTransportProvideKind == 2 {
+            let transportSupplyLimit = 1000.description
+            let remarkString = "※面接交通費支給 : 上限全額" + transportSupplyLimit + "円までの一部支給 (" + interviewTransportSupplyInfo + ")"
+            benefitRemarksArray.append(remarkString)
+        }
+
+        if visitCompanyInterviewFlag {
+            let visitCompanyInterviewBenefitInfo = "特典内容"
+            let remarkString = "※来社特典あり : " + visitCompanyInterviewBenefitInfo
+            benefitRemarksArray.append(remarkString)
+        }
         for remark in benefitRemarksArray {
             guard let benefitRemarksIsEmpty: Bool = benefitRemarks?.isEmpty else {
                 return
@@ -111,7 +165,7 @@ class BAScoutDetailMailViewModel: NSObject {
             NSForegroundColorAttributeName as NSString: UIColor.red,
             NSFontAttributeName as NSString: UIFont.boldSystemFont(ofSize: 17.0)
         ]
-        let appearDaysLeft: Int = 0
+        let appearDaysLeft: Int = 8
 
         // TODO:AttributedStringはバイトルのEXTENSIONを使う
         if appearDaysLeft >= 4, appearDaysLeft <= 7 {
@@ -140,12 +194,12 @@ class BAScoutDetailMailViewModel: NSObject {
 
     // コレクションセルのセル数
     func numberOfCollectionCellAtSection() -> Int {
-        return 7
+        return benefitIconArray.count
     }
 
     // コレクションセルの文字列
     func collectionCellText(indexPath: IndexPath) -> String {
-        return "あーーーー"
+        return benefitIconArray[indexPath.row]
     }
 
 }

@@ -46,7 +46,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="taA-Ag-TJ2" firstAttribute="centerY" secondItem="zQt-Bs-Xtp" secondAttribute="centerY" id="HgD-sr-lPl"/>
                                                         <constraint firstItem="K4A-2v-Q8T" firstAttribute="leading" secondItem="taA-Ag-TJ2" secondAttribute="trailing" id="RlQ-It-daZ"/>
@@ -194,7 +194,7 @@
                                                                             <rect key="frame" x="0.0" y="5" width="523" height="40"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="PSg-9v-oXc"/>
+                                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="PSg-9v-oXc"/>
                                                                             </constraints>
                                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WdP-d0-zvR">
                                                                                 <size key="itemSize" width="50" height="50"/>
@@ -356,7 +356,10 @@
             <connections>
                 <outlet property="appearDaysLeftBaseView" destination="rZO-dX-D83" id="62f-jt-p1i"/>
                 <outlet property="appearDaysLeftLabel" destination="rmI-Ac-7ED" id="elO-xi-muM"/>
+                <outlet property="appearDaysLeftLabelHeight" destination="fls-4E-i5G" id="DRy-3x-L7C"/>
                 <outlet property="benefitCollectionBaseView" destination="WRK-CB-paV" id="NKz-LP-BDv"/>
+                <outlet property="benefitCollectionBottomConstrant" destination="lPC-Wi-WLG" id="bxM-Av-jHR"/>
+                <outlet property="benefitCollectionTopConstrant" destination="gPr-yb-KAw" id="NrD-lo-te3"/>
                 <outlet property="benefitCollectionView" destination="wwA-Vu-Zw8" id="riY-Il-Wct"/>
                 <outlet property="benefitRemarksBaseView" destination="fgl-2K-iaY" id="zg1-i6-EV4"/>
                 <outlet property="benefitRemarksLabel" destination="NUz-0p-S64" id="9EQ-pd-Al8"/>
