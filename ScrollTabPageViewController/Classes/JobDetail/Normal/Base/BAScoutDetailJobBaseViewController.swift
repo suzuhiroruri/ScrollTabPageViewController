@@ -88,7 +88,7 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         inTabViewController.append(selectionViewController)
 
         // ページに関する設定を格納
-        self.addPageMenu(menu: CAPSPageMenu(viewControllers: inTabViewController, frame: CGRect(x: 0, y: 0, width: pageMenuContainer.frame.width, height: pageMenuContainer.frame.height+130), pageMenuOptions: nil))
+        self.addPageMenu(menu: CAPSPageMenu(viewControllers: inTabViewController, frame: CGRect(x: 0, y: 0, width: pageMenuContainer.frame.width, height: pageMenuContainer.frame.height+40), pageMenuOptions: nil))
         guard let pageMenuController = pageMenuController else {
             return
         }
@@ -126,13 +126,11 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         guard let nextViewController = controller as? BAScoutDetailJobBaseViewControllerProtocol else {
             return
         }
-
-        if nextViewController.scrollView.frame.height != 0 {
-            // タブ左右でヘッダーのOffsetが変更されていた場合はスクロールをリセットする
-            if lastRequiredHeaderOffsetY != lastSelectedHeaderOffsetY {
-                lastTabScrollViewOffset.y = 0
-                nextViewController.scrollView.contentOffset.y = 0
-            }
+        
+        // タブ左右でヘッダーのOffsetが変更されていた場合はスクロールをリセットする
+        if lastRequiredHeaderOffsetY != lastSelectedHeaderOffsetY {
+            lastTabScrollViewOffset.y = 0
+            nextViewController.scrollView.contentOffset.y = 0
         }
     }
 }
