@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import PageMenu
 
 /**
  Basically an PagingMenu with an header on top of it with some cool scrolling effects.
