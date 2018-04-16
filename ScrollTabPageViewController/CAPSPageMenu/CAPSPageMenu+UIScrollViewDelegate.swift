@@ -15,7 +15,7 @@ extension CAPSPageMenu: UIScrollViewDelegate {
             if scrollView.isEqual(controllerScrollView) {
                 if scrollView.contentOffset.x >= 0.0 && scrollView.contentOffset.x <= (CGFloat(controllerArray.count - 1) * self.view.frame.width) {
                     if (currentOrientationIsPortrait && UIApplication.shared.statusBarOrientation.isPortrait) || (!currentOrientationIsPortrait && UIApplication.shared.statusBarOrientation.isLandscape) {
-                        // Check if scroll direction changed
+                        /// Check if scroll direction changed
                         if !didTapMenuItemToScroll {
                             if didScrollAlready {
                                 var newScrollDirection: CAPSPageMenuScrollDirection = .other
@@ -31,7 +31,7 @@ extension CAPSPageMenu: UIScrollViewDelegate {
                                         let index: Int = newScrollDirection == .left ? currentPageIndex + 1 : currentPageIndex - 1
 
                                         if index >= 0 && index < controllerArray.count {
-                                            // Check dictionary if page was already added
+                                            /// Check dictionary if page was already added
                                             if pagesAddedDictionary[index] != index {
                                                 addPageAtIndex(index)
                                                 pagesAddedDictionary[index] = index
@@ -46,7 +46,7 @@ extension CAPSPageMenu: UIScrollViewDelegate {
                             if !didScrollAlready {
                                 if (lastControllerScrollViewContentOffset > scrollView.contentOffset.x) {
                                     if currentPageIndex != controllerArray.count - 1 {
-                                        // Add page to the left of current page
+                                        /// Add page to the left of current page
                                         let index: Int = currentPageIndex - 1
 
                                         if pagesAddedDictionary[index] != index && index < controllerArray.count && index >= 0 {
@@ -58,7 +58,7 @@ extension CAPSPageMenu: UIScrollViewDelegate {
                                     }
                                 } else if (lastControllerScrollViewContentOffset < scrollView.contentOffset.x) {
                                     if currentPageIndex != 0 {
-                                        // Add page to the right of current page
+                                        /// Add page to the right of current page
                                         let index: Int = currentPageIndex + 1
 
                                         if pagesAddedDictionary[index] != index && index < controllerArray.count && index >= 0 {
@@ -78,7 +78,7 @@ extension CAPSPageMenu: UIScrollViewDelegate {
 
                         var ratio: CGFloat = 1.0
 
-                        // Calculate ratio between scroll views
+                        /// Calculate ratio between scroll views
                         ratio = (menuScrollView.contentSize.width - self.view.frame.width) / (controllerScrollView.contentSize.width - self.view.frame.width)
 
                         if menuScrollView.contentSize.width > self.view.frame.width {
@@ -87,11 +87,11 @@ extension CAPSPageMenu: UIScrollViewDelegate {
                             menuScrollView.setContentOffset(offset, animated: false)
                         }
 
-                        // Calculate current page
+                        /// Calculate current page
                         let width: CGFloat = controllerScrollView.frame.size.width
                         let page: Int = Int((controllerScrollView.contentOffset.x + (0.5 * width)) / width)
 
-                        // Update page if changed
+                        /// Update page if changed
                         if page != currentPageIndex {
                             lastPageIndex = currentPageIndex
                             currentPageIndex = page
@@ -102,12 +102,12 @@ extension CAPSPageMenu: UIScrollViewDelegate {
                             }
 
                             if !didTapMenuItemToScroll {
-                                // Add last page to pages dictionary to make sure it gets removed after scrolling
+                                /// Add last page to pages dictionary to make sure it gets removed after scrolling
                                 if pagesAddedDictionary[lastPageIndex] != lastPageIndex {
                                     pagesAddedDictionary[lastPageIndex] = lastPageIndex
                                 }
 
-                                // Make sure only up to 3 page views are in memory when fast scrolling, otherwise there should only be one in memory
+                                /// Make sure only up to 3 page views are in memory when fast scrolling, otherwise there should only be one in memory
                                 let indexLeftTwo: Int = page - 2
                                 if pagesAddedDictionary[indexLeftTwo] == indexLeftTwo {
                                     pagesAddedDictionary.removeValue(forKey: indexLeftTwo)
@@ -121,7 +121,7 @@ extension CAPSPageMenu: UIScrollViewDelegate {
                             }
                         }
 
-                        // Move selection indicator view when swiping
+                        /// Move selection indicator view when swiping
                         moveSelectionIndicator(page)
                     }
                 } else {
@@ -139,7 +139,7 @@ extension CAPSPageMenu: UIScrollViewDelegate {
         } else {
             didLayoutSubviewsAfterRotation = false
 
-            // Move selection indicator view when swiping
+            /// Move selection indicator view when swiping
             moveSelectionIndicator(currentPageIndex)
         }
     }

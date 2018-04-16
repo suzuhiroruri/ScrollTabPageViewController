@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PageMenu
 
 protocol BAScoutDetailJobBaseViewControllerProtocol {
 	// ページビューのcontrollerのスクロールビュー
@@ -126,7 +127,7 @@ class BAScoutDetailJobBaseViewController: HeaderedCAPSPageMenuViewController, CA
         guard let nextViewController = controller as? BAScoutDetailJobBaseViewControllerProtocol else {
             return
         }
-        
+
         // タブ左右でヘッダーのOffsetが変更されていた場合はスクロールをリセットする
         if lastRequiredHeaderOffsetY != lastSelectedHeaderOffsetY {
             lastTabScrollViewOffset.y = 0

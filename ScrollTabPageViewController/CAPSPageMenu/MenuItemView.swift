@@ -39,14 +39,14 @@ class MenuItemView: UIView {
         guard let titleLabel = titleLabel else {
             return
         }
-        // Configure menu item label font if font is set by user
+        /// Configure menu item label font if font is set by user
         titleLabel.font = pageMenu.configuration.menuItemFont
 
         titleLabel.textAlignment = NSTextAlignment.center
         titleLabel.textColor = pageMenu.configuration.unselectedMenuItemLabelColor
         titleLabel.backgroundColor = pageMenu.configuration.unselectedMenuItemBackgroundColor
 
-        // Set title depending on if controller has a title set
+        /// Set title depending on if controller has a title set
         if controller.title != nil {
             guard let controllerTitle = controller.title else {
                 return

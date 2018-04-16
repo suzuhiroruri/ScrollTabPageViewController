@@ -158,7 +158,7 @@ extension CAPSPageMenu {
         if pageIndex >= 0 && pageIndex < controllerArray.count {
             UIView.animate(withDuration: 0.15, animations: { () -> Void in
 
-                // Switch newly selected menu item title label to selected color and old one to unselected color
+                /// Switch newly selected menu item title label to selected color and old one to unselected color
                 if !self.menuItems.isEmpty {
                     if self.menuItems[self.lastPageIndex].titleLabel != nil && self.menuItems[self.currentPageIndex].titleLabel != nil {
                         guard let lastMenuItemsTitleLabel = self.menuItems[self.lastPageIndex].titleLabel else {
@@ -178,7 +178,7 @@ extension CAPSPageMenu {
     }
     // MARK: - Remove/Add Page
     func addPageAtIndex(_ index: Int) {
-        // Call didMoveToPage delegate function
+        /// Call didMoveToPage delegate function
         let currentController = controllerArray[index]
         delegate?.willMoveToPage?(currentController, index: index)
 
@@ -221,7 +221,7 @@ extension CAPSPageMenu {
 
             menuScrollView.contentSize = CGSize(width: self.view.frame.width, height: configuration.menuHeight)
 
-            // Resize menu items
+            /// Resize menu items
             var index: Int = 0
 
             for item: MenuItemView in menuItems as [MenuItemView] {
@@ -276,7 +276,7 @@ extension CAPSPageMenu {
                 currentPageIndex = index
                 didTapMenuItemToScroll = true
 
-                // Add pages in between current and tapped page if necessary
+                /// Add pages in between current and tapped page if necessary
                 let smallerIndex: Int = lastPageIndex < currentPageIndex ? lastPageIndex : currentPageIndex
                 let largerIndex: Int = lastPageIndex > currentPageIndex ? lastPageIndex : currentPageIndex
 
@@ -289,7 +289,7 @@ extension CAPSPageMenu {
 
                 addPageAtIndex(index)
 
-                // Add page from which tap is initiated so it can be removed after tap is done
+                /// Add page from which tap is initiated so it can be removed after tap is done
                 pagesAddedDictionary[lastPageIndex] = lastPageIndex
             }
             let xOffset: CGFloat = CGFloat(index) * self.controllerScrollView.frame.width

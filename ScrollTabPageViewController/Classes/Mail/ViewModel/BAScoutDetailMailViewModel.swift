@@ -8,34 +8,33 @@
 
 import UIKit
 
-class BAScoutDetailMailViewModel: NSObject {
+class BAScoutDetailMailViewModel {
 
-    var isFromSubscribeList: Bool? = true
-    // 応募日時
-    var subscribeDate: String?
-    // スカウトメール受信日
-    var receivedDate: String?
-    // 表示期限
-    var displayLimitDate: String?
-    // スカウトメールヘッダー
-    var mailHeader: String?
-    // 面接確約特典サブタイトル
-    var promisedInterviewBenefitSubTitle: String?
-    // 面接確約特典タイトル
-    var promisedInterviewBenefitTitle: String?
-    // 特典アイコン配列
-    var benefitIconArray: Array<String> = []
-    // 直接採用企業かどうか
-    var isDirectEmployCompany: Bool?  = true
+    /// TODO:仮値。応募済みの動線ができたらちゃんと使う
+    /// 動線が未応募か応募済みか
+    var isFromSubscribeList: Bool = false
+    /// 応募日時
+    private(set) var subscribeDate: String = ""
+    /// スカウトメール受信日
+    private(set) var receivedDate: String = ""
+    /// 表示期限
+    private(set) var displayLimitDate: String = ""
+    /// スカウトメールヘッダー
+    private(set) var mailHeader: String = ""
+    /// 面接確約特典タイトル
+    private(set) var promisedInterviewBenefitTitle: String = ""
+    /// 特典アイコン配列
+    private(set) var benefitIconArray: Array<String> = []
+    /// 直接採用企業かどうか
+    private(set) var isDirectEmployCompany: Bool = true
+    /// スカウト特典備考
+    private(set) var benefitRemarks: String? = ""
+    /// スカウトメール本文
+    private(set) var mailBody: String = ""
+    /// 掲載終了までの残り日数
+    private(set) var appearDaysLeftString: NSMutableAttributedString = NSMutableAttributedString()
 
-    // スカウト特典備考
-    var benefitRemarks: String? = ""
-    // スカウトメール本文
-    var mailBody: String?
-    // 掲載終了までの残り日数
-    var appearDaysLeftString: NSMutableAttributedString = NSMutableAttributedString()
-
-    // 面接確約特典のenum
+    /// 面接確約特典のenum
     enum promisedInterviewBenefit: Int {
         case promisedInterview      = 0
         case exemptionFirstInterview
@@ -43,40 +42,36 @@ class BAScoutDetailMailViewModel: NSObject {
         case presidentInterview
     }
 
-    override init() {
-        super.init()
-
-        // スカウトメール受信日
-        let f = DateFormatter()
-        guard let isFromSubscribeList = isFromSubscribeList else {
-            return
-        }
-        f.timeStyle = .none
-        f.dateStyle = .medium
-        f.locale = Locale(identifier: "ja_JP")
+    // TODO:通信処理が出来次第修正
+    func updateMailData() {
+        /// スカウトメール受信日
+        /// TODO:現在は仮値。通信処理が完成したら修正
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .medium
+        formatter.locale = Locale(identifier: "ja_JP")
         let now = Date()
-        let receivedDateString = f.string(from: now)
+        let receivedDateString = formatter.string(from: now)
         receivedDate = "受信日 :"
-        receivedDate?.append(receivedDateString)
+        receivedDate.append(receivedDateString)
 
+        /// TODO:isFromSubscribeListは仮値。応募済みの動線ができたらちゃんと使う
         if isFromSubscribeList {
-            // 応募済みの場合
-            f.timeStyle = .medium
-            let subscribeDateString = f.string(from: now)
+            /// 応募済みの場合
+            formatter.timeStyle = .medium
+            let subscribeDateString = formatter.string(from: now)
             subscribeDate = "応募日時 :"
-            subscribeDate?.append(subscribeDateString)
+            subscribeDate.append(subscribeDateString)
             displayLimitDate = "表示期限 :"
-            displayLimitDate?.append("2017/11/11")
+            displayLimitDate.append("2017/11/11")
         } else {
-            // 未応募の場合
+            /// 未応募の場合
             displayLimitDate = "受信日 :"
-            displayLimitDate?.append(receivedDateString)
+            displayLimitDate.append(receivedDateString)
         }
 
-        // 面接確約特典サブタイトル
-        promisedInterviewBenefitSubTitle = "書類なしでスグ面接♪"
-
-        // 面接確約特典タイトル
+        /// 面接確約特典タイトル
+        /// TODO:現在は仮値。通信処理が完成したら修正
         switch promisedInterviewBenefit(rawValue: 2) {
         case .promisedInterview?:
             promisedInterviewBenefitTitle = "面接確約"
@@ -89,48 +84,48 @@ class BAScoutDetailMailViewModel: NSObject {
         case .none:
             promisedInterviewBenefitTitle = ""
         }
-        guard let promisedInterviewBenefitTitle = promisedInterviewBenefitTitle else {
-            return
-        }
 
-        // スカウトメールヘッダー
+        /// スカウトメールヘッダー
+        /// TODO:現在は仮値。通信処理が完成したら修正
         mailHeader = promisedInterviewBenefitTitle.isEmpty ? "あ" : "【" + promisedInterviewBenefitTitle + "】" + "ああああああああああああああああああああ"
 
-        guard let isDirectEmployCompany = isDirectEmployCompany else {
-            return
-        }
-
+        /// TODO:現在は仮値。通信処理が完成したら修正
         let tripInterviewFlag = true
         if tripInterviewFlag {
             let iconString = isDirectEmployCompany ? "出張面接" : "出張登録会"
             benefitIconArray.append(iconString)
         }
 
+        /// TODO:現在は仮値。通信処理が完成したら修正
         let weekendFlag = true
         if weekendFlag {
             let iconString = isDirectEmployCompany ? "土日面接可能" : "土日登録会"
             benefitIconArray.append(iconString)
         }
 
+        /// TODO:現在は仮値。通信処理が完成したら修正
         let nightInterviewFlag = true
         if nightInterviewFlag {
             let iconString = isDirectEmployCompany ? "夜間採用" : "夜間登録会"
             benefitIconArray.append(iconString)
         }
 
+        /// TODO:現在は仮値。通信処理が完成したら修正
         let interviewTransportProvideKind = 1
         if interviewTransportProvideKind == 1 || interviewTransportProvideKind == 2 {
             let iconString = isDirectEmployCompany ? "面接交通費支給" : "登録会交通費支給"
             benefitIconArray.append(iconString)
         }
 
+        /// TODO:現在は仮値。通信処理が完成したら修正
         let visitCompanyInterviewFlag = true
         if visitCompanyInterviewFlag {
             let iconString = "来社特典あり"
             benefitIconArray.append(iconString)
         }
 
-        // 特典アイコン配列
+        /// 特典アイコン配列
+        /// TODO:現在は仮値。通信処理が完成したら修正
         var benefitRemarksArray: Array<String> = []
         let interviewTransportSupplyInfo = "面接交通費支給内容"
         if interviewTransportProvideKind == 1 {
@@ -142,11 +137,15 @@ class BAScoutDetailMailViewModel: NSObject {
             benefitRemarksArray.append(remarkString)
         }
 
+        /// TODO:現在は仮値。通信処理が完成したら修正
         if visitCompanyInterviewFlag {
             let visitCompanyInterviewBenefitInfo = "特典内容"
             let remarkString = "※来社特典あり : " + visitCompanyInterviewBenefitInfo
             benefitRemarksArray.append(remarkString)
         }
+
+        /// 特典備考
+        /// TODO:現在は仮値。通信処理が完成したら修正
         for remark in benefitRemarksArray {
             guard let benefitRemarksIsEmpty: Bool = benefitRemarks?.isEmpty else {
                 return
@@ -157,10 +156,11 @@ class BAScoutDetailMailViewModel: NSObject {
             benefitRemarks?.append(remark)
         }
 
-		// スカウトメール本文
+        /// スカウトメール本文
+        /// TODO:現在は仮値。通信処理が完成したら修正
         mailBody = "最新のフードデリバリーサービス\nUber Eats（ウーバーイーツ）のお料理を配達するお仕事！\n【1】アプリを開くとレストランから配達リクエストが届く\n▼\n【2】自転車や原付バイクで料理を受け取り、配達スタート!\n▼\n【3】注文者に料理を届けて、アプリで完了ボタンをタップ!\n★殆どの人がデリバリー初心者！\n★配達バッグは貸し出し有!\n★自分の自転車・原付バイク(125cc以下)で稼働OK！\n★お仕事は私服でOK!"
 
-        // 掲載終了までの残り日数
+        /// 掲載終了までの残り日数
         let attributeNormalBlack: [NSAttributedStringKey: Any] = [
             NSForegroundColorAttributeName as NSString: UIColor.black
         ]
@@ -172,13 +172,14 @@ class BAScoutDetailMailViewModel: NSObject {
             NSForegroundColorAttributeName as NSString: UIColor.red,
             NSFontAttributeName as NSString: UIFont.boldSystemFont(ofSize: 17.0)
         ]
+        /// TODO:現在は仮値。通信処理が完成したら修正
         let appearDaysLeft: Int = 1
 
         if isFromSubscribeList {
             let string = NSAttributedString(string: "求人詳細はこちら", attributes: attributeNormalBlack as [String: Any])
             appearDaysLeftString.append(string)
         } else {
-            // TODO:AttributedStringはバイトルのEXTENSIONを使う
+            /// TODO:AttributedStringはバイトルのEXTENSIONを使う
             if appearDaysLeft >= 4, appearDaysLeft <= 7 {
                 let stringFirst = NSAttributedString(string: "掲載終了日まで残り ", attributes: attributeNormalBlack as [String: Any])
                 let stringSecond = NSAttributedString(string: appearDaysLeft.description, attributes: attributeBoldBlack as [String: Any])
@@ -204,12 +205,17 @@ class BAScoutDetailMailViewModel: NSObject {
         }
     }
 
-    // コレクションセルのセル数
+    /// コレクションのセル数を返却
+    ///
+    /// - Returns: Int
     func numberOfCollectionCellAtSection() -> Int {
         return benefitIconArray.count
     }
 
-    // コレクションセルの文字列
+    /// コレクションセルの文字列を返却
+    ///
+    /// - Parameter indexPath: IndexPath
+    /// - Returns: String
     func collectionCellText(indexPath: IndexPath) -> String {
         return benefitIconArray[indexPath.row]
     }
